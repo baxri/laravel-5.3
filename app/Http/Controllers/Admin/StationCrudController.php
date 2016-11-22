@@ -28,6 +28,11 @@ class StationCrudController extends CrudController {
 		*/
 
         $this->crud->addColumn([
+            'label' => 'Ordering',
+            'name' => 'ordering',
+        ]);
+
+        $this->crud->addColumn([
             'label' => 'Label',
             'name' => 'label',
         ]);
@@ -41,6 +46,8 @@ class StationCrudController extends CrudController {
             'label' => 'FilterCode',
             'name' => 'filtercode',
         ]);
+
+
 
         $this->crud->addColumn([
             'label' => 'Published',
@@ -89,7 +96,6 @@ class StationCrudController extends CrudController {
                 if($value == 2 )
                     $this->crud->addClause('where', 'published', 1);
             });
-
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -149,7 +155,7 @@ class StationCrudController extends CrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-         $this->crud->orderBy('ordering');
+         //$this->crud->orderBy('ordering');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
