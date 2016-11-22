@@ -18,7 +18,7 @@ class IpCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel("App\Models\Ip");
-        $this->crud->setRoute("admin/ip");
+        $this->crud->setRoute("raconsole/ip");
         $this->crud->setEntityNameStrings('ip', 'ips');
 
         /*

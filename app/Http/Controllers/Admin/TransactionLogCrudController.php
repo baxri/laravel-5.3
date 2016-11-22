@@ -30,7 +30,7 @@ class TransactionLogCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel( TransactionLog::class );
-        $this->crud->setRoute("admin/transaction-log");
+        $this->crud->setRoute("raconsole/transaction-log");
         $this->crud->setEntityNameStrings('transactionlog', 'transaction logs');
 
         /*

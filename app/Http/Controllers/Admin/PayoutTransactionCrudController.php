@@ -31,7 +31,7 @@ class PayoutTransactionCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel( PayoutTransaction::class );
-        $this->crud->setRoute("admin/payout");
+        $this->crud->setRoute("raconsole/payout");
         $this->crud->setEntityNameStrings('payouttransaction', 'Payout Transaction/Banks');
 
         /*

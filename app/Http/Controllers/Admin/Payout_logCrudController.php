@@ -30,7 +30,7 @@ class Payout_logCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel("App\Models\Payout_log");
-        $this->crud->setRoute("admin/payout-log");
+        $this->crud->setRoute("raconsole/payout-log");
         $this->crud->setEntityNameStrings('payout_log', 'Payout Logs');
 
         /*

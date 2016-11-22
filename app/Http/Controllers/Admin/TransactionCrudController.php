@@ -36,7 +36,7 @@ class TransactionCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel(Transaction::class);
-        $this->crud->setRoute("admin/transaction");
+        $this->crud->setRoute("raconsole/transaction");
         $this->crud->setEntityNameStrings('transaction', 'transactions/Tickets');
 
         /*

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
+Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
 {
     CRUD::resource('station', 'Admin\StationCrudController');
 

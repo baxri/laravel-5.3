@@ -18,7 +18,7 @@ class StationCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel("App\Models\Station");
-        $this->crud->setRoute("admin/station");
+        $this->crud->setRoute("raconsole/station");
         $this->crud->setEntityNameStrings('station', 'stations');
 
         /*

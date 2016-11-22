@@ -30,7 +30,7 @@ class SmsCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel("App\Models\Sms");
-        $this->crud->setRoute("admin/sms");
+        $this->crud->setRoute("raconsole/sms");
         $this->crud->setEntityNameStrings('sms', 'Sms Logs');
 
         /*

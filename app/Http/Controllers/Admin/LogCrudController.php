@@ -31,7 +31,7 @@ class LogCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
         $this->crud->setModel(Log::class);
-        $this->crud->setRoute("admin/log");
+        $this->crud->setRoute("raconsole/log");
         $this->crud->setEntityNameStrings('log', 'logs');
 
         /*
