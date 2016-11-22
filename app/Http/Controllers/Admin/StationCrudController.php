@@ -42,6 +42,13 @@ class StationCrudController extends CrudController {
             'name' => 'filtercode',
         ]);
 
+        $this->crud->addColumn([
+            'label' => 'Published',
+            'name' => 'published',
+            'type' => 'model_function',
+            'function_name' => 'getPublishedView',
+        ]);
+
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -52,6 +59,37 @@ class StationCrudController extends CrudController {
             'name' => 'label',
             'type' => 'text'
         ]);
+
+        $this->crud->addField([
+            'name'        => 'published', // the name of the db column
+            'label'       => 'Published', // the input label
+            'type'        => 'radio',
+            'options'     => [ // the key will be stored in the db, the value will be shown as label;
+                0 => "UnPublish",
+                1 => "Publish"
+            ],
+            // optional
+            'inline'      => true, // show the radios all on the same line?
+        ]);
+
+
+        $this->crud->addFilter([
+            'type' => 'dropdown',
+            'name' => 'published',
+            'label'=> 'Published'
+        ],
+            [
+                1 => 'UnPublished',
+                2 => 'Published',
+            ],
+            function( $value ) {
+                if($value == 1 )
+                    $this->crud->addClause('where', 'published', 0);
+
+                if($value == 2 )
+                    $this->crud->addClause('where', 'published', 1);
+            });
+
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack

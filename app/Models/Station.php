@@ -52,4 +52,10 @@ class Station extends Model
     public static function clear(){
         self::where( 'id', '>', 1 )->delete();
     }
+
+    public function getPublishedView(){
+        return $this->published == 1 ?
+            '<span style="color: lightgreen;">Published</span>':
+            '<span style="color: red;">UnPublished</span>';
+    }
 }
