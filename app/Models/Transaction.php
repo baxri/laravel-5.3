@@ -98,7 +98,7 @@ class Transaction extends Model
     public function setMobile( $index, $mobile ){
         $this->index = $index;
         $this->mobile = $mobile;
-        $this->index_mobile = $index.$mobile;
+        //$this->index_mobile = $index.$mobile;
     }
 
     public function checkout(){
@@ -395,6 +395,14 @@ class Transaction extends Model
             foreach ($transaction->tickets as $ticket){
                 $ticket->delete();
             }
+        });
+
+        static::creating(function ($transaction) {
+            $transaction->index_mobile = $transaction->index.$transaction->mobile;
+        });
+
+        static::updating(function ($transaction) {
+            $transaction->index_mobile = $transaction->index.$transaction->mobile;
         });
     }
 }
