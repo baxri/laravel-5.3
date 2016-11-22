@@ -57,6 +57,9 @@ class Person extends Model
                 throw new Exception('SECOND_MARK_FAILED');
             }
 
+            $this->ticket->second_mark_count++;
+            $this->ticket->save();
+
             $this->second_mark = 1;
             $this->save();
         }
@@ -120,6 +123,9 @@ class Person extends Model
             }else{
                 $this->tarif = $this->ticket->tarif_adult;
             }
+
+            $this->ticket->update_passenger_count++;
+            $this->ticket->save();
 
             $this->status = Person::$process;
             $this->update_passenger = 1;

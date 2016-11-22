@@ -116,8 +116,12 @@ class Transaction extends Model
 
         foreach ( $this->tickets as $ticket ){
 
-            if( ( time() - $ticket->second_mark_time ) > $second_mark_timeout )
-                throw new Exception('TICKET_SESSION_TIMEOUT');
+           if( $ticket->second_mark_count != $ticket->update_passenger_count ){
+               throw new Exception('SECOND_MARK_DONT_MUTCH_TO_UPDATED_PASSENGERS');
+           }
+
+           if( ( time() - $ticket->second_mark_time ) > $second_mark_timeout )
+               throw new Exception('TICKET_SESSION_TIMEOUT');
 
             $params['order_name'][] = $ticket->request_id;
         }
