@@ -1,12 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Http\Middleware\CheckTicketAuth;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
-
 
 Route::get('/stations', 'StationController@index');
 Route::post('/stations/refresh', 'StationController@refresh');
