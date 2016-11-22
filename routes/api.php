@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\CheckTicketAuth;
 
+
 Route::get('stations', 'StationController@index');
 Route::post('/stations/refresh', 'StationController@refresh');
 Route::post('/stations/clear', 'StationController@clear');
