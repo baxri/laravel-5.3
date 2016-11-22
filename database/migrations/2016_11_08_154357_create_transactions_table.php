@@ -6,9 +6,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTransactionsTable extends Migration
 {
+    public $table_name = 'transactions';
+
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('checkout_id');
@@ -24,10 +26,12 @@ class CreateTransactionsTable extends Migration
             $table->string('ip');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::update("ALTER TABLE ".$this->table_name." AUTO_INCREMENT = 4000000;");
     }
 
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists( $this->table_name );
     }
 }

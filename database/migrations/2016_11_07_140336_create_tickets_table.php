@@ -6,14 +6,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTicketsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    public $table_name = 'tickets';
+
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id');
             $table->integer('transaction_id');
@@ -59,6 +56,8 @@ class CreateTicketsTable extends Migration
             $table->integer('second_mark_time');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::update("ALTER TABLE ".$this->table_name." AUTO_INCREMENT = 5000000;");
     }
 
     /**
@@ -68,6 +67,6 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists($this->table_name);
     }
 }

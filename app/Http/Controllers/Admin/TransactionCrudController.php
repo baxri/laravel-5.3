@@ -94,11 +94,15 @@ class TransactionCrudController extends CrudController {
         $this->crud->addColumn([
             'label' => 'Mobile',
             'name' => 'mobile',
+            'type' => 'model_function',
+            'function_name' => 'getMobileView',
         ]);
 
         $this->crud->addColumn([
             'label' => 'Updated At',
             'name' => 'updated_at',
+            'type' => 'model_function',
+            'function_name' => 'getUpdateedAtView',
         ]);
 
         $this->crud->addColumn([

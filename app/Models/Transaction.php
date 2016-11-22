@@ -168,7 +168,7 @@ class Transaction extends Model
     }
 
     public function getMobileView(){
-        return "<i class='icon-large icon-gift'>$this->mobile</i>";
+        return "<i class='icon-large icon-gift'>".$this->mobile."</i>";
     }
 
     public function getAmountView(){
@@ -304,6 +304,11 @@ class Transaction extends Model
     public function smsDeliveryView(){
         return $this->sms_delivery ? 'Sent' : 'Not Sent';
     }
+
+    public function getUpdateedAtView(){
+        return date('d M H:i ', strtotime( $this->updated_at ));
+    }
+
 
     public function notify(){
         $this->notifyEmail();
