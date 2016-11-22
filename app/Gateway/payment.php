@@ -9,7 +9,7 @@ use Mockery\Exception;
 
 class Payment
 {
-    private $gateWay = 'http://api.unipay.com/checkout';
+    private $gateWay = 'http://10.1.1.41/checkout';
     private $key = 'C5E49E25-D5CF-4331-8AB1-60571EDDF08B';
     private $username = '7508719';
 

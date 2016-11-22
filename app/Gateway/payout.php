@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class Payout
 {
-    private $gateWay = 'http://api.unipay.com/payout';
+    private $gateWay = 'http://10.1.1.41/payout';
     private $key = 'F6F6CA90-59D2-4348-849F-0137D4C47E33';
     private $username = '7522455';
 

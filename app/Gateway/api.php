@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class Api
 {
-    private $gateWay = 'http://api.unipay.com/API/Railway/';
+    private $gateWay = 'http://10.1.1.41/API/Railway/';
 
     private $client;
     private $_error;

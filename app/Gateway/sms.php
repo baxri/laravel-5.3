@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class Sms
 {
-    private $gateWay = 'http://api.unipay.com/sms/v1/send';
+    private $gateWay = 'http://10.1.1.41/sms/v1/send';
     private $key = '92CD1108-A0DB-4CA6-89EA-2AC6CB104F74';
     private $username = '7508719';
 
