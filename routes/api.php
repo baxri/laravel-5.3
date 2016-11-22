@@ -13,7 +13,18 @@ Route::get('/trains/{date}/{from}/{to}/{return?}', 'TrainController@index');
 Route::post('/ticket/register/{ticket}', 'TicketController@register');
 Route::post('/ticket/confirm/{ticket}', 'TicketController@confirm');
 
+/*
+ * Go to checkout
+ *
+ * */
+
+
 Route::post('/transaction/checkout/{transaction}', 'TransactionController@checkout');
+
+/*
+ * Checkut callback
+ *
+ * */
 
 Route::post('/transaction/finish', 'TransactionController@finish');
 Route::get('/transaction/{transaction}', 'TransactionController@index');
