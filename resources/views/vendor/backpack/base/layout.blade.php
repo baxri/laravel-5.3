@@ -39,7 +39,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini sidebar-collapse">
+<!-- add this class to close sidebar:  sidebar-collapse  -->
+<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini ">
     <!-- Site wrapper -->
     <div class="wrapper">
 
