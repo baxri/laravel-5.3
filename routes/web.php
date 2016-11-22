@@ -8,7 +8,7 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
 {
     CRUD::resource('station', 'Admin\StationCrudController');
 
-    CRUD::resource('ip', 'Admin\ipCrudController');
+    CRUD::resource('ip', 'Admin\IpCrudController');
 
     CRUD::resource('transaction', 'Admin\TransactionCrudController');
     CRUD::resource('sms', 'Admin\SmsCrudController');
