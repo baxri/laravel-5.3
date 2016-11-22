@@ -336,6 +336,8 @@ class Api
                 'TransactionId' => $railway_id,
             ];
 
+            //
+
             $stations = $this->client->request('GET', $this->gateWay, [
                 'query' => $args
             ]);
