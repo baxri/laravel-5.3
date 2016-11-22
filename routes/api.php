@@ -28,5 +28,3 @@ Route::post('/ticket/{ticket}/authorize', 'TicketController@auth');
 
 Route::post('/ticket/return/{ticket}', 'TicketController@ret')->middleware( CheckTicketAuth::class );
 Route::post('/payout/{ticket}', 'PayoutController@make')->middleware( CheckTicketAuth::class );
-
-Route::get('/transaction/alta/{search}', 'TransactionController@alta');
