@@ -27,7 +27,7 @@ class Api
     public function setLogKey( $key ){
         $this->key = $key;
     }
-
+    //
     public function GetTimeTableStations(){
 
         try{
