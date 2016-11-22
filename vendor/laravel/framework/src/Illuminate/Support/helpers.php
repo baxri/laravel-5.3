@@ -501,15 +501,6 @@ if (! function_exists('dd')) {
 
         die(1);
     }
-
-    function d($str, $die = true)
-    {
-       echo '<pre>';
-       print_r($str);
-
-        if($die)
-            die;
-    }
 }
 
 if (! function_exists('e')) {

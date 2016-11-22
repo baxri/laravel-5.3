@@ -195,6 +195,8 @@ return [
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
 
 
+        //Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
+
     ],
 
     /*
