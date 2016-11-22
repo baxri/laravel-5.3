@@ -194,9 +194,6 @@ return [
         Sands\Presenter\PresenterServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
 
-
-        //Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
-
     ],
 
     /*

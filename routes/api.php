@@ -2,19 +2,27 @@
 
 use App\Http\Middleware\CheckTicketAuth;
 
+/*
+ * Routes for buy tickets
+ *
+ * */
 
 Route::get('stations', 'StationController@index');
-Route::post('/stations/refresh', 'StationController@refresh');
-Route::post('/stations/clear', 'StationController@clear');
-
 Route::get('/trains/{date}/{from}/{to}/{return?}', 'TrainController@index');
 
 Route::post('/ticket/register/{ticket}', 'TicketController@register');
 Route::post('/ticket/confirm/{ticket}', 'TicketController@confirm');
 
-Route::get('/transaction/{transaction}', 'TransactionController@index');
 Route::post('/transaction/checkout/{transaction}', 'TransactionController@checkout');
+
 Route::post('/transaction/finish', 'TransactionController@finish');
+Route::get('/transaction/{transaction}', 'TransactionController@index');
+
+
+/*
+ * Routes to return tickets
+ *
+ * */
 
 Route::get('/ticket/{request_id}', 'TicketController@index');
 

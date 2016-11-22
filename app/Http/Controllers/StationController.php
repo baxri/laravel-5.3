@@ -7,20 +7,6 @@ use Mockery\Exception;
 
 class StationController extends Controller
 {
-    /**
-     * Stations
-     *
-     *
-     * sdasdasd
-     *
-     * ADdaddadd
-     *
-     * @sdfsdf
-     * @sdfdsf
-     * @dfsdfsdfdsf
-     *
-     */
-
     public function index()
     {
         $stations = Station::all([
