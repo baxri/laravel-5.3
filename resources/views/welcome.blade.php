@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    www.matarebeli.ge
+                    api.matarebeli.ge
                 </div>
 
                 <div class="links">
