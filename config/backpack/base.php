@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'registration_open' => true,
+    'registration_open' => false,
 
 
     /*

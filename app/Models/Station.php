@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use App\Gateway\Api;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
