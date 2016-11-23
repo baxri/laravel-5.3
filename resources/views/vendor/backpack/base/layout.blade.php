@@ -38,12 +38,14 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <!-- add this class to close sidebar:  sidebar-collapse  -->
 <body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini sidebar-collapse">
     <!-- Site wrapper -->
     <div class="wrapper">
 
+    @if (Auth::check())
       <header class="main-header">
         <!-- Logo -->
         <a href="{{ url('') }}" class="logo">
@@ -61,32 +63,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-
           @include('backpack::inc.menu')
         </nav>
       </header>
-
-      <!-- =============================================== -->
+    @endif
 
       @include('backpack::inc.sidebar')
 
-      <!-- =============================================== -->
+      <div class=" {{ Auth::check() ? 'content-wrapper' : 'content-wrapper-logout'  }}">
 
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
          @yield('header')
 
-        <!-- Main content -->
         <section class="content">
-
           @yield('content')
-
         </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
 
+      </div>
+
+
+    @if (Auth::check())
       <footer class="main-footer">
         @if (config('backpack.base.show_powered_by'))
             <div class="pull-right hidden-xs">
@@ -95,9 +90,9 @@
         @endif
         {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}</a>.
       </footer>
-    </div>
-    <!-- ./wrapper -->
+    @endif
 
+    </div>
 
     @yield('before_scripts')
 
