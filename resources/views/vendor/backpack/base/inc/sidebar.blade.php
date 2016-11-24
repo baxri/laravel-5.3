@@ -15,8 +15,8 @@
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}"><i class="fa fa-ticket"></i> <span>Transactions/Tickets</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout') }}"><i class="fa fa-money"></i> <span>Bank Payouts</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}"><i class="fa fa-cc-mastercard"></i> <span>Transactions/Tickets</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout') }}"><i class="fa fa-university"></i> <span>Bank Payouts</span></a></li>
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/station') }}"><i class="fa fa-train"></i> <span>Stations</span></a></li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/ip') }}"><i class="fa fa-globe"></i> <span>Ips</span></a></li>

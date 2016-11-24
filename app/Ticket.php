@@ -56,6 +56,8 @@ class Ticket extends Model
         'status',
     ];
 
+    //public static table
+
     public function child(){
         try{
             $child = Ticket::where('parent_id', $this->id )->first();

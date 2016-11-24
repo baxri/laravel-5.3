@@ -41,7 +41,7 @@
 
 </head>
 <!-- add this class to close sidebar:  sidebar-collapse  -->
-<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini sidebar-collapse">
+<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
 
