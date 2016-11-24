@@ -20,7 +20,7 @@
 
                 <table width="100%">
                     <tr>
-                        <td >
+                        <td style="padding: 5px;" width="50%">
                             <div class="panel panel-success ">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -38,7 +38,7 @@
                                 <a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}">
                                     <div class="panel-footer">
                                         <span class="pull-left">
-                                                View Details
+                                             View Details
                                         </span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
@@ -47,7 +47,7 @@
                                 </a>
                             </div>
                         </td>
-                        <td style="padding: 10px;">
+                        <td style="padding: 5px;" colspan="2" width="50%">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -74,65 +74,143 @@
                                 </a>
                             </div>
                         </td>
-                        <td style="padding: 10px;">
+
+
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 5px;">
                             <div class="panel panel-default">
                                 <div class="panel-heading  ">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <i class="fa fa-train fa-3x"></i>
+                                            <i class="fa fa-cc-mastercard fa-1x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <h4>
-                                            @foreach( $ticket as $t )
-                                                <b>
-                                                    @if( $t->status == \App\Ticket::$process )
-                                                        <span >
+                                                @foreach( $transaction_statuses as $t )
+                                                    <b>
+                                                        @if( $t->status == \App\Models\Transaction::$process )
+                                                            <span >
+                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\Transaction::$hold )
+                                                            <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\Transaction::$cancel )
+                                                            <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\Transaction::$success )
+                                                            <span >
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @endif
+                                                    </b>
+                                                @endforeach
+
+                                                @if( count($transaction_statuses) == 0 )
+                                                    <b>No Transactions Found ToDay</b>
+                                                @endif
+                                            </h4>
+                                            <div>Transaction Statuses</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td style="padding: 5px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading  ">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-university fa-1x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <h4>
+                                                @foreach( $payout_statuses as $t )
+                                                    <b>
+                                                        @if( $t->status == \App\Models\PayoutTransaction::$process )
+                                                            <span >
+                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout?status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\PayoutTransaction::$hold )
+                                                            <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout?status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\PayoutTransaction::$cancel )
+                                                            <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout?status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Models\PayoutTransaction::$success )
+                                                            <span >
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/payout?status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @endif
+                                                    </b>
+                                                @endforeach
+
+                                                @if( count($payout_statuses) == 0 )
+                                                    <b>No Bank Payouts Found ToDay</b>
+                                                @endif
+                                            </h4>
+                                            <div>Payout Statuses</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="padding: 5px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading  ">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-train fa-1x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <h4>
+                                                @foreach( $ticket_statuses as $t )
+                                                    <b>
+                                                        @if( $t->status == \App\Ticket::$process )
+                                                            <span >
                                                             <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
                                                         </span>
-                                                    @elseif( $t->status == \App\Ticket::$hold )
-                                                        <span >
+                                                        @elseif( $t->status == \App\Ticket::$hold )
+                                                            <span >
                                                             <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
                                                         </span>
-                                                    @elseif( $t->status == \App\Ticket::$cancel )
-                                                        <span >
+                                                        @elseif( $t->status == \App\Ticket::$cancel )
+                                                            <span >
                                                             <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
                                                         </span>
-                                                    @elseif( $t->status == \App\Ticket::$success )
-                                                        <span >
+                                                        @elseif( $t->status == \App\Ticket::$success )
+                                                            <span >
                                                             <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
                                                         </span>
-                                                    @endif
+                                                        @endif
                                                     </b>
-                                            @endforeach
+                                                @endforeach
 
-                                            @if( count($ticket) == 0 )
-                                                <b>No Tickets Found ToDay</b>
-                                            @endif
+                                                @if( count($ticket_statuses) == 0 )
+                                                    <b>No Tickets Found ToDay</b>
+                                                @endif
                                             </h4>
                                             <div>Ticket Statuses</div>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">
-                                                View Details
-                                        </span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
                             </div>
                         </td>
-
                     </tr>
+
                 </table>
 
 
 
 
-                <div class="panel panel-default" >
+                <div class="panel panel-default" style="margin: 5px;">
                     <div class="panel-heading">
                         <i></i> Last {{config('railway.last_ip_activity_count')}} IP Activity
                         <div class="pull-right">
