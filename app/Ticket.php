@@ -342,7 +342,7 @@ class Ticket extends Model
 
         $ticket_action_lifetime = config('railway.ticket_action_lifetime');
 
-        if( /*$token !== null &&*/ $token != $this->action_token ){
+        if( $token !== null && $token != $this->action_token ){
             return false;
         }
 
