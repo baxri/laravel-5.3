@@ -375,8 +375,8 @@ class Api
 
             $args = [
                 'op' => 'InsertTransaction',
-                //'transactionId' => 1,
-                'transactionId' => $railway_id,
+                'transactionId' => 1,
+                //'transactionId' => $railway_id,
                 'bankTransactionId' => $ticket_id,
                 'MoneyAmount' => $amount,
             ];

@@ -30,13 +30,14 @@ class DashboardController extends Controller
         $ticket = DB::table('tickets')->select(
             DB::raw('
                 sum(amount_from_api) as sum, 
-                count(id) as count
+                count(id) as count,
+                status
                 ')
         )
+            ->where( "status",  "!=", Ticket::$pending )
             ->where( "updated_at",  ">=", $today )
-            ->where( "status",  Ticket::$success )
+            ->groupby( "status" )
             ->get();
-
 
         $payout = DB::table('payout_transactions')->select(
             DB::raw('
@@ -53,18 +54,14 @@ class DashboardController extends Controller
             ->join('ips', 'transactions.ip', '=', 'ips.ip_key')
             ->select('ips.*')
             ->where( "transactions.updated_at",  ">=", $today )
-           // ->groupby('ips.countryCode')
-            ->limit(10)
+            ->limit(config('railway.last_ip_activity_count'))
             ->get();
-
-
-
 
 
         return view('vendor.backpack.base.dashboard', [
             'transaction' => $transaction[0],
             'payout' => $payout[0],
-            'ticket' => $ticket[0],
+            'ticket' => $ticket,
             'ips' => $ips,
         ]);
     }

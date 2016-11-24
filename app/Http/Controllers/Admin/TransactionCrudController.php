@@ -147,8 +147,29 @@ class TransactionCrudController extends CrudController {
 
         $this->crud->addFilter([
             'type' => 'dropdown',
+            'name' => 'ticket_status',
+            'label'=> 'Ticket Status'
+        ],
+            [
+                -1 => 'Canceled',
+                1 => 'Process',
+                2 => 'Hold',
+                3 => 'Success',
+            ],
+            function( $value ) {
+                if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $query->where('status', $this->value );
+                    });
+                }
+            });
+
+
+        $this->crud->addFilter([
+            'type' => 'dropdown',
             'name' => 'status',
-            'label'=> 'Status'
+            'label'=> 'Payment Status'
         ],
             [
                 -1 => 'Canceled',

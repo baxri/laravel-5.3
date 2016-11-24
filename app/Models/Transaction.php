@@ -330,6 +330,10 @@ class Transaction extends Model
 
         foreach ($this->tickets as $ticket){
 
+            if( $ticket->status != Ticket::$success ){
+                continue;
+            }
+
             $path = $ticket->toPdf();
 
             if( !empty($path) ){
@@ -374,7 +378,16 @@ class Transaction extends Model
         $text = [];
 
         foreach ($this->tickets as $ticket){
+
+            if( $ticket->status != Ticket::$success ){
+                continue;
+            }
+
             $text[] = $ticket->textForSMS();
+        }
+
+        if( empty($text) ){
+            return;
         }
 
         $text = implode(';', $text);

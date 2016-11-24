@@ -21,40 +21,17 @@
                 <table width="100%">
                     <tr>
                         <td >
-                            <div class="panel panel-warning">
+                            <div class="panel panel-success ">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <i class="fa fa-cc-mastercard fa-5x"></i>
+                                            <i class="fa fa-cc-mastercard fa-3x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <h1 class="huge">{{(int)$transaction->count}} / {{number_format($transaction->sum/100,2)}} GEL</h1>
+                                            <h4 class="huge">
+                                                <b>{{(int)$transaction->count}} / {{number_format($transaction->sum/100,2)}} GEL</b>
+                                            </h4>
                                             <div>Transactions/Payments ToDay</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">
-                                                View Details
-                                        </span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </td>
-                        <td style="padding: 10px;">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-ticket fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <h1 class="huge">{{(int)$ticket->count}} / {{number_format($ticket->sum/100,2)}} GEL</h1>
-                                            <div>Sold Tickets ToDay</div>
                                         </div>
                                     </div>
                                 </div>
@@ -75,10 +52,12 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <i class="fa fa-university fa-5x"></i>
+                                            <i class="fa fa-university fa-3x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <h1 class="huge">{{(int)$payout->count}} / {{number_format($payout->sum/100,2)}} GEL</h1>
+                                            <h4 class="huge">
+                                                <b>{{(int)$payout->count}} / {{number_format($payout->sum/100,2)}} GEL</b>
+                                            </h4>
                                             <div>Bank Payouts ToDay</div>
                                         </div>
                                     </div>
@@ -95,6 +74,58 @@
                                 </a>
                             </div>
                         </td>
+                        <td style="padding: 10px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading  ">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-train fa-3x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <h4>
+                                            @foreach( $ticket as $t )
+                                                <b>
+                                                    @if( $t->status == \App\Ticket::$process )
+                                                        <span >
+                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
+                                                        </span>
+                                                    @elseif( $t->status == \App\Ticket::$hold )
+                                                        <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
+                                                        </span>
+                                                    @elseif( $t->status == \App\Ticket::$cancel )
+                                                        <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
+                                                        </span>
+                                                    @elseif( $t->status == \App\Ticket::$success )
+                                                        <span >
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
+                                                        </span>
+                                                    @endif
+                                                    </b>
+                                            @endforeach
+
+                                            @if( count($ticket) == 0 )
+                                                <b>No Tickets Found ToDay</b>
+                                            @endif
+                                            </h4>
+                                            <div>Ticket Statuses</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction') }}">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">
+                                                View Details
+                                        </span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+
                     </tr>
                 </table>
 
@@ -103,7 +134,7 @@
 
                 <div class="panel panel-default" >
                     <div class="panel-heading">
-                        <i></i> Last 10 IP Activity
+                        <i></i> Last {{config('railway.last_ip_activity_count')}} IP Activity
                         <div class="pull-right">
                             <a href="{{ url(config('backpack.base.route_prefix', 'admin').'/ip') }}">
                                 View Details
@@ -149,6 +180,14 @@
                                                 <td>{{$ip->lon}}</td>
                                             </tr>
                                         @endforeach
+
+                                        <tr>
+                                            <td colspan="11" align="center">
+                                                @if(count($ips) == 0)
+                                                    No IP Activity Found
+                                                @endif
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
