@@ -14,6 +14,7 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
     CRUD::resource('ip', 'Admin\IpCrudController');
 
     CRUD::resource('transaction', 'Admin\TransactionCrudController');
+    CRUD::resource('ticket', 'Admin\TicketCrudController');
     CRUD::resource('sms', 'Admin\SmsCrudController');
 
     CRUD::resource('transaction-log', 'Admin\TransactionLogCrudController');

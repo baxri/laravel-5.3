@@ -113,7 +113,7 @@ class TicketController extends Controller
 
             return response()->ok($transaction->toArray());
         }catch( Exception $e ){
-                return response()->error( $e->getMessage() );
+            return response()->error( $e->getMessage() );
         }
     }
 

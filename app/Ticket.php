@@ -5,6 +5,7 @@ namespace App;
 use App\Gateway\Api;
 use App\Models\Log;
 use App\Models\Transaction;
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,10 @@ use Psy\Exception\ErrorException;
 
 class Ticket extends Model
 {
+    use CrudTrait;
+
     protected $table = 'tickets';
+    protected $primaryKey = 'id';
 
     public static $returned = -2;
     public static $cancel = -1;
@@ -242,6 +246,9 @@ class Ticket extends Model
             $type = 'return';
         }
 
+        $persons = $this->persons()->orderBy( 'ischild', 'ASC' )->get();
+        $prepared_payouts = Person::needPayout( $this->id )->get();
+
         return [
            'id' => $this->id,
            'request_id' => $this->request_id,
@@ -266,8 +273,8 @@ class Ticket extends Model
              * First show adults then children
              *
              * */
-
-           'persons' => $this->persons()->orderBy( 'ischild', 'ASC' )->get(),
+           'prepared_for_payout' => count($prepared_payouts),
+           'persons' => $persons,
         ];
     }
 
@@ -416,6 +423,87 @@ class Ticket extends Model
         return [
             'railway_status' => (int)$status->GetTransactionStatusResult
         ];
+    }
+
+    public function getAmountView(){
+        return number_format( $this->amount_from_api/100, 2 );
+    }
+
+    public function getUpdateedAtView(){
+        return date('d M H:i ', strtotime( $this->updated_at ));
+    }
+
+    public function getCreatedAtView(){
+        return date('d M H:i ', strtotime( $this->updated_at ));
+    }
+
+    public function gePersonstatusView(){
+
+        $statuses = [];
+
+        foreach ( $this->persons as $person ){
+            if( isset($statuses[$person->status]) ){
+                $statuses[$person->status] += 1;
+            }else{
+                $statuses[$person->status] = 1;
+            }
+        }
+
+        $html = '';
+
+        foreach ( $statuses as $key => $status ){
+
+            if( $key == Person::$pending)
+                $html .= '<span>Pending ('.$status.')</span>';
+
+            if( $key == Person::$returned)
+                $html .= '<span class="label label-danger">Returned ('.$status.')</span>';
+
+            if( $key == Person::$cancel )
+                $html .= '<span class="label label-danger">Canceled ('.$status.')</span>';
+
+            if( $key == Person::$process )
+                $html .= '<span class="label label-warning">Process ('.$status.')</span>';
+
+            if( $key == Person::$hold )
+                $html .= '<span class="label label-warning">Hold ('.$status.')</span>';
+
+            if( $key == Person::$success )
+                $html .= '<span class="label label-success">Success ('.$status.')</span>';
+
+            $html.= '&nbsp;';
+        }
+
+        return $html;
+    }
+
+    public function getStatusView(){
+
+        if( $this->status == self::$cancel )
+            return '<span class="label label-danger">Canceled</span>';
+
+        if( $this->status == self::$process )
+            return '<span class="label label-warning">Process</span>';
+
+        if( $this->status == self::$hold )
+            return '<span class="label label-warning">Hold</span>';
+
+        if( $this->status == self::$success )
+            return '<span class="label label-success">Success</span>';
+
+        return 'Preparing';
+    }
+
+    public function getTicketType(){
+
+        if( empty($this->parent_id) )
+            return '
+            <span class="fa fa fa-subway" aria-hidden="true">
+            <span class="fa fa-long-arrow-right" aria-hidden="true"></span>';
+        else
+            return '
+            <span class="fa fa fa-subway" aria-hidden="true">
+            <span class="fa fa-long-arrow-left" aria-hidden="true"></span>';
     }
 
     private function prepareForPayment(){

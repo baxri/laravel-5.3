@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Backpack\Crud\AjaxTable;
-use App\Backpack\Crud\MyCrudPanel;
-use App\Models\Transaction;
-use App\Person;
 use App\Ticket;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-use App\Http\Requests\TransactionRequest as StoreRequest;
-use App\Http\Requests\TransactionRequest as UpdateRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
+use App\Http\Requests\TicketRequest as StoreRequest;
+use App\Http\Requests\TicketRequest as UpdateRequest;
+use App\Backpack\Crud\AjaxTable;
+use App\Backpack\Crud\MyCrudPanel;
 use Carbon\Carbon;
-use Mockery\Exception;
 
-class TransactionCrudController extends CrudController {
+class TicketCrudController extends CrudController {
 
     use AjaxTable;
 
@@ -28,74 +25,74 @@ class TransactionCrudController extends CrudController {
         $this->crud = new MyCrudPanel();
     }
 
-    public function setUp() {
+	public function setUp() {
 
-        /*
-		|--------------------------------------------------------------------------
-		| BASIC CRUD INFORMATION
-		|--------------------------------------------------------------------------
-		*/
-        $this->crud->setModel(Transaction::class);
-        $this->crud->setRoute("raconsole/transaction");
-        $this->crud->setEntityNameStrings('transaction', 'transactions/Tickets');
-
-        /*
-		|--------------------------------------------------------------------------
-		| BASIC CRUD INFORMATION
-		|--------------------------------------------------------------------------
-		*/
-
-		//$this->crud->setFromDb();
+        $this->crud->setModel(Ticket::class);
+        $this->crud->setRoute("raconsole/ticket");
+        $this->crud->setEntityNameStrings('ticket', 'tickets');
 
         $this->crud->addColumn([
-            'label' => 'RAID',
+            'label' => 'Type',
+            'exists' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getTicketType',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'ID',
             'name' => 'id',
         ]);
 
         $this->crud->addColumn([
-            'label' => 'UniPAY HASH ID',
-            'name' => 'checkout_id',
+            'label' => 'Request ID',
+            'name' => 'request_id',
         ]);
 
         $this->crud->addColumn([
             'label' => 'Amount',
-            'name' => 'amount',
+            'name' => 'amount_from_api',
             'type' => 'model_function',
             'function_name' => 'getAmountView',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'Commission',
-            'name' => 'commission',
-            'type' => 'model_function',
-            'function_name' => 'getCommissionView',
         ]);
 
         $this->crud->addColumn([
             'label' => 'Departure',
             'exists' => 'extra',
             'type' => 'model_function',
-            'function_name' => 'getLeaveTicketStatusView',
+            'function_name' => 'gePersonstatusView',
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Return',
-            'exists' => 'extra',
+            'label' => 'Source Station',
+            'name' => 'source_station',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Destinaton Station',
+            'name' => 'destination_station',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Train Class',
+            'name' => 'train_class',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Vagon Type',
+            'name' => 'vagon_type',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Vagon Class',
+            'name' => 'vagon_class',
+        ]);
+
+
+        $this->crud->addColumn([
+            'label' => 'Created At',
+            'name' => 'created_at',
             'type' => 'model_function',
-            'function_name' => 'getReturnTicketStatusView',
-        ]);
-
-
-        $this->crud->addColumn([
-            'label' => 'Email',
-            'name' => 'email',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'Mobile',
-            'name' => 'mobile',
-            'type' => 'model_function',
-            'function_name' => 'getMobileView',
+            'function_name' => 'getCreatedAtView',
         ]);
 
         $this->crud->addColumn([
@@ -106,48 +103,34 @@ class TransactionCrudController extends CrudController {
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Payment',
+            'label' => 'Sold Status',
             'name' => 'status',
             'type' => 'model_function',
             'function_name' => 'getStatusView',
         ]);
 
-        $this->crud->addColumn([
-            'label' => 'Email D.',
-            'name' => 'email_delivery',
-            'type' => 'model_function',
-            'function_name' => 'emailDeliveryView',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'SMS D.',
-            'name' => 'sms_delivery',
-            'type' => 'model_function',
-            'function_name' => 'smsDeliveryView',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'PAY',
-            'exists' => 'extra',
-            'type' => 'model_function',
-            'function_name' => 'getLogIcon',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'SMS',
-            'exists' => 'extra',
-            'type' => 'model_function',
-            'function_name' => 'getSMSLogIcon',
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'IP',
-            'name' => 'ip',
-        ]);
+        $this->crud->addFilter([
+            'type' => 'dropdown',
+            'name' => 'person_status',
+            'label'=> 'Ticket/Seats Status'
+        ],
+            [
+                -2 => 'Returned',
+                -1 => 'Cancel',
+                3 => 'Success',
+            ],
+            function( $value ) {
+                if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'persons', function( $query ) {
+                        $query->where('status', $this->value );
+                    });
+                }
+            });
 
         $this->crud->addFilter([
             'type' => 'dropdown',
-            'name' => 'ticket_status',
+            'name' => 'status',
             'label'=> 'Sold Status'
         ],
             [
@@ -157,70 +140,31 @@ class TransactionCrudController extends CrudController {
                 3 => 'Success',
             ],
             function( $value ) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('status', $this->value );
-                    });
-                }
-            });
-
-
-        $this->crud->addFilter([
-            'type' => 'dropdown',
-            'name' => 'status',
-            'label'=> 'Payment Status'
-        ],
-            [
-                -1 => 'Canceled',
-                1 => 'Process',
-                2 => 'Hold',
-                3 => 'Success',
-            ],
-            function( $value ) {
-                if($value)
+                if( !empty($value) )
                     $this->crud->addClause('where', 'status', $value);
             });
 
+
         $this->crud->addFilter([
             'type' => 'text',
-            'name' => 'ticket_id',
-            'label'=> 'Ticket ID'
+            'name' => 'id',
+            'label'=> 'ID'
         ],
             false,
             function($value) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('id', $this->value );
-                    });
-                }
+                if( !empty($value) )
+                    $this->crud->addClause('where', 'id', $value);
             });
 
         $this->crud->addFilter([
             'type' => 'text',
             'name' => 'request_id',
-            'label'=> 'Ticket Request ID'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('request_id', $this->value );
-                    });
-                }
-            });
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'checkout_id',
-            'label'=> 'UniPAY Order Hash'
+            'label'=> 'Request ID'
         ],
             false,
             function($value) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'checkout_id', $value);
+                    $this->crud->addClause('where', 'request_id', $value);
             });
 
         $this->crud->addFilter([
@@ -260,24 +204,6 @@ class TransactionCrudController extends CrudController {
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
-        $this->crud->addField([ // Text
-            'name' => 'index',
-            'label' => "Index",
-            'type' => 'text',
-        ]);
-
-        $this->crud->addField([ // Text
-            'name' => 'mobile',
-            'label' => "Mobile",
-            'type' => 'text',
-        ]);
-
-        $this->crud->addField([ // Text
-            'name' => 'email',
-            'label' => "Email",
-            'type' => 'text',
-        ]);
-
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
@@ -294,11 +220,9 @@ class TransactionCrudController extends CrudController {
         // $this->crud->removeButton($name);
         // $this->crud->removeButtonFromStack($name, $stack);
 
-
         $this->crud->removeButton('create');
-        //$this->crud->removeButton('update');
         $this->crud->removeButton('delete');
-        $this->crud->addButton('line', 'return_ticket', 'view', 'vendor.backpack.crud.buttons.resend');
+        $this->crud->removeButton('update');
 
         // ------ CRUD ACCESS
         // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
@@ -309,7 +233,7 @@ class TransactionCrudController extends CrudController {
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        $this->crud->enableDetailsRow();
+         $this->crud->enableDetailsRow();
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
@@ -322,13 +246,13 @@ class TransactionCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
+         $this->crud->enableAjaxTable();
         
         
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
-        $this->crud->enableExportButtons();
+         $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
@@ -343,50 +267,6 @@ class TransactionCrudController extends CrudController {
         // $this->crud->limit();
     }
 
-    public function ret( Person $person ){
-        try{
-
-            if( !$person->ret() ){
-                throw new Exception('CANNOT_RETURN_TICKET');
-            }
-
-            return response()->ok([
-                'class' => $person->getStatusClass(),
-                'name' => $person->getStatusName(),
-            ]);
-        }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
-        }
-    }
-
-    public function resend( Transaction $transaction ){
-        try{
-
-            $transaction->notify();
-
-            return response()->ok($transaction->toArray());
-        }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
-        }
-    }
-
-    public function pdf( Ticket $ticket ){
-        return $ticket->toPdf( $download = true );
-    }
-
-    public function html( Ticket $ticket ){
-        return $ticket->html( $download = true );
-    }
-
-    public function sync( Ticket $ticket ){
-        try{
-
-            return response()->ok( $ticket->sync() );
-        }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
-        }
-    }
-
 	public function store(StoreRequest $request)
 	{
 		return parent::storeCrud();
@@ -397,10 +277,10 @@ class TransactionCrudController extends CrudController {
 		return parent::updateCrud();
 	}
 
-	public function showDetailsRow($id)
+    public function showDetailsRow($id)
     {
-        return view('vendor.backpack.crud.details.transaction_details_row', [
-            'transaction' => Transaction::find($id)
+        return view('vendor.backpack.crud.details.ticket_details_row', [
+            'ticket' => Ticket::find($id)
         ]);
     }
 }

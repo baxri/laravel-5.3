@@ -211,6 +211,8 @@ class Person extends Model
             'status' => $this->status,
             'price' => number_format($this->tarif/100,2),
             'discount' => number_format($this->discount_amount/100,2),
+            'returned_amount' => number_format($this->returned_amount/100,2),
+            //'payout' => $this->payout,
         ];
     }
 }

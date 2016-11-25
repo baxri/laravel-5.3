@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Ip;
 use App\Models\PayoutTransaction;
 use App\Models\Transaction;
+use App\Person;
 use App\Ticket;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
@@ -113,10 +114,35 @@ class DashboardController extends Controller
             DB::raw('
                 sum(amount_from_api) as sum, 
                 count(id) as count,
-                status
+                status,
+                created_at
                 ')
         )
             ->where( "status",  "!=", Ticket::$pending )
+            ->where( "updated_at",  ">=", $today )
+            ->groupby( "status" )
+            ->get();
+
+        /*
+         * |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+         *
+         * */
+
+
+        /*
+         * Load Persons all statuses
+         *
+         * */
+
+        $person_statuses = DB::table('persons')->select(
+            DB::raw('                
+                count(id) as count,
+                status,
+                created_at
+                ')
+        )
+            ->where( "status",  "!=", Person::$pending )
+            ->where( "status",  "!=", Person::$process )
             ->where( "updated_at",  ">=", $today )
             ->groupby( "status" )
             ->get();
@@ -151,6 +177,8 @@ class DashboardController extends Controller
 
             'payout' => $payout[0],
             'payout_statuses' => $payout_statuses,
+
+            'person_statuses' => $person_statuses,
 
             'ticket_statuses' => $ticket_statuses,
             'ips' => $ips,

@@ -175,40 +175,78 @@
                                                     <b>
                                                         @if( $t->status == \App\Ticket::$process )
                                                             <span >
-                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
+                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?status='.\App\Ticket::$process) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}"> Process ( {{$t->count}} )</a>
                                                         </span>
                                                         @elseif( $t->status == \App\Ticket::$hold )
                                                             <span >
-                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?status='.\App\Ticket::$hold) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Hold ( {{$t->count}} )</a>
                                                         </span>
                                                         @elseif( $t->status == \App\Ticket::$cancel )
                                                             <span >
-                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?status='.\App\Ticket::$cancel) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Cancel ( {{$t->count}} )</a>
                                                         </span>
                                                         @elseif( $t->status == \App\Ticket::$success )
                                                             <span >
-                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?ticket_status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?status='.\App\Ticket::$success) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Success ( {{$t->count}} )</a>
                                                         </span>
                                                         @endif
                                                     </b>
                                                 @endforeach
 
                                                 @if( count($ticket_statuses) == 0 )
-                                                    <b>No Tickets Found ToDay</b>
+                                                    <b>No Sold Tickets Found ToDay</b>
                                                 @endif
                                             </h4>
-                                            <div>Ticket Statuses</div>
+                                            <div>Sold Statuses</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <div class="panel panel-default">
+                                <div class="panel-heading  ">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-ticket fa-1x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <h4>
+                                                @foreach( $person_statuses as $t )
+                                                    <b>
+                                                        @if( $t->status == \App\Person::$cancel )
+                                                            <span >
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?person_status='.\App\Ticket::$cancel) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Cancel ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Person::$returned )
+                                                            <span >
+                                                            <a style="color: lightblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?person_status='.\App\Ticket::$returned) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Returned ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @elseif( $t->status == \App\Person::$success )
+                                                            <span >
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/ticket?person_status='.\App\Ticket::$success) }}&date-from={{date('Y-m-d', strtotime( $t->created_at ))}}">Success ( {{$t->count}} )</a>
+                                                        </span>
+                                                        @endif
+                                                    </b>
+                                                @endforeach
+
+                                                @if( count($person_statuses) == 0 )
+                                                    <b>No Sold Ticket/Seat Found To Day</b>
+                                                @endif
+                                            </h4>
+                                            <div>Ticket/Seat Statuses</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
                 </table>
-
-
-
 
                 <div class="panel panel-default" style="margin: 5px;">
                     <div class="panel-heading">
@@ -260,7 +298,7 @@
                                         @endforeach
 
                                         <tr>
-                                            <td colspan="11" align="center">
+                                            <td colspan="12" align="center">
                                                 @if(count($ips) == 0)
                                                     No IP Activity Found
                                                 @endif
