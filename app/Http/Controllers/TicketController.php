@@ -131,11 +131,12 @@ class TicketController extends Controller
                     }
                 }
             }else{
+
                 $person = Person::find($persons);
                 $person->ret( true );
             }
 
-            return response()->ok();
+            return response()->ok($ticket->toArray());
     }catch( Exception $e ){
             return response()->error( $e->getMessage() );
         }
