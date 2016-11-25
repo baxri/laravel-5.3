@@ -40,5 +40,5 @@ Route::get('/ticket/{request_id}', 'TicketController@index');
 Route::post('/ticket/{ticket}/authenticate', 'TicketController@authenticate');
 Route::post('/ticket/{ticket}/authorize', 'TicketController@auth');
 
-Route::post('/ticket/return/{ticket}', 'TicketController@ret')->middleware( CheckTicketAuth::class );
+Route::post('/ticket/{ticket}/return', 'TicketController@ret')->middleware( CheckTicketAuth::class );
 Route::post('/payout/{ticket}', 'PayoutController@make')->middleware( CheckTicketAuth::class );
