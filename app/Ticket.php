@@ -60,8 +60,6 @@ class Ticket extends Model
         'status',
     ];
 
-    //public static table
-
     public function child(){
         try{
             $child = Ticket::where('parent_id', $this->id )->first();
@@ -496,9 +494,7 @@ class Ticket extends Model
 
     public function getTicketType(){
 
-        return $this->parent_id;
-
-        if( $this->parent_id == 0 ){
+        if( $this->child() ){
             return '
             <span class="fa fa fa-subway" aria-hidden="true">
             <span class="fa fa-long-arrow-right" aria-hidden="true"></span>';
