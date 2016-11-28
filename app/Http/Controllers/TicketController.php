@@ -7,9 +7,19 @@ use App\Ticket;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Mockery\Exception;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class TicketController extends Controller
 {
+    public function jwt( Request $request ){
+
+        $credentials = $request->only('email', 'password');
+
+        $result = JWTAuth::attempt($credentials);
+        return response()->json(['tocken' => $result]);
+
+    }
+
     public function authenticate( Ticket $ticket ){
         $ticket->authenticate();
         return response()->ok([

@@ -13,7 +13,8 @@
         "sands/laravel-presenter": "^1.0",
         "barryvdh/laravel-dompdf": "^0.7.0",
         "niklasravnsborg/laravel-pdf": "^1.1",
-        "graham-campbell/throttle": "^5.2"
+        "graham-campbell/throttle": "^5.2",
+        "tymon/jwt-auth": " 0.5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
