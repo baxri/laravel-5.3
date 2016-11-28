@@ -2,9 +2,6 @@
 
 use App\Http\Middleware\CheckTicketAuth;
 
-
-Route::post('/ticket/jwt', 'TicketController@jwt');
-
 /*
  * Routes for buy tickets
  *
