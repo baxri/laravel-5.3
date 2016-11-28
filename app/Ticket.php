@@ -496,6 +496,8 @@ class Ticket extends Model
 
     public function getTicketType(){
 
+        return $this->parent_id;
+
         if( $this->parent_id == 0 ){
             return '
             <span class="fa fa fa-subway" aria-hidden="true">
