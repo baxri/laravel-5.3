@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('api_token', 60)->unique();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
             'name'     => 'Admin',
             'email'    => 'admin@unipay.ge',
             'password' => bcrypt('test123456'),
+            'api_token' => str_random(60),
         ]);
     }
 

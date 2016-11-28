@@ -7,8 +7,11 @@ use App\Http\Middleware\CheckTicketAuth;
  *
  * */
 
+//Route::group(['middleware' => 'auth:api'], function(){
 Route::get('stations', 'StationController@index');
 Route::get('/trains/{date}/{from}/{to}/{return?}', 'TrainController@index');
+//});
+
 
 Route::post('/ticket/register/{ticket}', 'TicketController@register');
 Route::post('/ticket/confirm/{ticket}', 'TicketController@confirm');
