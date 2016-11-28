@@ -32,7 +32,6 @@ Route::get('/transaction/{transaction}', 'TransactionController@index');
  * Routes to return tickets
  *
  * */
-
 Route::get('/ticket/{request_id}', 'TicketController@index');
 Route::post('/ticket/{ticket}/authenticate', 'TicketController@authenticate');
 Route::post('/ticket/{ticket}/authorize', 'TicketController@auth');
