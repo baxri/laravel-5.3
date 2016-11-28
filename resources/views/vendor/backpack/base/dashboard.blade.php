@@ -296,7 +296,6 @@
                                                 <td>{{$ip->lon}}</td>
                                             </tr>
                                         @endforeach
-
                                         <tr>
                                             <td colspan="12" align="center">
                                                 @if(count($ips) == 0)
@@ -313,11 +312,6 @@
                     </div>
                     <!-- /.panel-body -->
                 </div>
-
-
-
-
-
 
             </div>
         </div>
