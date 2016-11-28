@@ -496,14 +496,17 @@ class Ticket extends Model
 
     public function getTicketType(){
 
-        if( $this->parent_id == 0 )
+        if( $this->parent_id == 0 ){
             return '
             <span class="fa fa fa-subway" aria-hidden="true">
             <span class="fa fa-long-arrow-right" aria-hidden="true"></span>';
-        else
+        }
+        else{
             return '
             <span class="fa fa fa-subway" aria-hidden="true">
             <span class="fa fa-long-arrow-left" aria-hidden="true"></span>';
+        }
+
     }
 
     private function prepareForPayment(){
