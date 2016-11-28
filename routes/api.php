@@ -40,5 +40,11 @@ Route::get('/ticket/{request_id}', 'TicketController@index');
 Route::post('/ticket/{ticket}/authenticate', 'TicketController@authenticate');
 Route::post('/ticket/{ticket}/authorize', 'TicketController@auth');
 
-Route::post('/ticket/{ticket}/return', 'TicketController@ret')->middleware( CheckTicketAuth::class );
-Route::post('/payout/{ticket}', 'PayoutController@make')->middleware( CheckTicketAuth::class );
+Route::group(['middleware' => CheckTicketAuth::class], function(){
+
+    Route::post('/ticket/{ticket}/return', 'TicketController@ret');
+    Route::post('/payout/{ticket}', 'PayoutController@make');
+
+});
+
+

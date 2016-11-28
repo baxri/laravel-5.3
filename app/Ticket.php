@@ -504,7 +504,6 @@ class Ticket extends Model
             <span class="fa fa fa-subway" aria-hidden="true">
             <span class="fa fa-long-arrow-left" aria-hidden="true"></span>';
         }
-
     }
 
     private function prepareForPayment(){

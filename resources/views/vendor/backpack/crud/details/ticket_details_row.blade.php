@@ -3,6 +3,3 @@
         @include('vendor.backpack.crud.details.inc.tickets_row')
     </table>
 </div>
-
-
-

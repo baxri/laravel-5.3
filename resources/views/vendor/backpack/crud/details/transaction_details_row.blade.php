@@ -5,6 +5,3 @@
         @endforeach
     </table>
 </div>
-
-
-
