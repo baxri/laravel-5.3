@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             'name'     => 'Admin',
             'email'    => 'admin@unipay.ge',
             'password' => bcrypt('test123456'),
-            'api_token' => str_random(60),
+            //'api_token' => str_random(60),
         ]);
     }
 
