@@ -298,7 +298,8 @@ class TransactionCrudController extends CrudController {
         $this->crud->removeButton('create');
         //$this->crud->removeButton('update');
         $this->crud->removeButton('delete');
-        $this->crud->addButton('line', 'return_ticket', 'view', 'vendor.backpack.crud.buttons.resend');
+        $this->crud->addButton('line', 'return_ticket', 'view', 'vendor.backpack.crud.buttons.resend_email');
+        $this->crud->addButton('line', 'return_ticket', 'view', 'vendor.backpack.crud.buttons.resend_sms');
 
         // ------ CRUD ACCESS
         // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
