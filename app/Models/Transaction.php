@@ -361,8 +361,13 @@ class Transaction extends Model
 
         });
 
-       $this->email_delivery = 1;
-       $this->save();
+        if( count(Mail::failures()) > 0 ) {
+
+        } else {
+            $this->email_delivery = 1;
+            $this->save();
+        }
+
     }
 
     public function notifySMS(){
