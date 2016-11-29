@@ -359,10 +359,21 @@ class TransactionCrudController extends CrudController {
         }
     }
 
-    public function resend( Transaction $transaction ){
+    public function resendEmail( Transaction $transaction ){
         try{
 
-            $transaction->notify( $throw_exception = true );
+            $transaction->notifyEmail( $throw_exception = true );
+
+            return response()->ok($transaction->toArray());
+        }catch( Exception $e ){
+            return response()->error( $e->getMessage() );
+        }
+    }
+
+    public function resendSms( Transaction $transaction ){
+        try{
+
+            $transaction->notifySMS( $throw_exception = true );
 
             return response()->ok($transaction->toArray());
         }catch( Exception $e ){

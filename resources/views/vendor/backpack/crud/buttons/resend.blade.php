@@ -15,7 +15,7 @@
             button.button('loading');
 
             $.ajax({
-                url: 'transaction/resend/' + $(this).data('value'),
+                url: 'transaction/resend-email/' + $(this).data('value'),
                 type: 'POST',
                 success: function(result) {
 
