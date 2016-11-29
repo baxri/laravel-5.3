@@ -1,11 +1,10 @@
-@if($entry->status == \App\Models\Transaction::$success)
 <a
         href="{{ url($crud->route.'/resend/'.$entry->getKey()) }}"
         data-value="{{$entry->getKey()}}"
         class="resend-button-{{$entry->getKey()}} btn btn-xs btn-default" data-button-type="{{$entry->getKey()}}_return_ticket">
     Resend
 </a>
-@endif
+
 
 <script>
     jQuery(document).ready(function($) {
