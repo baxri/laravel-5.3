@@ -370,7 +370,7 @@ class Transaction extends Model
                $this->save();
            }
 
-       }catch( \ErrorException $e ){
+       }catch( \Swift_TransportException $e ){
 
        }
 
