@@ -1,7 +1,7 @@
 <a
-        href="{{ url($crud->route.'/resend/'.$entry->getKey()) }}-email"
+        href="{{ url($crud->route.'/resend/'.$entry->getKey()) }}"
         data-value="{{$entry->getKey()}}"
-        class="resend-button-{{$entry->getKey()}} btn btn-xs btn-default" data-button-type="{{$entry->getKey()}}_return_ticket">
+        class="resend-button-{{$entry->getKey()}}-email btn btn-xs btn-default" data-button-type="{{$entry->getKey()}}_return_ticket">
     Email
 </a>
 
