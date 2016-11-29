@@ -69,7 +69,7 @@
                             @if( $key == 0 )
                                 <p><strong>ერთი გზა {{$ticket->request_id}}</strong></p>
                             @else
-                                <p><strong>დაბრუნება {{$ticket->request_id}}</strong></p>
+                                <p><strong>მეორე გზა {{$ticket->request_id}}</strong></p>
                             @endif
                         @endforeach
                     </td>
