@@ -321,8 +321,6 @@ class Transaction extends Model
 
     public function notifyEmail(){
 
-
-
         if( $this->status != Transaction::$success ){
             //return;
         }
@@ -350,8 +348,6 @@ class Transaction extends Model
 
        $transaction = $this;
 
-
-
        Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
 
             $m->from(config('railway.email_from'), config('backpack.base.project_name'));
@@ -364,11 +360,7 @@ class Transaction extends Model
                 strtoupper( config('backpack.base.project_name').' - TICKETS' )
             );
 
-
-
         });
-
-        d('sent mail finish');
 
        $this->email_delivery = 1;
        $this->save();
