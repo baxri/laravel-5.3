@@ -15,7 +15,7 @@
             button.button('loading');
 
             $.ajax({
-                url: 'transaction/resend-sms/' + $(this).data('value'),
+                url: 'transaction/resendsms/' + $(this).data('value'),
                 type: 'POST',
                 success: function(result) {
 

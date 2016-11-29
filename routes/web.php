@@ -24,8 +24,8 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
     CRUD::resource('payout-log', 'Admin\Payout_LogCrudController');
 
     Route::post('person/return/{person}', 'Admin\TransactionCrudController@ret');
-    Route::post('transaction/resend-email/{transaction}', 'Admin\TransactionCrudController@resendEmail');
-    Route::post('transaction/resend-sms/{transaction}', 'Admin\TransactionCrudController@resendSms');
+    Route::post('transaction/resendemail/{transaction}', 'Admin\TransactionCrudController@resendEmail');
+    Route::post('transaction/resendsms/{transaction}', 'Admin\TransactionCrudController@resendSms');
 
     Route::get('transaction/ticket/{ticket}/pdf', 'Admin\TransactionCrudController@pdf');
     Route::get('transaction/ticket/{ticket}/html', 'Admin\TransactionCrudController@html');
