@@ -1,4 +1,4 @@
-<table bgcolor="#ffffff" style="border:1px solid #cccccc;width:90%;max-width:600px;border:none;border-collapse:collapse">
+<table align="center" bgcolor="#ffffff" style="border:1px solid #cccccc;width:90%;max-width:600px;border:none;border-collapse:collapse">
     <tbody><tr>
         <td height="20" width="100%" align="left" colspan="3" bgcolor="#ffb953"></td>
     </tr>
