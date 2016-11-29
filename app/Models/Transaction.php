@@ -315,7 +315,7 @@ class Transaction extends Model
 
     public function notify( $throw_exception = false ){
         $this->notifyEmail( $throw_exception );
-        $this->notifySMS();
+        $this->notifySMS( $throw_exception );
     }
 
     public function notifyEmail( $throw_exception = false ){
@@ -377,7 +377,7 @@ class Transaction extends Model
 
     }
 
-    public function notifySMS(){
+    public function notifySMS( $throw_exception = false ){
 
         if( $this->status != Transaction::$success ){
             //return;
@@ -413,9 +413,11 @@ class Transaction extends Model
 
         if( $sended ){
             $this->sms_delivery = 1;
+            $this->save();
+        }else{
+            if( $throw_exception )
+                throw new Exception('CANNOT_SEND_SMS');
         }
-
-        $this->save();
     }
 
 
