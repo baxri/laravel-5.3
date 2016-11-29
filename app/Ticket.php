@@ -385,8 +385,6 @@ class Ticket extends Model
             }
         }
 
-
-
         return $path;
     }
 

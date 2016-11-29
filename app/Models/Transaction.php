@@ -313,7 +313,6 @@ class Transaction extends Model
         return date('d M H:i ', strtotime( $this->updated_at ));
     }
 
-
     public function notify(){
         $this->notifyEmail();
         $this->notifySMS();
