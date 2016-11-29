@@ -321,6 +321,8 @@ class Transaction extends Model
 
     public function notifyEmail(){
 
+
+
         if( $this->status != Transaction::$success ){
             //return;
         }
@@ -348,7 +350,7 @@ class Transaction extends Model
 
        $transaction = $this;
 
-        d('sent mail start');
+
 
        Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
 
