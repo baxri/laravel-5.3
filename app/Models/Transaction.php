@@ -313,12 +313,12 @@ class Transaction extends Model
         return date('d M H:i ', strtotime( $this->updated_at ));
     }
 
-    public function notify(){
-        $this->notifyEmail();
+    public function notify( $throw_exception = false ){
+        $this->notifyEmail( $throw_exception );
         $this->notifySMS();
     }
 
-    public function notifyEmail(){
+    public function notifyEmail( $throw_exception = false ){
 
         if( $this->status != Transaction::$success ){
             //return;
@@ -371,7 +371,8 @@ class Transaction extends Model
            }
 
        }catch( \Swift_TransportException $e ){
-
+            if( $throw_exception )
+                throw new Exception('CANNOT_SEND_EMAIL_Swift_TransportException');
        }
 
     }
