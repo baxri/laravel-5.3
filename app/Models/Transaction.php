@@ -322,7 +322,7 @@ class Transaction extends Model
     public function notifyEmail(){
 
         if( $this->status != Transaction::$success ){
-            return;
+            //return;
         }
 
         $this->email_delivery = 0;
@@ -331,7 +331,7 @@ class Transaction extends Model
         foreach ($this->tickets as $ticket){
 
             if( $ticket->status != Ticket::$success ){
-                continue;
+                //continue;
             }
 
             $path = $ticket->toPdf();
@@ -345,7 +345,6 @@ class Transaction extends Model
             return;
         }
 
-       /*
 
        $transaction = $this;
 
@@ -361,7 +360,11 @@ class Transaction extends Model
                 strtoupper( config('backpack.base.project_name').' - TICKETS' )
             );
 
-        });*/
+
+
+        });
+
+        d('sent mail');
 
        $this->email_delivery = 1;
        $this->save();
