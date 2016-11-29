@@ -368,7 +368,7 @@ class Transaction extends Model
     public function notifySMS(){
 
         if( $this->status != Transaction::$success ){
-            return;
+            //return;
         }
 
         $this->sms_delivery = 0;
