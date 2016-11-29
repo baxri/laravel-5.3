@@ -1,5 +1,5 @@
 <a
-        href="{{ url($crud->route.'/resend/'.$entry->getKey()) }}"
+        href="{{ url($crud->route.'/resend/'.$entry->getKey()) }}-sms"
         data-value="{{$entry->getKey()}}"
         class="resend-button-{{$entry->getKey()}} btn btn-xs btn-default" data-button-type="{{$entry->getKey()}}_return_ticket">
     SMS
@@ -9,7 +9,7 @@
 <script>
     jQuery(document).ready(function($) {
 
-        $(".resend-button-{{$entry->getKey()}}").click(function(){
+        $(".resend-button-{{$entry->getKey()}}-sms").click(function(){
 
             var button =  $(this);
             button.button('loading');
