@@ -12,10 +12,10 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'matarebeli.ge',
+    'project_name' => 'Matarebeli.ge',
 
     // Menu logos
-    'logo_lg'   => '<b>matarebeli.ge</b>',
+    'logo_lg'   => '<b>Matarebeli.ge</b>',
     'logo_mini' => '<b>RE</b>',
 
     // Developer or company name. Shown in footer.

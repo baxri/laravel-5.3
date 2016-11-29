@@ -356,7 +356,7 @@ class Transaction extends Model
             }
 
             $m->to($transaction->email, $transaction->mobile)->subject(
-                strtoupper( config('backpack.base.project_name').' - TICKETS' )
+                strtoupper( config('backpack.base.project_name') )
             );
 
         });
