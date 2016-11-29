@@ -68,7 +68,7 @@ return [
    |
    */
 
-    'email_from' => 'info@matarebeli.ge',
+    'email_from' => 'noreply@matarebeli.ge',
 
 
     /*
