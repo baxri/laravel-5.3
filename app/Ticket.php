@@ -334,6 +334,8 @@ class Ticket extends Model
 
             $m->from(config('railway.email_from'), config('backpack.base.project_name'));
 
+            $m->attach($this->toPdf(), []);
+
             $m->to($ticket->transaction->email, $ticket->transaction->mobile)->subject(
                 config('backpack.base.project_name')
             );
