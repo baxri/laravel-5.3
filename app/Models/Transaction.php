@@ -348,6 +348,8 @@ class Transaction extends Model
 
        $transaction = $this;
 
+        d('sent mail start');
+
        Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
 
             $m->from(config('railway.email_from'), config('backpack.base.project_name'));
@@ -364,7 +366,7 @@ class Transaction extends Model
 
         });
 
-        d('sent mail');
+        d('sent mail finish');
 
        $this->email_delivery = 1;
        $this->save();
