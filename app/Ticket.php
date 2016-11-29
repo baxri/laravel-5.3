@@ -9,6 +9,7 @@ use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Mockery\Exception;
 use niklasravnsborg\LaravelPdf\Facades\Pdf;
 use Psy\Exception\ErrorException;
@@ -326,6 +327,18 @@ class Ticket extends Model
         $this->action_token = strtoupper(str_random(5));
         $this->action_token_time = time();
         $this->save();
+
+        $ticket = $this;
+
+        Mail::send('emails.return', [ 'ticket' => $ticket ], function ($m) use ( $ticket ) {
+
+            $m->from(config('railway.email_from'), config('backpack.base.project_name'));
+
+            $m->to($ticket->transaction->email, $ticket->transaction->mobile)->subject(
+                config('backpack.base.project_name')
+            );
+
+        });
 
         return $this->action_token;
     }

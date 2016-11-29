@@ -1,0 +1,1 @@
+<h1>Return ticket code {{$ticket->action_token}}</h1>
