@@ -356,7 +356,7 @@ class Transaction extends Model
             }
 
             $m->to($transaction->email, $transaction->mobile)->subject(
-                strtoupper( config('backpack.base.project_name') )
+                config('backpack.base.project_name')
             );
 
         });
@@ -378,7 +378,7 @@ class Transaction extends Model
         foreach ($this->tickets as $ticket){
 
             if( $ticket->status != Ticket::$success ){
-                continue;
+                //continue;
             }
 
             $text[] = $ticket->textForSMS();
