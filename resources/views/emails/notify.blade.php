@@ -64,7 +64,15 @@
                 </tr>
                 <tr>
                     <td width="5%" align="center"></td>
-                    <td align="left" style="color:#202020;font-size:16px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:20px"><strong>ერთი გზა 14567391</strong></td>
+                    <td align="left" style="color:#202020;font-size:16px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:20px">
+                        @foreach( $transaction->tickets as $key => $ticket )
+                            @if( $key == 0 )
+                                <strong>ერთი გზა {{$ticket->request_id}}</strong>
+                            @else
+                                <strong>დაბრუნება {{$ticket->request_id}}</strong>
+                            @endif
+                        @endforeach
+                    </td>
                     <td width="5%" align="center"></td>
                 </tr>
                 <tr>
