@@ -347,26 +347,32 @@ class Transaction extends Model
 
        $transaction = $this;
 
-       Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
+       try{
 
-            $m->from(config('railway.email_from'), config('backpack.base.project_name'));
+           Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
 
-            foreach ( $pdfs as $pdf ){
-                $m->attach($pdf, []);
-            }
+               $m->from(config('railway.email_from'), config('backpack.base.project_name'));
 
-            $m->to($transaction->email, $transaction->mobile)->subject(
-                config('backpack.base.project_name')
-            );
+               foreach ( $pdfs as $pdf ){
+                   $m->attach($pdf, []);
+               }
 
-        });
+               $m->to($transaction->email, $transaction->mobile)->subject(
+                   config('backpack.base.project_name')
+               );
 
-        if( count(Mail::failures()) > 0 ) {
+           });
 
-        } else {
-            $this->email_delivery = 1;
-            $this->save();
-        }
+           if( count(Mail::failures()) > 0 ) {
+
+           } else {
+               $this->email_delivery = 1;
+               $this->save();
+           }
+
+       }catch( \ErrorException $e ){
+
+       }
 
     }
 
