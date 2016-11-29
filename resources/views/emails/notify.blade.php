@@ -67,9 +67,9 @@
                     <td align="left" style="color:#202020;font-size:16px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:20px">
                         @foreach( $transaction->tickets as $key => $ticket )
                             @if( $key == 0 )
-                                <strong>ერთი გზა {{$ticket->request_id}}</strong>
+                                <p><strong>ერთი გზა {{$ticket->request_id}}</strong></p>
                             @else
-                                <strong>დაბრუნება {{$ticket->request_id}}</strong>
+                                <p><strong>დაბრუნება {{$ticket->request_id}}</strong></p>
                             @endif
                         @endforeach
                     </td>
