@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Matarebeli.ge',
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Tbilisi',
+    'timezone' => 'GMT +4',
 
     /*
     |--------------------------------------------------------------------------
