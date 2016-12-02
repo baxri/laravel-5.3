@@ -3,7 +3,7 @@
 @section('header')
     <section class="content-header">
       <h1>
-        ToDay is {{  date('d F H:i ', strtotime( \Carbon\Carbon::now() )) }}
+        ToDay is {{  date('d F H:i ', strtotime( \Carbon\Carbon::now(+4) )) }}
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('backpack.base.route_prefix', 'admin')) }}">{{ config('backpack.base.project_name') }}</a></li>
