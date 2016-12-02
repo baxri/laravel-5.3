@@ -2,7 +2,6 @@
 
 Route::get('/', function () {
     return redirect('http://www.matarebeli.ge/');
-    //return view('welcome');
 });
 
 Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
