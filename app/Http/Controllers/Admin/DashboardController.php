@@ -163,6 +163,7 @@ class DashboardController extends Controller
             ->select('ips.*')
             ->where( "transactions.updated_at",  ">=", $today )
             ->limit(config('railway.last_ip_activity_count'))
+            ->groupby( "ips.ip_key" )
             ->get();
 
         /*
