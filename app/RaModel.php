@@ -9,9 +9,9 @@ class RaModel extends Model
 {
     protected function asDateTime($value)
     {
-        if($value instanceof Carbon) {
+        /*if($value instanceof Carbon) {
             $value->timezone(config('app.timezone'));
-        }
+        }*/
 
         return parent::asDateTime($value);
     }
