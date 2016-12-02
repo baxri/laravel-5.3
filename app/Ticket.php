@@ -148,8 +148,10 @@ class Ticket extends RaModel
             $this->tarif_adult = $trains[0]->TarifAdult;
             $this->tarif_teen = $trains[0]->TarifTeen;
             $this->tarif_all = $trains[0]->TarifAll;
-            $this->leave_datetime = $trains[0]->LeavingDate;
-            $this->enter_datetime = $trains[0]->EnteringDate;
+
+            $this->leave_datetime = date($trains[0]->LeavingDate);
+            $this->enter_datetime = date($trains[0]->EnteringDate);
+
             $this->train = $train;
             $this->class = $class;
             $this->rank = $rank;
