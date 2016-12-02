@@ -67,10 +67,20 @@ class TicketController extends Controller
             $adult = (array)$request->input('adult');
             $child = (array)$request->input('child');
 
+            $passengers = 0;
+
             $ticket->register( $train[0], $class[0], $rank[0], $adult[0], $child[0] );
+            $passengers += count( $ticket->persons );
 
             if( $return ){
                 $return->register( $train[1], $class[1], $rank[1], $adult[1], $child[1] );
+                $passengers += count( $return->persons );
+            }
+
+            $max_passengers_per_transaction = config('railway.max_passengers_per_transaction');
+
+            if( $passengers > $max_passengers_per_transaction ){
+                throw new Exception('TO_MUCH_PASSENGERS_PER_TRANSACTION');
             }
 
             return response()->ok([
