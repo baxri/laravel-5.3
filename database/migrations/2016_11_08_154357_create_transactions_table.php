@@ -24,7 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('email_delivery');
             $table->integer('sms_delivery');
             $table->string('ip');
-            $table->timestamps();
+            $table->timestampsTz();
         });
 
         \Illuminate\Support\Facades\DB::update("ALTER TABLE ".$this->table_name." AUTO_INCREMENT = 4000000;");
