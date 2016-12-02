@@ -181,7 +181,7 @@ class TransactionCrudController extends CrudController {
                 if($value)
                     $this->crud->addClause('where', 'status', $value);
                 else
-                    $this->crud->addClause('where', '>', Transaction::$pending);
+                    $this->crud->addClause('where', 'status', '>', Transaction::$pending);
             });
 
         $this->crud->addFilter([
