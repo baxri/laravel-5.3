@@ -3,7 +3,7 @@
 @section('header')
     <section class="content-header">
       <h1>
-        ToDay is {{  date('d F H:i ', strtotime( \Carbon\Carbon::now(4) )) }}
+        ToDay is {{  date('d F H:i ', strtotime( \Carbon\Carbon::now('+4') )) }}
 
       </h1>
       <ol class="breadcrumb">
