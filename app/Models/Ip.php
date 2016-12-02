@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\RaModel;
 use Backpack\CRUD\CrudTrait;
 
-class Ip extends Model
+class Ip extends RaModel
 {
     protected $fillable = [
         'ip_key', 'as', 'city', 'country', 'countryCode', 'isp', 'lat', 'lon', 'org', 'query', 'region', 'regionName', 'status',

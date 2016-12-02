@@ -4,11 +4,12 @@ namespace App\Models;
 
 
 use App\Gateway\Api;
+use App\RaModel;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Mockery\Exception;
 
-class Station extends Model
+class Station extends RaModel
 {
 	use CrudTrait;
 

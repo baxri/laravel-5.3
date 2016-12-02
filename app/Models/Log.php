@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\RaModel;
 use Backpack\CRUD\CrudTrait;
 
-class Log extends Model
+class Log extends RaModel
 {
 	use CrudTrait;
 	protected $table = 'logs';

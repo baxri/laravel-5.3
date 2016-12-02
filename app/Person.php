@@ -7,7 +7,7 @@ use App\Models\PayoutTransaction;
 use Illuminate\Database\Eloquent\Model;
 use Mockery\Exception;
 
-class Person extends Model
+class Person extends RaModel
 {
     protected $table = 'persons';
     private $api;

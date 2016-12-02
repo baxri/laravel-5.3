@@ -14,7 +14,7 @@ use Mockery\Exception;
 use niklasravnsborg\LaravelPdf\Facades\Pdf;
 use Psy\Exception\ErrorException;
 
-class Ticket extends Model
+class Ticket extends RaModel
 {
     use CrudTrait;
 

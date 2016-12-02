@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\RaModel;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Payout_log extends Model
+class Payout_log extends RaModel
 {
 	use CrudTrait;
 

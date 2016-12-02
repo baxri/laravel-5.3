@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\RaModel;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Sms extends Model
+class Sms extends RaModel
 {
 	use CrudTrait;
 

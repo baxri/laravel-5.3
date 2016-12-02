@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\RaModel;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class TransactionLog extends Model
+class TransactionLog extends RaModel
 {
 	use CrudTrait;
 

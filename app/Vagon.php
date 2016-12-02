@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vagon extends Model
+class Vagon extends RaModel
 {
     protected $fillable = [
         'class', 'rank', 'name', 'amount', 'enable', 'train'

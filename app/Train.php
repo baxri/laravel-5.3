@@ -6,7 +6,7 @@ use App\Gateway\Api;
 use App\helpers\Railway;
 use Illuminate\Database\Eloquent\Model;
 
-class Train extends Model
+class Train extends RaModel
 {
     protected $fillable = [
         'number', 'name', 'date', 'time', 'enter'

@@ -5,11 +5,12 @@ namespace App\Models;
 use App\Gateway\Payout;
 use App\helpers\PayoutValidation;
 use App\Person;
+use App\RaModel;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Mockery\Exception;
 
-class PayoutTransaction extends Model
+class PayoutTransaction extends RaModel
 {
 	use CrudTrait;
 

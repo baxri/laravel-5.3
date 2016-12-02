@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected function asDateTime($value)
+    {
+        if($value instanceof Carbon) {
+            $value->timezone(config('app.timezone'));
+        }
+
+        return parent::asDateTime($value);
+    }
 }
