@@ -26,7 +26,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'checkout_id', 'amount', 'commission', 'status', 'index', 'mobile',
-        'index_mobile', 'email', 'created_at', 'updated_at', 'ip'
+        'index_mobile', 'email', 'ip'
     ];
 
     public static $cancel = -1;
