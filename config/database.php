@@ -64,7 +64,6 @@ return [
             'prefix' => '',
             'strict' => false,
             'engine' => null,
-            'timezone'  => '+04:00'
         ],
 
         'pgsql' => [
