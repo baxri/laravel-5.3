@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('transaction:clear')
             ->daily()
-            ->appendOutputTo($cronjobs.'transaction-clear/transaction.clear' );
+            ->appendOutputTo( $cronjobs.'transaction-clear/transaction.clear' );
 
     }
 
