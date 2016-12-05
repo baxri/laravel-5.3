@@ -40,7 +40,7 @@ class ClearTransactions extends Command
     public function handle()
     {
         $transactions = Transaction::where( [
-            //['status', Transaction::$pending],
+            ['status', Transaction::$pending],
             ['updated_at', '<', Carbon::tomorrow()]
         ] )->get();
 
