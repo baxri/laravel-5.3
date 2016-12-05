@@ -558,6 +558,7 @@ class Ticket extends RaModel
 
         static::deleting(function($ticket) {
             $ticket->persons()->delete();
+            $ticket->logs()->delete();
         });
     }
 

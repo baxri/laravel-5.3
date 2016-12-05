@@ -55,6 +55,10 @@ class Transaction extends RaModel
         return $this->hasOne( Ip::class, 'ip_key', 'ip' );
     }
 
+    public function logs(){
+        return $this->hasMany( TransactionLog::class, 'transaction_id' );
+    }
+
     public function setAmount( $amount ){
         $this->amount = $amount;
         $this->setCommssion();
@@ -428,6 +432,8 @@ class Transaction extends RaModel
             foreach ($transaction->tickets as $ticket){
                 $ticket->delete();
             }
+
+            $transaction->logs()->delete();
         });
 
         static::creating(function ($transaction) {
