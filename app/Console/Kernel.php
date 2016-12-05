@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
             ->everyMinute()
             ->appendOutputTo(
                 config('railway.task_transaction_clear')
-                .'transaction-clear/'.Carbon::today(config('app.timezone')) );
+                .'transaction-clear/'.str_replace(" ", "", Carbon::today(config('app.timezone'))) );
     }
 
     /**
