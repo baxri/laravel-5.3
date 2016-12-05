@@ -13,8 +13,6 @@ class TrainController extends Controller
     {
         try{
 
-
-
             /*
              * Start transaction with pending
              *
