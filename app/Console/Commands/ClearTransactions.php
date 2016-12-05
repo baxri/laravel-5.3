@@ -40,8 +40,8 @@ class ClearTransactions extends Command
     public function handle()
     {
         $transactions = Transaction::where( [
-            //['status', Transaction::$pending],
-            ['updated_at', '<', Carbon::tomorrow()]
+            ['status', Transaction::$pending],
+            ['updated_at', '<', Carbon::today()]
         ] )->get();
 
         $count = 0;
@@ -54,6 +54,6 @@ class ClearTransactions extends Command
             }
         }
 
-        $this->info("$count Transactions deleted ".Carbon::tomorrow());
+        $this->info("$count Pending transactions deleted. Today is ".Carbon::today());
     }
 }
