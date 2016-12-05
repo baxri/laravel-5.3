@@ -54,6 +54,6 @@ class ClearTransactions extends Command
             }
         }
 
-        $this->info( Carbon::today(config('app.timezone'))." - $count Pending transactions deleted.");
+        $this->info( Carbon::now(config('app.timezone'))." - $count Pending transactions deleted.");
     }
 }
