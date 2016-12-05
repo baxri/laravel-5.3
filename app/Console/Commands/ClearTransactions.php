@@ -40,8 +40,8 @@ class ClearTransactions extends Command
     public function handle()
     {
         $transactions = Transaction::where( [
+            ['updated_at', '<', Carbon::today(config('app.timezone'))],
             ['status', Transaction::$pending],
-            ['updated_at', '<', Carbon::today(config('app.timezone'))]
         ] )->get();
 
         $count = 0;
