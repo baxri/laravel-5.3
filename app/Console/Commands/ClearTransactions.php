@@ -54,6 +54,6 @@ class ClearTransactions extends Command
             }
         }
 
-        $this->info("$count Pending transactions deleted. Today is ".Carbon::tomorrow());
+        $this->info( Carbon::now()." - $count Pending transactions deleted.");
     }
 }
