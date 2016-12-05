@@ -41,7 +41,7 @@ class ClearTransactions extends Command
     {
         $transactions = Transaction::where( [
             ['status', Transaction::$pending],
-            ['updated_at', '<', Carbon::tomorrow()]
+            ['updated_at', '<', Carbon::today(config('app.timezone'))]
         ] )->get();
 
         $count = 0;
@@ -54,6 +54,6 @@ class ClearTransactions extends Command
             }
         }
 
-        $this->info( Carbon::now(config('app.timezone'))." - $count Pending transactions deleted.");
+        $this->info( Carbon::today(config('app.timezone'))." - $count Pending transactions deleted.");
     }
 }
