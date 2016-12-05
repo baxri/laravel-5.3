@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('transaction:clear')->daily();
+        $schedule->command('transaction:clear')->everyMinute();
     }
 
     /**
