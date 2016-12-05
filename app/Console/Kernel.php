@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('transaction:clear')
             ->daily()
             ->appendOutputTo(
-                config('railway.task_transaction_clear')
+                config('railway.path_to_cronjobs')
                 .'transaction-clear/transaction.clear' );
     }
 

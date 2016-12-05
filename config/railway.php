@@ -127,11 +127,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Folder for cron outputs
+    | Logging cronjob outputs
     |--------------------------------------------------------------------------
     |
     */
 
-    'task_transaction_clear' => base_path().'/storage/cronjobs/',
-
+    'path_to_cronjobs' => base_path().'/storage/cronjobs/',
 ];
