@@ -25,9 +25,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('transaction:clear')->everyMinute();
-            //->evenInMaintenanceMode()
-
+        $schedule->command('transaction:clear')
+            ->everyMinute()
+            ->appendOutputTo( config('railway.task_transaction_clear').'transaction.clear' );
     }
 
     /**
