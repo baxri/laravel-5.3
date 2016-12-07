@@ -99,8 +99,6 @@ class Train extends RaModel
 
     public function toArray()
     {
-        $offset = config('railway.offset');
-
         $leave = new \DateTime($this->date);
         $enter = new \DateTime($this->enter);
         $interval = $leave->diff($enter);
@@ -110,9 +108,9 @@ class Train extends RaModel
         return [
             'number' => $this->number,
             'name' => $this->name,
-            'date' =>  \date('D d M', \strtotime( $this->date." + $offset hours" )),
-            'departure' =>  \date('H:i', strtotime($this->date." + $offset hours")),
-            'arrive' => \date('H:i', \strtotime( $this->enter." + $offset hours" )),
+            'date' =>  \date('D d M', \strtotime( $this->date )),
+            'departure' =>  \date('H:i', strtotime($this->date)),
+            'arrive' => \date('H:i', \strtotime( $this->enter )),
             'duration' => $interval->h.'h '.$interval->i.'m',
             'vagons' => Railway::sort( $this->vagons,
                 config( 'railway.sort_vagons_field' ),
