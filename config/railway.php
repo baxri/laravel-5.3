@@ -133,4 +133,13 @@ return [
     */
 
     'path_to_cronjobs' => base_path().'/storage/cronjobs/',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Redirect API to this link
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'redirect_api_link' => 'http://www.matarebeli.ge/'
 ];

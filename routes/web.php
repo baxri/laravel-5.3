@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return redirect('http://www.matarebeli.ge/');
+    return redirect(config('railway.redirect_api_link'));
 });
 
 Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
