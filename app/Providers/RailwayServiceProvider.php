@@ -21,7 +21,7 @@ class RailwayServiceProvider extends ServiceProvider
 
             $json = (array) $json;
             $response = response(
-                ['errorcode' => 0, 'ok' => strtolower($message), 'data' => $json] )
+                ['errorcode' => 0, 'message' => strtolower($message), 'data' => $json] )
                 ->setStatusCode( $code, $message )
                 ->header('Access-Control-Allow-Origin', '*');
 
