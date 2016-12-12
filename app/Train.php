@@ -108,7 +108,7 @@ class Train extends RaModel
         $enter = new \DateTime($this->enter);
         $interval = $leave->diff($enter);
 
-        $this->_refilVagons();
+        //$this->_refilVagons();
 
         return [
             'number' => $this->number,
