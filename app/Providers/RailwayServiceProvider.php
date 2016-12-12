@@ -28,15 +28,23 @@ class RailwayServiceProvider extends ServiceProvider
             return $response;
         });
 
-        Response::macro('error', function ( $message = 'OK', $code = 500, $json = null ) {
+        Response::macro('error', function ( $message = 'OK', $code = 500, $header_error = false ) {
 
-            $json = (array) $json;
+            if( !$header_error ){
 
-            $response = response(json_encode(
-                ['errorcode' => $code, 'message' => strtolower($message)]
-            ))
-                ->setStatusCode( 200, 'OK' )
-                ->header('Access-Control-Allow-Origin', '*');
+                $response = response(json_encode(
+                    ['errorcode' => $code, 'message' => strtolower($message)]
+                ))
+                    ->setStatusCode( 200, 'OK' )
+                    ->header('Access-Control-Allow-Origin', '*');
+
+            }else{
+                $response = response(json_encode(
+                    ['errorcode' => $code, 'message' => strtolower($message)]
+                ))
+                    ->setStatusCode( $code, $message )
+                    ->header('Access-Control-Allow-Origin', '*');
+            }
 
             return $response;
         });

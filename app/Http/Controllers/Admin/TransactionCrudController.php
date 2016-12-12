@@ -358,7 +358,7 @@ class TransactionCrudController extends CrudController {
                 'name' => $person->getStatusName(),
             ]);
         }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
+            return response()->error( $e->getMessage(), 500, true );
         }
     }
 
@@ -369,7 +369,7 @@ class TransactionCrudController extends CrudController {
 
             return response()->ok($transaction->toArray());
         }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
+            return response()->error( $e->getMessage(), 500, true );
         }
     }
 
@@ -380,7 +380,7 @@ class TransactionCrudController extends CrudController {
 
             return response()->ok($transaction->toArray());
         }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
+            return response()->error( $e->getMessage(), 500, true );
         }
     }
 
@@ -397,7 +397,7 @@ class TransactionCrudController extends CrudController {
 
             return response()->ok( $ticket->sync() );
         }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
+            return response()->error( $e->getMessage(), 500, true );
         }
     }
 
