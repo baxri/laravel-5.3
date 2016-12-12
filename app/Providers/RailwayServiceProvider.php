@@ -20,7 +20,8 @@ class RailwayServiceProvider extends ServiceProvider
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 
             $json = (array) $json;
-            $response = response($json)
+            $response = response(
+                ['code' => 0, 'ok' => strtolower($message), 'data' => $json] )
                 ->setStatusCode( $code, $message )
                 ->header('Access-Control-Allow-Origin', '*');
 
