@@ -5,6 +5,7 @@ namespace App;
 use App\Gateway\Api;
 use App\helpers\Railway;
 use Illuminate\Database\Eloquent\Model;
+use Mockery\Exception;
 
 class Train extends RaModel
 {
@@ -21,6 +22,10 @@ class Train extends RaModel
 
         $api = new Api();
         $trains = $api->GetFreePlacePrices( $date, $from, $to );
+
+        if( empty($trains) ){
+            throw new Exception('TRAINS_NOT_FOUND');
+        }
 
         $categorised = [];
 
@@ -117,7 +122,6 @@ class Train extends RaModel
                 config( 'railway.sort_vagons_order' ) ),
         ];
     }
-
 
     /*
      * makes all vagons array same dimension (size)

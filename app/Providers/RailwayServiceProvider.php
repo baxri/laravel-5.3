@@ -17,8 +17,6 @@ class RailwayServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 
             $json = (array) $json;
@@ -29,12 +27,14 @@ class RailwayServiceProvider extends ServiceProvider
             return $response;
         });
 
-        Response::macro('error', function ( $message = 'error', $code = 500, $json = null ) {
+        Response::macro('error', function ( $message = 'OK', $code = 500, $json = null ) {
 
             $json = (array) $json;
 
-            $response = response($json)
-                ->setStatusCode( $code, $message )
+            $response = response(json_encode(
+                ['code' => $code, 'message' => strtolower($message)]
+            ))
+                ->setStatusCode( 200, 'OK' )
                 ->header('Access-Control-Allow-Origin', '*');
 
             return $response;
