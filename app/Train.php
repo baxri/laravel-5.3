@@ -4,6 +4,7 @@ namespace App;
 
 use App\Gateway\Api;
 use App\helpers\Railway;
+use App\Models\Station;
 use Illuminate\Database\Eloquent\Model;
 use Mockery\Exception;
 
@@ -73,8 +74,15 @@ class Train extends RaModel
 
         $trains = array_values($categorised);
 
+        $source = Station::where('value', $from)->get();
+        $destination = Station::where('value', $to)->get();
+
         return array(
             'ticket' => $ticket->id,
+
+            'source' => $source[0]->label,
+            'destination' => $destination[0]->label,
+
             'date' => $train->toArray()['date'],
             'trains' => Railway::sort( $trains, 'time', SORT_ASC, true ),
         );
