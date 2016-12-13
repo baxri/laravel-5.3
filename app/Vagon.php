@@ -14,7 +14,7 @@ class Vagon extends RaModel
     {
         return [
             'train' => $this->train,
-            'class' => $this->class,
+            //'class' => $this->class,
             'rank' => $this->rank,
             'name' => $this->name,
             'amount' => number_format( $this->amount/100, 2 ),

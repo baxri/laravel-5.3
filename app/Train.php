@@ -39,6 +39,8 @@ class Train extends RaModel
                 continue;
             }
 
+
+
             if( !isset( $categorised[$item->TrainNumber] ) ){
                 $train = new Train([
                     'number' => $item->TrainNumber,
