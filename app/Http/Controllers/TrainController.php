@@ -27,7 +27,7 @@ class TrainController extends Controller
             return response()->ok(
                 array(
                     'departure' => $result,
-                    'return' => $return ? Train::trains( $return, $to, $from, $transaction->id, $result['ticket'] ) : new \stdClass()
+                    'return' => $return ? Train::trains( $return, $to, $from, $transaction->id, $result['ticket'] ) : (object)[]
                 )
             );
         }catch( Exception $e ){
