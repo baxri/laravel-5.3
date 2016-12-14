@@ -63,19 +63,21 @@
                 margin-bottom: 30px;
             }
         </style>
+
+
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body >
+        <div class="flex-center position-ref full-height" id="app">
 
             <div class="content">
                 <div class="title m-b-md">
-                    api.matarebeli.ge
+                    @{{title}}
                 </div>
 
-                <div class="links">
-                    <a href="http://matarebeli.ge">VISIT SITE</a>
-                </div>
+                <example></example>
             </div>
         </div>
+
+        <script src="/js/app.js"></script>
     </body>
 </html>
