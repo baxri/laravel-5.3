@@ -85,7 +85,7 @@ class TicketController extends Controller
 
             return response()->ok([
                 'departure' => $ticket->toArray(),
-                'return' => $return ? $return->toArray() : [],
+                'return' => $return ? $return->toArray() : (object)[],
             ]);
 
         }catch( Exception $e ){
