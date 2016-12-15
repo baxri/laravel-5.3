@@ -537,11 +537,12 @@ class Api
 
         try{
 
-            d($to);
-
             $args = [
-                'op' => 'Internet_GetPlaceBytest',
-                'RequestID' => $request_id,
+                'op' => 'TrainCharacteristics',
+                'LeavingDate' => $leave,
+                'FromStation' => $from,
+                'ToStation' => $to,
+                'IsDay' => 0,
             ];
 
             $stations = $this->client->request('GET', $this->gateWay, [
@@ -549,6 +550,10 @@ class Api
             ]);
 
             $object = json_decode($stations->getBody()->getContents());
+
+            d($object);
+
+
 
             if( $this->key ){
                 Log::create([

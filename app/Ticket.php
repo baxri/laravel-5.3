@@ -242,6 +242,7 @@ class Ticket extends RaModel
     public function characteristic(){
 
         $api = new Api();
+        //$api->setLogKey($this->id);
 
         $api->TrainCharacteristics( $this->leave, $this->from, $this->to );
 

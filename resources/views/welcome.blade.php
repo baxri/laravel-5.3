@@ -70,7 +70,7 @@
         <div class="flex-center position-ref full-height" id="app">
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" v-cloak>
                     @{{title}}
                 </div>
 
