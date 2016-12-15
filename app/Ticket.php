@@ -250,19 +250,15 @@ class Ticket extends RaModel
         $persons = $this->persons()->orderBy( 'ischild', 'ASC' )->get();
         $prepared_payouts = Person::needPayout( $this->id )->get();
 
-        $leave = new \DateTime($this->leave_datetime);
-        $enter = new \DateTime($this->enter_datetime);
-        $interval = $leave->diff($enter);
-
         return [
            'id' => $this->id,
            'request_id' => $this->request_id,
            'type' => $type,
            'date' => date('d M', strtotime( $this->leave_datetime )),
-           'time' => date('H:i', strtotime( $this->leave_datetime )),
-           'enter' => date('H:i d M', strtotime( $this->enter_datetime )),
 
-           'duration' => $interval->h.'h '.$interval->i.'m',
+           'time' => date('H:i', strtotime( $this->leave_datetime )),
+           'enter' => date('H:i', strtotime( $this->enter_datetime )),
+           //'enter' => date('H:i d M', strtotime( $this->enter_datetime )),
 
            'train' => $this->train,
 
