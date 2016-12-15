@@ -239,6 +239,16 @@ class Ticket extends RaModel
         return $this->status;
     }
 
+    public function characteristic(){
+
+        $api = new Api();
+
+        $api->TrainCharacteristics( $this->leave, $this->from, $this->to );
+
+        //d($this->leave);
+
+    }
+
     public function toArray()
     {
         $type = 'departure';

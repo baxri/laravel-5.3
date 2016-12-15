@@ -533,6 +533,48 @@ class Api
         }
     }
 
+    public function TrainCharacteristics( $leave, $from, $to ){
+
+        try{
+
+            d($to);
+
+            $args = [
+                'op' => 'Internet_GetPlaceBytest',
+                'RequestID' => $request_id,
+            ];
+
+            $stations = $this->client->request('GET', $this->gateWay, [
+                'query' => $args
+            ]);
+
+            $object = json_decode($stations->getBody()->getContents());
+
+            if( $this->key ){
+                Log::create([
+                    'ticket_id' => $this->key,
+                    'op' => __FUNCTION__,
+                    'arguments' => json_encode($args),
+                    'text' => json_encode($object),
+                ]);
+            }
+
+            return $object;
+        }catch ( RequestException $e ){
+
+            if( $this->key ){
+                Log::create([
+                    'ticket_id' => $this->key,
+                    'op' => __FUNCTION__,
+                    'arguments' => '',
+                    'text' => $e->getMessage(),
+                ]);
+            }
+
+            return $this->setError( $e->getMessage() );
+        }
+    }
+
     public function getError()
     {
         return $this->_error;

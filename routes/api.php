@@ -11,7 +11,7 @@ Route::get('/trains/{date}/{from}/{to}/{return?}', 'TrainController@index');
 
 Route::post('/ticket/register/{ticket}', 'TicketController@register');
 Route::post('/ticket/confirm/{ticket}', 'TicketController@confirm');
-
+Route::post('/ticket/characteristic/{ticket}', 'TicketController@characteristic');
 
 
 /*

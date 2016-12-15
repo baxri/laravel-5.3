@@ -80,7 +80,7 @@ class TicketController extends Controller
             $max_passengers_per_transaction = config('railway.max_passengers_per_transaction');
 
             if( $passengers > $max_passengers_per_transaction ){
-                throw new Exception('TO_MUCH_PASSENGERS_PER_TRANSACTION');
+                throw new Exception('TOO_MANY_PASSENGERS_PER_TRANSACTION');
             }
 
             return response()->ok([
@@ -158,6 +158,18 @@ class TicketController extends Controller
 
             return response()->ok($ticket->toArray());
     }catch( Exception $e ){
+            return response()->error( $e->getMessage() );
+        }
+    }
+
+    public function characteristic( Ticket $ticket )
+    {
+        try{
+
+            $ticket->characteristic();
+
+
+        }catch( Exception $e ){
             return response()->error( $e->getMessage() );
         }
     }

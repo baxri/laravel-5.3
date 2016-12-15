@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gateway\Ip;
+use App\Ticket;
 use App\Train;
 use App\Models\Transaction;
 use Mockery\Exception;
