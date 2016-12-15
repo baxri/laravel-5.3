@@ -71,8 +71,8 @@
 
 
     </head>
-    <body v-cloak>
-        <div class="flex-center position-ref full-height" id="app">
+    <body >
+        <div class="flex-center position-ref full-height" id="app" v-cloak>
 
             <div class="content">
                 <div class="title m-b-md" >
