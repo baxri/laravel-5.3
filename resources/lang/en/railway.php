@@ -26,6 +26,8 @@ return [
     'FRIDAY' => 'Friday',
 
     'HELP' => 'Help',
+    'TRAIN' => 'Train',
+    'VAGON' => 'Vagon',
 
     'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
     'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',

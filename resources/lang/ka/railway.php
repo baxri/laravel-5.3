@@ -26,6 +26,8 @@ return [
     'FRIDAY' => 'პარასკევი',
 
     'HELP' => 'დახმარება',
+    'TRAIN' => 'მატარებელი',
+    'VAGON' => 'ვაგონი',
 
     'EKSPRESISAFIRMO' => 'ექსპრესი საფირმო',
     'DASAJDOMIEKSPR' => 'დასაჯდომი ექსპრესი',
