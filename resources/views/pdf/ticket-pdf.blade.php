@@ -27,7 +27,7 @@
                             <td colspan="4">{{trans('railway.DESTINATION_STATION')}}: {{ \App\helpers\Railway::translateStation($ticket->destination_station, $ticket->lang) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">{{trans('railway.LEAVE_TIME')}}: {{ \date('H:i', \strtotime( $ticket->leave_datetime, $ticket->lang )) }}</td>
+                            <td colspan="4">{{trans('railway.LEAVE_TIME')}}: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
                         </tr>
                         <tr class="row-1">
                             <td>
