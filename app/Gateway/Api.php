@@ -548,6 +548,8 @@ class Api
                 'Lang' => $lang,
             ];
 
+            d($args);
+
             $stations = $this->client->request('GET', $this->gateWay, [
                 'query' => $args
             ]);
