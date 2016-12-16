@@ -47,5 +47,6 @@ return [
     'BIZNESKLASI' => 'ბიზნეს კლასი',
     'EKONOMKLASI' => 'ეკონომ კლასი',
     'SHSHPIREBISADGILEBI' => 'შშ პირების ადგილები',
+    'DASAJDOMI_88' => 'დასაჯდომი 88',
 
 ];

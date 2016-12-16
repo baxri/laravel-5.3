@@ -47,5 +47,6 @@ return [
     'BIZNESKLASI' => 'Business Class',
     'EKONOMKLASI' => 'Economy Class',
     'SHSHPIREBISADGILEBI' => 'For disabilities',
+    'DASAJDOMI_88' => 'Seated 88',
 
 ];
