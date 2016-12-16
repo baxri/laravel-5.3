@@ -24,9 +24,6 @@ class Train extends RaModel
         $api = new Api();
         $trains = $api->GetFreePlacePrices( $date, $from, $to );
 
-        echo $date;
-        d($trains);
-
         if( empty($trains) ){
             throw new Exception('TRAINS_NOT_FOUND');
         }
@@ -115,19 +112,18 @@ class Train extends RaModel
 
     public function toArray()
     {
-        $leave = new \DateTime($this->date);
-        $enter = new \DateTime($this->enter);
-        $interval = $leave->diff($enter);
-
-        //$this->_refilVagons();
-
         return [
             'number' => $this->number,
             'name' => $this->name,
-            'date' =>  \date('D d M', \strtotime( $this->date )),
-            'departure' =>  \date('H:i', strtotime($this->date)),
-            'arrive' => \date('H:i', \strtotime( $this->enter )),
-            'duration' => $interval->h.'h '.$interval->i.'m',
+            
+            'date' =>  date('D d M',strtotime( $this->date. "+4hours" )), 
+            'departure' =>  date('H:i', strtotime($this->date. "+4hours")),
+            'arrive' => date('H:i', strtotime( $this->enter. "+4hours" )),
+
+            'Tdate' =>  $this->date,
+            'Tdeparture' =>  $this->date,   
+            'Tarrive' => $this->enter,            
+            
             'vagons' => Railway::sort( $this->vagons,
                 config( 'railway.sort_vagons_field' ),
                 config( 'railway.sort_vagons_order' ) ),
