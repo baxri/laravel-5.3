@@ -539,6 +539,10 @@ class Api
 
         try{
 
+            $lang = $this->getLanguage();
+
+            d($lang);
+
             $args = [
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
