@@ -52,7 +52,7 @@
 
                         <tr class="row-6">
                             <br/> <br/>
-                            <td colspan="3" class="left-side">Help: (995 32) 2 193 195</td>
+                            <td colspan="3" class="left-side">{{trans('railway.HELP')}}: (995 32) 2 193 195</td>
                             <td class="right-side">Price: {{number_format($ticket->amount_from_api/100,2)}} GEL</td>
                         </tr>
                         </tbody>

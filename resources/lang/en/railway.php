@@ -25,10 +25,13 @@ return [
     'THURSDAY' => 'Thursday',
     'FRIDAY' => 'Friday',
 
+    'HELP' => 'Help',
 
     'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
     'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',
 
     'IKLASI' => 'I Class',
     'IIKLASI' => 'II Class',
+
+
 ];
