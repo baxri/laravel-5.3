@@ -35,6 +35,7 @@ return [
 
     'EKSPRESISAFIRMO' => 'ექსპრესი საფირმო',
     'DASAJDOMIEKSPR' => 'დასაჯდომი ექსპრესი',
+    'DASAJDOMI_88' => 'დასაჯდომი 88',
 
     'IKLASI' => 'I კლასი',
     'IIKLASI' => 'II კლასი',
@@ -47,6 +48,4 @@ return [
     'BIZNESKLASI' => 'ბიზნეს კლასი',
     'EKONOMKLASI' => 'ეკონომ კლასი',
     'SHSHPIREBISADGILEBI' => 'შშ პირების ადგილები',
-    'DASAJDOMI_88' => 'დასაჯდომი 88',
-
 ];

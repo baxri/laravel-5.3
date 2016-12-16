@@ -35,6 +35,7 @@ return [
 
     'EKSPRESISAFIRMO' => 'Express',
     'DASAJDOMIEKSPR' => 'Seated Express',
+    'DASAJDOMI_88' => 'Seated 88',
 
     'IKLASI' => 'I Class',
     'IIKLASI' => 'II Class',
@@ -47,6 +48,4 @@ return [
     'BIZNESKLASI' => 'Business Class',
     'EKONOMKLASI' => 'Economy Class',
     'SHSHPIREBISADGILEBI' => 'For disabilities',
-    'DASAJDOMI_88' => 'Seated 88',
-
 ];
