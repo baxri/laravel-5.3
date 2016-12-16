@@ -58,6 +58,7 @@ class CreateTicketsTable extends Migration
             $table->integer('second_mark_count');
             $table->integer('update_passenger_count');
 
+            $table->string('lang');
             $table->timestamps();
         });
 

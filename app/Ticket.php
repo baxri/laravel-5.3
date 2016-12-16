@@ -62,6 +62,7 @@ class Ticket extends RaModel
         'enter_datetime',
 
         'status',
+        'lang'
     ];
 
     public function child(){

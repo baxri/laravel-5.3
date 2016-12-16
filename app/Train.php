@@ -82,12 +82,11 @@ class Train extends RaModel
             'parent_id' => $parent_id,
             'transaction_id' => $transaction_id,
             'status' => Ticket::$pending,
+            'lang' => App::getLocale(),
         ]);
         $ticket->save();
 
         $trains = array_values($categorised);
-
-
 
         return array(
             'ticket' => $ticket->id,

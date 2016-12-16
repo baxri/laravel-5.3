@@ -24,6 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('email_delivery');
             $table->integer('sms_delivery');
             $table->string('ip');
+            $table->string('lang');
             $table->timestampsTz();
         });
 

@@ -25,7 +25,7 @@ class Transaction extends RaModel
 
     protected $fillable = [
         'checkout_id', 'amount', 'commission', 'status', 'index', 'mobile',
-        'index_mobile', 'email', 'ip'
+        'index_mobile', 'email', 'ip', 'lang'
     ];
 
     public static $cancel = -1;

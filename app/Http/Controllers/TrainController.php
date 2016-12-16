@@ -22,6 +22,7 @@ class TrainController extends Controller
             $transaction = Transaction::create([
                 'status' => Transaction::$pending,
                 'ip' => IP::current(),
+                'lang' => App::getLocale(),
             ]);
 
             $result = Train::trains( $date, $from, $to, $transaction->id );
