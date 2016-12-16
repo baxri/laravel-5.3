@@ -533,7 +533,7 @@ class Api
         }
     }
 
-    public function Reports_TrainMovementSchadule_ByTrainId( $leave, $TrainId ){
+    public function Reports_TrainMovementSchadule_ByTrainId( $leave, $TrainId, $passenger_enter_time = null ){
 
         try{
 
@@ -578,10 +578,15 @@ class Api
                 $leave_time = $this->_parseXml($station, 'LeavingTime');
 
                 $stop = new \stdClass();
+                $stop->stop = 0;
                 $stop->station = $this->_parseXml($station, 'Name');
                 $stop->enter_time = $enter_time ? $enter_time : '';
                 $stop->stay_time = $stay_time ? $stay_time : '';
                 $stop->leave_time = $leave_time ? $leave_time : '';
+
+                if( $passenger_enter_time == $enter_time ){
+                    $stop->stop = 1;
+                }
 
                 if( empty($stop->station) )
                     continue;
