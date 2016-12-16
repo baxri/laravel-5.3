@@ -421,15 +421,16 @@ class Ticket extends RaModel
 
     public function toPdf( $download = false ){
 
-        $lang = App::getLocale();
-
-        App::setLocale( $this->lang );
-
         $path = config('railway.pdf_location').$this->request_id.'.pdf';
 
-        $pdf = Pdf::loadView('pdf.ticket-pdf', [
-            'ticket' => $this
-        ]);
+        $lang = App::getLocale();
+        App::setLocale( $this->lang );
+
+            $pdf = Pdf::loadView('pdf.ticket-pdf', [
+                'ticket' => $this
+            ]);
+
+        App::setLocale( $lang );
 
         try{
 
@@ -448,7 +449,7 @@ class Ticket extends RaModel
             }
         }
 
-        App::setLocale( $lang );
+
 
         return $path;
     }
