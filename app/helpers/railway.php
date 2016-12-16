@@ -25,11 +25,22 @@ abstract class Railway
     }
 
     public static function translate( $symbols, $lang = null ){
+
+        if( $lang != null ){
+            $was = App::getLocale();
+            App::setLocale($lang);
+        }
+
         $geo = array( 'ა','ბ','გ','დ','ე','ვ','ზ','თ','ი','კ','ლ','მ','ნ','ო','პ','ჟ','რ','ს','ტ','უ','ფ','ქ','ღ','ყ','შ','ჩ','ც','ძ','წ','ჭ','ხ','ჯ','ჰ',' ','.','(',')','-' );
         $lat = array( 'A','B','G','D','E','V','Z','T','I','K','L','M','N','O','P','J','R','S','T','U','F','K','GH','KH','SH','CH','TS','DZ','TS','CH','KH','J','H','','','','','_' );
         $convertedSymbols = str_replace($geo, $lat, $symbols);
 
         $trans = trans('railway.'.$convertedSymbols);
+
+        if( $lang != null ){
+            App::setLocale($was);
+        }
+
         return $trans;
     }
 
