@@ -575,12 +575,14 @@ class Api
 
             foreach ( $stations as $station ){
 
+                $code = $this->_parseXml($station, 'Code');
                 $enter_time = $this->_parseXml($station, 'EnteringTime');
                 $stay_time = $this->_parseXml($station, 'StayTime');
                 $leave_time = $this->_parseXml($station, 'LeavingTime');
 
                 $stop = new \stdClass();
                 $stop->stop = 0;
+                $stop->code = $code;
                 $stop->station = $this->_parseXml($station, 'Name');
                 $stop->enter_time = $enter_time ? $enter_time : '';
                 $stop->stay_time = $stay_time ? $stay_time : '';
