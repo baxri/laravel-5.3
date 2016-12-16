@@ -421,6 +421,8 @@ class Ticket extends RaModel
 
     public function toPdf( $download = false ){
 
+        $lang = App::getLocale();
+
         App::setLocale( $this->lang );
 
         $path = config('railway.pdf_location').$this->request_id.'.pdf';
@@ -445,6 +447,8 @@ class Ticket extends RaModel
                 $pdf->save($path);
             }
         }
+
+        App::setLocale( $lang );
 
         return $path;
     }
