@@ -14,7 +14,7 @@
 
                                 {{ \App\helpers\Railway::trans(strtoupper(\date('l', \strtotime( $ticket->leave_datetime ))) ) }}
                                 {{ \date('d', \strtotime( $ticket->leave_datetime )) }}
-                                {{ trans('railway.'.strtoupper(\date('F', \strtotime( $ticket->leave_datetime )))) }}
+                                {{ \App\helpers\Railway::trans(strtoupper(\date('F', \strtotime( $ticket->leave_datetime ))) )}}
                             </td>
                         </tr>
                         <tr class="row-2">
