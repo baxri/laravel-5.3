@@ -56,7 +56,7 @@ abstract class Railway
         }catch( \Error $e ){
 
             if( $lang != null ){
-                App::setLocale($was);
+               // App::setLocale($was);
             }
 
             return $station;
@@ -69,7 +69,7 @@ abstract class Railway
         }
 
         if( $lang != null ){
-            App::setLocale($was);
+            //App::setLocale($was);
         }
 
         return $translated;
