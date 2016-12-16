@@ -241,7 +241,10 @@ class Ticket extends RaModel
 
     public function schedule(){
         $api = new Api();
-        $schedule = $api->Reports_TrainMovementSchadule_ByTrainId( $this->leave, $this->train_id );
+        $schedule = $api->Reports_TrainMovementSchadule_ByTrainId(
+            $this->leave,
+            $this->train_id
+            );
         return $schedule;
     }
 

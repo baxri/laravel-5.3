@@ -572,11 +572,16 @@ class Api
             $schedule = [];
 
             foreach ( $stations as $station ){
+
+                $enter_time = $this->_parseXml($station, 'EnteringTime');
+                $stay_time = $this->_parseXml($station, 'StayTime');
+                $leave_time = $this->_parseXml($station, 'LeavingTime');
+
                 $stop = new \stdClass();
                 $stop->station = $this->_parseXml($station, 'Name');
-                $stop->enter_time = $this->_parseXml($station, 'EnteringTime');
-                $stop->stay_time = $this->_parseXml($station, 'StayTime');
-                $stop->leave_time = $this->_parseXml($station, 'LeavingTime');
+                $stop->enter_time = $enter_time ? $enter_time : '';
+                $stop->stay_time = $stay_time ? $stay_time : '';
+                $stop->leave_time = $leave_time ? $leave_time : '';
 
                 if( empty($stop->station) )
                     continue;
