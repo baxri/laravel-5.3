@@ -541,8 +541,6 @@ class Api
 
             $lang = $this->getLanguage();
 
-            d($lang);
-
             $args = [
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
@@ -624,6 +622,10 @@ class Api
     public function getLanguage(){
 
         $lang = App::getLocale();
+
+        echo 'this is a language';
+
+        d($lang);
 
         if( $lang == 'en' ){
             return 'en-GB';
