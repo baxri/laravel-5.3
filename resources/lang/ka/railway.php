@@ -25,4 +25,10 @@ return [
     'THURSDAY' => 'ხუთშაბათი',
     'FRIDAY' => 'პარასკევი',
 
+    'EKSPRESISAFIRMO' => 'ექსპრესი საფირმო',
+    'DASAJDOMIEKSPR' => 'დასაჯდომი ექსპრესი',
+
+    'IKLASI' => 'I კლასი',
+    'IIKLASI' => 'II კლასი',
+
 ];
