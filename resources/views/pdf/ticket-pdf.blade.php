@@ -37,7 +37,11 @@
                         </tr>
                         <tr class="row-1">
                             <td colspan="4">
-                                <p>Train: #{{ $ticket->train }} Vagon: #{{ $ticket->vagon }} Train Class: {{ $ticket->train_class }} Vagon Type: {{ $ticket->vagon_type }} </p>
+                                <p>
+                                    Train: #{{ $ticket->train }}
+                                    Vagon: #{{ $ticket->vagon }}
+                                    Train Class: {{ \App\helpers\Railway::translate($ticket->train_class) }}
+                                    Vagon Type: {{ \App\helpers\Railway::translate($ticket->vagon_type) }} </p>
                             </td>
                         </tr>
 
