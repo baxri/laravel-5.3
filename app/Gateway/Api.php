@@ -628,8 +628,6 @@ class Api
         if( $lang == 'ka' ){
             return 'ka-GE';
         }
-
-        return 'en-US';
     }
 
     public function getError()
