@@ -15,6 +15,7 @@ class Api
     private $_error;
 
     private $key = null;
+    private $lang = 'ka-GE';
 
     public function __construct()
     {
@@ -541,7 +542,7 @@ class Api
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
                 'TrainId' => $TrainId,
-                'Lang' => 'en-US',
+                'Lang' => $this->lang,
             ];
 
             $stations = $this->client->request('GET', $this->gateWay, [
@@ -609,6 +610,10 @@ class Api
 
             return $this->setError( $e->getMessage() );
         }
+    }
+
+    public function setLanguage( $lang ){
+        $this->lang = $lang;
     }
 
     public function getError()
