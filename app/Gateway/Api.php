@@ -539,16 +539,12 @@ class Api
 
         try{
 
-            $lang = $this->getLanguage();
-
             $args = [
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
                 'TrainId' => $TrainId,
-                'Lang' => $lang,
+                'Lang' => $this->getLanguage(),
             ];
-
-            d($args);
 
             $stations = $this->client->request('GET', $this->gateWay, [
                 'query' => $args
@@ -626,14 +622,14 @@ class Api
         $lang = App::getLocale();
 
         if( $lang == 'en' ){
-            return 'en-GB';
+            return 'en-US';
         }
 
         if( $lang == 'ka' ){
             return 'ka-GE';
         }
 
-        return 'en-GB';
+        return 'en-US';
     }
 
     public function getError()
