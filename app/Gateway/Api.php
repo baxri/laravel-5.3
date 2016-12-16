@@ -541,6 +541,7 @@ class Api
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
                 'TrainId' => $TrainId,
+                'Lang' => 'en',
             ];
 
             $stations = $this->client->request('GET', $this->gateWay, [
