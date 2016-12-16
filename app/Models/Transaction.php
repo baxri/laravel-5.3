@@ -351,12 +351,7 @@ class Transaction extends RaModel
 
        $transaction = $this;
 
-        $lang = App::getLocale();
-        App::setLocale( $this->lang );
-
        try{
-
-
 
            Mail::send('emails.notify', [ 'transaction' => $transaction ], function ($m) use ( $transaction, $pdfs ) {
 
@@ -379,11 +374,7 @@ class Transaction extends RaModel
                $this->save();
            }
 
-           App::setLocale( $lang );
-
        }catch( \Swift_TransportException $e ){
-
-           App::setLocale( $lang );
 
             if( $throw_exception )
                 throw new Exception('CANNOT_SEND_EMAIL_Swift_TransportException');
@@ -401,9 +392,6 @@ class Transaction extends RaModel
 
         $text = [];
 
-        $lang = App::getLocale();
-        App::setLocale( $this->lang );
-
         foreach ($this->tickets as $ticket){
 
             if( $ticket->status != Ticket::$success ){
@@ -413,13 +401,9 @@ class Transaction extends RaModel
             $text[] = $ticket->textForSMS();
         }
 
-        App::setLocale( $lang );
-
         if( empty($text) ){
             return;
         }
-
-
 
         $text = implode(';', $text);
 
