@@ -18,8 +18,9 @@ class RailwayServiceProvider extends ServiceProvider
      */
     public function boot( Request $request )
     {
-        App::setLocale($request->input('lang'));
-
+        if( !empty($request->input('lang')) ){
+            App::setLocale($request->input('lang'));
+        }
 
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 
