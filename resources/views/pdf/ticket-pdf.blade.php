@@ -14,7 +14,7 @@
 
                                 {{ \date('l', \strtotime( $ticket->leave_datetime )) }}
                                 {{ \date('d', \strtotime( $ticket->leave_datetime )) }}
-                                {{ \date('F', \strtotime( $ticket->leave_datetime )) }}
+                                {{ trans('railway.'.\date('F', \strtotime( $ticket->leave_datetime ))) }}
                             </td>
                         </tr>
                         <tr class="row-2">

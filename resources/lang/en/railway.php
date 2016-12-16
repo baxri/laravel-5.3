@@ -13,7 +13,7 @@ return [
     'SEPTEMBER' => 'September',
     'OCTOBER' => 'October',
     'NOVEMBER' => 'November',
-    'DECEMBER' => 'December',
+    'DECEMBER' => 'Decemberrr',
 
     'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
     'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',
