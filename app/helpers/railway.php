@@ -24,7 +24,7 @@ abstract class Railway
         return $trains;
     }
 
-    public static function translate( $symbols ){
+    public static function translate( $symbols, $lang = null ){
         $geo = array( 'ა','ბ','გ','დ','ე','ვ','ზ','თ','ი','კ','ლ','მ','ნ','ო','პ','ჟ','რ','ს','ტ','უ','ფ','ქ','ღ','ყ','შ','ჩ','ც','ძ','წ','ჭ','ხ','ჯ','ჰ',' ','.','(',')','-' );
         $lat = array( 'A','B','G','D','E','V','Z','T','I','K','L','M','N','O','P','J','R','S','T','U','F','K','GH','KH','SH','CH','TS','DZ','TS','CH','KH','J','H','','','','','_' );
         $convertedSymbols = str_replace($geo, $lat, $symbols);
@@ -33,19 +33,35 @@ abstract class Railway
         return $trans;
     }
 
-    public static function translateStation( $station ){
+    public static function translateStation( $station, $lang = null ){
+
+        if( $lang != null ){
+            $was = App::getLocale();
+            App::setLocale($lang);
+        }
 
         try{
             $station = Station::where('label_ka', $station )->first();
         }catch( \Error $e ){
-           return $station;
+
+            if( $lang != null ){
+                App::setLocale($was);
+            }
+
+            return $station;
         }
 
         if( App::isLocale('en') ){
-            return $station->label_en;
+            $translated = $station->label_en;
         }else{
-            return $station->label_ka;
+            $translated = $station->label_ka;
         }
+
+        if( $lang != null ){
+            App::setLocale($was);
+        }
+
+        return $translated;
     }
 
 }
