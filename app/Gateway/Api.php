@@ -563,7 +563,7 @@ class Api
             if( !isset( $object->Reports_TrainMovementSchadule_ByTrainIdResult->any ) ){
                 return [];
             }
-            d($object->Reports_TrainMovementSchadule_ByTrainIdResult->any);
+
             $stations = explode('</TrainMovementSchadule_ByTrainId>',
                 $object->Reports_TrainMovementSchadule_ByTrainIdResult->any);
 
