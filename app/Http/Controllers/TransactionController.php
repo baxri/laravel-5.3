@@ -59,12 +59,6 @@ class TransactionController extends Controller
                     Payment::autoReversal('TRANSACTION_NOT_FOUND_WHIT_THIS_ID');
 
                 /*
-                 * @ Set language from transaction
-                 *
-                 * */
-                App::setLocale( $transaction->lang );
-
-                /*
                  * @ If payment is success but tickets
                  * @ Otherwise delete transaction
                  *

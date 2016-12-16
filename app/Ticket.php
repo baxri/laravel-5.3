@@ -421,6 +421,8 @@ class Ticket extends RaModel
 
     public function toPdf( $download = false ){
 
+        App::setLocale( $this->lang );
+
         $path = config('railway.pdf_location').$this->request_id.'.pdf';
 
         $pdf = Pdf::loadView('pdf.ticket-pdf', [

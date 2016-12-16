@@ -8,6 +8,7 @@ use App\Person;
 use App\RaModel;
 use App\Ticket;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use Mockery\Exception;
 
@@ -323,6 +324,8 @@ class Transaction extends RaModel
 
     public function notifyEmail( $throw_exception = false ){
 
+        App::setLocale( $this->lang );
+
         if( $this->status != Transaction::$success ){
             //return;
         }
@@ -381,6 +384,8 @@ class Transaction extends RaModel
     }
 
     public function notifySMS( $throw_exception = false ){
+
+        App::setLocale( $this->lang );
 
         if( $this->status != Transaction::$success ){
             //return;
