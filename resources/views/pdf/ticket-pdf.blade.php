@@ -45,8 +45,8 @@
                                 <p>
                                     {{trans('railway.TRAIN')}}: #{{ $ticket->train }}
                                     {{trans('railway.VAGON')}}: #{{ $ticket->vagon }}
-                                    {{ \App\helpers\Railway::translate($ticket->train_class) }}
-                                    {{ \App\helpers\Railway::translate($ticket->vagon_type) }} </p>
+                                    {{ \App\helpers\Railway::translate($ticket->vagon_class) }}
+                                    ( {{ \App\helpers\Railway::translate($ticket->vagon_type) }} ) </p>
                             </td>
                         </tr>
 
