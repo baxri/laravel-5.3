@@ -149,8 +149,8 @@ class Ticket extends RaModel
             $this->tarif_teen = $trains[0]->TarifTeen;
             $this->tarif_all = $trains[0]->TarifAll;
 
-            $this->leave_datetime = date('Y-m-d h:i:s', strtotime($trains[0]->LeavingDate));
-            $this->enter_datetime = date('Y-m-d h:i:s', strtotime($trains[0]->EnteringDate));
+            $this->leave_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->LeavingDate));
+            $this->enter_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->EnteringDate));
 
             $this->train = $train;
             $this->class = $class;
@@ -239,15 +239,10 @@ class Ticket extends RaModel
         return $this->status;
     }
 
-    public function characteristic(){
-
+    public function schedule(){
         $api = new Api();
-        //$api->setLogKey($this->id);
-
-        $api->TrainCharacteristics( $this->leave, $this->from, $this->to );
-
-        //d($this->leave);
-
+        $schedule = $api->Reports_TrainMovementSchadule_ByTrainId( $this->leave, $this->train_id );
+        return $schedule;
     }
 
     public function toArray()
@@ -290,6 +285,7 @@ class Ticket extends RaModel
              * */
            'prepared_for_payout' => count($prepared_payouts),
            'persons' => $persons,
+           'schedule' => $this->schedule(),
         ];
     }
 

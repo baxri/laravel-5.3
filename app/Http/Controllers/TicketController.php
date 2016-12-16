@@ -162,13 +162,10 @@ class TicketController extends Controller
         }
     }
 
-    public function characteristic( Ticket $ticket )
+    public function schedule( Ticket $ticket )
     {
         try{
-
-            $ticket->characteristic();
-
-
+            return response()->ok($ticket->toArray());
         }catch( Exception $e ){
             return response()->error( $e->getMessage() );
         }

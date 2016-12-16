@@ -533,16 +533,14 @@ class Api
         }
     }
 
-    public function TrainCharacteristics( $leave, $from, $to ){
+    public function Reports_TrainMovementSchadule_ByTrainId( $leave, $TrainId ){
 
         try{
 
             $args = [
-                'op' => 'TrainCharacteristics',
+                'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
-                'FromStation' => $from,
-                'ToStation' => $to,
-                'IsDay' => 0,
+                'TrainId' => $TrainId,
             ];
 
             $stations = $this->client->request('GET', $this->gateWay, [
@@ -550,10 +548,6 @@ class Api
             ]);
 
             $object = json_decode($stations->getBody()->getContents());
-
-            d($object);
-
-
 
             if( $this->key ){
                 Log::create([
@@ -564,7 +558,33 @@ class Api
                 ]);
             }
 
-            return $object;
+            if( !isset( $object->Reports_TrainMovementSchadule_ByTrainIdResult->any ) ){
+                return [];
+            }
+
+            $stations = explode('</TrainMovementSchadule_ByTrainId>',
+                $object->Reports_TrainMovementSchadule_ByTrainIdResult->any);
+
+            if( empty( $stations ) ){
+                return [];
+            }
+
+            $schedule = [];
+
+            foreach ( $stations as $station ){
+                $stop = new \stdClass();
+                $stop->station = $this->_parseXml($station, 'Name');
+                $stop->enter_time = $this->_parseXml($station, 'EnteringTime');
+                $stop->stay_time = $this->_parseXml($station, 'StayTime');
+                $stop->leave_time = $this->_parseXml($station, 'LeavingTime');
+
+                if( empty($stop->station) )
+                    continue;
+
+                $schedule[] = $stop;
+            }
+
+            return $schedule;
         }catch ( RequestException $e ){
 
             if( $this->key ){
@@ -589,5 +609,16 @@ class Api
     {
         $this->_error = $error;
         return false;
+    }
+
+    private function _parseXml($xml, $tag)
+    {
+        $regV = '/(?<=^|>)[^><]+?(?=<\/' . $tag . '|$)/i';
+        preg_match($regV, $xml, $result);
+        if (empty($result))
+        {
+            return false;
+        }
+        return $result[0];
     }
 }
