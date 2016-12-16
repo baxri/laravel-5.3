@@ -24,6 +24,22 @@ abstract class Railway
         return $trains;
     }
 
+    public static function trans( $symbols, $lang = null ){
+
+        if( $lang != null ){
+            $was = App::getLocale();
+            App::setLocale($lang);
+        }
+
+        $trans = trans('railway.'.$symbols);
+
+        if( $lang != null ){
+            App::setLocale($was);
+        }
+
+        return $trans;
+    }
+
     public static function translate( $symbols, $lang = null ){
 
         if( $lang != null ){
