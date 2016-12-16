@@ -6,6 +6,7 @@ use App\Gateway\Ip;
 use App\Ticket;
 use App\Train;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
 class TrainController extends Controller

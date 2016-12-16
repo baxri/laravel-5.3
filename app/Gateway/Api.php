@@ -6,6 +6,7 @@ use App\Models\Log;
 use App\TicketLog;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\App;
 
 class Api
 {
@@ -542,7 +543,7 @@ class Api
                 'op' => 'Reports_TrainMovementSchadule_ByTrainId',
                 'LeavingDate' => $leave,
                 'TrainId' => $TrainId,
-                'Lang' => $this->lang,
+                'Lang' => $this->getLanguage(),
             ];
 
             $stations = $this->client->request('GET', $this->gateWay, [
@@ -614,6 +615,21 @@ class Api
 
     public function setLanguage( $lang ){
         $this->lang = $lang;
+    }
+
+    public function getLanguage(){
+
+        $lang = App::getLocale();
+
+        if( $lang == 'en' ){
+            return 'en-GB';
+        }
+
+        if( $lang == 'ka' ){
+            return 'ka-GE';
+        }
+
+        return 'en-GB';
     }
 
     public function getError()

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Gateway\Payment;
 use App\Transaction;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
@@ -15,8 +16,11 @@ class RailwayServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot( Request $request )
     {
+        App::setLocale($request->input('lang'));
+
+
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 
             $json = (array) $json;
