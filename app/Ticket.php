@@ -449,8 +449,6 @@ class Ticket extends RaModel
             }
         }
 
-
-
         return $path;
     }
 
