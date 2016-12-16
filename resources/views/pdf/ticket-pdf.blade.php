@@ -19,10 +19,10 @@
                             <td colspan="4">{{ $ticket->train_name }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">Source Station: {{ $ticket->source_station }} </td>
+                            <td colspan="4">Source Station: {{ \App\helpers\Railway::translate($ticket->source_station) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">Destination Station: {{ $ticket->destination_station }} </td>
+                            <td colspan="4">Destination Station: {{ \App\helpers\Railway::translate($ticket->destination_station) }} </td>
                         </tr>
                         <tr class="row-1">
                             <td colspan="4">Leave Time: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
