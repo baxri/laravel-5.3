@@ -629,6 +629,8 @@ class Api
             return 'ka-GE';
         }
 
+        d($lang);
+
         return 'en-GB';
     }
 
