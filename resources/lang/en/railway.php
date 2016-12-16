@@ -28,6 +28,9 @@ return [
     'HELP' => 'Help',
     'TRAIN' => 'Train',
     'VAGON' => 'Vagon',
+    'SOURCE_STATION' => 'Source Station',
+    'DESTINATION_STATION' => 'Destination Station',
+    'LEAVE_TIME' => 'Leave time',
 
     'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
     'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',

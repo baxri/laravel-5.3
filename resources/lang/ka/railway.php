@@ -28,6 +28,9 @@ return [
     'HELP' => 'დახმარება',
     'TRAIN' => 'მატარებელი',
     'VAGON' => 'ვაგონი',
+    'SOURCE_STATION' => 'გასვსლის სადგური',
+    'DESTINATION_STATION' => 'ჩასვლის სადგური',
+    'LEAVE_TIME' => 'გასვლის დრო',
 
     'EKSPRESISAFIRMO' => 'ექსპრესი საფირმო',
     'DASAJDOMIEKSPR' => 'დასაჯდომი ექსპრესი',

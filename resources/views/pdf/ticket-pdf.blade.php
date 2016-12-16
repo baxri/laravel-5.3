@@ -21,13 +21,13 @@
                             <td colspan="2" class="right-side">Reuqest ID: {{$ticket->request_id}}</td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">Source Station: {{ \App\helpers\Railway::translateStation($ticket->source_station) }} </td>
+                            <td colspan="4">{{trans('railway.SOURCE_STATION')}}: {{ \App\helpers\Railway::translateStation($ticket->source_station) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">Destination Station: {{ \App\helpers\Railway::translateStation($ticket->destination_station) }} </td>
+                            <td colspan="4">{{trans('railway.DESTINATION_STATION')}}: {{ \App\helpers\Railway::translateStation($ticket->destination_station) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">Leave Time: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
+                            <td colspan="4">{{trans('railway.LEAVE_TIME')}}: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
                         </tr>
                         <tr class="row-1">
                             <td>
