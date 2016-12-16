@@ -31,6 +31,7 @@ return [
     'SOURCE_STATION' => 'Source Station',
     'DESTINATION_STATION' => 'Destination Station',
     'LEAVE_TIME' => 'Leave time',
+    'PRICE' => 'Price',
 
     'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
     'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',

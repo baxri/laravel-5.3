@@ -31,6 +31,7 @@ return [
     'SOURCE_STATION' => 'გასვსლის სადგური',
     'DESTINATION_STATION' => 'ჩასვლის სადგური',
     'LEAVE_TIME' => 'გასვლის დრო',
+    'PRICE' => 'ფასი',
 
     'EKSPRESISAFIRMO' => 'ექსპრესი საფირმო',
     'DASAJDOMIEKSPR' => 'დასაჯდომი ექსპრესი',
