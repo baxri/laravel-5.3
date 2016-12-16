@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Station;
+use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
 class StationController extends Controller
 {
     public function index()
     {
-        $stations = Station::all([
-            'label', 'value'
-        ]);
+        if( App::getLocale() == 'en' ){
+            $stations = Station::all([
+                'label_en', 'value'
+            ]);
+        }else{
+            $stations = Station::all([
+                'label_ka', 'value'
+            ]);
+        }
 
         return response()->ok( $stations->toArray() );
     }

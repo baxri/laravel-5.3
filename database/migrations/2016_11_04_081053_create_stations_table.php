@@ -15,7 +15,8 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('label');
+            $table->string('label_ka');
+            $table->string('label_en');
             $table->string('value');
             $table->string('filtercode');
             $table->integer('ordering');

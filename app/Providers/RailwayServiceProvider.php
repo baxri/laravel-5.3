@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Gateway\Payment;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -18,9 +17,19 @@ class RailwayServiceProvider extends ServiceProvider
      */
     public function boot( Request $request )
     {
+        /*
+         * Set Application Language (Localization)
+         *
+         * */
+
         if( in_array($request->input('lang'), ['ka', 'en']) ){
             App::setLocale($request->input('lang'));
         }
+
+        /*
+         * Configure Application responses
+         *
+         * */
 
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 

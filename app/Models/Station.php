@@ -23,7 +23,9 @@ class Station extends RaModel
     public static function refresh(){
 
         $api = new Api();
-        $stations = $api->GetTimeTableStations();
+
+        $stations = $api->Trains_GetMultilingualStations('ka-GE');
+        $stations_en = $api->Trains_GetMultilingualStations('en-US');
 
         if( !$stations ){
             throw new Exception($api->getError());
@@ -31,7 +33,7 @@ class Station extends RaModel
 
         $ordering = 0;
 
-        foreach ( $stations as $station ){
+        foreach ( $stations as $key => $station ){
 
             $ordering = $ordering + 1;
 
@@ -39,7 +41,9 @@ class Station extends RaModel
                 'value' => $station->Code
             ) );
 
-            $entity->label = $station->value;
+            $entity->label_ka = $station->value;
+            $entity->label_en = $stations_en[$key]->value;
+
             $entity->filtercode = $station->FilterCode;
             $entity->ordering = $ordering;
 
@@ -59,5 +63,18 @@ class Station extends RaModel
         return $this->published == 1 ?
             '<span style="color: lightgreen;">Published</span>':
             '<span style="color: red;">UnPublished</span>';
+    }
+
+    public function toArray(){
+
+        $label = '';
+
+        if( isset($this->label_ka)) $label = $this->label_ka;
+        if( isset($this->label_en)) $label = $this->label_en;
+
+        return  [
+            'label' => $label,
+            'value' => $this->value
+        ];
     }
 }

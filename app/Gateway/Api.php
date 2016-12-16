@@ -613,6 +613,42 @@ class Api
         }
     }
 
+    public function Trains_GetMultilingualStations($lang){
+
+        try{
+
+            $stations = $this->client->request('GET', $this->gateWay, [
+                'query' => [
+                    'op' => 'Trains_GetMultilingualStations',
+                    'Lang' => $lang,
+                ]
+            ]);
+
+            $object = json_decode($stations->getBody()->getContents());
+
+            if( !isset( $object->Trains_GetMultilingualStationsResult->any ) ){
+                return [];
+            }
+
+            $stations_exploded = explode('</Trains_GetMultilingualStations>',
+                $object->Trains_GetMultilingualStationsResult->any);
+
+            $stations = [];
+
+            foreach ( $stations_exploded as $explode ){
+                $station = new \stdClass();
+                $station->value = $this->_parseXml($explode, 'Name');
+                $station->Code = $this->_parseXml($explode, 'Code');
+                $station->FilterCode = $this->_parseXml($explode, 'Code');
+                $stations[] = $station;
+            }
+
+            return $stations;
+        }catch ( RequestException $e ){
+            return $this->setError( $e->getMessage() );
+        }
+    }
+
     public function setLanguage( $lang ){
         $this->lang = $lang;
     }
