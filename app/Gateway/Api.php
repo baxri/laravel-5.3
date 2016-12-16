@@ -621,6 +621,8 @@ class Api
 
         $lang = App::getLocale();
 
+        d($lang);
+
         if( $lang == 'en' ){
             return 'en-US';
         }
