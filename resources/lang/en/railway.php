@@ -33,11 +33,19 @@ return [
     'LEAVE_TIME' => 'Leave time',
     'PRICE' => 'Price',
 
-    'EKSPRESISAFIRMO' => 'Eqspresi safirmo',
-    'DASAJDOMIEKSPR' => 'Dasajdomi Eqspresi',
+    'EKSPRESISAFIRMO' => 'Express',
+    'DASAJDOMIEKSPR' => 'Seated Express',
 
     'IKLASI' => 'I Class',
     'IIKLASI' => 'II Class',
-
+    'KUPIREBULI' => 'Compartment Carriage',
+    'RBILI' => 'Soft seated',
+    'SAERTO' => 'Day Coach',
+    'PLATSKARTI' => 'Number reservered seats',
+    'DASAJDOMI' => 'Seated',
+    'MODERNIZEBULI' => 'Modernized',
+    'BIZNESKLASI' => 'Business Class',
+    'EKONOMKLASI' => 'Economy Class',
+    'SHSHPIREBISADGILEBI' => 'For disabilities',
 
 ];

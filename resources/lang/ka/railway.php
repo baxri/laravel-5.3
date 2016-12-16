@@ -38,5 +38,14 @@ return [
 
     'IKLASI' => 'I კლასი',
     'IIKLASI' => 'II კლასი',
+    'KUPIREBULI' => 'კუპირებული',
+    'RBILI' => 'რბილი',
+    'SAERTO' => 'საერთო',
+    'PLATSKARTI' => 'პლაცკარტი',
+    'DASAJDOMI' => 'დასაჯდომი',
+    'MODERNIZEBULI' => 'მოდერნიზებული',
+    'BIZNESKLASI' => 'ბიზნეს კლასი',
+    'EKONOMKLASI' => 'ეკონომ კლასი',
+    'SHSHPIREBISADGILEBI' => 'შშ პირების ადგილები',
 
 ];
