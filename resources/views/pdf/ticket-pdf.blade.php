@@ -16,9 +16,6 @@
                             <td colspan="2" class="right-side">Reuqest ID: {{$ticket->request_id}}</td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">{{ $ticket->train_name }} </td>
-                        </tr>
-                        <tr class="row-1">
                             <td colspan="4">Source Station: {{ \App\helpers\Railway::translateStation($ticket->source_station) }} </td>
                         </tr>
                         <tr class="row-1">
