@@ -10,7 +10,12 @@
                     <table>
                         <tbody>
                         <tr class="row-2">
-                            <td colspan="2" class="left-side">{{ \date('l d F', \strtotime( $ticket->leave_datetime )) }}</td>
+                            <td colspan="2" class="left-side">
+
+                                {{ \date('l', \strtotime( $ticket->leave_datetime )) }}
+                                {{ \date('d', \strtotime( $ticket->leave_datetime )) }}
+                                {{ \date('F', \strtotime( $ticket->leave_datetime )) }}
+                            </td>
                         </tr>
                         <tr class="row-2">
                             <td colspan="2" class="right-side">Reuqest ID: {{$ticket->request_id}}</td>
