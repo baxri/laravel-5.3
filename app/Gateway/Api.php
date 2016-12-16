@@ -535,6 +535,61 @@ class Api
         }
     }
 
+    public function TrainCharacteristics( $date, $from, $to ){
+
+        try{
+
+            $date = str_replace( '-', '-', $date );
+
+            $args = [
+                'op' => 'TrainCharacteristics',
+
+                'LeavingDate' => $date,
+                'FromStation' => $from,
+                'ToStation' => $to,
+                'IsDay' => 'yes',
+                'Lang' => $this->getLanguage()
+            ];
+
+            $stations = $this->client->request('GET', $this->gateWay, [
+                'query' => $args
+            ]);
+
+            $object = json_decode($stations->getBody()->getContents());
+
+            if( !isset( $object->TrainCharacteristicsResult->any ) ){
+                return [];
+            }
+
+            $trains = explode('</TrainCharacteristicsDataTable>',
+                $object->TrainCharacteristicsResult->any);
+
+            if( empty( $trains ) ){
+                return [];
+            }
+
+            $trainCharacteristicsDataTable = [];
+
+
+
+            foreach ( $trains as $train ){
+                $station = new \stdClass();
+
+                $station->TrainNumber = $this->_parseXml($train, 'TrainNumber');
+                $station->trainname = $this->_parseXml($train, 'TrainRoute');
+                $station->LeavingTime = $this->_parseXml($train, 'LeavingTime');
+                $station->EnteringTime = $this->_parseXml($train, 'ArrivalTime');
+                $station->MoneyAmount = $this->_parseXml($train, 'ArrivalTime');
+
+                $trainCharacteristicsDataTable[] = $station;
+            }
+
+            return $object->trains;
+        }catch ( RequestException $e ){
+            return $this->setError( $e->getMessage() );
+        }
+    }
+
     public function Reports_TrainMovementSchadule_ByTrainId( $leave, $TrainId, $passenger_enter_time = null ){
 
         try{

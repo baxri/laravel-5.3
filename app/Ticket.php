@@ -3,11 +3,14 @@
 namespace App;
 
 use App\Gateway\Api;
+use App\helpers\Railway;
 use App\Models\Log;
+use App\Models\Station;
 use App\Models\Transaction;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Mockery\Exception;
@@ -129,18 +132,43 @@ class Ticket extends RaModel
                 throw new Exception('SEARCH_TRAIN_RESULT_IS_EMPTY');
             }
 
+            $source = Station::where('value', $this->from)->get();
+            $destination = Station::where('value', $this->to)->get();
+
+           /* if( App::isLocale('en') ){
+                $source = $source[0]->label_en;
+                $destination = $destination[0]->label_en;
+            }else{
+                $source = $source[0]->label_ka;
+                $destination = $destination[0]->label_ka;
+            }*/
+
+            $source = $source[0]->label_ka;
+            $destination = $destination[0]->label_ka;
+
             $this->internet_purchase_id = $trains[0]->InternetPurchaseId;
             $this->request_id = $trains[0]->RequestId;
             $this->request_guid = $trains[0]->RequestGuid;
 
             $this->train_id = $trains[0]->TrainId;
-            $this->train_name = $trains[0]->TrainName;
-            $this->source_station = $trains[0]->SourceStationName;
-            $this->destination_station = $trains[0]->DestinationStationName;
 
-            $this->train_class = $trains[0]->TrainClassName;
+
+            $this->train_name = trim(str_replace("  ", "", $trains[0]->TrainName));
+            //$this->source_station = $trains[0]->SourceStationName;
+            //$this->destination_station = $trains[0]->DestinationStationName;
+
+            //$this->train_name = $source.'-'.$destination;
+            $this->source_station = $source;
+            $this->destination_station = $destination;
 
             $this->vagon = $trains[0]->VagonNumber;
+
+            /*
+             * Need translate
+             *
+             * */
+
+            $this->train_class = $trains[0]->TrainClassName;
             $this->vagon_type = $trains[0]->VagonTypeName;
             $this->vagon_class = $trains[0]->VagonClassName;
             $this->vagon_rank = $trains[0]->VagonRankName;
@@ -274,11 +302,10 @@ class Ticket extends RaModel
 
            //'status' => $this->status,
            //'reason' => $this->reason,
-           'name' => $this->train_name,
-           'source' => $this->source_station,
-           'destination' => $this->destination_station,
-
-            'vagon_class' => $this->vagon_class,
+           'name' => Railway::translate($this->train_name),
+           'source' => Railway::translateStation($this->source_station),
+           'destination' => Railway::translateStation($this->destination_station),
+            'vagon_class' => Railway::translate($this->vagon_class),
            //'get_transaction_status' => (int)$this->get_transaction_status,
            'price' => number_format( $this->amount_from_api/100, 2 ),
 

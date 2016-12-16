@@ -6,6 +6,7 @@ use App\Gateway\Api;
 use App\helpers\Railway;
 use App\Models\Station;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
 class Train extends RaModel
@@ -20,6 +21,17 @@ class Train extends RaModel
     public static $allvagons = [];
 
     public static function trains( $date, $from, $to, $transaction_id, $parent_id = 0 ){
+
+        $source = Station::where('value', $from)->get();
+        $destination = Station::where('value', $to)->get();
+
+        if( App::isLocale('en') ){
+            $source = $source[0]->label_en;
+            $destination = $destination[0]->label_en;
+        }else{
+            $source = $source[0]->label_ka;
+            $destination = $destination[0]->label_ka;
+        }
 
         $api = new Api();
         $trains = $api->GetFreePlacePrices( $date, $from, $to );
@@ -42,7 +54,8 @@ class Train extends RaModel
             if( !isset( $categorised[$item->TrainNumber] ) ){
                 $train = new Train([
                     'number' => $item->TrainNumber,
-                    'name'   => $item->trainname,
+                    //'name'   => $item->trainname,
+                    'name'   => $source.'-'.$destination,
                     'date'   => $item->LeavingTime,
                     'time'   => $item->LeavingTime,
                     'enter'  => $item->EnteringTime,
@@ -74,14 +87,13 @@ class Train extends RaModel
 
         $trains = array_values($categorised);
 
-        $source = Station::where('value', $from)->get();
-        $destination = Station::where('value', $to)->get();
+
 
         return array(
             'ticket' => $ticket->id,
 
-            'source' => $source[0]->label,
-            'destination' => $destination[0]->label,
+            'source' => $source,
+            'destination' => $destination,
 
             'date' => $train->toArray()['date'],
             'trains' => Railway::sort( $trains, 'time', SORT_ASC, true ),
@@ -120,9 +132,9 @@ class Train extends RaModel
             'departure' =>  date('H:i', strtotime($this->date. "+4hours")),
             'arrive' => date('H:i', strtotime( $this->enter. "+4hours" )),
 
-            'Tdate' =>  $this->date,
-            'Tdeparture' =>  $this->date,   
-            'Tarrive' => $this->enter,            
+            //'Tdate' =>  $this->date,
+            //'Tdeparture' =>  $this->date,
+            //'Tarrive' => $this->enter,
             
             'vagons' => Railway::sort( $this->vagons,
                 config( 'railway.sort_vagons_field' ),

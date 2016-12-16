@@ -10,15 +10,9 @@ class StationController extends Controller
 {
     public function index()
     {
-        if( App::isLocale('en') ){
-            $stations = Station::all([
-                'label_en', 'value'
-            ]);
-        }else{
-            $stations = Station::all([
-                'label_ka', 'value'
-            ]);
-        }
+        $stations = Station::all([
+            'label_'.App::getLocale('en'), 'value'
+        ]);
 
         return response()->ok( $stations->toArray() );
     }

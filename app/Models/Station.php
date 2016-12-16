@@ -41,8 +41,8 @@ class Station extends RaModel
                 'value' => $station->Code
             ) );
 
-            $entity->label_ka = $station->value;
-            $entity->label_en = $stations_en[$key]->value;
+            $entity->label_ka = trim(str_replace("  ", "", $station->value));
+            $entity->label_en = trim(str_replace("  ", "", $stations_en[$key]->value));
 
             $entity->filtercode = $station->FilterCode;
             $entity->ordering = $ordering;

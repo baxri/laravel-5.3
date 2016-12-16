@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\helpers\Railway;
 
 class Vagon extends RaModel
 {
@@ -16,7 +16,7 @@ class Vagon extends RaModel
             'train' => $this->train,
             'class_name' => $this->class,
             'rank' => $this->rank,
-            'name' => $this->name,
+            'name' => Railway::translate($this->name),
             'amount' => number_format( $this->amount/100, 2 ),
             'enable' => $this->enable,
         ];
