@@ -12,22 +12,22 @@
                         <tr class="row-2">
                             <td colspan="2" class="left-side">
 
-                                {{ \App\helpers\Railway::trans(strtoupper(\date('l', \strtotime( $ticket->leave_datetime ))) ) }}
+                                {{ \App\helpers\Railway::trans(strtoupper(\date('l', \strtotime( $ticket->leave_datetime ))), $ticket->lang ) }}
                                 {{ \date('d', \strtotime( $ticket->leave_datetime )) }}
-                                {{ \App\helpers\Railway::trans(strtoupper(\date('F', \strtotime( $ticket->leave_datetime ))) )}}
+                                {{ \App\helpers\Railway::trans(strtoupper(\date('F', \strtotime( $ticket->leave_datetime ))), $ticket->lang )}}
                             </td>
                         </tr>
                         <tr class="row-2">
                             <td colspan="2" class="right-side">Reuqest ID: {{$ticket->request_id}}</td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">{{\App\helpers\Railway::trans('SOURCE_STATION')}}: {{ \App\helpers\Railway::translateStation($ticket->source_station, $ticket->lang) }} </td>
+                            <td colspan="4">{{\App\helpers\Railway::trans('SOURCE_STATION', $ticket->lang)}}: {{ \App\helpers\Railway::translateStation($ticket->source_station, $ticket->lang) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">{{\App\helpers\Railway::trans('DESTINATION_STATION')}}: {{ \App\helpers\Railway::translateStation($ticket->destination_station, $ticket->lang) }} </td>
+                            <td colspan="4">{{\App\helpers\Railway::trans('DESTINATION_STATION', $ticket->lang)}}: {{ \App\helpers\Railway::translateStation($ticket->destination_station, $ticket->lang) }} </td>
                         </tr>
                         <tr class="row-1">
-                            <td colspan="4">{{\App\helpers\Railway::trans('LEAVE_TIME')}}: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
+                            <td colspan="4">{{\App\helpers\Railway::trans('LEAVE_TIME', $ticket->lang)}}: {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}</td>
                         </tr>
                         <tr class="row-1">
                             <td>
@@ -43,17 +43,17 @@
                         <tr class="row-1">
                             <td colspan="4">
                                 <p>
-                                    {{\App\helpers\Railway::trans('TRAIN')}}: #{{ $ticket->train }}
-                                    {{\App\helpers\Railway::trans('VAGON')}}: #{{ $ticket->vagon }}
-                                    {{ \App\helpers\Railway::translate($ticket->vagon_class) }}
-                                    ( {{ \App\helpers\Railway::translate($ticket->vagon_type) }} ) </p>
+                                    {{\App\helpers\Railway::trans('TRAIN', $ticket->lang)}}: #{{ $ticket->train }}
+                                    {{\App\helpers\Railway::trans('VAGON', $ticket->lang)}}: #{{ $ticket->vagon }}
+                                    {{ \App\helpers\Railway::translate($ticket->vagon_class, $ticket->lang) }}
+                                    ( {{ \App\helpers\Railway::translate($ticket->vagon_type, $ticket->lang) }} ) </p>
                             </td>
                         </tr>
 
                         <tr class="row-6">
                             <br/> <br/>
-                            <td colspan="3" class="left-side">{{\App\helpers\Railway::trans('HELP')}}: (995 32) 2 193 195</td>
-                            <td class="right-side">{{\App\helpers\Railway::trans('PRICE')}}: {{number_format($ticket->amount_from_api/100,2)}} GEL</td>
+                            <td colspan="3" class="left-side">{{\App\helpers\Railway::trans('HELP', $ticket->lang)}}: (995 32) 2 193 195</td>
+                            <td class="right-side">{{\App\helpers\Railway::trans('PRICE', $ticket->lang)}}: {{number_format($ticket->amount_from_api/100,2)}} GEL</td>
                         </tr>
                         </tbody>
                     </table>
