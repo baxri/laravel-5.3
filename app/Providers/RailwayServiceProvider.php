@@ -18,7 +18,7 @@ class RailwayServiceProvider extends ServiceProvider
      */
     public function boot( Request $request )
     {
-        if( !empty($request->input('lang')) ){
+        if( in_array($request->input('lang'), ['ka', 'en']) ){
             App::setLocale($request->input('lang'));
         }
 
