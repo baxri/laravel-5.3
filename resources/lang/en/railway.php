@@ -7,7 +7,7 @@ return [
     'FEBRUARY' => 'February',
     'MARCH' => 'March',
     'APRIL' => 'April',
-    'MAY' => 'January',
+    'MAY' => 'May',
     'JUNE' => 'June',
     'JULY' => 'July',
     'AUGUST' => 'August',
@@ -21,7 +21,7 @@ return [
     'SUNDAY' => 'Sunday',
     'MONDAY' => 'Monday',
     'TUESDAY' => 'Tuesday',
-    'WEDNESDAY' => 'Wednesdayyyy',
+    'WEDNESDAY' => 'Wednesday',
     'THURSDAY' => 'Thursday',
     'FRIDAY' => 'Friday',
 
