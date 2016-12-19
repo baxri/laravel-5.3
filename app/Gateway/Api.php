@@ -570,8 +570,6 @@ class Api
 
             $trainCharacteristicsDataTable = [];
 
-
-
             foreach ( $trains as $train ){
                 $station = new \stdClass();
 

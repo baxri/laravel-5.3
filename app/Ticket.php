@@ -585,11 +585,11 @@ class Ticket extends RaModel
         $result = $api->GetMoneyAmount( $this->prepare_online_payment_result );
 
         if( $result->GetMoneyAmountResult <= 0 ){
-            throw new Exception("CANNOT_RETRIVE_AMOUNT_FROM_RAILWAY_SERVER");
+            throw new Exception("CANNOT_RETRIEVE_AMOUNT_FROM_RAILWAY_SERVER");
         }
 
         if( empty( $result->GetMoneyAmountResult ) ){
-            throw new Exception('CANNOT_RETRIVE_MONEY_FROM_API_SERVER');
+            throw new Exception('CANNOT_RETRIEVE_MONEY_FROM_API_SERVER');
         }
 
         $this->amount_from_api = $result->GetMoneyAmountResult;
