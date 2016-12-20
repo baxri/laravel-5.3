@@ -32,7 +32,7 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
     Route::get('transaction/ticket/{ticket}/html', 'Admin\TransactionCrudController@html');
     Route::post('transaction/ticket/{ticket}/sync', 'Admin\TransactionCrudController@sync');
 
-    Route::get('transaction/export', 'Admin\TransactionCrudController@export');
+    Route::get('transaction/myexport', 'Admin\TransactionCrudController@export');
 });
 
 Auth::routes();
