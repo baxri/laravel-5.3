@@ -33,8 +33,13 @@ class StationCrudController extends CrudController {
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Label',
-            'name' => 'label',
+            'label' => 'Georgian',
+            'name' => 'label_ka',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'English',
+            'name' => 'label_en',
         ]);
 
         $this->crud->addColumn([
