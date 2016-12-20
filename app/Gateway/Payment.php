@@ -48,8 +48,8 @@ class Payment
             $form_data['MerchantOrderID'] = $params['transaction_id'];
             $form_data['OrderPrice'] = $params['amount'];
             $form_data['BackLink'] = base64_encode($params['success'].'|'.$params['cancel']);
-            $form_data['OrderName'] = $params['order_name'];
-            $form_data['OrderDescription'] = $params['description'];
+            //$form_data['OrderName'] = $params['order_name'];
+           // $form_data['OrderDescription'] = $params['description'];
             $form_data['Language'] = $params['language'];
 
             $form_data['Hash'] = $this->_hash($form_data);
