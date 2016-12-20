@@ -68,7 +68,12 @@ class StationCrudController extends CrudController {
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         $this->crud->addField([
-            'name' => 'label',
+            'name' => 'label_ka',
+            'type' => 'text'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'label_en',
             'type' => 'text'
         ]);
 
