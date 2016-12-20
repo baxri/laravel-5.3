@@ -52,12 +52,12 @@ class Payment
             $form_data['OrderDescription'] = $params['description'];
             $form_data['Language'] = $params['language'];
 
+            $form_data['Hash'] = $this->_hash($form_data);
+
             $form_data['Items[]'] = $params['language'][0];
 
             if( isset($params['language'][1]) )
                 $form_data['Items[]'] = $params['language'][1];
-
-            $form_data['Hash'] = $this->_hash($form_data);
 
             $stations = $this->client->request('POST', $this->gateWay.'/createorder', [
                 'form_params' => $form_data
