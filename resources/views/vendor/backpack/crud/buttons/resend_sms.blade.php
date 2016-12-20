@@ -9,7 +9,7 @@
 <script>
     jQuery(document).ready(function($) {
 
-        alert("sdf");
+        console.log('okokok');
 
         $(".resend-button-{{$entry->getKey()}}-sms").click(function(){
 
