@@ -9,8 +9,6 @@
 <script>
     jQuery(document).ready(function($) {
 
-        console.log('okokok');
-
         $(".resend-button-{{$entry->getKey()}}-sms").click(function(){
 
             var button =  $(this);
