@@ -156,7 +156,7 @@ class Transaction extends RaModel
                                  Railway::translateStation($this->tickets[0]->destination_station). " - " .
                                  count($this->tickets)."x",
             "success"         => config( 'railway.checkout_success' ).$this->id,
-            "cancel"          => config( 'railway.checkout_cancel' ).$this->id,
+            "cancel"          => config( 'railway.checkout_cancel' ),
             "amount"          => $this->amount + $this->commission,
             "order_name"      => [],
             "language"        => $language,

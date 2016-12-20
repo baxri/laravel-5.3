@@ -52,8 +52,6 @@ class StationCrudController extends CrudController {
             'name' => 'filtercode',
         ]);
 
-
-
         $this->crud->addColumn([
             'label' => 'Published',
             'name' => 'published',
