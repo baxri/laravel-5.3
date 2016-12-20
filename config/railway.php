@@ -66,7 +66,7 @@ return [
     |
     */
 
-    'checkout_success' => 'http://new.matarebeli.ge/payment/success/',
+    'checkout_success' => 'http://new.matarebeli.ge/payment/success/', /* transaction_id */
     'checkout_cancel' => 'http://new.matarebeli.ge/payment/cancel',
 
     /*

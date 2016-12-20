@@ -180,8 +180,8 @@ class TransactionCrudController extends CrudController {
             function( $value ) {
                 if($value)
                     $this->crud->addClause( 'where', 'status', $value );
-                else
-                    $this->crud->addClause( 'where', 'status', Transaction::$success );
+                //else
+                   // $this->crud->addClause( 'where', 'status', Transaction::$success );
             });
 
         $this->crud->addFilter([
@@ -325,7 +325,7 @@ class TransactionCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
+        //$this->crud->enableAjaxTable();
         
         
         // ------ DATATABLE EXPORT BUTTONS
