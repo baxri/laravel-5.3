@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Gateway\Payment;
 use App\Gateway\Sms;
+use App\helpers\Railway;
 use App\Person;
 use App\RaModel;
 use App\Ticket;
@@ -131,11 +132,11 @@ class Transaction extends RaModel
             $language = 'ge';
         }
 
-        $language = 'en';
-
         $params = array(
             "transaction_id"  => $this->id,
-            "description"     => $this->tickets[0]->train_name . " - " . count($this->tickets)."x",
+            "description"     => Railway::translateStation($this->tickets[0]->source_station)."-".
+                                 Railway::translateStation($this->tickets[0]->destination_station). " - " .
+                                 count($this->tickets)."x",
             "success"         => config( 'railway.checkout_success' ).'/'.$this->id,
             "cancel"          => config( 'railway.checkout_cancel' ).'/'.$this->id,
             "amount"          => $this->amount + $this->commission,
