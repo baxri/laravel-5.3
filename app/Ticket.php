@@ -241,6 +241,11 @@ class Ticket extends RaModel
 
         if( !isset( $result->StatusCode ) ){
             $this->status = Ticket::$hold;
+
+            $this->persons()->update([
+                'status' => Person::$hold
+            ]);
+
         }
 
         if( $result->StatusCode == 0 ){
