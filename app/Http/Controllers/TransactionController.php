@@ -36,7 +36,13 @@ class TransactionController extends Controller
             $Status = $request->input('Status');
             $Hash = $request->input('Hash');
 
+            if( empty($MerchantOrderID) ){
+                die('NULL MerchantOrderID');
+            }
+
             $transaction = Transaction::find( $MerchantOrderID );
+
+
 
             $log = [
                 'transaction_id' => $transaction->id,
