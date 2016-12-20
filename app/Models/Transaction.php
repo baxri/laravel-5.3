@@ -96,10 +96,28 @@ class Transaction extends RaModel
 
     public function bayer( $bayer ){
        $this->email = $bayer['email'];
+
+       if( empty( $this->email ) ){
+           throw new Exception('EMAIL_NOT_DEFINED');
+       }
+
+       if ( !filter_var( $this->email, FILTER_VALIDATE_EMAIL ) ) {
+           throw new Exception('INVALID_EMAIL_ADDRESS');
+       }
+
        $this->setMobile($bayer['index'], $bayer['mobile'] );
     }
 
     public function setMobile( $index, $mobile ){
+
+        if( empty( $index ) ){
+            throw new Exception('INDEX_NOT_DEFINED');
+        }
+
+        if( empty( $mobile ) ){
+            throw new Exception('MOBILE_NOT_DEFINED');
+        }
+
         $this->index = $index;
         $this->mobile = $mobile;
         //$this->index_mobile = $index.$mobile;
