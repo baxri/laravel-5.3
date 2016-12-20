@@ -54,10 +54,11 @@ class Payment
 
             $form_data['Hash'] = $this->_hash($form_data);
 
-            $form_data['Items[]'] = $params['items'][0];
-
-            if( isset($params['items'][1]) )
-                $form_data['Items[]'] = $params['items'][1];
+            if( isset($params['items'][1]) ){
+                $form_data['Items'] = [ $params['items'][0], $params['items'][1] ];
+            }else{
+                $form_data['Items'] = [$params['items'][0]];
+            }
 
             $stations = $this->client->request('POST', $this->gateWay.'/createorder', [
                 'form_params' => $form_data
