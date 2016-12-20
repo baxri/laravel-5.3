@@ -56,7 +56,7 @@ class Payment
 
             $form_data['Items[]'] = $params['items'][0];
 
-            if( isset($params['language'][1]) )
+            if( isset($params['items'][1]) )
                 $form_data['Items[]'] = $params['items'][1];
 
             $stations = $this->client->request('POST', $this->gateWay.'/createorder', [

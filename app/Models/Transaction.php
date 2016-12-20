@@ -134,7 +134,7 @@ class Transaction extends RaModel
 
         $items = [];
 
-        $item = number_format($this->tickets[0]->amount_from_api/100,2)."|".count($this->tickets[0]->persons)."|".
+        $item = $this->tickets[0]->amount_from_api."|".count($this->tickets[0]->persons)."|".
             $this->tickets[0]->request_id."|".
             Railway::translateStation($this->tickets[0]->source_station)."-".
             Railway::translateStation($this->tickets[0]->destination_station);
@@ -142,7 +142,7 @@ class Transaction extends RaModel
         $items[] = $item;
 
         if(isset( $this->tickets[1] )){
-            $item = number_format($this->tickets[1]->amount_from_api/100,2)."|".count($this->tickets[1]->persons)."|".
+            $item = $this->tickets[1]->amount_from_api."|".count($this->tickets[1]->persons)."|".
                 $this->tickets[1]->request_id."|".
                 Railway::translateStation($this->tickets[1]->source_station)."-".
                 Railway::translateStation($this->tickets[1]->destination_station);
