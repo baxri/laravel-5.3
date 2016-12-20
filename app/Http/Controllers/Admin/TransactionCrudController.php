@@ -348,7 +348,7 @@ class TransactionCrudController extends CrudController {
 
     public function export(){
 
-
+        d('OKOK');
         d($this->crud->query);
     }
 
