@@ -21,12 +21,14 @@ use App\Http\Middleware\CheckTicketAuth;
     Route::post('/transaction/checkout/{transaction}', 'TransactionController@checkout');
 
     /*
-     * Checkut callback
+     * Checkout callback
      *
      * */
     Route::get('/transaction/finish', 'TransactionController@finish');
     Route::post('/transaction/finish', 'TransactionController@finish');
+
     Route::get('/transaction/{transaction}', 'TransactionController@index');
+
 
 
     /*
