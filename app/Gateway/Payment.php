@@ -54,15 +54,11 @@ class Payment
 
             $form_data['Hash'] = $this->_hash($form_data);
 
-
-
             $stations = $this->client->request('POST', $this->gateWay.'/createorder', [
                 'form_params' => $form_data
             ]);
 
             $object = json_decode($stations->getBody()->getContents());
-
-
 
             if( $this->log_key ){
                 TransactionLog::create([
