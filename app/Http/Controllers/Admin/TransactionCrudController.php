@@ -52,7 +52,98 @@ class TransactionCrudController extends CrudController {
             'name' => 'id',
         ]);
 
+        $this->crud->addColumn([
+            'label' => 'UniPAY HASH ID',
+            'name' => 'checkout_id',
+        ]);
 
+        $this->crud->addColumn([
+            'label' => 'Amount',
+            'name' => 'amount',
+            'type' => 'model_function',
+            'function_name' => 'getAmountView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Commission',
+            'name' => 'commission',
+            'type' => 'model_function',
+            'function_name' => 'getCommissionView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Departure',
+            'exists' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getLeaveTicketStatusView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Return',
+            'exists' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getReturnTicketStatusView',
+        ]);
+
+
+        $this->crud->addColumn([
+            'label' => 'Email',
+            'name' => 'email',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Mobile',
+            'name' => 'mobile',
+            'type' => 'model_function',
+            'function_name' => 'getMobileView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Updated At',
+            'name' => 'updated_at',
+            'type' => 'model_function',
+            'function_name' => 'getUpdateedAtView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Payment',
+            'name' => 'status',
+            'type' => 'model_function',
+            'function_name' => 'getStatusView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Email D.',
+            'name' => 'email_delivery',
+            'type' => 'model_function',
+            'function_name' => 'emailDeliveryView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'SMS D.',
+            'name' => 'sms_delivery',
+            'type' => 'model_function',
+            'function_name' => 'smsDeliveryView',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'PAY',
+            'exists' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getLogIcon',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'SMS',
+            'exists' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getSMSLogIcon',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'IP',
+            'name' => 'ip',
+        ]);
 
         $this->crud->addFilter([
             'type' => 'dropdown',

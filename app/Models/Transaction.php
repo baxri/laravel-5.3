@@ -263,6 +263,10 @@ class Transaction extends RaModel
 
         $statuses = [];
 
+        if( empty( $this->tickets[0]->persons ) ){
+            return 'No Ticket';
+        }
+
         foreach ( $this->tickets[0]->persons as $person ){
             if( isset($statuses[$person->status]) ){
                 $statuses[$person->status] += 1;
