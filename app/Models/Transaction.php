@@ -125,6 +125,12 @@ class Transaction extends RaModel
 
     public function checkout(){
 
+        $language = 'en';
+
+        if( App::isLocale('ka') ){
+            $language = 'ge';
+        }
+
         $params = array(
             "transaction_id"  => $this->id,
             "description"     => $this->tickets[0]->train_name . " - " . count($this->tickets)."x",
@@ -132,6 +138,7 @@ class Transaction extends RaModel
             "cancel"          => config( 'railway.checkout_cancel' ).'/'.$this->id,
             "amount"          => $this->amount + $this->commission,
             "order_name"      => [],
+            "language"        => $language,
         );
 
         $second_mark_timeout = ( config('railway.second_mark_timeout')*60 );
