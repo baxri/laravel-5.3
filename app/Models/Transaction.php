@@ -131,7 +131,7 @@ class Transaction extends RaModel
             $language = 'ge';
         }
 
-        $language = 'ge';
+        $language = 'en';
 
         $params = array(
             "transaction_id"  => $this->id,
