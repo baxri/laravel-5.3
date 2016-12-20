@@ -348,9 +348,9 @@ class TransactionCrudController extends CrudController {
 
     public function myexport(){
 
-        $query = $this->crud->query;
+        $data = $this->crud->query->get();
 
-        d($query);
+        d($data);
     }
 
     public function ret( Person $person ){
