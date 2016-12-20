@@ -171,6 +171,10 @@
       @endif
 
 	  	var table = $("#crudTable").DataTable({
+          "aLengthMenu": [
+              [25, 50, 100, 200, -1],
+              [25, 50, 100, 200, "All"]
+          ],
         "pageLength": {{ $crud->getDefaultPageLength() }},
         "language": {
               "emptyTable":     "{{ trans('backpack::crud.emptyTable') }}",
