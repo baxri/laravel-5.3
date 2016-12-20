@@ -95,15 +95,16 @@ class Transaction extends RaModel
     }
 
     public function bayer( $bayer ){
-       $this->email = $bayer['email'];
 
-       if( empty( $this->email ) ){
+       if( empty( $bayer['email'] ) ){
            throw new Exception('EMAIL_NOT_DEFINED');
        }
 
-       if ( !filter_var( $this->email, FILTER_VALIDATE_EMAIL ) ) {
+       if ( !filter_var( $bayer['email'], FILTER_VALIDATE_EMAIL ) ) {
            throw new Exception('INVALID_EMAIL_ADDRESS');
        }
+
+       $this->email = $bayer['email'];
 
        $this->setMobile($bayer['index'], $bayer['mobile'] );
     }
@@ -120,7 +121,6 @@ class Transaction extends RaModel
 
         $this->index = $index;
         $this->mobile = $mobile;
-        //$this->index_mobile = $index.$mobile;
     }
 
     public function checkout(){
