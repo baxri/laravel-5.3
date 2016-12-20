@@ -346,6 +346,12 @@ class TransactionCrudController extends CrudController {
         // $this->crud->limit();
     }
 
+    public function export(){
+
+
+        d($this->crud->query);
+    }
+
     public function ret( Person $person ){
         try{
 
