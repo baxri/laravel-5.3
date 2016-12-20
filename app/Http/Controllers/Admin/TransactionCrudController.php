@@ -180,8 +180,8 @@ class TransactionCrudController extends CrudController {
             function( $value ) {
                 if($value)
                     $this->crud->addClause( 'where', 'status', $value );
-                //else
-                   // $this->crud->addClause( 'where', 'status', Transaction::$success );
+                else
+                    $this->crud->addClause( 'where', 'status', Transaction::$success );
             });
 
         $this->crud->addFilter([
