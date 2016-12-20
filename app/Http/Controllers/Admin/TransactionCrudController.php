@@ -173,8 +173,8 @@ class TransactionCrudController extends CrudController {
         ],
             [
                 -1 => 'Canceled',
-                1 => 'Process',
-                2 => 'Hold',
+                //1 => 'Process',
+                //2 => 'Hold',
                 3 => 'Success',
             ],
             function( $value ) {
