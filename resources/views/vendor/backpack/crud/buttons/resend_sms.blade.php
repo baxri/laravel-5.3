@@ -9,6 +9,8 @@
 <script>
     jQuery(document).ready(function($) {
 
+        alert("sdf");
+
         $(".resend-button-{{$entry->getKey()}}-sms").click(function(){
 
             var button =  $(this);
