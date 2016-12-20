@@ -117,6 +117,7 @@ class TicketCrudController extends CrudController {
             [
                 -2 => 'Returned',
                 -1 => 'Cancel',
+                2 => 'Hold',
                 3 => 'Success',
             ],
             function( $value ) {
