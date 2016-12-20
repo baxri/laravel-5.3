@@ -350,7 +350,13 @@ class TransactionCrudController extends CrudController {
 
         $data = $this->crud->query->get();
 
-        d($data);
+        foreach ($data as $d){
+            echo '<pre>';
+            print_r($d);
+            echo '</pre>';
+        }
+
+        die;
     }
 
     public function ret( Person $person ){
