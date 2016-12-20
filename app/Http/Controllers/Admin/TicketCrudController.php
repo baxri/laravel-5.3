@@ -142,6 +142,8 @@ class TicketCrudController extends CrudController {
             function( $value ) {
                 if( !empty($value) )
                     $this->crud->addClause('where', 'status', $value);
+                else
+                    $this->crud->addClause('where', 'status', Ticket::$success);
             });
 
 
