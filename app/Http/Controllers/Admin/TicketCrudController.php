@@ -249,7 +249,7 @@ class TicketCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
+         $this->crud->enableAjaxTable();
         
         
         // ------ DATATABLE EXPORT BUTTONS
