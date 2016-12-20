@@ -132,6 +132,24 @@ class Transaction extends RaModel
             $language = 'ge';
         }
 
+        $items = [];
+
+        $item = number_format($this->tickets[0]->amount_from_api/100,2)."|".count($this->tickets[0]->persons)."|".
+            $this->tickets[0]->request_id."|".
+            Railway::translateStation($this->tickets[0]->source_station)."-".
+            Railway::translateStation($this->tickets[0]->destination_station);
+
+        $items[] = $item;
+
+        if(isset( $this->tickets[1] )){
+            $item = number_format($this->tickets[1]->amount_from_api/100,2)."|".count($this->tickets[1]->persons)."|".
+                $this->tickets[1]->request_id."|".
+                Railway::translateStation($this->tickets[1]->source_station)."-".
+                Railway::translateStation($this->tickets[1]->destination_station);
+
+            $items[] = $item;
+        }
+
         $params = array(
             "transaction_id"  => $this->id,
             "description"     => Railway::translateStation($this->tickets[0]->source_station)."-".
@@ -142,6 +160,7 @@ class Transaction extends RaModel
             "amount"          => $this->amount + $this->commission,
             "order_name"      => [],
             "language"        => $language,
+            "items"           => $items,
         );
 
         $second_mark_timeout = ( config('railway.second_mark_timeout')*60 );
