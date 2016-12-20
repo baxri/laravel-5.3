@@ -131,6 +131,8 @@ class Transaction extends RaModel
             $language = 'ge';
         }
 
+        $language = 'ge';
+
         $params = array(
             "transaction_id"  => $this->id,
             "description"     => $this->tickets[0]->train_name . " - " . count($this->tickets)."x",
