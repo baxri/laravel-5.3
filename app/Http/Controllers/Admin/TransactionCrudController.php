@@ -352,7 +352,7 @@ class TransactionCrudController extends CrudController {
 
         foreach ($data as $d){
             echo '<pre>';
-            print_r($d);
+            print_r($d->toArray());
             echo '</pre>';
         }
 
