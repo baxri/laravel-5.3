@@ -24,6 +24,7 @@ use App\Http\Middleware\CheckTicketAuth;
      * Checkut callback
      *
      * */
+    Route::get('/transaction/finish', 'TransactionController@finish');
     Route::post('/transaction/finish', 'TransactionController@finish');
     Route::get('/transaction/{transaction}', 'TransactionController@index');
 
