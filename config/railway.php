@@ -66,8 +66,8 @@ return [
     |
     */
 
-    'checkout_success' => 'http://matarebeli.ge/ticket-check?mid=',
-    'checkout_cancel' => 'http://www.matarebeli.ge/?cancel=1&order=',
+    'checkout_success' => 'http://new.matarebeli.ge/',
+    'checkout_cancel' => 'http://new.matarebeli.ge/',
 
     /*
     |--------------------------------------------------------------------------
