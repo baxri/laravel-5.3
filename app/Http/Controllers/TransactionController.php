@@ -42,8 +42,6 @@ class TransactionController extends Controller
 
             $transaction = Transaction::find( $MerchantOrderID );
 
-
-
             $log = [
                 'transaction_id' => $transaction->id,
                 'op' => 'callback',
