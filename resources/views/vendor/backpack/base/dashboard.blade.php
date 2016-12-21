@@ -89,11 +89,7 @@
                                             <h4>
                                                 @foreach( $transaction_statuses as $t )
                                                     <b>
-                                                        @if( $t->status == \App\Models\Transaction::$process )
-                                                            <span >
-                                                            <a style="color: lightskyblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$process) }}"> Process ( {{$t->count}} )</a>
-                                                        </span>
-                                                        @elseif( $t->status == \App\Models\Transaction::$hold )
+                                                        @if( $t->status == \App\Models\Transaction::$hold )
                                                             <span >
                                                             <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
                                                         </span>
