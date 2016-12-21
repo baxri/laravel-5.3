@@ -176,6 +176,7 @@ class TransactionCrudController extends CrudController {
                 //1 => 'Process',
                 //2 => 'Hold',
                 3 => 'Success',
+                18 => 'Reversed',
             ],
             function( $value ) {
                 if($value)
