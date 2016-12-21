@@ -88,7 +88,7 @@ class TransactionController extends Controller
                     if( count( $statuses ) == 1 && $statuses[0] == Ticket::$cancel ){
 
                         /*
-                         * Cancel process and reverse money
+                         * @ Cancel process and reverse money
                          *
                          * */
 
