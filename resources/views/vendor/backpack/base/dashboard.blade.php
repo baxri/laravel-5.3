@@ -105,6 +105,10 @@
                                                             <span >
                                                             <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
                                                         </span>
+                                                        @elseif( $t->status == \App\Models\Transaction::$reversed )
+                                                                <span >
+                                                            <a style="color: blue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$reversed) }}">Reversed ( {{$t->count}} )</a>
+                                                        </span>
                                                         @endif
                                                     </b>
                                                 @endforeach
