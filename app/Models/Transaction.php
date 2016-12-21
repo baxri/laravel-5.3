@@ -263,7 +263,7 @@ class Transaction extends RaModel
             return '<span class="label label-success">Success</span>';
 
         if( $this->status == self::$reversed )
-            return '<span class="label label-warning">Reversed</span>';
+            return '<span class="label label-danger">Reversed</span>';
 
         return 'Preparing';
     }
