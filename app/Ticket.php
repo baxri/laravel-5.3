@@ -303,25 +303,15 @@ class Ticket extends RaModel
 
            'time' => date('H:i', strtotime( $this->leave_datetime )),
            'enter' => date('H:i', strtotime( $this->enter_datetime )),
-           //'enter' => date('H:i d M', strtotime( $this->enter_datetime )),
-
            'train' => $this->train,
 
-           //'status' => $this->status,
-           //'reason' => $this->reason,
            'name' => Railway::translate($this->train_name),
            'source' => Railway::translateStation($this->source_station),
            'destination' => Railway::translateStation($this->destination_station),
            'vagon' => $this->vagon,
            'vagon_class' => Railway::translate($this->vagon_class),
-           //'get_transaction_status' => (int)$this->get_transaction_status,
            'price' => number_format( $this->amount_from_api/100, 2 ),
 
-            /*
-             * Show persons ordered by ischild
-             * First show adults then children
-             *
-             * */
            'prepared_for_payout' => count($prepared_payouts),
            'persons' => $persons,
            'schedule' => $this->schedule(),
