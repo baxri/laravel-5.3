@@ -36,6 +36,7 @@ class Transaction extends RaModel
     public static $hold = 2;
     public static $success = 3;
     public static $processing = 111;
+    public static $reversed = 18;
 
     protected $payment;
 
@@ -200,6 +201,11 @@ class Transaction extends RaModel
 
     public function success(){
         $this->status = Transaction::$success;
+        $this->save();
+    }
+
+    public function reverse(){
+        $this->status = Transaction::$reversed;
         $this->save();
     }
 

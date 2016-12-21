@@ -85,8 +85,17 @@ class TransactionController extends Controller
 
                     $statuses = array_unique( $statuses );
 
-                    if( count( $statuses ) == 1 && $statuses[0] == Ticket::$cancel )
+                    if( count( $statuses ) == 1 && $statuses[0] == Ticket::$cancel ){
+
+                        /*
+                         * Cancel process and reverse money
+                         *
+                         * */
+
+                        $transaction->reverse();
                         Payment::autoReversal( $ticket->reason );
+                    }
+
 
                     $transaction->notify();
                 }else{
