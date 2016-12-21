@@ -99,7 +99,7 @@
                                                         </span>
                                                         @elseif( $t->status == \App\Models\Transaction::$reversed )
                                                                 <span >
-                                                            <a style="color: lightblue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Models\Transaction::$reversed) }}">Reversed ( {{$t->count}} )</a>
+                                                            <a style="color: #0d6aad;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Models\Transaction::$reversed) }}">Reversed ( {{$t->count}} )</a>
                                                         </span>
                                                         @endif
                                                     </b>
