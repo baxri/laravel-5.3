@@ -36,5 +36,4 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
