@@ -89,21 +89,17 @@
                                             <h4>
                                                 @foreach( $transaction_statuses as $t )
                                                     <b>
-                                                        @if( $t->status == \App\Models\Transaction::$hold )
+                                                        @if( $t->status == \App\Models\Transaction::$cancel )
                                                             <span >
-                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$hold) }}">Hold ( {{$t->count}} )</a>
-                                                        </span>
-                                                        @elseif( $t->status == \App\Models\Transaction::$cancel )
-                                                            <span >
-                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$cancel) }}">Cancel ( {{$t->count}} )</a>
+                                                            <a style="color: red;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Models\Transaction::$cancel) }}">Cancel ( {{$t->count}} )</a>
                                                         </span>
                                                         @elseif( $t->status == \App\Models\Transaction::$success )
                                                             <span >
-                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$success) }}">Success ( {{$t->count}} )</a>
+                                                            <a style="color: green;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Models\Transaction::$success) }}">Success ( {{$t->count}} )</a>
                                                         </span>
                                                         @elseif( $t->status == \App\Models\Transaction::$reversed )
                                                                 <span >
-                                                            <a style="color: blue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Ticket::$reversed) }}">Reversed ( {{$t->count}} )</a>
+                                                            <a style="color: blue;" href="{{ url(config('backpack.base.route_prefix', 'admin').'/transaction?status='.\App\Models\Transaction::$reversed) }}">Reversed ( {{$t->count}} )</a>
                                                         </span>
                                                         @endif
                                                     </b>
