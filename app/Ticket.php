@@ -298,6 +298,7 @@ class Ticket extends RaModel
            'id' => $this->id,
            'request_id' => $this->request_id,
            'type' => $type,
+           'status' => $this->status,
            'date' => date('d M', strtotime( $this->leave_datetime )),
 
            'time' => date('H:i', strtotime( $this->leave_datetime )),
