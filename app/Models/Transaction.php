@@ -19,14 +19,10 @@ class Transaction extends RaModel
 
     protected $table = 'transactions';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
-    // protected $guarded = ['id'];
-    // protected $fillable = [];
-    // protected $hidden = [];
-    // protected $dates = [];
 
     protected $fillable = [
-        'checkout_id', 'amount', 'commission', 'status', 'index', 'mobile',
+        'checkout_id', 'amount', 'commission',
+        'status', 'index', 'mobile',
         'index_mobile', 'email', 'ip', 'lang'
     ];
 
