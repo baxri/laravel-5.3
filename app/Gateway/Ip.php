@@ -8,6 +8,8 @@ use Illuminate\Database\QueryException;
 
 class Ip
 {
+    public static $gateway = 'http://ip-api.com/json/';
+
     public static function get( $ip ){
         try{
 
@@ -18,7 +20,7 @@ class Ip
             }
 
             $client = new Client([
-                'base_url' => 'http://ip-api.com/json/',
+                'base_url' => self::$gateway,
                 'timeout'  => config('railway.guzzle_timeout'),
             ]);
 
