@@ -65,7 +65,7 @@ class Ip
         }
     }
 
-    public static function current(){
+    public static function current( $object = false ){
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -73,7 +73,11 @@ class Ip
             $ip = '31.146.160.104';
         }
 
-        self::get($ip);
+        $result = self::get($ip);
+
+        if( $object ){
+            return $result;
+        }
 
         return $ip;
     }
