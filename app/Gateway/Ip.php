@@ -24,7 +24,7 @@ class Ip
                 'timeout'  => config('railway.guzzle_timeout'),
             ]);
 
-            $stations = $client->request('GET', 'http://ip-api.com/json/'.$ip, [
+            $stations = $client->request('GET', self::$gateway.$ip, [
 
             ]);
 
