@@ -11,7 +11,7 @@ use Mockery\Exception;
 
 class TrainController extends Controller
 {
-    public function index( $date, $from, $to, $return = null )
+    public function index( $date, $from, $to = null, $return = null )
     {
         try{
 
