@@ -22,6 +22,14 @@ class Train extends RaModel
 
     public static function trains( $date, $from, $to, $transaction_id, $parent_id = 0 ){
 
+        if( empty( $from ) ){
+            throw new Exception('SOURCE_STATION_NOT_DEFINED');
+        }
+
+        if( empty( $to ) ){
+            throw new Exception('DESTINATION_STATION_NOT_DEFINED');
+        }
+
         $source = Station::where('value', $from)->get();
         $destination = Station::where('value', $to)->get();
 
