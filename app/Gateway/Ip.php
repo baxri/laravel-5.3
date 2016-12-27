@@ -15,7 +15,7 @@ class Ip
 
             $ips = \App\Models\Ip::where('ip_key', $ip)->get();
 
-            if(count($ips) > 0){
+            if( count($ips) > 0 ){
                 return $ips[0]->toArray();
             }
 
@@ -24,10 +24,7 @@ class Ip
                 'timeout'  => config('railway.guzzle_timeout'),
             ]);
 
-            $stations = $client->request('GET', self::$gateway.$ip, [
-
-            ]);
-
+            $stations = $client->request('GET', self::$gateway.$ip, []);
             $object = json_decode($stations->getBody()->getContents());
 
             if( $object->status == 'success' ){
