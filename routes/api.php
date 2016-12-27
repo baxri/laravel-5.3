@@ -2,6 +2,8 @@
 
 use App\Http\Middleware\CheckTicketAuth;
 
+    Route::get('ip', 'IpController@current');
+
     /*
     * Routes for buy tickets
     *
