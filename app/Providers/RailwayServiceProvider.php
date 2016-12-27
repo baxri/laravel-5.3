@@ -26,6 +26,7 @@ class RailwayServiceProvider extends ServiceProvider
             App::setLocale($request->input('lang'));
         }
 
+
         /*
          * Configure Application responses
          *

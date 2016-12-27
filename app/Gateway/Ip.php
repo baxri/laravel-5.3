@@ -75,8 +75,6 @@ class Ip
 
         $result = self::get($ip);
 
-
-
         if( $object ){
             return $result;
         }
