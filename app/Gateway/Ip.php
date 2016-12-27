@@ -14,7 +14,7 @@ class Ip
             $ips = \App\Models\Ip::where('ip_key', $ip)->get();
 
             if(count($ips) > 0){
-                return true;
+                return $ips[0]->toArray();
             }
 
             $client = new Client([
@@ -50,13 +50,13 @@ class Ip
                         'zip' => $object->zip,
                     ];
 
-                    \App\Models\Ip::create($info);
+                    $object = \App\Models\Ip::create($info);
+
+                    return $object->toArray();
 
                 }catch( QueryException $e ){
-
+                    return [];
                 }
-
-                return $object;
             }
 
             return [];
@@ -74,6 +74,8 @@ class Ip
         }
 
         $result = self::get($ip);
+
+
 
         if( $object ){
             return $result;
