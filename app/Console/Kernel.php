@@ -27,11 +27,9 @@ class Kernel extends ConsoleKernel
     {
         $cronjobs = config('railway.path_to_cronjobs');
 
-
         $schedule->command('transaction:clear')
             ->daily()
             ->appendOutputTo( $cronjobs.'transaction-clear/transaction.clear' );
-
     }
 
     /**
