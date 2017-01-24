@@ -18,12 +18,12 @@ return [
 
     // Week Day
     'SATURDAY' => 'Sa',
-    'SUNDAY' => 'Su',
-    'MONDAY' => 'Mo',
-    'TUESDAY' => 'Tu',
-    'WEDNESDAY' => 'We',
-    'THURSDAY' => 'Th',
-    'FRIDAY' => 'Fr',
+    'SUNDAY' => 'Sun',
+    'MONDAY' => 'Mon',
+    'TUESDAY' => 'Tue',
+    'WEDNESDAY' => 'Wed',
+    'THURSDAY' => 'Thu',
+    'FRIDAY' => 'Fri',
 
     'HELP' => 'Help',
     'TRAIN' => 'Train',
