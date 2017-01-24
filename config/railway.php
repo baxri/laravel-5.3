@@ -77,9 +77,9 @@ return [
     |
     */
 
-    'commission_type' => 'fixed', /* values - none, fixed, percentage */
-    'commission' => 0.50, /* Amount (GEL) or percent  */
-    'minimal_commission' => 0.25,/* Amount (GEL) */
+    'commission_type' => 'percentage', /* Values - none, fixed, percentage */
+    'commission' => 2, /* Amount (GEL) or percent  */
+    'minimal_commission' => 1,/* Amount (GEL) */
 
     /*
     |--------------------------------------------------------------------------
