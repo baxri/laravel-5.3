@@ -10,6 +10,7 @@ return [
     'MAY' => 'მაი',
     'JUNE' => 'ივნ',
     'JULY' => 'ივლ',
+
     'AUGUST' => 'აგვ',
     'SEPTEMBER' => 'სექ',
     'OCTOBER' => 'ოქტ',
