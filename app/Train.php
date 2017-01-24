@@ -135,14 +135,14 @@ class Train extends RaModel
             'number' => $this->number,
             'name' => $this->name,
             
-            'date' =>  date('D d M',strtotime( $this->date. "+4hours" )), 
+            'date' =>  Railway::translateDate($this->date, "+4hours"),
             'departure' =>  date('H:i', strtotime($this->date. "+4hours")),
             'arrive' => date('H:i', strtotime( $this->enter. "+4hours" )),
 
             //'Tdate' =>  $this->date,
             //'Tdeparture' =>  $this->date,
             //'Tarrive' => $this->enter,
-            
+
             'vagons' => Railway::sort( $this->vagons,
                 config( 'railway.sort_vagons_field' ),
                 config( 'railway.sort_vagons_order' ) ),

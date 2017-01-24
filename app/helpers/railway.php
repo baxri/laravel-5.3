@@ -91,4 +91,11 @@ abstract class Railway
         return $translated;
     }
 
+    public static function translateDate( $date, $hstring = "" ){
+        $day = self::translate(strtoupper(date('l',strtotime( $date. $hstring ))));
+        $d = date('d',strtotime( $date. $hstring ));
+        $month = self::translate(strtoupper(date('F',strtotime( $date. $hstring ))));
+        return $day.' '.$d.' '.$month;
+    }
+
 }
