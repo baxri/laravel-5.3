@@ -365,9 +365,6 @@ class TransactionCrudController extends CrudController {
 
             $comment = $request->input('comment');
 
-            print_r($comment);
-            die;
-
             if( !$person->ret() ){
                 throw new Exception('CANNOT_RETURN_TICKET');
             }
