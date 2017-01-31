@@ -44,7 +44,7 @@
             var button =  $(this);
             button.button('loading');
 
-            var comment = confirm("შეიყვანეთ კომენტარი");
+            var comment = prompt("შეიყვანეთ კომენტარი");
 
             $.ajax({
                 url: 'person/return/' + $(this).data('value'),
