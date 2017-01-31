@@ -95,7 +95,7 @@
 
                     console.log(result.railway_status);
 
-                    if( result.railway_status == {{\App\Ticket::$railway_active_status}} ){
+                    if( result.data.railway_status == {{\App\Ticket::$railway_active_status}} ){
                         new PNotify({
                             title: "მიმდინარე სტატუსი",
                             text: "ბილეთის სტატუსი აქტიურია",
