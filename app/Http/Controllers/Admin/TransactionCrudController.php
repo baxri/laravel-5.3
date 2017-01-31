@@ -13,6 +13,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\TransactionRequest as StoreRequest;
 use App\Http\Requests\TransactionRequest as UpdateRequest;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Mockery\Exception;
 
 class TransactionCrudController extends CrudController {
@@ -359,8 +360,10 @@ class TransactionCrudController extends CrudController {
         die;
     }
 
-    public function ret( Person $person ){
+    public function ret( Person $person, Request $request ){
         try{
+
+            d($request);
 
             if( !$person->ret() ){
                 throw new Exception('CANNOT_RETURN_TICKET');

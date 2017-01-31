@@ -46,6 +46,9 @@
             $.ajax({
                 url: 'person/return/' + $(this).data('value'),
                 type: 'POST',
+                data: {
+                    comment : "გაუქმებააააა"
+                },
                 success: function(result) {
                     button.button('reset');
                     new PNotify({
