@@ -55,6 +55,7 @@
                     type: "warning"
                 });
 
+                button.button('reset');
                 return false;
             }
 
