@@ -363,7 +363,8 @@ class TransactionCrudController extends CrudController {
     public function ret( Person $person, Request $request ){
         try{
 
-            d($request);
+            print_r($request);
+            die;
 
             if( !$person->ret() ){
                 throw new Exception('CANNOT_RETURN_TICKET');
