@@ -43,11 +43,14 @@
         $(".return-ticket-{{$transaction->id}}").click(function(){
             var button =  $(this);
             button.button('loading');
+
+            var comment = confirm("შეიყვანეთ კომენტარი");
+
             $.ajax({
                 url: 'person/return/' + $(this).data('value'),
                 type: 'POST',
                 data: {
-                    comment : "გაუქმებააააა"
+                    comment : comment
                 },
                 success: function(result) {
                     button.button('reset');
