@@ -51,6 +51,10 @@ class TicketController extends Controller
             ->get()
             ->toArray();
 
+        if( empty($ticket) ){
+            return response()->error( 'TICKET_NOT_FOUND' );
+        }
+
         return response()->ok($ticket[0]);
     }
 
