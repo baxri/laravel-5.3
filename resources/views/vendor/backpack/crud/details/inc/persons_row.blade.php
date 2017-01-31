@@ -46,6 +46,18 @@
 
             var comment = prompt("შეიყვანეთ კომენტარი");
 
+            if( comment.length == 0 ){
+
+                button.button('reset');
+                new PNotify({
+                    title: "ბილეთის დაბრუნება",
+                    text: "კომენტარი არ არის შეყვანილი",
+                    type: "warning"
+                });
+
+                return false;
+            }
+
             $.ajax({
                 url: 'person/return/' + $(this).data('value'),
                 type: 'POST',
