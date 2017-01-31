@@ -42,7 +42,7 @@
 
         $(".return-ticket-{{$transaction->id}}").click(function(){
             var button =  $(this);
-            button.button('loading');
+
 
             var comment = prompt("შეიყვანეთ კომენტარი");
 
@@ -58,6 +58,8 @@
                 button.button('reset');
                 return false;
             }
+
+            button.button('loading');
 
             $.ajax({
                 url: 'person/return/' + $(this).data('value'),
