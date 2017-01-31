@@ -363,7 +363,9 @@ class TransactionCrudController extends CrudController {
     public function ret( Person $person, Request $request ){
         try{
 
-            print_r($request);
+            $comment = $request->input('comment');
+
+            print_r($comment);
             die;
 
             if( !$person->ret() ){
