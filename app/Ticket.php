@@ -312,6 +312,10 @@ class Ticket extends RaModel
            'vagon_class' => Railway::translate($this->vagon_class),
            'price' => number_format( $this->amount_from_api/100, 2 ),
 
+            'email' => $this->transaction->email,
+            'mobile' => $this->transaction->index_mobile,
+
+
            'prepared_for_payout' => count($prepared_payouts),
            'persons' => $persons,
            'schedule' => $this->schedule(),
