@@ -313,8 +313,7 @@ class Ticket extends RaModel
            'price' => number_format( $this->amount_from_api/100, 2 ),
 
             'email' => $this->transaction->email,
-            'mobile' => $this->transaction->index_mobile,
-
+            'mobile' => '+'.$this->transaction->index_mobile,
 
            'prepared_for_payout' => count($prepared_payouts),
            'persons' => $persons,
