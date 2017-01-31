@@ -93,8 +93,6 @@
 
                     button.button('reset');
 
-                    console.log(result.railway_status);
-
                     if( result.data.railway_status == {{\App\Ticket::$railway_active_status}} ){
                         new PNotify({
                             title: "მიმდინარე სტატუსი",
