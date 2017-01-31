@@ -44,7 +44,7 @@
             var button =  $(this);
 
 
-            var comment = prompt("შეიყვანეთ კომენტარი");
+            var comment = prompt("შეიყვანეთ კომენტარი", "ბილეთის დაბრუნება");
 
             if( comment.length == 0 ){
 
