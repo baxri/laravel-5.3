@@ -30,6 +30,7 @@ use App\Http\Middleware\CheckTicketAuth;
     Route::post('/transaction/finish', 'TransactionController@finish');
 
     Route::get('/transaction/{transaction}', 'TransactionController@index');
+    Route::get('/transaction/time', 'TransactionController@time');
 
 
 

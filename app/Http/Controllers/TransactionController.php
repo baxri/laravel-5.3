@@ -6,6 +6,7 @@ use App\Gateway\Payment;
 use App\Models\TransactionLog;
 use App\Ticket;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Mockery\Exception;
@@ -15,6 +16,15 @@ class TransactionController extends Controller
     public function index( Transaction $transaction ){
         try{
             return response()->ok($transaction->toArray());
+        }catch( Exception $e ){
+            return response()->error( $e->getMessage() );
+        }
+    }
+
+    public function time( Transaction $transaction ){
+        try{
+            $time = Carbon::now()->toTimeString();
+            return response()->ok($time);
         }catch( Exception $e ){
             return response()->error( $e->getMessage() );
         }
