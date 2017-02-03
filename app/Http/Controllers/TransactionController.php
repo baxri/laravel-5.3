@@ -23,7 +23,7 @@ class TransactionController extends Controller
 
     public function time( Transaction $transaction ){
         try{
-            $time = Carbon::now()->toTimeString();
+            $time = Carbon::now("+4")->toTimeString();
             return response()->ok($time);
         }catch( Exception $e ){
             return response()->error( $e->getMessage() );
