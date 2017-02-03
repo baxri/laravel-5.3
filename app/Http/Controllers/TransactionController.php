@@ -8,7 +8,6 @@ use App\Ticket;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
 class TransactionController extends Controller
