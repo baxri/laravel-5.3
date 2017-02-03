@@ -21,7 +21,7 @@ class TransactionController extends Controller
         }
     }
 
-    public function time( Transaction $transaction ){
+    public function time(){
         try{
             $time = Carbon::now(config('app.timezone'))->toTimeString();
             return response()->ok($time);
