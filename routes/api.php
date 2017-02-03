@@ -9,6 +9,8 @@ use App\Http\Middleware\CheckTicketAuth;
     *
     * */
     Route::get('stations', 'StationController@index');
+    Route::get('time', 'TransactionController@time');
+
     Route::get('/trains/{date}/{from}/{to}/{return?}', 'TrainController@index');
 
     Route::post('/ticket/register/{ticket}', 'TicketController@register');
@@ -30,9 +32,6 @@ use App\Http\Middleware\CheckTicketAuth;
     Route::post('/transaction/finish', 'TransactionController@finish');
 
     Route::get('/transaction/{transaction}', 'TransactionController@index');
-    Route::get('/transaction/time', 'TransactionController@time');
-
-
 
     /*
      * Routes to return tickets
