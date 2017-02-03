@@ -45,6 +45,12 @@ class TicketController extends Controller
         }
     }
 
+    public function authorized( Ticket $ticket ){
+        return response()->ok([
+            'authorized' => $ticket->authorized(),
+        ]);
+    }
+
     public function index( $request_id ){
 
         $ticket = Ticket::where('request_id', $request_id )

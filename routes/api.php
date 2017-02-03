@@ -40,6 +40,7 @@ use App\Http\Middleware\CheckTicketAuth;
     Route::get('/ticket/{request_id}', 'TicketController@index');
     Route::post('/ticket/{ticket}/authenticate', 'TicketController@authenticate');
     Route::post('/ticket/{ticket}/authorize', 'TicketController@auth');
+    Route::post('/ticket/{ticket}/authorized', 'TicketController@authorized');
 
     Route::group( ['middleware' => CheckTicketAuth::class] , function(){
 
