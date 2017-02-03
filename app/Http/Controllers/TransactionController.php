@@ -22,7 +22,7 @@ class TransactionController extends Controller
 
     public function time(){
         try{
-            $time = Carbon::now(config('app.timezone'))->toDateTimeString();
+            $time = Carbon::now(config('app.timezone'))->toTimeString();
             return response()->ok([
                 'time' => $time,
             ]);
