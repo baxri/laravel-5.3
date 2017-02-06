@@ -86,6 +86,8 @@ class PayoutTransaction extends RaModel
             throw new Exception('NOTHIG_TO_RETURN_FOR_THIS_TICKET');
         }
 
+        return true;
+
         $this->amount = $sum;
 
         $this->status = PayoutTransaction::$pending;
