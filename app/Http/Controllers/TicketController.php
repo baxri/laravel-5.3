@@ -47,7 +47,7 @@ class TicketController extends Controller
 
     public function authorized( Ticket $ticket ){
         return response()->ok([
-            'authorized' => $ticket->authorized(),
+            'authorized' => (int)$ticket->authorized(),
         ]);
     }
 
