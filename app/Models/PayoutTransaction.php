@@ -42,6 +42,8 @@ class PayoutTransaction extends RaModel
 
     public function make( $options, $persons ){
 
+        return true;
+
         $this->name = $options['name'];
         $this->surname = $options['surname'];
         $this->idnumber = $options['idnumber'];
