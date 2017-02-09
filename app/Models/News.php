@@ -19,7 +19,7 @@ class News extends Model
 	protected $primaryKey = 'id';
 	// public $timestamps = false;
 	// protected $guarded = ['id'];
-	 protected $fillable = ['title', 'alias', 'content', 'lang'];
+	protected $fillable = ['title', 'alias', 'content', 'lang'];
 	// protected $hidden = [];
     // protected $dates = [];
 

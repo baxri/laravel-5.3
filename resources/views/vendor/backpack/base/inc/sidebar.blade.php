@@ -23,6 +23,7 @@
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/ip') }}"><i class="fa fa-globe"></i> <span>Ips</span></a></li>
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/news') }}"><i class="fa fa-newspaper-o"></i> <span>Articles</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/note') }}"><i class="fa fa-comments-o"></i> <span>Messages</span></a></li>
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>

@@ -18,6 +18,7 @@ return array(
     'CreateIpsTable' => $baseDir . '/database/migrations/2016_11_18_181030_create_ips_table.php',
     'CreateLogTable' => $baseDir . '/database/migrations/2016_11_14_165038_create_log_table.php',
     'CreateNewsTable' => $baseDir . '/database/migrations/2017_02_09_110110_create_news_table.php',
+    'CreateNotesTable' => $baseDir . '/database/migrations/2017_02_09_133240_create_notes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePayoutTransactionsTable' => $baseDir . '/database/migrations/2016_11_15_180916_create_payout_transactions_table.php',
     'CreatePersonsTable' => $baseDir . '/database/migrations/2016_11_07_152033_create_persons_table.php',

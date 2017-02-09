@@ -10,6 +10,7 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
     Route::get('/', 'Admin\DashboardController@index');
     Route::get('/dashboard', 'Admin\DashboardController@index');
 
+    CRUD::resource('note', 'Admin\NoteCrudController');
     CRUD::resource('news', 'Admin\NewsCrudController');
 
     CRUD::resource('station', 'Admin\StationCrudController');

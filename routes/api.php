@@ -3,6 +3,8 @@
 use App\Http\Middleware\CheckTicketAuth;
 
     Route::get('article/{alias}', 'Admin\NewsCrudController@article');
+    Route::get('message', 'Admin\NoteCrudController@notes');
+
     Route::get('ip', 'IpController@current');
 
     /*
