@@ -26,7 +26,7 @@
 <body>
 <div class="mail-wrapper">
     <div class="logo-wrapper">
-        <img src="images/logo.png" alt="matarebeli.ge">
+        <img src="http://new.matarebeli.ge/assets/images/matarebeli-logo.png" alt="matarebeli.ge">
     </div>
     <div class="header">
         <h1>THANK YOU FOR USING OUR SERVICE</h1>
