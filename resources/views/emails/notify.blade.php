@@ -51,9 +51,15 @@
             <img src="{{$ticket->getQR()}}" alt="matarebeli.ge">
         </div>
         <div class="desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <p>Please see the .PDF version of your ticket in attached file.</p>
+            <p>It is important to show ticket holder Passport ID during the check in.</p>
         </div>
+
+        <div class="desc">
+            <p>მიმაგრებულ ფაილში იხილეთ ბილეთის საბეჭდი ვერსია.</p>
+            <p>ელექტრონული სამგზავრო დოკუმენტით მგზავრობისათვის ვაგონის გამცილებელთან საჭიროა წარადგინოთ მგზავრების პიროვნების დამადასტურებელი მოწმობა.</p>
+        </div>
+
         <a href="" class="btn">VIEW PRINTABLE TICKETS</a>
     </div>
 </div>
