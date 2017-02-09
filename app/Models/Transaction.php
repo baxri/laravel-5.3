@@ -378,6 +378,8 @@ class Transaction extends RaModel
         $this->notifySMS( $throw_exception );
     }
 
+
+
     public function notifyEmail( $throw_exception = false ){
 
         if( $this->status != Transaction::$success ){
@@ -403,7 +405,6 @@ class Transaction extends RaModel
         if( count( $this->tickets ) != count($pdfs) ){
             return;
         }
-
 
        $transaction = $this;
 

@@ -447,6 +447,15 @@ class Ticket extends RaModel
         return $path;
     }
 
+    public function getQR(){
+
+        $gateway = 'https://api.qrserver.com/v1/create-qr-code/';
+        $size = 150;
+
+        $source = $gateway.'?size='.$size.'x'.$size.'&data='.$this->request_id;
+        return $source;
+    }
+
     public function html( $download = false ){
         return view('pdf.ticket-pdf', [
             'ticket' => $this

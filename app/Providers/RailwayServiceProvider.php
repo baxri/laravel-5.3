@@ -34,11 +34,14 @@ class RailwayServiceProvider extends ServiceProvider
 
         Response::macro('ok', function ( $json = null, $message = 'OK', $code = 200 ) {
 
+            header('Content-Type: text/html; charset=utf-8');
+
             $json = (array) $json;
             $response = response(
                 ['errorcode' => 0, 'message' => strtoupper($message), 'data' => $json] )
-                ->setStatusCode( $code, $message )
-                ->header('Access-Control-Allow-Origin', '*');
+                ->header('Access-Control-Allow-Origin', '*')
+                ->header('charset', 'utf-8')
+                ->setStatusCode( $code, $message );
 
             return $response;
         });

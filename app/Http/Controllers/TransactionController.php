@@ -12,6 +12,17 @@ use Mockery\Exception;
 
 class TransactionController extends Controller
 {
+    public function notify( Transaction $transaction ){
+        try{
+
+
+            $transaction->notifyEmail();
+
+        }catch( Exception $e ){
+            return response()->error( $e->getMessage() );
+        }
+    }
+
     public function index( Transaction $transaction ){
         try{
             return response()->ok($transaction->toArray());

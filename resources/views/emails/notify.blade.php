@@ -80,7 +80,9 @@
                 </tr>
                 <tr>
                     <td width="5%" align="center"></td>
-                    <td align="left" width="90%" style="color:#202020;font-size:14px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:16px">მიმაგრებულ ფაილში იხილეთ ბილეთის საბეჭდი ვერსია. <br><br>ელექტრონული სამგზავრო დოკუმენტით მგზავრობისათვის ვაგონის გამცილებელთან საჭიროა წარადგინოთ მგზავრების პიროვნების დამადასტურებელი მოწმობა.</td>
+                    <td align="left" width="90%" style="color:#202020;font-size:14px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:16px">მიმაგრებულ ფაილში იხილეთ ბილეთის საბეჭდი ვერსია.
+                        <br><br>ელექტრონული სამგზავრო დოკუმენტით მგზავრობისათვის ვაგონის გამცილებელთან საჭიროა
+                        წარადგინოთ მგზავრების პიროვნების დამადასტურებელი მოწმობა.</td>
                     <td width="5%" align="center"></td>
                 </tr>
                 <tr>

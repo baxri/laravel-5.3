@@ -2,12 +2,14 @@
 
 use App\Http\Middleware\CheckTicketAuth;
 
+    Route::get('article/{alias}', 'Admin\NewsCrudController@article');
     Route::get('ip', 'IpController@current');
 
     /*
     * Routes for buy tickets
     *
     * */
+
     Route::get('stations', 'StationController@index');
     Route::get('time', 'TransactionController@time');
 
@@ -49,8 +51,4 @@ use App\Http\Middleware\CheckTicketAuth;
 
     });
 
-
-
-
-
-
+    Route::get('/transaction/notify/{transaction}', 'TransactionController@notify');
