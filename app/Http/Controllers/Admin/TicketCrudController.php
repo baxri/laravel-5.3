@@ -182,7 +182,7 @@ class TicketCrudController extends CrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'updated_at', '>=', $value );
+                    $this->crud->addClause( 'where', 'created_at', '>=', $value );
 
             });
 
@@ -198,7 +198,7 @@ class TicketCrudController extends CrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'updated_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
+                    $this->crud->addClause( 'where', 'created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
             });
 
 		// ------ CRUD FIELDS

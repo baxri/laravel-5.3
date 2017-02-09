@@ -119,7 +119,7 @@ class DashboardController extends Controller
                 ')
         )
             ->where( "status",  "!=", Ticket::$pending )
-            ->where( "updated_at",  ">=", $today )
+            ->where( "created_at",  ">=", $today )
             ->groupby( "status" )
             ->get();
 
@@ -143,7 +143,7 @@ class DashboardController extends Controller
         )
             ->where( "status",  "!=", Person::$pending )
             ->where( "status",  "!=", Person::$process )
-            ->where( "updated_at",  ">=", $today )
+            ->where( "created_at",  ">=", $today )
             ->groupby( "status" )
             ->get();
 
