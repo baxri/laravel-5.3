@@ -28,7 +28,7 @@ class DashboardController extends Controller
                 count(id) as count
                 ')
         )
-        ->where( "updated_at",  ">=", $today )
+        ->where( "created_at",  ">=", $today )
         ->where( "status",  Transaction::$success )
             ->get();
 
@@ -52,7 +52,7 @@ class DashboardController extends Controller
         )
             ->where( "status",  "!=", Transaction::$pending )
             ->where( "status",  "!=", Transaction::$process )
-            ->where( "updated_at",  ">=", $today )
+            ->where( "created_at",  ">=", $today )
             ->groupby( "status" )
             ->get();
 
