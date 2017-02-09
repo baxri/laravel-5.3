@@ -48,7 +48,7 @@
         @endforeach
 
         <div class="qr-wrapper">
-            <img src="images/qr.png" alt="matarebeli.ge">
+            <img src="{{$ticket->getQr()}}" alt="matarebeli.ge">
         </div>
         <div class="desc">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
