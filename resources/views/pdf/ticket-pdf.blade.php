@@ -379,8 +379,8 @@
         <div class="col-2">
             <div class="row-1">
                 <h3>
-                    <strong>ბათუმი</strong>
-                    <span>Batumi</span>
+                    <strong>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'ka') }}</strong>
+                    <span>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'en') }}</span>
                 </h3>
                 <div class="arrow-wrapper">
                     <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
