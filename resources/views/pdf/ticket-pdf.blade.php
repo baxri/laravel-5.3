@@ -71,16 +71,17 @@
             margin: 10px 0; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
+            float: left;
             color: #000000;
             text-align: right;
             line-height: 30px; }
         .pdf-wrapper .header .col-2 h2 strong {
-            display: inline-block;
+            display: block;
             font-size: 2.4em;
             font-weight: bold;
             vertical-align: top; }
         .pdf-wrapper .header .col-2 h2 span {
-            display: inline-block;
+            display: block;
             float: right;
             color: #7f7f7f;
             font-size: 10px;
@@ -332,6 +333,8 @@
                 </strong>
                 <span>
                     სთ
+                    <br>
+                    Tm
                 </span>
             </h2>
         </div>
