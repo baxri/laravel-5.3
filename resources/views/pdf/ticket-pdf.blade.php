@@ -386,8 +386,8 @@
                     <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
                 </div>
                 <h3>
-                    <strong>თბილისი</strong>
-                    <span>Tbilisi</span>
+                    <strong>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'ka') }}</strong>
+                    <span>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'en') }}</span>
                 </h3>
             </div>
             <div class="row-2">
