@@ -316,6 +316,136 @@
 </head>
 <body>
 
+@foreach( $ticket->persons as $key => $person )
+    <div class="pdf-wrapper">
+        <div class="header">
+            <div class="logo-wrapper"><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></div>
+            <div class="col-1">
+                <p>გამგზავრება</p>
+                <p>Departure</p>
+            </div>
+            <div class="col-2">
+                <h2>
+                    <strong>
+                        {{ \date('H:i', strtotime( $ticket->leave_datetime )) }}
+                    </strong>
+                    <span>
+                    სთ
+                    <br>
+                    Tm
+                </span>
+                </h2>
+            </div>
+            <div class="col-3">
+                <h2>
+                    <strong>
+                        {{ \date('m', strtotime( $ticket->leave_datetime )) }}
+                    </strong>
+                    <span>
+                    {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'en',  true)}}
+                        <br>
+                        {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'ka',  true)}}
+                </span>
+                </h2>
+            </div>
+            <div class="col-4">
+                <h2>
+                    <strong>
+                        {{ \date('Y', strtotime( $ticket->leave_datetime )) }}
+                    </strong>
+                    <span>
+                    წელი
+                    <br>
+                    Year
+                </span>
+                </h2>
+            </div>
+            <div class="col-5">
+                <h2>
+                <span>
+                    შესყიდვის კოდი
+                    <br>
+                    Purchase code
+                </span>
+                    <strong>
+                        {{$ticket->request_id}}
+                    </strong>
+                </h2>
+            </div>
+        </div>
+        <div class="content">
+            <div class="col-1"><img src="http://new.matarebeli.ge/assets/images/pdf-logo-2.png" alt=""></div>
+            <div class="col-2">
+                <div class="row-1">
+                    <h3>
+                        <strong>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'ka') }}</strong>
+                        <span>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'en') }}</span>
+                    </h3>
+                    <div class="arrow-wrapper">
+                        <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
+                    </div>
+                    <h3>
+                        <strong>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'ka') }}</strong>
+                        <span>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'en') }}</span>
+                    </h3>
+                </div>
+                <div class="row-2">
+                    <div class="row2-col-1">
+                        <h4>
+                            <span>სახელი</span>
+                            <span>Name</span>
+                        </h4>
+                        <p>{{$person->name}}  {{$person->surname}}</p>
+                    </div>
+                    <div class="row2-col-2">
+                        <p>{{$person->idnumber}}</p>
+                        <h4>
+                            <span>პირადი ნომერი</span>
+                            <span>ID Number</span>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row-3">
+                    <div class="row3-col big">
+                        <h4>
+                            <span>მატარებელი</span>
+                            <span>Train</span>
+                        </h4>
+                        <p>{{ $ticket->train }}</p>
+                    </div>
+                    <div class="row3-col small">
+                        <h4>
+                            <span>ვაგონი</span>
+                            <span>Carriage</span>
+                        </h4>
+                        <p>{{ $ticket->vagon }}</p>
+                    </div>
+                    <div class="row3-col small">
+                        <h4>
+                            <span>ადგილი</span>
+                            <span>Seat</span>
+                        </h4>
+                        <p>{{$person->place_number}}</p>
+                    </div>
+                    <div class="row3-col big">
+                        <h4>
+                            <span>კლასი</span>
+                            <span>Class</span>
+                        </h4>
+                        <p>
+                            {{ \App\helpers\Railway::translate($ticket->vagon_class, 'ka') }} /
+                            {{ \App\helpers\Railway::translate($ticket->vagon_class, 'en') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="col-1"><p>ქოლცენტრი / Call center: (995 32) 2 193 195</p></div>
+            <div class="col-2"><p>ფასი / Price: {{number_format($ticket->amount_from_api/100,2)}} ლარი / GEL</p></div>
+        </div>
+    </div>
+@endforeach
 
 @foreach( $ticket->persons as $key => $person )
 <div class="pdf-wrapper">
