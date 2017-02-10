@@ -343,9 +343,9 @@
                     {{ \date('m', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
-                    {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", true)}}
+                    {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'en',  true)}}
                     <br>
-                    Oct
+                    {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'ka',  true)}}
                 </span>
             </h2>
         </div>

@@ -91,10 +91,20 @@ abstract class Railway
         return $translated;
     }
 
-    public static function translateDate( $date, $hstring = "", $only_month = true ){
+    public static function translateDate( $date, $hstring = "", $lang = null, $only_month = true ){
+
+        if( $lang != null ){
+            $was = App::getLocale();
+            App::setLocale($lang);
+        }
+
         $day = self::translate(strtoupper(date('l',strtotime( $date. $hstring ))));
         $d = date('d',strtotime( $date. $hstring ));
         $month = self::translate(strtoupper(date('F',strtotime( $date. $hstring ))));
+
+        if( $lang != null ){
+            App::setLocale($was);
+        }
 
         if( $only_month ){
             return $month;
