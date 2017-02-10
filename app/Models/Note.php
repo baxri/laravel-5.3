@@ -19,10 +19,13 @@ class Note extends Model
 	protected $primaryKey = 'id';
 	// public $timestamps = false;
 	// protected $guarded = ['id'];
-    protected $fillable = ['title', 'alias', 'content', 'lang', 'published', 'type'];
+    protected $fillable = ['title', 'alias', 'content', 'lang', 'published', 'type', 'parent_id', 'lft', 'rgt', 'depth'];
 	// protected $fillable = [];
 	// protected $hidden = [];
     // protected $dates = [];
+
+
+
 
     public function getPublishedView(){
         if( $this->published == 1 )

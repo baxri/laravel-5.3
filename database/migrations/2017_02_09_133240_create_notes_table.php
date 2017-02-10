@@ -21,6 +21,12 @@ class CreateNotesTable extends Migration
             $table->integer('published');
             $table->integer('type');
             $table->string('lang');
+
+            $table->integer('parent_id');
+            $table->integer('lft');
+            $table->integer('rgt');
+            $table->integer('depth');
+
             $table->timestamps();
         });
     }

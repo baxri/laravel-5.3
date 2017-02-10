@@ -37,8 +37,8 @@ class NoteCrudController extends CrudController {
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Language',
-            'name' => 'lang',
+            'label' => 'Content',
+            'name' => 'content',
         ]);
 
         $this->crud->addColumn([
@@ -65,10 +65,16 @@ class NoteCrudController extends CrudController {
             'type' => 'text',
         ]);
 
+        $this->crud->addColumn([
+            'label' => 'Language',
+            'name' => 'lang',
+        ]);
+
         $this->crud->addField([ // Text
             'name' => 'content',
             'label' => "Content",
             'type' => 'ckeditor',
+            'height' => 500
         ]);
 
         $this->crud->addField([ // Text
@@ -153,7 +159,8 @@ class NoteCrudController extends CrudController {
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
-        // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
+         $this->crud->enableReorder('content', 1);
+         $this->crud->allowAccess('reorder');
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
@@ -170,8 +177,7 @@ class NoteCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
-        
+         $this->crud->enableAjaxTable();
         
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
@@ -186,7 +192,7 @@ class NoteCrudController extends CrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-        // $this->crud->orderBy();
+         $this->crud->orderBy('lft', 'asc');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
@@ -206,7 +212,7 @@ class NoteCrudController extends CrudController {
             'messages' => Note::where([
                 'published' => 1,
                 'lang' => App::getLocale(),
-            ])->get()
+            ])->orderBy('lft', 'asc')->get()
         ]);
     }
 }
