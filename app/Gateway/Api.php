@@ -108,6 +108,8 @@ class Api
             return $object->train;
         }catch ( RequestException $e ){
 
+
+
             if( $this->key ){
                 Log::create([
                     'ticket_id' => $this->key,
