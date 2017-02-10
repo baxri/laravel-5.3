@@ -65,7 +65,7 @@
             margin-bottom: 0; }
         .pdf-wrapper .header .col-2 {
             float: left;
-            width: 80px;
+            width: 90px;
             height: 40px;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-2 h2 {
