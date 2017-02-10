@@ -82,7 +82,6 @@
         .pdf-wrapper .header .col-2 h2 span {
             display: inline-block;
             float: right;
-            clear: right;
             color: #7f7f7f;
             font-size: 10px;
             text-align: left;
@@ -109,7 +108,6 @@
         .pdf-wrapper .header .col-3 h2 span {
             display: inline-block;
             float: right;
-            clear: right;
             color: #7f7f7f;
             font-size: 10px;
             text-align: left;
@@ -135,7 +133,6 @@
         .pdf-wrapper .header .col-4 h2 span {
             display: inline-block;
             float: right;
-            clear: right;
             color: #7f7f7f;
             font-size: 10px;
             text-align: left;
@@ -402,7 +399,7 @@
                     <p>{{$person->name}}  {{$person->surname}}</p>
                 </div>
                 <div class="row2-col-2">
-                    <p>26265321312</p>
+                    <p>{{$person->idnumber}}</p>
                     <h4>
                         <span>პირადი ნომერი</span>
                         <span>ID Number</span>
