@@ -59,7 +59,7 @@
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-1 p {
             color: #7f7f7f;
-            font-size: 14px;
+            font-size: 12px;
             text-align: right;
             line-height: 20px; }
         .pdf-wrapper .header .col-2 {
@@ -74,7 +74,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: inline-block;
-            font-size: 24px;
+            font-size: 14px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
@@ -99,7 +99,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-3 h2 strong {
             display: inline-block;
-            font-size: 24px;
+            font-size: 14px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
@@ -123,7 +123,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-4 h2 strong {
             display: inline-block;
-            font-size: 24px;
+            font-size: 14px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
