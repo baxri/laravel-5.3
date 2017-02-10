@@ -52,12 +52,11 @@
             height: 60px; }
         .pdf-wrapper .header .col-1 {
             float: left;
-            width: 145px;
+            width: 120px;
             height: 40px;
-            border-right: 1px solid #b2b2b2;
-
             padding: 0 10px;
-            margin: 10px 0; }
+            margin: 10px 0;
+            border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-1 p {
             color: #7f7f7f;
             font-size: 1.4em;
@@ -67,8 +66,8 @@
             float: left;
             width: 110px;
             height: 40px;
-            border-right: 1px solid #b2b2b2;
-            padding: 5px 10px; }
+            padding: 5px 10px;
+            border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             color: #000000;
