@@ -55,7 +55,6 @@
             width: 90px;
             height: 40px;
             padding: 5px 10px;
-            margin: 10px 0;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-1 p {
             display: block;
