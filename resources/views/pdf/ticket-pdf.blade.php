@@ -352,7 +352,7 @@
         <div class="col-4">
             <h2>
                 <strong>
-                    2017
+                    {{ \date('Y', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
                     წელი
