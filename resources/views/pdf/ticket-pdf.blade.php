@@ -62,7 +62,8 @@
             color: #7f7f7f;
             font-size: 12px;
             text-align: right;
-            line-height: 15px; }
+            line-height: 15px;
+            margin-bottom: 0; }
         .pdf-wrapper .header .col-2 {
             float: left;
             width: 90px;
