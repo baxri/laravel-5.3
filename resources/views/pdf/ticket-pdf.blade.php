@@ -72,14 +72,14 @@
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             color: #000000;
-            text-align: right;
-            line-height: 30px; }
+            text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
             color: red;
             float: left;
             font-size: 2.4em;
             font-weight: bold;
+            line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-2 h2 span {
             display: block;
