@@ -318,6 +318,9 @@
     </style>
 </head>
 <body>
+
+
+@foreach( $ticket->persons as $key => $person )
 <div class="pdf-wrapper">
     <div class="header">
         <div class="logo-wrapper"><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></div>
@@ -396,7 +399,7 @@
                         <span>სახელი</span>
                         <span>Name</span>
                     </h4>
-                    <p>Levan Machavariani</p>
+                    <p>{{$person->name}}  {{$person->surname}}</p>
                 </div>
                 <div class="row2-col-2">
                     <p>26265321312</p>
@@ -443,5 +446,10 @@
         <div class="col-2"><p>ფასი / Price: 143.00 GEL</p></div>
     </div>
 </div>
+@endforeach
+
+
+
+
 </body>
 </html>
