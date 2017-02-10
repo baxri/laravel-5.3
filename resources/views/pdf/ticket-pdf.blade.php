@@ -72,12 +72,12 @@
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             color: #000000;
-            text-align: right;
-            line-height: 30px; }
+            text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: inline-block;
             font-size: 2.4em;
             font-weight: bold;
+            line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-2 h2 span {
             display: inline-block;
@@ -98,12 +98,12 @@
         .pdf-wrapper .header .col-3 h2 {
             display: block;
             color: #000000;
-            text-align: right;
-            line-height: 30px; }
+            text-align: right; }
         .pdf-wrapper .header .col-3 h2 strong {
             display: inline-block;
             font-size: 2.4em;
             font-weight: bold;
+            line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-3 h2 span {
             display: inline-block;
@@ -126,9 +126,9 @@
             text-align: right; }
         .pdf-wrapper .header .col-4 h2 strong {
             display: inline-block;
-            line-height: 30px;
             font-size: 2.4em;
             font-weight: bold;
+            line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-4 h2 span {
             display: inline-block;
@@ -148,12 +148,12 @@
         .pdf-wrapper .header .col-5 h2 {
             display: block;
             color: #000000;
-            text-align: right;
-            line-height: 30px; }
+            text-align: right; }
         .pdf-wrapper .header .col-5 h2 strong {
             display: inline-block;
             font-size: 1.8em;
             font-weight: bold;
+            line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-5 h2 span {
             display: inline-block;
