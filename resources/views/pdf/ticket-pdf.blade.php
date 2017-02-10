@@ -320,7 +320,7 @@
 <body>
 <div class="pdf-wrapper">
     <div class="header">
-        <div class="logo-wrapper"><img src="images/logo.png" alt=""></div>
+        <div class="logo-wrapper"><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></div>
         <div class="col-1">
             <p>გამგზავრება</p>
             <p>Departure</p>
@@ -339,7 +339,7 @@
         </div>
     </div>
     <div class="content">
-        <div class="col-1"><img src="images/logo-2.png" alt=""></div>
+        <div class="col-1"><img src="http://new.matarebeli.ge/assets/images/pdf-logo-2.png" alt=""></div>
         <div class="col-2">
             <div class="row-1">
                 <h3>
@@ -347,7 +347,7 @@
                     <span>Batumi</span>
                 </h3>
                 <div class="arrow-wrapper">
-                    <img src="images/arrow.png" alt="">
+                    <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
                 </div>
                 <h3>
                     <strong>თბილისი</strong>
