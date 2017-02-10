@@ -71,11 +71,12 @@
             width: 110px;
             height: 40px;
             border-right: 1px solid #b2b2b2;
-            padding: 5px 10px;
             margin: 10px 0; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             float: left;
+            width: 100%;
+            padding: 5px 10px;
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
