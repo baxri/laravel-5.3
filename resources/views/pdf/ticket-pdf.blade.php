@@ -53,7 +53,7 @@
             height: 60px; }
         .pdf-wrapper .header .col-1 {
             float: left;
-            width: 145px;
+            width: 180px;
             height: 40px;
             margin: 10px 0;
             border-right: 1px solid #b2b2b2; }
@@ -68,7 +68,7 @@
             padding: 0 10px; }
         .pdf-wrapper .header .col-2 {
             float: left;
-            width: 110px;
+            width: 150px;
             height: 40px;
             border-right: 1px solid #b2b2b2;
             margin: 10px 0; }
