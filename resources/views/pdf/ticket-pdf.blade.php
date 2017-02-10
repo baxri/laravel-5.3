@@ -443,7 +443,7 @@
     </div>
     <div class="footer">
         <div class="col-1"><p>ქოლცენტრი / Call center: (995 32) 2 193 195</p></div>
-        <div class="col-2"><p>ფასი / Price: {{number_format($ticket->amount_from_api/100,2)}} ლარი/GEL</p></div>
+        <div class="col-2"><p>ფასი / Price: {{number_format($ticket->amount_from_api/100,2)}} ლარი / GEL</p></div>
     </div>
 </div>
 @endforeach
