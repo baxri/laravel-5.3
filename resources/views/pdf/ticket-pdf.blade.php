@@ -328,7 +328,7 @@
         <div class="col-2">
             <h2>
                 <strong>
-                    {{ \App\helpers\Railway::trans(strtoupper(\date('H:i', \strtotime( $ticket->leave_datetime ))), $ticket->lang ) }}
+                    {{ \date('H:i', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
                     სთ
