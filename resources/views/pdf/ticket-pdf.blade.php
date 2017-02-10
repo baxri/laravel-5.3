@@ -115,7 +115,7 @@
             vertical-align: top; }
         .pdf-wrapper .header .col-4 {
             float: left;
-            width: 118px;
+            width: 90px;
             height: 40px; }
         .pdf-wrapper .header .col-4 h2 {
             display: block;
@@ -140,7 +140,7 @@
             vertical-align: top; }
         .pdf-wrapper .header .col-5 {
             float: right;
-            width: 220px;
+            width: 160px;
             height: 40px; }
         .pdf-wrapper .header .col-5 h2 {
             display: block;
