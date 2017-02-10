@@ -340,7 +340,7 @@
         <div class="col-3">
             <h2>
                 <strong>
-                    {{ intval(\date('m', strtotime( $ticket->leave_datetime ))) }}
+                    {{ \date('m', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
                     {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'en',  true)}}
@@ -369,7 +369,7 @@
                     Purchase code
                 </span>
                 <strong>
-                    61654656
+                    {{$ticket->request_id}}
                 </strong>
             </h2>
         </div>
