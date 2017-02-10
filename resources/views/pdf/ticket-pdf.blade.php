@@ -314,6 +314,37 @@
 
 @foreach( $ticket->persons as $key => $person )
 <div class="pdf-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <td><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></td>
+                <td>
+                    <p>გამგზავრება</p>
+                    <p>Departure</p>
+                </td>
+                <td>
+                    <strong>{{ \date('H:i', strtotime( $ticket->leave_datetime )) }}</strong>
+                    <span>სთ<br>Tm</span>
+                </td>
+                <td>
+                    <strong>{{ \date('m', strtotime( $ticket->leave_datetime )) }}</strong>
+                    <span>{{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'en',  true)}}<br>{{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'ka',  true)}}</span>
+                </td>
+                <td>
+                    <strong>{{ \date('Y', strtotime( $ticket->leave_datetime )) }}</strong>
+                    <span>წელი<br>Year</span>
+                </td>
+                <td>
+                    <span>შესყიდვის კოდი<br>Purchase code</span>
+                    <strong>{{$ticket->request_id}}</strong>
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="pdf-wrapper">
     <div class="header">
         <div class="logo-wrapper"><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></div>
         <div class="col-1">
