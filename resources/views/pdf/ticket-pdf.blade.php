@@ -343,7 +343,7 @@
                     {{ \date('m', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
-                    ოქტ
+                    {{\App\helpers\Railway::translateDate($ticket->leave_datetime)}}
                     <br>
                     Oct
                 </span>
