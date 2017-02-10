@@ -54,16 +54,15 @@
             float: left;
             width: 90px;
             height: 40px;
-            padding: 5px 10px 0;
-            margin: 10px 0 0;
+            padding: 5px 10px;
+            margin-top: 10px;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-1 p {
             display: block;
             color: #7f7f7f;
             font-size: 12px;
             text-align: right;
-            line-height: 15px;
-            margin-bottom: 0; }
+            line-height: 15px; }
         .pdf-wrapper .header .col-2 {
             float: left;
             width: 90px;
