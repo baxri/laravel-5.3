@@ -52,7 +52,7 @@
             height: 60px; }
         .pdf-wrapper .header .col-1 {
             float: left;
-            width: 120px;
+            width: 100px;
             height: 40px;
             padding: 0 10px;
             margin: 10px 0;
@@ -64,13 +64,13 @@
             line-height: 20px; }
         .pdf-wrapper .header .col-2 {
             float: left;
-            width: 110px;
+            width: 90px;
             height: 40px;
-            padding: 5px 10px;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             color: #000000;
+            padding: 5px 10px;
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: inline-block;
