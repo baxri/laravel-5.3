@@ -76,6 +76,7 @@
             line-height: 30px; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
+            color: red;
             float: left;
             font-size: 2.4em;
             font-weight: bold;
