@@ -107,8 +107,7 @@
             display: inline-block;
             float: right;
             color: #7f7f7f;
-            font-size: 8px;
-            font-weight: normal;
+            font-size: 10px;
             text-align: left;
             line-height: 15px;
             padding-left: 4px;
@@ -132,8 +131,7 @@
             display: inline-block;
             float: right;
             color: #7f7f7f;
-            font-size: 8px;
-            font-weight: normal;
+            font-size: 10px;
             text-align: left;
             line-height: 15px;
             padding-left: 4px;
@@ -156,8 +154,7 @@
         .pdf-wrapper .header .col-5 h2 span {
             display: inline-block;
             color: #7f7f7f;
-            font-size: 8px;
-            font-weight: normal;
+            font-size: 10px;
             text-align: right;
             line-height: 15px;
             padding-right: 10px;
