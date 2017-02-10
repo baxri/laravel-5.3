@@ -123,10 +123,10 @@
         .pdf-wrapper .header .col-4 h2 {
             display: block;
             color: #000000;
-            text-align: right;
-            line-height: 30px; }
+            text-align: right; }
         .pdf-wrapper .header .col-4 h2 strong {
             display: inline-block;
+            line-height: 30px;
             font-size: 2.4em;
             font-weight: bold;
             vertical-align: top; }
