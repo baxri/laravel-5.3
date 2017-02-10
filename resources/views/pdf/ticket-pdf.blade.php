@@ -72,13 +72,13 @@
             display: block;
             color: #000000;
             padding: 5px 10px;
-            text-align: right; }
+            text-align: right;
+            vertical-align: top; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: inline-block;
             font-size: 18px;
             font-weight: bold;
-            line-height: 30px;
-            vertical-align: top; }
+            line-height: 30px; }
         .pdf-wrapper .header .col-2 h2 span {
             display: inline-block;
             float: right;
@@ -86,8 +86,7 @@
             font-size: 10px;
             text-align: left;
             line-height: 15px;
-            padding-left: 4px;
-            vertical-align: top; }
+            padding-left: 4px;}
         .pdf-wrapper .header .col-3 {
             float: left;
             width: 80px;
