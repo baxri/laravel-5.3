@@ -71,12 +71,12 @@
             margin: 10px 0; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
+            width: 100%;
             float: left;
-            color: #000000;
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
-            color: green;
+            color: #000000;
             float: left;
             font-size: 24px;
             font-weight: bold;
@@ -84,7 +84,7 @@
             vertical-align: top; }
         .pdf-wrapper .header .col-2 h2 span {
             display: block;
-            float: right;
+            float: left;
             color: #7f7f7f;
             font-size: 10px;
             text-align: left;
