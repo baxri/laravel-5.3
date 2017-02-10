@@ -52,19 +52,19 @@
             height: 60px; }
         .pdf-wrapper .header .col-1 {
             float: left;
-            width: 100px;
+            width: 90px;
             height: 40px;
-            padding: 0 10px;
+            padding: 5px 10px;
             margin: 10px 0;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-1 p {
             color: #7f7f7f;
             font-size: 12px;
             text-align: right;
-            line-height: 20px; }
+            line-height: 15px; }
         .pdf-wrapper .header .col-2 {
             float: left;
-            width: 90px;
+            width: 80px;
             height: 40px;
             border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-2 h2 {
@@ -107,7 +107,8 @@
             display: inline-block;
             float: right;
             color: #7f7f7f;
-            font-size: 10px;
+            font-size: 8px;
+            font-weight: normal;
             text-align: left;
             line-height: 15px;
             padding-left: 4px;
@@ -131,7 +132,8 @@
             display: inline-block;
             float: right;
             color: #7f7f7f;
-            font-size: 10px;
+            font-size: 8px;
+            font-weight: normal;
             text-align: left;
             line-height: 15px;
             padding-left: 4px;
@@ -147,14 +149,15 @@
             text-align: right; }
         .pdf-wrapper .header .col-5 h2 strong {
             display: inline-block;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-5 h2 span {
             display: inline-block;
             color: #7f7f7f;
-            font-size: 10px;
+            font-size: 8px;
+            font-weight: normal;
             text-align: right;
             line-height: 15px;
             padding-right: 10px;
