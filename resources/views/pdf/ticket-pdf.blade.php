@@ -326,16 +326,52 @@
             <p>Departure</p>
         </div>
         <div class="col-2">
-            <h2><strong>17:30</strong><span>სთ<br>Tm</span></h2>
+            <h2>
+                <strong>
+                    {{ \App\helpers\Railway::trans(strtoupper(\date('H:i', \strtotime( $ticket->leave_datetime ))), $ticket->lang ) }}
+                </strong>
+                <span>
+                    სთ
+                    <br>
+                    Tm
+                </span>
+            </h2>
         </div>
         <div class="col-3">
-            <h2><strong>20</strong><span>ოქტ<br>Oct</span></h2>
+            <h2>
+                <strong>
+                    20
+                </strong>
+                <span>
+                    ოქტ
+                    <br>
+                    Oct
+                </span>
+            </h2>
         </div>
         <div class="col-4">
-            <h2><strong>2017</strong><span>წელი<br>Year</span></h2>
+            <h2>
+                <strong>
+                    2017
+                </strong>
+                <span>
+                    წელი
+                    <br>
+                    Year
+                </span>
+            </h2>
         </div>
         <div class="col-5">
-            <h2><span>შესყიდვის კოდი<br>Purchase code</span><strong>61654656</strong></h2>
+            <h2>
+                <span>
+                    შესყიდვის კოდი
+                    <br>
+                    Purchase code
+                </span>
+                <strong>
+                    61654656
+                </strong>
+            </h2>
         </div>
     </div>
     <div class="content">
