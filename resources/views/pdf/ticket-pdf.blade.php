@@ -332,8 +332,6 @@
                 </strong>
                 <span>
                     სთ
-                    <br>
-                    Tm
                 </span>
             </h2>
         </div>
