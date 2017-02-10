@@ -104,7 +104,7 @@
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
-        .pdf-wrapper .header .col-3 h2 span {
+        .pdf-wrapper .header .col-3 h2 span  {
             display: inline-block;
             float: right;
             color: #7f7f7f;
