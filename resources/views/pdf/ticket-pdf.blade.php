@@ -35,7 +35,7 @@
             line-height: 1; }
 
         .pdf-wrapper {
-            width: 860px;
+            width: 100%;
             margin: 20px auto; }
         .pdf-wrapper .header {
             width: 100%;
