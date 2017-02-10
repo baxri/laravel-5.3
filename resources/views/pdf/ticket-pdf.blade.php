@@ -91,11 +91,11 @@
             float: left;
             width: 80px;
             height: 40px;
-            border-right: 1px solid #b2b2b2;
-            padding: 5px 10px; }
+            border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-3 h2 {
             display: block;
             color: #000000;
+            padding: 5px 10px;
             text-align: right; }
         .pdf-wrapper .header .col-3 h2 strong {
             display: inline-block;
@@ -115,22 +115,21 @@
         .pdf-wrapper .header .col-4 {
             float: left;
             width: 118px;
-            height: 40px;
-            padding: 5px 10px; }
+            height: 40px; }
         .pdf-wrapper .header .col-4 h2 {
             display: block;
             color: #000000;
+            padding: 5px 10px;
             text-align: right; }
         .pdf-wrapper .header .col-4 h2 strong {
             display: inline-block;
-            font-size: 2.4em;
+            font-size: 24px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-4 h2 span {
             display: inline-block;
             float: right;
-            clear: right;
             color: #7f7f7f;
             font-size: 10px;
             text-align: left;
@@ -140,22 +139,22 @@
         .pdf-wrapper .header .col-5 {
             float: right;
             width: 220px;
-            height: 40px;
-            padding: 5px 10px; }
+            height: 40px; }
         .pdf-wrapper .header .col-5 h2 {
             display: block;
             color: #000000;
+            padding: 5px 10px;
             text-align: right; }
         .pdf-wrapper .header .col-5 h2 strong {
             display: inline-block;
-            font-size: 1.8em;
+            font-size: 18px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
         .pdf-wrapper .header .col-5 h2 span {
             display: inline-block;
             color: #7f7f7f;
-            font-size: 1em;
+            font-size: 10px;
             text-align: right;
             line-height: 15px;
             padding-right: 10px;
