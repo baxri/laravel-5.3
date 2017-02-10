@@ -71,12 +71,12 @@
             margin: 10px 0; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
-            float: left;
             color: #000000;
             text-align: right;
             line-height: 30px; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
+            float: left;
             font-size: 2.4em;
             font-weight: bold;
             vertical-align: top; }
