@@ -340,7 +340,7 @@
         <div class="col-3">
             <h2>
                 <strong>
-                    20
+                    {{ \date('m', strtotime( $ticket->leave_datetime )) }}
                 </strong>
                 <span>
                     ოქტ
