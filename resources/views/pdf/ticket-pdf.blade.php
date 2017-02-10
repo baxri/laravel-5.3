@@ -55,6 +55,7 @@
             width: 145px;
             height: 40px;
             border-right: 1px solid #b2b2b2;
+
             padding: 0 10px;
             margin: 10px 0; }
         .pdf-wrapper .header .col-1 p {
@@ -411,28 +412,31 @@
                         <span>მატარებელი</span>
                         <span>Train</span>
                     </h4>
-                    <p>804</p>
+                    <p>{{ $ticket->train }}</p>
                 </div>
                 <div class="row3-col small">
                     <h4>
                         <span>ვაგონი</span>
                         <span>Carriage</span>
                     </h4>
-                    <p>3</p>
+                    <p>{{ $ticket->vagon }}</p>
                 </div>
                 <div class="row3-col small">
                     <h4>
                         <span>ადგილი</span>
                         <span>Seat</span>
                     </h4>
-                    <p>22</p>
+                    <p>{{$person->place_number}}</p>
                 </div>
                 <div class="row3-col big">
                     <h4>
                         <span>კლასი</span>
                         <span>Class</span>
                     </h4>
-                    <p>2 Class</p>
+                    <p>
+                        {{ \App\helpers\Railway::translate($ticket->vagon_class, 'ka') }} /
+                        {{ \App\helpers\Railway::translate($ticket->vagon_class, 'en') }}
+                    </p>
                 </div>
             </div>
         </div>
