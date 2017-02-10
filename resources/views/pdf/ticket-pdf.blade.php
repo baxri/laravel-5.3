@@ -74,7 +74,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: inline-block;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
@@ -99,7 +99,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-3 h2 strong {
             display: inline-block;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
@@ -123,7 +123,7 @@
             text-align: right; }
         .pdf-wrapper .header .col-4 h2 strong {
             display: inline-block;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
             line-height: 30px;
             vertical-align: top; }
