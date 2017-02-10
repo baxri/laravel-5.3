@@ -70,8 +70,7 @@
             float: left;
             width: 150px;
             height: 40px;
-            border-right: 1px solid #b2b2b2;
-            margin: 10px 0; }
+            border-right: 1px solid #b2b2b2; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
             float: left;
