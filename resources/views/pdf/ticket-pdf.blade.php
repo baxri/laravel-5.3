@@ -38,6 +38,7 @@
             width: 860px;
             margin: 20px auto; }
         .pdf-wrapper .header {
+            float: left;
             width: 100%;
             height: 88px;
             padding: 14px 22px;
@@ -59,7 +60,7 @@
             margin: 10px 0; }
         .pdf-wrapper .header .col-1 p {
             color: #7f7f7f;
-            font-size: 1.4em;
+            font-size: 14px;
             text-align: right;
             line-height: 20px; }
         .pdf-wrapper .header .col-2 {
@@ -71,17 +72,15 @@
             margin: 10px 0; }
         .pdf-wrapper .header .col-2 h2 {
             display: block;
-            width: 100%;
             float: left;
             text-align: right; }
         .pdf-wrapper .header .col-2 h2 strong {
             display: block;
-            color: #000000;
             float: left;
+            color: #000000;
             font-size: 24px;
             font-weight: bold;
-            line-height: 30px;
-            vertical-align: top; }
+            line-height: 30px; }
         .pdf-wrapper .header .col-2 h2 span {
             display: block;
             float: left;
@@ -89,8 +88,7 @@
             font-size: 10px;
             text-align: left;
             line-height: 15px;
-            padding-left: 4px;
-            vertical-align: top; }
+            padding-left: 4px; }
         .pdf-wrapper .header .col-3 {
             float: left;
             width: 80px;
