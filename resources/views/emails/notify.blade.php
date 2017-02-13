@@ -29,7 +29,7 @@
         <img src="https://matarebeli.ge/assets/images/matarebeli-logo.png" alt="matarebeli.ge">
     </div>
     <div class="header">
-        <h1>THANK YOU FOR USING OUR SERVICE</h1>
+        <h1>{{\App\helpers\Railway::translate('THANK_YOU_FOR_USING_OUR_SERVICE')}}</h1>
     </div>
     <div class="content">
 
