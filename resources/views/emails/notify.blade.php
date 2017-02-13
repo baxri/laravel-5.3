@@ -26,7 +26,7 @@
 <body>
 <div class="mail-wrapper">
     <div class="logo-wrapper">
-        <img src="https://new.matarebeli.ge/assets/images/matarebeli-logo.png" alt="matarebeli.ge">
+        <img src="http://new.matarebeli.ge/assets/images/matarebeli-logo.png" alt="matarebeli.ge">
     </div>
     <div class="header">
         <h1>{{\App\helpers\Railway::translate('THANK_YOU_FOR_USING_OUR_SERVICE', $transaction->lang)}}</h1>
@@ -52,7 +52,7 @@
             <p>{{\App\helpers\Railway::translate('MAIL_IMPOSTANT_NOTE', $transaction->lang)}}</p>
         </div>
 
-        <a href="" class="btn">
+        <a href="#" class="btn">
             {{\App\helpers\Railway::translate('VIEW_PRINTABLE_TICKETS', $transaction->lang)}}
         </a>
     </div>
