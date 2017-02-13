@@ -42,7 +42,7 @@ class PayoutTransaction extends RaModel
 
     public function make( $options, $persons ){
 
-        return true;
+       // return true;
 
         $this->name = $options['name'];
         $this->surname = $options['surname'];
@@ -87,8 +87,6 @@ class PayoutTransaction extends RaModel
         if( empty( $sum ) ){
             throw new Exception('NOTHIG_TO_RETURN_FOR_THIS_TICKET');
         }
-
-        return true;
 
         $this->amount = $sum;
 
