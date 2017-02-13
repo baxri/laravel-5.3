@@ -42,7 +42,7 @@ return [
     'KUPIREBULI' => 'Compartment Carriage',
     'RBILI' => 'Soft seated',
     'SAERTO' => 'Day Coach',
-    'PLATSKARTI' => 'Number reservered seats',
+    'PLATSKARTI' => 'Number res. seats',
     'DASAJDOMI' => 'Seated',
     'MODERNIZEBULI' => 'Modernized',
     'BIZNESKLASI' => 'Business Class',
