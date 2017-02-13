@@ -49,6 +49,9 @@ return [
     'EKONOMKLASI' => 'Economy Class',
     'SHSHPIREBISADGILEBI' => 'For disabilities',
 
-
     'THANK_YOU_FOR_USING_OUR_SERVICE' => 'THANK YOU FOR USING OUR SERVICE',
+    'DEPARTURE_TICKET_PURCHASE_CODE' => 'Departure ticket purchase code',
+    'PLEASE_SEE_PDF' => 'Please see the .PDF version of your ticket in attached file.',
+    'MAIL_IMPOSTANT_NOTE' => 'It is important to show ticket holder Passport ID during the check in.',
+    'VIEW_PRINTABLE_TICKETS' => 'VIEW PRINTABLE TICKET',
 ];

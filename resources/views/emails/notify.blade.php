@@ -35,32 +35,26 @@
 
         @foreach( $transaction->tickets as $key => $ticket )
             @if( $key == 0 )
-                <h2>Departure ticket purchase code</h2>
+                <h2>{{\App\helpers\Railway::translate('DEPARTURE_TICKET_PURCHASE_CODE', $transaction->lang)}}</h2>
                 <div class="code">
                     <h3>{{$ticket->request_id}}</h3>
                 </div>
             @else
-                <h2>Departure ticket purchase code</h2>
+                <h2>{{\App\helpers\Railway::translate('DEPARTURE_TICKET_PURCHASE_CODE', $transaction->lang)}}</h2>
                 <div class="code">
                     <h3>{{$ticket->request_id}}</h3>
                 </div>
             @endif
         @endforeach
 
-        <div class="qr-wrapper">
-            <img src="{{$ticket->getQR()}}" alt="matarebeli.ge">
-        </div>
         <div class="desc">
-            <p>Please see the .PDF version of your ticket in attached file.</p>
-            <p>It is important to show ticket holder Passport ID during the check in.</p>
+            <p>{{\App\helpers\Railway::translate('PLEASE_SEE_PDF', $transaction->lang)}}</p>
+            <p>{{\App\helpers\Railway::translate('MAIL_IMPOSTANT_NOTE', $transaction->lang)}}</p>
         </div>
 
-        <div class="desc">
-            <p>მიმაგრებულ ფაილში იხილეთ ბილეთის საბეჭდი ვერსია.</p>
-            <p>ელექტრონული სამგზავრო დოკუმენტით მგზავრობისათვის ვაგონის გამცილებელთან საჭიროა წარადგინოთ მგზავრების პიროვნების დამადასტურებელი მოწმობა.</p>
-        </div>
-
-        <a href="" class="btn">VIEW PRINTABLE TICKETS</a>
+        <a href="" class="btn">
+            {{\App\helpers\Railway::translate('VIEW_PRINTABLE_TICKETS', $transaction->lang)}}
+        </a>
     </div>
 </div>
 </body>
