@@ -53,7 +53,7 @@
             <p>{{\App\helpers\Railway::translate('MAIL_IMPOSTANT_NOTE', $transaction->lang)}}</p>
         </div>
 
-        <a href="#" class="btn">
+        <a href="http://new.matarebeli.ge/{{$transaction->lang}}/tickets" class="btn">
             {{\App\helpers\Railway::translate('VIEW_PRINTABLE_TICKETS', $transaction->lang)}}
         </a>
     </div>
