@@ -23,6 +23,7 @@
         .mail-wrapper .content .btn:hover {background-color: #ffc065;}
     </style>
 </head>
+
 <body>
 <div class="mail-wrapper">
     <div class="logo-wrapper">
