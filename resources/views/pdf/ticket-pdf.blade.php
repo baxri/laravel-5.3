@@ -45,8 +45,12 @@ table.header-table tbody {
     height: 88px;
 }
 table.header-table tbody tr .main-td {
-    padding: 14px 22px;
+    text-align: center;
+    padding: 14px;
     vertical-align: middle;
+}
+table.header-table tbody tr .main-td table {
+    width: 100%;
 }
 table.inner-table {
     height: 40px;
@@ -73,14 +77,16 @@ table.content-table .content-details table {
     width: 100%;
 }
 table.content-table .content-details .bottom-border {
-    border-bottom: 1px solid #b2b2b2;
+    border-bottom: 1px solid #f2f2f2;
 }
 table.footer-table {
     width: 100%;
 }
 table.footer-table td {
-    text-align: center;
-    padding: 5px 20px;
+    color: #7f7f7f;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 20px;
 }
 table.footer-table td p {
     color: #7f7f7f;
@@ -90,6 +96,9 @@ table.footer-table td p {
 .aline-right {
     text-align: right;
 }
+.aline-center {
+    text-align: center;
+}
 .aline-left {
     text-align: left;
 }
@@ -97,6 +106,9 @@ table.footer-table td p {
     color: #7f7f7f;
     font-size: 14px;
     line-height: 20px;
+}
+.cls3 {
+    width: 200px;
 }
 .span1 {
     color: #000;
@@ -121,15 +133,59 @@ table.footer-table td p {
     color: #7f7f7f;
     font-size: 14px;
     line-height: 20px;
+    padding-right: 12px;
 }
 .span5 {
     color: #000;
     font-size: 18px;
+    font-weight: bold;
     line-height: 40px;
 }
 .padding20 {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.station {
+    width: 30%;
+    font-size: 20px;
+    line-height: 40px;
+}
+.arrow {
+    width: 100px;
+}
+.station p.black {
+    color: #000000;
+    font-weight: bold;
+}
+.station p.gray {
+    color: #7f7f7f;
+}
+.gray {
+    color: #7f7f7f !important;
+}
+.middle-details td,
+.third-details td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.third-details td.aline-right {
+    color: #7f7f7f;
+    font-size: 12px;
+    line-height: 20px;
+    border-right: 1px solid #f2f2f2;
+}
+.third-details td.aline-left {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bold;
+}
+.third-details td.last-td {
+    text-align: left;
+    font-size: 16px;
+    line-height: 20px;
+}
+.middle-details td.aline-right {
+    border-right: 1px solid #f2f2f2;
 }
 </style>
 </head>
@@ -198,7 +254,7 @@ table.footer-table td p {
                                         </tbody>
                                     </table>
                                 </td>
-                                <td class="main-td">
+                                <td class="main-td cls3">
                                     <table>
                                         <tbody>
                                         <tr>
@@ -227,57 +283,83 @@ table.footer-table td p {
                                 <table>
                                     <tbody>
                                     <tr>
-                                        <td class="padding20 bottom-border" colspan="2">
-                                            <strong>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'ka') }}</strong>
-                                            <span>{{ \App\helpers\Railway::translateStation($ticket->source_station, 'en') }}</span>
-                                        </td>
                                         <td class="padding20 bottom-border">
-                                            <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
-                                        </td>
-                                        <td class="padding20 bottom-border" colspan="5">
-                                            <strong>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'ka') }}</strong>
-                                            <span>{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'en') }}</span>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="station aline-center">
+                                                            <p class="black">{{ \App\helpers\Railway::translateStation($ticket->source_station, 'ka') }}</p>
+                                                            <p class="gray">{{ \App\helpers\Railway::translateStation($ticket->source_station, 'en') }}</p>
+                                                        </td>
+                                                        <td class="arrow aline-center">
+                                                            <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
+                                                        </td>
+                                                        <td class="station aline-center">
+                                                            <p class="black">{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'ka') }}</p>
+                                                            <p class="gray">{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'en') }}</p>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="padding20 span4 bottom-border aline-right" colspan="2">
-                                            სახელი<br>Name
-                                        </td>
-                                        <td class="padding20 span5 bottom-border aline-left" colspan="2">
-                                            <p>{{$person->name}} {{$person->surname}}</p>
-                                        </td>
-                                        <td class="padding20 span4 bottom-border aline-right" colspan="2">
-                                            პირადი ნომერი<br>ID Number
-                                        </td>
-                                        <td class="padding20 span5 bottom-border aline-left" colspan="2">
-                                            <p>{{$person->idnumber}}</p>
+                                        <td class="padding20 bottom-border">
+                                            <table>
+                                                <tbody>
+                                                    <tr class="middle-details">
+                                                        <td class="span4 aline-right" colspan="2">
+                                                            სახელი<br>Name
+                                                        </td>
+                                                        <td class="span5 aline-left" colspan="2">
+                                                            <p>{{$person->name}} {{$person->surname}}</p>
+                                                        </td>
+                                                        <td class="span4 aline-right" colspan="2">
+                                                            პირადი ნომერი<br>ID Number
+                                                        </td>
+                                                        <td class="span5 aline-left" colspan="2">
+                                                            <p>{{$person->idnumber}}</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="padding20">
-                                            მატარებელი<br>Train
-                                        </td>
-                                        <td class="padding20">
-                                            {{ $ticket->train }}
-                                        </td>
-                                        <td class="padding20">
-                                            ვაგონი<br>Carriage
-                                        </td>
-                                        <td class="padding20">
-                                            {{ $ticket->vagon }}
-                                        </td>
-                                        <td class="padding20">
-                                            ადგილი<br>Seat
-                                        </td>
-                                        <td class="padding20">
-                                            {{$person->place_number}}
-                                        </td>
-                                        <td class="padding20">
-                                            კლასი<br>Class
-                                        </td>
-                                        <td class="padding20">
-                                            {{ \App\helpers\Railway::translate($ticket->vagon_class, 'ka') }} /
-                                            {{ \App\helpers\Railway::translate($ticket->vagon_class, 'en') }}
+                                            <table>
+                                                <tbody>
+                                                <tr class="third-details">
+                                                    <td class="aline-right">
+                                                        <p>მატარებელი</p>
+                                                        <p>Train</p>
+                                                    </td>
+                                                    <td class="aline-left">
+                                                        {{ $ticket->train }}
+                                                    </td>
+                                                    <td class="aline-right">
+                                                        ვაგონი<br>Carriage
+                                                    </td>
+                                                    <td class="aline-left">
+                                                        {{ $ticket->vagon }}
+                                                    </td>
+                                                    <td class="aline-right">
+                                                        ადგილი<br>Seat
+                                                    </td>
+                                                    <td class="aline-left">
+                                                        {{$person->place_number}}
+                                                    </td>
+                                                    <td class="aline-right">
+                                                        კლასი<br>Class
+                                                    </td>
+                                                    <td class="last-td">
+                                                        {{ \App\helpers\Railway::translate($ticket->vagon_class, 'ka') }}<br>
+                                                        <span class="gray">{{ \App\helpers\Railway::translate($ticket->vagon_class, 'en') }}</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -293,8 +375,8 @@ table.footer-table td p {
                     <table bgcolor="#f2f2f2" class="footer-table">
                         <tbody>
                         <tr>
-                            <td>ქოლცენტრი / Call center: (995 32) 2 193 195</td>
-                            <td>ფასი / Price: {{number_format($ticket->amount_from_api/100,2)}} ლარი / GEL</td>
+                            <td class="aline-center">ქოლცენტრი / Call center: (995 32) 2 193 195</td>
+                            <td class="aline-right">ფასი / Price: {{number_format($ticket->amount_from_api/100,2)}} ლარი / GEL</td>
                         </tr>
                         </tbody>
                     </table>
