@@ -40,7 +40,7 @@
                     <h3>{{$ticket->request_id}}</h3>
                 </div>
             @else
-                <h2>{{\App\helpers\Railway::translate('DEPARTURE_TICKET_PURCHASE_CODE', $transaction->lang)}}</h2>
+                <h2>{{\App\helpers\Railway::translate('RETURN_TICKET_PURCHASE_CODE', $transaction->lang)}}</h2>
                 <div class="code">
                     <h3>{{$ticket->request_id}}</h3>
                 </div>

@@ -51,7 +51,8 @@ return [
     'SHSHPIREBISADGILEBI' => 'შშ პირების ადგილები',
 
     'THANK_YOU_FOR_USING_OUR_SERVICE' => 'მადლობას გიხდით სერვისის სარგებლობისთვის',
-    'DEPARTURE_TICKET_PURCHASE_CODE' => 'ბილეთის შეკვეთის კოდი',
+    'DEPARTURE_TICKET_PURCHASE_CODE' => 'გამგზავრების ბილეთის შეკვეთის კოდი',
+    'RETURN_TICKET_PURCHASE_CODE' => 'დაბრუნების ბილეთის შეკვეთის კოდი',
     'PLEASE_SEE_PDF' => 'მიმაგრებულ ფაილში იხილეთ ბილეთის საბეჭდი ვერსია.',
     'MAIL_IMPOSTANT_NOTE' => 'ელექტრონული სამგზავრო დოკუმენტით მგზავრობისათვის ვაგონის გამცილებელთან საჭიროა წარადგინოთ მგზავრების პიროვნების დამადასტურებელი მოწმობა.',
     'VIEW_PRINTABLE_TICKETS' => 'ბილეთის ნახვა',
