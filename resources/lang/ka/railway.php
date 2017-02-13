@@ -49,4 +49,7 @@ return [
     'BIZNESKLASI' => 'ბიზნეს კლასი',
     'EKONOMKLASI' => 'ეკონომ კლასი',
     'SHSHPIREBISADGILEBI' => 'შშ პირების ადგილები',
+
+
+    'THANK_YOU_FOR_USING_OUR_SERVICE' => 'მადლობას გიხდით სერვისის სარგებლობისთვის',
 ];

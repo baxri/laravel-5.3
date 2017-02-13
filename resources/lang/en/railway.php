@@ -48,4 +48,7 @@ return [
     'BIZNESKLASI' => 'Business Class',
     'EKONOMKLASI' => 'Economy Class',
     'SHSHPIREBISADGILEBI' => 'For disabilities',
+
+
+    'THANK_YOU_FOR_USING_OUR_SERVICE' => 'THANK YOU FOR USING OUR SERVICE',
 ];
