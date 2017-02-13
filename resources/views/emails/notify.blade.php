@@ -50,7 +50,7 @@
 
         <div class="desc">
             <p>{{\App\helpers\Railway::translate('PLEASE_SEE_PDF', $transaction->lang)}}</p>
-            <p>{{\App\helpers\Railway::translate('MAIL_IMPOSTANT_NOTE', $transaction->lang)}}</p>
+            <p>{{\App\helpers\Railway::translate('MAIL_IMPORTANT_NOTE', $transaction->lang)}}</p>
         </div>
 
         <a href="http://www.matarebeli.ge/{{$transaction->lang}}/tickets" class="btn">
