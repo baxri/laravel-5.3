@@ -203,7 +203,7 @@ table.footer-table td p {
                     <table bgcolor="#f2f2f2" class="header-table">
                         <tbody>
                             <tr>
-                                <td class="main-td"><img src="http://new.matarebeli.ge/assets/images/pdf-logo.png" alt=""></td>
+                                <td class="main-td"><img src="http://www.matarebeli.geassets/images/pdf-logo.png" alt=""></td>
                                 <td class="main-td">
                                     <table class="inner-table cls1">
                                         <tbody>
@@ -282,7 +282,7 @@ table.footer-table td p {
                     <table class="content-table">
                         <tbody>
                         <tr>
-                            <td class="content-logo"><img src="http://new.matarebeli.ge/assets/images/pdf-logo-2.png" alt=""></td>
+                            <td class="content-logo"><img src="http://www.matarebeli.ge/assets/images/pdf-logo-2.png" alt=""></td>
                             <td class="content-details">
                                 <table>
                                     <tbody>
@@ -296,7 +296,7 @@ table.footer-table td p {
                                                             <p class="gray">{{ \App\helpers\Railway::translateStation($ticket->source_station, 'en') }}</p>
                                                         </td>
                                                         <td class="arrow aline-center">
-                                                            <img src="http://new.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
+                                                            <img src="http://www.matarebeli.ge/assets/images/pdf-arrow.png" alt="">
                                                         </td>
                                                         <td class="station aline-center">
                                                             <p class="black">{{ \App\helpers\Railway::translateStation($ticket->destination_station, 'ka') }}</p>
