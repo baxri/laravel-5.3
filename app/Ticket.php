@@ -302,6 +302,8 @@ class Ticket extends RaModel
             }
         }
 
+        $payout_fee = config('railway.payout_fee');
+
         return [
            'id' => $this->id,
            'request_id' => $this->request_id,
@@ -324,7 +326,10 @@ class Ticket extends RaModel
            'mobile' => '+'.$this->transaction->index_mobile,
 
            'prepared_for_payout' => count($prepared_payouts),
+
            'payoutable_amount' => number_format($payoutable_amount, 2),
+           'payout_fee' => number_format($payout_fee,2),
+
            'persons' => $persons,
            'schedule' => $this->schedule(),
         ];
