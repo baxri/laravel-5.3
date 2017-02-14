@@ -294,6 +294,14 @@ class Ticket extends RaModel
         $persons = $this->persons()->orderBy( 'ischild', 'ASC' )->get();
         $prepared_payouts = Person::needPayout( $this->id )->get();
 
+        $payoutable_amount = 0;
+
+        if( count($prepared_payouts) > 0 ){
+            foreach ( $prepared_payouts as $person ){
+                $payoutable_amount += $person->returned_amount;
+            }
+        }
+
         return [
            'id' => $this->id,
            'request_id' => $this->request_id,
@@ -316,6 +324,7 @@ class Ticket extends RaModel
            'mobile' => '+'.$this->transaction->index_mobile,
 
            'prepared_for_payout' => count($prepared_payouts),
+           'payoutable_amount' => number_format($payoutable_amount, 2),
            'persons' => $persons,
            'schedule' => $this->schedule(),
         ];
