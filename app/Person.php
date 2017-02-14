@@ -135,6 +135,8 @@ class Person extends RaModel
 
     public function ret( $check = false ){
 
+        return true;
+
         if( $this->status != Person::$success ){
             return false;
         }
