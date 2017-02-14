@@ -140,5 +140,5 @@ return [
     |
     */
 
-    'payout_fee' => '0.50'
+    'payout_fee' => 50,
 ];

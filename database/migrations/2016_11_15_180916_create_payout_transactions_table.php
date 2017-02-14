@@ -22,6 +22,7 @@ class CreatePayoutTransactionsTable extends Migration
 
             $table->integer('status');
             $table->integer('amount');
+            $table->integer('commission');
             $table->string('description');
 
             $table->string('ip');

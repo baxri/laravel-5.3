@@ -88,7 +88,10 @@ class PayoutTransaction extends RaModel
             throw new Exception('NOTHIG_TO_RETURN_FOR_THIS_TICKET');
         }
 
-        $this->amount = $sum;
+        $payout_fee = config('railway.payout_fee');
+
+        $this->amount = $sum - $payout_fee;
+        $this->commission = $payout_fee;
 
         $this->status = PayoutTransaction::$pending;
         $this->save();
@@ -113,7 +116,7 @@ class PayoutTransaction extends RaModel
             'MerchantUserID' => $this->name.'@'.$this->surname,
             'MerchantOrderID' => $this->id,
             'BankID' => $this->bank,
-            'Amount' => number_format( $this->amount/100, 2 ),
+            'Amount' => number_format( ($this->amount)/100, 2 ),
             'Currency' => 'GEL',
             'Name' => $this->name,
             'Surname' => $this->surname,

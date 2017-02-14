@@ -327,8 +327,8 @@ class Ticket extends RaModel
 
            'prepared_for_payout' => count($prepared_payouts),
 
-           'payoutable_amount' => number_format($payoutable_amount, 2),
-           'payout_fee' => number_format($payout_fee,2),
+           'payoutable_amount' => number_format($payoutable_amount/100, 2),
+           'payout_fee' => number_format($payout_fee/100,2),
 
            'persons' => $persons,
            'schedule' => $this->schedule(),
