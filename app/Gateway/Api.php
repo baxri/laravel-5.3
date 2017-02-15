@@ -66,14 +66,8 @@ class Api
 
             $object = json_decode($stations->getBody()->getContents());
 
-
-
             return $object->trains;
         }catch ( RequestException $e ){
-
-
-            d($e->getCode());
-
             return $this->setError( $e->getMessage() );
         }
     }

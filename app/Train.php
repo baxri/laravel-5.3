@@ -44,6 +44,10 @@ class Train extends RaModel
         $api = new Api();
         $trains = $api->GetFreePlacePrices( $date, $from, $to );
 
+        if( $trains === false ){
+            throw new Exception('SERVICE_UNAVAILABLE');
+        }
+
         if( empty($trains) ){
             throw new Exception('TRAINS_NOT_FOUND');
         }
