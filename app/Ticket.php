@@ -421,6 +421,10 @@ class Ticket extends RaModel
 
         $ticket_action_lifetime = config('railway.ticket_action_lifetime');
 
+        if( strlen($this->action_token) != 32 ){
+            return false;
+        }
+
         if( $token !== null && $token != $this->action_token ){
             return false;
         }
