@@ -33,7 +33,9 @@
     </tr>
     <tr>
         <td width="5%" align="center"></td>
-        <td align="left" width="90%" style="color:#202020;font-size:14px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:16px">მოგესალმებით, თქვენ მოითხოვეთ ბილეთის დაბრუნება შესყიდვის კოდით – {{$ticket->request_id}}</td>
+        <td align="left" width="90%" style="color:#202020;font-size:14px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:16px">
+            მოგესალმებით, თქვენ მოითხოვეთ ბილეთის დაბრუნება შესყიდვის კოდით – {{$ticket->request_id}}
+        </td>
         <td width="5%" align="center"></td>
     </tr>
     <tr>
@@ -52,7 +54,11 @@
     </tr>
     <tr>
         <td width="5%" align="center"></td>
-        <td align="left" style="color:#202020;font-size:16px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:20px"><strong>{{$ticket->action_token}}</strong></td>
+        <td align="left" style="color:#202020;font-size:16px;font-family:Gotham,'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:20px">
+            <strong>
+                {{$ticket->action_token}}
+            </strong>
+        </td>
         <td width="5%" align="center"></td>
     </tr>
     <tr>
