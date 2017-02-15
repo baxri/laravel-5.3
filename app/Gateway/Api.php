@@ -70,6 +70,10 @@ class Api
 
             return $object->trains;
         }catch ( RequestException $e ){
+
+
+            d($e->getMessage());
+
             return $this->setError( $e->getMessage() );
         }
     }
