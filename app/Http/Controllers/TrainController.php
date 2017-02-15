@@ -33,7 +33,15 @@ class TrainController extends Controller
                 )
             );
         }catch( Exception $e ){
-            return response()->error( $e->getMessage() );
+
+            $ecode = $e->getCode();
+            $code = 500;
+
+            if( $ecode == 501 ){
+                $code = $ecode;
+            }
+
+            return response()->error( $e->getMessage(), $code );
         }
     }
 }
