@@ -37,7 +37,7 @@ class TrainController extends Controller
             $ecode = $e->getCode();
             $code = 500;
 
-            if( $ecode == 501 ){
+            if( $ecode == 598 ){
                 $code = $ecode;
             }
 
