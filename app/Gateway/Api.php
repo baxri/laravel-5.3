@@ -72,7 +72,7 @@ class Api
         }catch ( RequestException $e ){
 
 
-            d($e->getMessage());
+            d($e->getCode());
 
             return $this->setError( $e->getMessage() );
         }
