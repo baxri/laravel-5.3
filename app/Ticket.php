@@ -181,6 +181,8 @@ class Ticket extends RaModel
             $this->leave_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->LeavingDate."+4hours"));
             $this->enter_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->EnteringDate."+4hours"));
 
+           // $this->leave_datetime_from_first_station = date('Y-m-d H:i:s', strtotime($trains[0]->leavingDateFromFirstStation."+4hours"));
+
             $this->train = $train;
             $this->class = $class;
             $this->rank = $rank;
@@ -326,7 +328,6 @@ class Ticket extends RaModel
            'mobile' => '+'.$this->transaction->index_mobile,
 
            'prepared_for_payout' => count($prepared_payouts),
-
            'payoutable_amount' => number_format($payoutable_amount/100, 2),
            'payout_fee' => number_format($payout_fee/100,2),
 

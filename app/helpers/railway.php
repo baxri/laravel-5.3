@@ -91,7 +91,7 @@ abstract class Railway
         return $translated;
     }
 
-    public static function translateDate( $date, $hstring = "", $lang = null, $only_month = true ){
+    public static function translateDate( $date, $hstring = "", $lang = null, $only_month = false ){
 
         if( $lang != null ){
             $was = App::getLocale();
