@@ -35,7 +35,7 @@ class PayoutTransactionCrudController extends CrudController {
         $this->crud->setEntityNameStrings('payouttransaction', 'Payout Transaction/Banks');
 
         $this->crud->addField([ // Text
-            'name' => 'type',
+            'name' => 'status',
             'label' => "Status",
             'type' => 'select_from_array',
             'options' => [
