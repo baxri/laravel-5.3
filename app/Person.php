@@ -6,7 +6,6 @@ use App\Gateway\Api;
 use App\Models\PayoutTransaction;
 use Illuminate\Database\Eloquent\Model;
 use Mockery\Exception;
-use phpDocumentor\Reflection\Types\Null_;
 
 class Person extends RaModel
 {
@@ -49,12 +48,11 @@ class Person extends RaModel
         $query->where( 'persons.status', Person::$returned );
 
         $query->leftjoin('payout_transactions', 'payout_transactions.id', '=', 'persons.payout_transaction_id')
-            ->whereIn('payout_transactions.status', array(
-                -1, NULL
-            ) )
+            ->where('payout_transactions.status', -1 )
+            ->orWhere('payout_transactions.status', NULL);
         ;
 
-        //d($query->toSql());
+        d($query->toSql());
     }
 
     public function secondmark(){
