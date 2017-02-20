@@ -53,6 +53,8 @@ class Person extends RaModel
             ->where('payout_transactions.status', '<>', 2 )
             ->where('payout_transactions.status', '<>', 3 )
         ;
+
+        d($query);
     }
 
     public function secondmark(){
