@@ -34,6 +34,12 @@ class PayoutTransactionCrudController extends CrudController {
         $this->crud->setRoute("raconsole/payout");
         $this->crud->setEntityNameStrings('payouttransaction', 'Payout Transaction/Banks');
 
+        $this->crud->addField([ // Text
+            'name' => 'payout_transaction_id',
+            'label' => "Payout Transaction",
+            'type' => 'text',
+        ]);
+
         /*
 		|--------------------------------------------------------------------------
 		| BASIC CRUD INFORMATION
@@ -199,7 +205,7 @@ class PayoutTransactionCrudController extends CrudController {
 
         $this->crud->removeButton('delete');
         $this->crud->removeButton('create');
-        $this->crud->removeButton('update');
+        //$this->crud->removeButton('update');
 
         // ------ CRUD ACCESS
         // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
