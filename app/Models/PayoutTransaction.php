@@ -42,7 +42,7 @@ class PayoutTransaction extends RaModel
 
     public function make( $options, $persons ){
 
-        return true;
+       // return true;
 
         $this->name = $options['name'];
         $this->surname = $options['surname'];
