@@ -383,7 +383,8 @@ class Ticket extends RaModel
     }
 
     public function authenticate(){
-        $this->action_token = strtoupper(str_random(5));
+        //$this->action_token = strtoupper(str_random(5));
+        $this->action_token = rand(1000, 9999);
         $this->action_token_time = time();
         $this->save();
 
