@@ -49,7 +49,11 @@ class Person extends RaModel
 
 
         $query->join('payout_transactions', 'payout_transactions.id', '=', 'persons.payout_transaction_id')
-            ->where('payout_transactions.status', '<>', 3 );
+            ->where('payout_transactions.status', '<>', 0 )
+            ->where('payout_transactions.status', '<>', 1 )
+            ->where('payout_transactions.status', '<>', 2 )
+            ->where('payout_transactions.status', '<>', 3 )
+        ;
     }
 
     public function secondmark(){
