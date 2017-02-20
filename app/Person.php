@@ -52,7 +52,7 @@ class Person extends RaModel
             ->orWhere('payout_transactions.status', NULL);
         ;
 
-        d($query->toSql());
+
     }
 
     public function secondmark(){
