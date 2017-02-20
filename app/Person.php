@@ -48,9 +48,6 @@ class Person extends RaModel
         $query->where( 'persons.status', Person::$returned );
 
         $query->leftjoin('payout_transactions', 'payout_transactions.id', '=', 'persons.payout_transaction_id')
-            ->where('payout_transactions.status', '<>', 0 )
-            ->where('payout_transactions.status', '<>', 1 )
-            ->where('payout_transactions.status', '<>', 2 )
             ->where('payout_transactions.status', '<>', 3 )
         ;
 
