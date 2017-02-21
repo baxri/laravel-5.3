@@ -15,9 +15,6 @@ class PayoutController extends Controller
 
         try{
 
-
-            dd("OK");
-
             $payout = new PayoutTransaction();
             $payout->make( [
                 'name' => $request->input('name'),
