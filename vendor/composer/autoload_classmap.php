@@ -20,6 +20,7 @@ return array(
     'CreateNewsTable' => $baseDir . '/database/migrations/2017_02_09_110110_create_news_table.php',
     'CreateNotesTable' => $baseDir . '/database/migrations/2017_02_09_133240_create_notes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePayoutInfoTable' => $baseDir . '/database/migrations/2017_02_21_171252_create_payout_info_table.php',
     'CreatePayoutTransactionsTable' => $baseDir . '/database/migrations/2016_11_15_180916_create_payout_transactions_table.php',
     'CreatePersonsTable' => $baseDir . '/database/migrations/2016_11_07_152033_create_persons_table.php',
     'CreateRevisionsTable' => $vendorDir . '/venturecraft/revisionable/src/migrations/2013_04_09_062329_create_revisions_table.php',
