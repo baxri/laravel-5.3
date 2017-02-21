@@ -17,11 +17,8 @@ class PayoutController extends Controller
 
         try{
 
-
-            d(Carbon::parse($request->input('birth_date'))->format('Y-m-d'));
-
             $payout = new PayoutTransaction();
-            $payout->make( [
+            $payout->make( $ticket, [
                 'name' => $request->input('name'),
                 'surname' => $request->input('surname'),
                 'idnumber' => $request->input('idnumber'),
@@ -29,27 +26,6 @@ class PayoutController extends Controller
                 'iban' => $request->input('iban'),
                 'ip' => Ip::current(),
             ], Person::needPayout( $ticket->id )->get() );
-
-
-            /*
-             * Save Payout Info
-             *
-             * */
-
-            PayoutInfo::create([
-
-                'email' => $ticket->transaction->email,
-
-                'index' => $ticket->transaction->index,
-                'mobile' => $ticket->transaction->mobile,
-
-                'name' => $request->input('name'),
-                'surname' => $request->input('surname'),
-                'idnumber' => $request->input('idnumber'),
-                'birth_date' => $request->input('birth_date'),
-                'iban' => $request->input('iban')
-            ]);
-
 
             return response()->ok($payout->toArray());
         }catch( Exception $e ){

@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Gateway\Payout;
 use App\helpers\PayoutValidation;
+use App\PayoutInfo;
 use App\Person;
 use App\RaModel;
+use App\Ticket;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Mockery\Exception;
@@ -40,7 +42,7 @@ class PayoutTransaction extends RaModel
         return $this->hasOne( Ip::class, 'ip_key', 'ip' );
     }
 
-    public function make( $options, $persons ){
+    public function make( Ticket $ticket, $options, $persons ){
 
        // return true;
 
@@ -99,6 +101,21 @@ class PayoutTransaction extends RaModel
         foreach ( $persons as $person ){
             $person->setPayout( $this->id );
         }
+
+        PayoutInfo::create([
+
+            'email' => $ticket->transaction->email,
+
+            'index' => $ticket->transaction->index,
+            'mobile' => $ticket->transaction->mobile,
+
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'idnumber' => $this->idnumber,
+            'birth_date' => $this->birth_date,
+            'iban' => $this->iban,
+        ]);
+
 
         $this->send();
     }
