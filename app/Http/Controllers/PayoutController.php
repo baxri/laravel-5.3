@@ -14,6 +14,10 @@ class PayoutController extends Controller
     public function make( Request $request, Ticket $ticket ){
 
         try{
+
+
+            d("OK");
+
             $payout = new PayoutTransaction();
             $payout->make( [
                 'name' => $request->input('name'),
