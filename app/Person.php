@@ -49,17 +49,14 @@ class Person extends RaModel
         $query->where( 'persons.ticket_id', $ticket_id );
         $query->where( 'persons.status', Person::$returned );
 
-
         $query->where( function($query){
 
-            $query->where('payout_transactions.status', -1 )
+            $query
+                ->where('payout_transactions.status', -1 )
                 ->orWhere('payout_transactions.status', NULL);
             ;
 
         } );
-
-
-       // d($query->toSql());
     }
 
     public function secondmark(){
