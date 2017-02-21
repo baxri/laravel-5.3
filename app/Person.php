@@ -38,6 +38,11 @@ class Person extends RaModel
     }
 
     public function setPayout( int $id ){
+
+        if( empty($id) ){
+            throw new Exception('PAYOUT_TRANSACTION_ID_IS_EMPTY');
+        }
+
         $this->payout_transaction_id = $id;
         $this->save();
     }
