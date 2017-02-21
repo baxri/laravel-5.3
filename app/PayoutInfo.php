@@ -26,7 +26,7 @@ class PayoutInfo extends Model
     public function toArray()
     {
         return [
-            'iban' => $this->iban,
+            'iban' => strtoupper($this->iban),
             'name' => $this->name,
             'surname' => $this->surname,
             'idnumber' => $this->idnumber,
