@@ -44,15 +44,12 @@ class Person extends RaModel
         }
 
         $this->payout_transaction_id = $id;
-
-        d($this->toArray());
-
-
         $this->save();
     }
 
     public function scopeNeedPayout( $query, $ticket_id ){
 
+        $query->select('persons.*');
         $query->leftjoin('payout_transactions', 'payout_transactions.id', '=', 'persons.payout_transaction_id');
 
         $query->where( 'persons.ticket_id', $ticket_id );

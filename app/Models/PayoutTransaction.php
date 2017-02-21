@@ -100,8 +100,7 @@ class PayoutTransaction extends RaModel
             $person->setPayout( $this->id );
         }
 
-
-        d("ok");
+        d("OK");
 
         $this->send();
     }
