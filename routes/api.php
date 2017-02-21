@@ -48,9 +48,11 @@ use App\Http\Middleware\CheckTicketAuth;
 
     Route::group( ['middleware' => CheckTicketAuth::class] , function(){
 
-        Route::post('/ticket/{ticket}/return', 'TicketController@ret');
-        Route::post('/payout/{ticket}', 'PayoutController@make');
+
 
     });
+
+    Route::post('/ticket/{ticket}/return', 'TicketController@ret');
+    Route::post('/payout/{ticket}', 'PayoutController@make');
 
     Route::get('/transaction/notify/{transaction}', 'TransactionController@notify');
