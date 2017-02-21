@@ -43,9 +43,11 @@ class Person extends RaModel
             throw new Exception('PAYOUT_TRANSACTION_ID_IS_EMPTY');
         }
 
-        d($id);
-
         $this->payout_transaction_id = $id;
+
+        d($this->toArray());
+
+
         $this->save();
     }
 
@@ -225,6 +227,7 @@ class Person extends RaModel
     {
         return [
             'id' => $this->id,
+            'payout_transaction_id' => $this->payout_transaction_id,
             'place' => $this->place_number,
             'ischild' => $this->ischild,
             'name' => $this->name,
