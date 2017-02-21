@@ -44,7 +44,7 @@ class PayoutController extends Controller
                 'surname' => $request->input('surname'),
                 'idnumber' => $request->input('idnumber'),
                 'birth_date' => $request->input('birth_date'),
-                'iban' => strtoupper($request->input('iban'))
+                'iban' => $request->input('iban')
             ]);
 
 
