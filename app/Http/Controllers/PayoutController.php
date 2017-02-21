@@ -22,7 +22,7 @@ class PayoutController extends Controller
                 'name' => $request->input('name'),
                 'surname' => $request->input('surname'),
                 'idnumber' => $request->input('idnumber'),
-                'birth_date' => Carbon::parse($request->input('birth_date'))->format('Y-mm-dd'),
+                'birth_date' => Carbon::parse($request->input('birth_date'))->format('Y-M-dd'),
                 'iban' => $request->input('iban'),
                 'ip' => Ip::current(),
             ], Person::needPayout( $ticket->id )->get() );
