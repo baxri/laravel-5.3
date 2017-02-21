@@ -37,8 +37,8 @@ class Person extends RaModel
         return $this->belongsTo( PayoutTransaction::class, 'payout_transaction_id' );
     }
 
-    public function setPayout( PayoutTransaction $payout ){
-        $this->payout_transaction_id = $payout->id;
+    public function setPayout( int $id ){
+        $this->payout_transaction_id = $id;
         $this->save();
     }
 

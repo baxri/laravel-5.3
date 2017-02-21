@@ -11,7 +11,7 @@ class CreatePersonsTable extends Migration
         Schema::create('persons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ticket_id');
-            $table->string('payout_transaction_id');
+            $table->integer('payout_transaction_id');
             $table->string('purchase')->unique();
             $table->integer('ischild');
             $table->integer('place');
