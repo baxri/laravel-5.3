@@ -43,6 +43,10 @@ class Person extends RaModel
             throw new Exception('PAYOUT_TRANSACTION_ID_IS_EMPTY');
         }
 
+        if( empty($this->id) ){
+            throw new Exception('PERSON_OBJECT_ID_IS_EMPTY');
+        }
+
         $this->payout_transaction_id = $id;
         $this->save();
     }
