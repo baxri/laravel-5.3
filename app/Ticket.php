@@ -332,6 +332,7 @@ class Ticket extends RaModel
            'payout_fee' => number_format($payout_fee/100,2),
 
            'persons' => $persons,
+           'info' => $this->payoutInfo(),
            'schedule' => $this->schedule(),
         ];
     }
@@ -511,6 +512,15 @@ class Ticket extends RaModel
         ];
     }
 
+    public function payoutInfo(){
+
+        $info = PayoutInfo::where( [
+            'email' => $this->transaction->email
+        ] )->get();
+
+        return $info;
+    }
+
     public function getAmountView(){
         return number_format( $this->amount_from_api/100, 2 );
     }
@@ -594,6 +604,8 @@ class Ticket extends RaModel
         }
     }
 
+
+
     private function prepareForPayment(){
         $api = new Api();
         $api->setLogKey( $this->id );
@@ -632,5 +644,7 @@ class Ticket extends RaModel
             $ticket->logs()->delete();
         });
     }
+
+
 
 }
