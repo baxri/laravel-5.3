@@ -43,6 +43,7 @@ class Person extends RaModel
     }
 
     public function scopeNeedPayout( $query, $ticket_id ){
+
         $query->where( 'persons.ticket_id', $ticket_id );
 
         $query->where( 'persons.status', Person::$returned, function($query){
@@ -53,6 +54,9 @@ class Person extends RaModel
             ;
 
         } );
+
+
+        d($query->toSql());
     }
 
     public function secondmark(){
