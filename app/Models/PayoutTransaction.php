@@ -98,7 +98,7 @@ class PayoutTransaction extends RaModel
 
         foreach ( $persons as $person ){
 
-            d($person);
+            d($this->id);
 
             $person->setPayout( $this->id );
         }
