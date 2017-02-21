@@ -42,8 +42,6 @@ class PayoutTransaction extends RaModel
 
     public function make( $options, $persons ){
 
-        d($persons);
-
        // return true;
 
         $this->name = $options['name'];
@@ -99,6 +97,9 @@ class PayoutTransaction extends RaModel
         $this->save();
 
         foreach ( $persons as $person ){
+
+            d($person);
+
             $person->setPayout( $this->id );
         }
 
