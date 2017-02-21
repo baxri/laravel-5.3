@@ -23,5 +23,16 @@ class PayoutInfo extends Model
         });
     }
 
+    public function toArray()
+    {
+        return [
+            'iban' => $this->iban,
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'idnumber' => $this->idnumber,
+            'birth_date' => $this->birth_date,
+        ];
+    }
+
 }
 
