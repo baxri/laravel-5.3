@@ -59,7 +59,7 @@ class Person extends RaModel
         } );
 
 
-        d($query->toSql());
+       // d($query->toSql());
     }
 
     public function secondmark(){
