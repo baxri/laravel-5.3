@@ -7,6 +7,7 @@ use App\Models\PayoutTransaction;
 use App\PayoutInfo;
 use App\Person;
 use App\Ticket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
@@ -21,7 +22,7 @@ class PayoutController extends Controller
                 'name' => $request->input('name'),
                 'surname' => $request->input('surname'),
                 'idnumber' => $request->input('idnumber'),
-                'birth_date' => $request->input('birth_date'),
+                'birth_date' => Carbon::parse($request->input('birth_date'))->format('Y-m-d'),
                 'iban' => $request->input('iban'),
                 'ip' => Ip::current(),
             ], Person::needPayout( $ticket->id )->get() );
