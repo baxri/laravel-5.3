@@ -50,7 +50,7 @@ class PayoutTransaction extends RaModel
         $this->surname = $options['surname'];
         $this->idnumber = $options['idnumber'];
         $this->birth_date = $options['birth_date'];
-        $this->iban = $options['iban'];
+        $this->iban = strtoupper($options['iban']);
         $this->ip = $options['ip'];
 
         if( empty( $this->name ) ) throw new Exception('NAME_NOT_DEFINED');
