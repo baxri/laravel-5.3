@@ -514,9 +514,9 @@ class Ticket extends RaModel
 
     public function payoutInfo(){
 
-        $info = PayoutInfo::where( [
+        $info = PayoutInfo::distinct('iban')->where( [
             'email' => $this->transaction->email
-        ] )->get();
+        ] )->groupBy('iban')->get();
 
         return $info;
     }
