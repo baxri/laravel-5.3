@@ -178,6 +178,8 @@ class Ticket extends RaModel
             $this->tarif_teen = $trains[0]->TarifTeen;
             $this->tarif_all = $trains[0]->TarifAll;
 
+            $this->start_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->leavingDateFromFirstStation."+4hours"));
+
             $this->leave_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->LeavingDate."+4hours"));
             $this->enter_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->EnteringDate."+4hours"));
 

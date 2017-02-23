@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddStartDatetimeToTicketsTable' => $baseDir . '/database/migrations/2017_02_23_151344_add_start_datetime_to_tickets_table.php',
     'App\\helpers\\PayoutValidation' => $baseDir . '/app/helpers/PayoutValidation.php',
     'App\\helpers\\Railway' => $baseDir . '/app/helpers/railway.php',
     'CGIF' => $vendorDir . '/niklasravnsborg/mpdf/classes/gif.php',
