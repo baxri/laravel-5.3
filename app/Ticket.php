@@ -317,6 +317,8 @@ class Ticket extends RaModel
            'request_id' => $this->request_id,
            'type' => $type,
            'status' => $this->status,
+
+           'start_date' => Railway::translateDate( $this->start_datetime ),
            'date' => Railway::translateDate( $this->leave_datetime ),
 
            'time' => date('H:i', strtotime( $this->leave_datetime )),
