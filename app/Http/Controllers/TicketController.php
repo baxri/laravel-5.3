@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Person;
 use App\Ticket;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -58,6 +59,11 @@ class TicketController extends Controller
         ] )
             ->get()
             ->toArray();
+
+
+        if( $ticket->enter_datetime < Carbon::now()->toDateTimeString() ){
+            return response()->error( 'TICKET_NOT_FOUND' );
+        }
 
         if( empty($ticket[0]) ){
             return response()->error( 'TICKET_NOT_FOUND' );
