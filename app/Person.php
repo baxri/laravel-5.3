@@ -228,7 +228,7 @@ class Person extends RaModel
     {
         return [
             'id' => $this->id,
-            'payout_transaction_id' => $this->payout_transaction_id,
+            'payout_complited' => (empty($this->payout_transaction_id)) ? 0 : 1,
             'place' => $this->place_number,
             'ischild' => $this->ischild,
             'name' => $this->name,

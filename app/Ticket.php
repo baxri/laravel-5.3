@@ -329,6 +329,7 @@ class Ticket extends RaModel
            'source' => Railway::translateStation($this->source_station),
            'destination' => Railway::translateStation($this->destination_station),
            'vagon' => $this->vagon,
+
            'vagon_class' => Railway::translate($this->vagon_class),
            'price' => number_format( $this->amount_from_api/100, 2 ),
 

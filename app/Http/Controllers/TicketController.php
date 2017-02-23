@@ -56,10 +56,10 @@ class TicketController extends Controller
 
         $ticket = Ticket::where( [
             ['request_id', $request_id],
-            ['start_datetime', '>',  Carbon::now(config('app.timezone'))->addHour(2)->toDateTimeString()]
+            ['start_datetime', '>',  Carbon::now()->addHour(config('railway.allow_return_ticket'))->toDateTimeString()]
 
         ] )->get()
-            ->toArray();
+           ->toArray();
 
         if( empty($ticket[0]) ){
             return response()->error( 'TICKET_NOT_FOUND' );
