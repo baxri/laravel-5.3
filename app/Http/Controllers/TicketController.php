@@ -56,7 +56,7 @@ class TicketController extends Controller
 
         $ticket = Ticket::where( [
             ['request_id', $request_id],
-            ['enter_datetime', '<',  Carbon::now()->toDateTimeString()]
+            ['enter_datetime', '>',  Carbon::now()->toDateTimeString()]
 
         ] )->get()
             ->toArray();
