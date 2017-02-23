@@ -8,6 +8,7 @@ use App\Models\Log;
 use App\Models\Station;
 use App\Models\Transaction;
 use Backpack\CRUD\CrudTrait;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\App;
@@ -196,6 +197,18 @@ class Ticket extends RaModel
             $placeIds = explode(",", $trains[0]->PlaceIds);
             $placeNumbers = explode(",", $trains[0]->PlaceNumbers);
 
+            $schedule = $this->schedule();
+
+            if( !empty($schedule) ){
+
+                /*
+                 * Build First Station Leave Datetime
+                 *
+                 * */
+
+                $this->start_datetime = Carbon::parse($this->start_datetime)->format('Y-m-d').' '.$schedule[0]->leave_time.':00';
+            }
+
             /*
              * Set Second Mark Time
              *
@@ -282,7 +295,7 @@ class Ticket extends RaModel
         $schedule = $api->Reports_TrainMovementSchadule_ByTrainId(
             $this->leave,
             $this->train_id,
-            date('H:i', strtotime( $this->enter_datetime ))
+            date('H:i', strtotime( ( !empty($this->start_datetime) ? $this->start_datetime : $this->leave_datetime ) ))
             );
         return $schedule;
     }
