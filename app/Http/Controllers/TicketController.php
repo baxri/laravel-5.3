@@ -62,7 +62,7 @@ class TicketController extends Controller
 
 
         if( $ticket->enter_datetime < Carbon::now()->toDateTimeString() ){
-            return response()->error( 'TICKET_NOT_FOUND' );
+            //return response()->error( 'TICKET_NOT_FOUND' );
         }
 
         if( empty($ticket[0]) ){
