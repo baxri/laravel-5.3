@@ -180,11 +180,8 @@ class Ticket extends RaModel
             $this->tarif_all = $trains[0]->TarifAll;
 
             $this->start_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->leavingDateFromFirstStation."+4hours"));
-
             $this->leave_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->LeavingDate."+4hours"));
             $this->enter_datetime = date('Y-m-d H:i:s', strtotime($trains[0]->EnteringDate."+4hours"));
-
-           // $this->leave_datetime_from_first_station = date('Y-m-d H:i:s', strtotime($trains[0]->leavingDateFromFirstStation."+4hours"));
 
             $this->train = $train;
             $this->class = $class;
@@ -200,12 +197,6 @@ class Ticket extends RaModel
             $schedule = $this->schedule();
 
             if( !empty($schedule) ){
-
-                /*
-                 * Build First Station Leave Datetime
-                 *
-                 * */
-
                 $this->start_datetime = Carbon::parse($this->start_datetime)->format('Y-m-d').' '.$schedule[0]->leave_time.':00';
             }
 
