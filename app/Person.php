@@ -228,7 +228,6 @@ class Person extends RaModel
     {
         return [
             'id' => $this->id,
-            'payout_complited' => (empty($this->payout_transaction_id)) ? 0 : 1,
             'place' => $this->place_number,
             'ischild' => $this->ischild,
             'name' => $this->name,
@@ -238,6 +237,7 @@ class Person extends RaModel
             'price' => number_format($this->tarif/100,2),
             'discount' => number_format($this->discount_amount/100,2),
             'returned_amount' => number_format($this->returned_amount/100,2),
+            'payout_complited' => (empty($this->payout_transaction_id)) ? 0 : 1,
             //'payout' => $this->payout,
         ];
     }
