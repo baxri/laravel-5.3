@@ -341,6 +341,7 @@ class Ticket extends RaModel
 
            'allow_return_ticket' => $due_datetime_for_searching->diffInMinutes(Carbon::parse($this->start_datetime)),
            'due_datetime_for_searching' => $due_datetime_for_searching->toDateTimeString(),
+           'start_datetime' => $this->start_datetime,
 
            'prepared_for_payout' => count($prepared_payouts),
            'payoutable_amount' => number_format($payoutable_amount/100, 2),
