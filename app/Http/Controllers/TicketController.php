@@ -60,9 +60,7 @@ class TicketController extends Controller
         ] )->get()
            ->toArray();
 
-        d($ticket[0]);
-
-        if( $ticket[0]->left < 0 and $ticket[0]->prepared_for_payout == 0 ){
+        if( $ticket[0]['left'] < 0 and $ticket[0]['prepared_for_payout'] == 0 ){
             return response()->error( 'TRAIN_LEFT_STATION' );
         }
 
