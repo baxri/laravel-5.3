@@ -312,7 +312,8 @@ class Ticket extends RaModel
 
         $payout_fee = config('railway.payout_fee');
 
-        $due_datetime_for_searching = Carbon::now(config('app.timezone'))->addHour( config('railway.allow_return_ticket') );
+        $due_datetime_for_searching =
+            Carbon::parse(Carbon::now(config('app.timezone'))->addHour( config('railway.allow_return_ticket') )->toDateTimeString());
 
 
         return [
@@ -340,7 +341,7 @@ class Ticket extends RaModel
            'mobile' => '+'.$this->transaction->index_mobile,
 
            'allow_return_ticket' => $due_datetime_for_searching->diffInHours(Carbon::parse($this->start_datetime)),
-           'due_datetime_for_searching' => $due_datetime_for_searching->toDateTimeString(),
+           'due_datetime_for_searching' => Carbon::now(config('app.timezone'))->addHour( config('railway.allow_return_ticket') )->toDateTimeString(),
            'start_datetime' => $this->start_datetime,
 
            'prepared_for_payout' => count($prepared_payouts),
