@@ -56,12 +56,11 @@ class TicketController extends Controller
 
         $ticket = Ticket::where( [
             ['request_id', $request_id],
-            //['start_datetime', '>',  Carbon::now()->addHour( config('railway.allow_return_ticket') )->toDateTimeString()]
         ] )->get()
            ->toArray();
 
         if( $ticket[0]['left'] < 0 and $ticket[0]['prepared_for_payout'] == 0 ){
-            return response()->error( 'TRAIN_LEFT_STATION' );
+            return response()->error( 'TRAIN_HAS_LEFT_STATION' );
         }
 
         if( empty($ticket[0]) ){
