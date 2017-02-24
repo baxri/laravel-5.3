@@ -312,7 +312,7 @@ class Ticket extends RaModel
 
         $payout_fee = config('railway.payout_fee');
 
-        $due_datetime_for_searching = Carbon::now()->addHour( config('railway.allow_return_ticket') );
+        $due_datetime_for_searching = Carbon::now(config('app.timezone'))->addHour( config('railway.allow_return_ticket') );
 
 
         return [
