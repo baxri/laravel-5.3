@@ -339,7 +339,7 @@ class Ticket extends RaModel
            'email' => $this->transaction->email,
            'mobile' => '+'.$this->transaction->index_mobile,
 
-           //'allow_return_ticket' => $due_datetime_for_searching->diffInMinutes($this->start_datetime),
+           'allow_return_ticket' => $due_datetime_for_searching->diffInMinutes(Carbon::parse($this->start_datetime)),
            'due_datetime_for_searching' => $due_datetime_for_searching->toDateTimeString(),
 
            'prepared_for_payout' => count($prepared_payouts),
