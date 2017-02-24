@@ -340,7 +340,7 @@ class Ticket extends RaModel
            'email' => $this->transaction->email,
            'mobile' => '+'.$this->transaction->index_mobile,
 
-           'allow_return_ticket' => $due_datetime_for_searching->diffInMinutes(Carbon::parse($this->start_datetime)),
+           'allow_return_ticket' => $due_datetime_for_searching->diffInMinutes(Carbon::parse($this->start_datetime), false),
            'due_datetime_for_searching' => Carbon::now(config('app.timezone'))->addHour( config('railway.allow_return_ticket') )->toDateTimeString(),
            'start_datetime' => $this->start_datetime,
 
