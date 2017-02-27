@@ -237,7 +237,7 @@ class Person extends RaModel
             'price' => number_format($this->tarif/100,2),
             'discount' => number_format($this->discount_amount/100,2),
             'returned_amount' => number_format($this->returned_amount/100,2),
-            'payout_completed' =>  in_array($this->payout->status, array(0,1,2,3)) ? 1 : 0,
+            'payout_completed' =>  $this->payout->status == 3 ? 1 : 0,
             //'payout_complited' => (empty($this->payout_transaction_id)) ? 0 : 1,
         ];
     }
