@@ -317,6 +317,10 @@ class Ticket extends RaModel
                 ->addHour( config('railway.allow_return_ticket') )
                 ->toDateTimeString());
 
+        $due_datetime_for_leaving =
+            Carbon::parse(Carbon::now(config('app.timezone'))
+                ->toDateTimeString());
+
         return [
            'id' => $this->id,
            'request_id' => $this->request_id,
@@ -341,8 +345,11 @@ class Ticket extends RaModel
            'email' => $this->transaction->email,
            'mobile' => '+'.$this->transaction->index_mobile,
 
-           'has_left'
+           'has_blocked'
                 => $due_datetime_for_searching->diffInMinutes(Carbon::parse($this->start_datetime), false),
+
+           'has_left'
+            => $due_datetime_for_leaving->diffInMinutes(Carbon::parse($this->start_datetime), false),
 
            'prepared_for_payout' => count($prepared_payouts),
            'payoutable_amount' => number_format($payoutable_amount/100, 2),
