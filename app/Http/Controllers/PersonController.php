@@ -20,6 +20,7 @@ class PersonController extends Controller
             ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
             ->where( "transactions.email", $email )
             ->groupBy('persons.idnumber')
+            ->orderBy('persons.created_at', 'DESC')
             ->get();
 
         return response()->ok([
