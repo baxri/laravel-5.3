@@ -28,4 +28,10 @@ class PersonController extends Controller
             'passengers' => $passengers
         ]);
     }
+
+    public function removeFromContacts( $person ){
+
+        d( $person );
+
+    }
 }
