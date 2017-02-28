@@ -12,9 +12,12 @@ use Mockery\Exception;
 
 class TransactionController extends Controller
 {
+    public function server(){
+        d($_SERVER);
+    }
+
     public function notify( Transaction $transaction ){
         try{
-
 
             $transaction->notifyEmail();
 
