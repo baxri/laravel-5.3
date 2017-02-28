@@ -18,7 +18,8 @@ class TransactionController extends Controller
         $mobile_detect = new MobileDetect;
 
         return response()->ok([
-            'ismobile' => $mobile_detect->isMobile(),
+            'is_mobile' => $mobile_detect->isMobile(),
+            'is_tablet' => $mobile_detect->isTablet(),
         ]);
 
     }
