@@ -7,10 +7,6 @@ use App\Http\Middleware\CheckTicketAuth;
 
     Route::get('ip', 'IpController@current');
 
-    /*
-    * Routes for buy tickets
-    *
-    * */
 
     Route::get('stations', 'StationController@index');
     Route::get('time', 'TransactionController@time');
@@ -50,6 +46,7 @@ use App\Http\Middleware\CheckTicketAuth;
 
         Route::post('/ticket/{ticket}/return', 'TicketController@ret');
         Route::post('/payout/{ticket}', 'PayoutController@make');
+
 
     });
 

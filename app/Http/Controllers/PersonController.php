@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Person;
@@ -14,8 +15,7 @@ class PersonController extends Controller
                 persons.id,
                 persons.name,
                 persons.surname,
-                persons.idnumber
-                ')
+                persons.idnumber')
         )
             ->join('tickets', 'tickets.id', '=', 'persons.ticket_id')
             ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
