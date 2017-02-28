@@ -16,8 +16,8 @@ class PersonController extends Controller
                 persons.idnumber
                 ')
         )
-            ->leftjoin('tickets on tickets.id = persons.ticket_id')
-            ->leftjoin('transactions on transactions.id = tickets.transaction_id')
+            ->join('tickets', 'tickets.id', '=', 'persons.ticket_id')
+            ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
             ->where( "transactions.email", $email )
             ->get();
 
