@@ -31,8 +31,8 @@ class PersonController extends Controller
     }
 
     public function removeFromContacts( Person $person ){
-
-        d( $person );
-
+        $person->removed_from_contacts = 1;
+        $person->save();
+        return response()->ok(['message' => 'sg sg sg']);
     }
 }
