@@ -8,7 +8,18 @@ class PersonController extends Controller
 {
     public function passengersByEmail( $email ){
 
+        $person_statuses = DB::table('persons')->select(
+            DB::raw(' 
+                persons.name,
+                persons.surname,
+                persons.idnumber
+                ')
+        )
+            ->leftjoin('tickets on tickets.id = persons.ticket_id')
+            ->leftjoin('transactions on transactions.id = tickets.transaction_id')
+            ->where( "transactions.email", $email )
+            ->get();
 
-        d($email);
+        d($person_statuses);
     }
 }
