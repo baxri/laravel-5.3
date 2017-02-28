@@ -19,6 +19,7 @@ class PersonController extends Controller
             ->join('tickets', 'tickets.id', '=', 'persons.ticket_id')
             ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
             ->where( "transactions.email", $email )
+            ->groupBy('persons.idnumber')
             ->get();
 
         d($person_statuses);
