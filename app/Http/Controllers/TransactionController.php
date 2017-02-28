@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gateway\Payment;
+use App\Lib\MobileDetect;
 use App\Models\TransactionLog;
 use App\Ticket;
 use App\Models\Transaction;
@@ -13,7 +14,13 @@ use Mockery\Exception;
 class TransactionController extends Controller
 {
     public function server(){
-        d($_SERVER);
+
+        $mobile_detect = new MobileDetect;
+
+        return response()->ok([
+            'ismobile' => $mobile_detect->isMobile(),
+        ]);
+
     }
 
     public function notify( Transaction $transaction ){
