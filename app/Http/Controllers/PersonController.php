@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Person;
 use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
@@ -29,7 +30,7 @@ class PersonController extends Controller
         ]);
     }
 
-    public function removeFromContacts( $person ){
+    public function removeFromContacts( Person $person ){
 
         d( $person );
 
