@@ -9,7 +9,7 @@ class PersonController extends Controller
 {
     public function passengersByEmail( $email ){
 
-        $person_statuses = DB::table('persons')->select(
+        $passengers = DB::table('persons')->select(
             DB::raw(' 
                 persons.name,
                 persons.surname,
@@ -22,6 +22,8 @@ class PersonController extends Controller
             ->groupBy('persons.idnumber')
             ->get();
 
-        d($person_statuses);
+        return response()->ok([
+            'passengers' => $passengers
+        ]);
     }
 }
