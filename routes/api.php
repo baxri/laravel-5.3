@@ -54,4 +54,6 @@ use App\Http\Middleware\CheckTicketAuth;
     });
 
     Route::get('/server', 'TransactionController@server');
+    Route::get('/passengers/by/email/{email}', 'PersonController@passengersByEmail');
+
     Route::get('/transaction/notify/{transaction}', 'TransactionController@notify');
