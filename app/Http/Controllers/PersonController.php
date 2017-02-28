@@ -10,6 +10,7 @@ class PersonController extends Controller
 
         $passengers = DB::table('persons')->select(
             DB::raw(' 
+                persons.id,
                 persons.name,
                 persons.surname,
                 persons.idnumber
