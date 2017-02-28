@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddRemovedFromContactsToPersons' => $baseDir . '/database/migrations/2017_02_28_161917_add_removed_from_contacts_to_persons.php',
     'AddStartDatetimeToTicketsTable' => $baseDir . '/database/migrations/2017_02_23_151344_add_start_datetime_to_tickets_table.php',
     'App\\helpers\\PayoutValidation' => $baseDir . '/app/helpers/PayoutValidation.php',
     'App\\helpers\\Railway' => $baseDir . '/app/helpers/railway.php',
