@@ -17,8 +17,8 @@ class PersonController extends Controller
                 persons.surname,
                 persons.idnumber')
         )
-            ->join('tickets', 'tickets.id', '=', 'persons.ticket_id')
-            ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
+            ->join(  'tickets', 'tickets.id', '=', 'persons.ticket_id')
+            ->join(  'transactions', 'transactions.id', '=', 'tickets.transaction_id')
             ->where( "persons.removed_from_contacts", 0 )
             ->where( "transactions.email", $email )
             ->groupBy('persons.idnumber')
@@ -31,8 +31,7 @@ class PersonController extends Controller
     }
 
     public function removeFromContacts( Person $person ){
-        $person->removed_from_contacts = 1;
-        $person->save();
+        $person->removeFromContacts();
         return response()->ok(['message' => 'sg sg sg']);
     }
 }

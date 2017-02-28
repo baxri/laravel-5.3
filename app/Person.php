@@ -178,6 +178,11 @@ class Person extends RaModel
         return false;
     }
 
+    public function removeFromContacts(){
+        $this->removed_from_contacts = 1;
+        $this->save();
+    }
+
     public function getStatusClass(){
 
         if( $this->status == self::$returned )
