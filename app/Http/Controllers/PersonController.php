@@ -18,6 +18,7 @@ class PersonController extends Controller
         )
             ->join('tickets', 'tickets.id', '=', 'persons.ticket_id')
             ->join('transactions', 'transactions.id', '=', 'tickets.transaction_id')
+            ->where( "persons.removed_from_contacts", 0 )
             ->where( "transactions.email", $email )
             ->groupBy('persons.idnumber')
             ->orderBy('persons.created_at', 'DESC')
