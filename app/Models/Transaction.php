@@ -361,6 +361,17 @@ class Transaction extends RaModel
         return $html;
     }
 
+    public function getRequestID(){
+
+        $ids = [];
+
+        foreach ( $this->tickets as $ticket ){
+            $ids[] = $ticket->request_id;
+        }
+
+        return implode(",", $ids);
+    }
+
     public function emailDeliveryView(){
         return $this->email_delivery ? 'Sent' : 'Not Sent';
     }

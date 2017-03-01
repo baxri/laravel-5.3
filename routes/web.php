@@ -11,8 +11,6 @@ Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
         return redirect('raconsole/transaction');
     });
 
-    //Route::get('/', 'Admin\TransactionCrudController@index');
-
     Route::get('/dashboard', 'Admin\DashboardController@index');
 
     CRUD::resource('note', 'Admin\NoteCrudController');

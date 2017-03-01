@@ -49,8 +49,10 @@ class TransactionCrudController extends CrudController {
 		//$this->crud->setFromDb();
 
         $this->crud->addColumn([
-            'label' => 'RAID',
-            'name' => 'id',
+            'label' => 'Request ID',
+            'name' => 'extra',
+            'type' => 'model_function',
+            'function_name' => 'getRequestID',
         ]);
 
         $this->crud->addColumn([
