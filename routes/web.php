@@ -1,8 +1,8 @@
 <?php
 
 Route::get('/', function () {
-    //return redirect(config('railway.redirect_api_link'));
-    return view('welcome');
+    return redirect(config('railway.redirect_api_link'));
+    //return view('welcome');
 });
 
 Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
