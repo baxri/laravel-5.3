@@ -363,7 +363,8 @@ class TransactionCrudController extends CrudController {
          $this->crud->orderBy('transactions.id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
-        
+
+        $this->crud->LogQuery();
     }
 
     public function myexport(){

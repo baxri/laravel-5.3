@@ -221,4 +221,12 @@ class MyCrudPanel
 
         return $this->{$items};
     }
+
+    public function LogQuery(){
+        ?>
+        <script type="text/javascript">
+            console.log("<?php echo $this->query->toSql() ?>");
+        </script>
+        <?php
+    }
 }
