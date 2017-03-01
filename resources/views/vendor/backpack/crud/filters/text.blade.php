@@ -26,15 +26,15 @@
             console.log(code);
 
             if(code==13){
-                makeOP();
+                makeOP($(this));
             }
 
 
         });
 
-        function makeOP(){
-            var parameter = $(this).attr('name');
-            var value = $(this).val();
+        function makeOP(elem){
+            var parameter = elem.attr('name');
+            var value = elem.val();
 
                     @if (!$crud->ajaxTable())
             var current_url = normalizeAmpersand("{{ Request::fullUrl() }}");
