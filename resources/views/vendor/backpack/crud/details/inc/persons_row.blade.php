@@ -44,6 +44,9 @@
 
         function returnTicket( button ){
 
+            button.remove();
+            return;
+
             var comment = prompt("შეიყვანეთ კომენტარი", "ბილეთის დაბრუნება");
 
             if( comment.length == 0 ){
