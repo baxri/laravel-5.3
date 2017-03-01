@@ -10,6 +10,9 @@ trait AjaxTable
      */
     public function search()
     {
+
+        d('vax chemi');
+
         $this->crud->hasAccessOrFail('list');
 
         // crate an array with the names of the searchable columns
