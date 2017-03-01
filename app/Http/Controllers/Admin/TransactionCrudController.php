@@ -401,13 +401,11 @@ class TransactionCrudController extends CrudController {
     public function ret( Person $person, Request $request ){
         try{
 
-
-
             $comment = $request->input('comment');
 
-           // if( !$person->ret() ){
-           //     throw new Exception('CANNOT_RETURN_TICKET');
-           // }
+            if( !$person->ret() ){
+                throw new Exception('CANNOT_RETURN_TICKET');
+            }
 
             return response()->ok([
                 'class' => $person->getStatusClass(),
