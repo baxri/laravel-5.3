@@ -355,7 +355,7 @@ class Ticket extends RaModel
 
            'prepared_for_payout' => count($prepared_payouts),
 
-           'paied_amount' => number_format($paied_amount/100, 2),
+           'paid_amount' => number_format($paied_amount/100, 2),
            'payoutable_amount' => number_format($payoutable_amount/100, 2),
            'payout_fee' => number_format($payout_fee/100,2),
 
