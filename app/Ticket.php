@@ -303,9 +303,11 @@ class Ticket extends RaModel
         $prepared_payouts = Person::needPayout( $this->id )->get();
 
         $payoutable_amount = 0;
+        $paied_amount = 0;
 
         if( count($prepared_payouts) > 0 ){
             foreach ( $prepared_payouts as $person ){
+                $paied_amount += $person->tarif;
                 $payoutable_amount += $person->returned_amount;
             }
         }
@@ -352,6 +354,8 @@ class Ticket extends RaModel
             => $due_datetime_for_leaving->diffInMinutes(Carbon::parse($this->start_datetime), false),
 
            'prepared_for_payout' => count($prepared_payouts),
+
+           'paied_amount' => number_format($paied_amount/100, 2),
            'payoutable_amount' => number_format($payoutable_amount/100, 2),
            'payout_fee' => number_format($payout_fee/100,2),
 
