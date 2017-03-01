@@ -163,7 +163,7 @@ class TransactionCrudController extends CrudController {
                 if( !empty($value) ){
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('status', $this->value );
+                        $query->where('tickets.status', $this->value );
                     });
                 }
             });
@@ -190,21 +190,6 @@ class TransactionCrudController extends CrudController {
 
         $this->crud->addFilter([
             'type' => 'text',
-            'name' => 'ticket_id',
-            'label'=> 'Ticket ID'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('id', $this->value );
-                    });
-                }
-            });
-
-        $this->crud->addFilter([
-            'type' => 'text',
             'name' => 'request_id',
             'label'=> 'Ticket Request ID'
         ],
@@ -213,7 +198,7 @@ class TransactionCrudController extends CrudController {
                 if( !empty($value) ){
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('request_id', $this->value );
+                        $query->where('tickets.request_id', $this->value );
                     });
                 }
             });
@@ -226,7 +211,7 @@ class TransactionCrudController extends CrudController {
             false,
             function($value) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'checkout_id', $value);
+                    $this->crud->addClause('where', 'transactions.checkout_id', $value);
             });
 
         $this->crud->addFilter([
