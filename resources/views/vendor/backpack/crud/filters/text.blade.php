@@ -28,8 +28,11 @@
             if(code==13){
                 makeOP($(this));
             }
+        });
 
-
+        $(".{{ $filter->name }}-class").blur(function(e) {
+            e.preventDefault();
+            makeOP($(this));
         });
 
         function makeOP(elem){
