@@ -23,6 +23,8 @@
 
             var code = e.which;
 
+            console.log(code);
+
             if(code==13){
 
                 var parameter = $(this).attr('name');
