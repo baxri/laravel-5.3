@@ -48,6 +48,8 @@
 
             if( comment.length == 0 ){
 
+                console.log("no comment");
+
                 button.button('reset');
                 new PNotify({
                     title: "ბილეთის დაბრუნება",
@@ -58,6 +60,8 @@
                 button.button('reset');
                 return false;
             }
+
+            console.log("davai aba");
 
             button.button('loading');
 
