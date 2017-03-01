@@ -22,9 +22,7 @@
             e.preventDefault();
             var code = e.which;
 
-            console.log(code);
-
-            if(code==13){
+            if( code== 13 || code== 8 ){
                 makeOP($(this));
             }
         });
