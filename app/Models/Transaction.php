@@ -26,6 +26,7 @@ class Transaction extends RaModel
         'index_mobile', 'email', 'ip', 'lang'
     ];
 
+    public static $notfinished = 1000;
     public static $cancel = -1;
     public static $pending = 0;
     public static $process = 1;

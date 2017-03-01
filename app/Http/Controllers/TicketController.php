@@ -149,6 +149,8 @@ class TicketController extends Controller
                 $sum += $return->amount_from_api;
             }
 
+            $transaction->status = Transaction::$pending;
+
             $transaction->setAmount( $sum );
             $transaction->save();
 

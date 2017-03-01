@@ -19,7 +19,7 @@ class TrainController extends Controller
              *
              * */
             $transaction = Transaction::create([
-                'status' => Transaction::$pending,
+                'status' => Transaction::$notfinished,
                 'ip' => IP::current(),
                 'lang' => App::getLocale(),
             ]);
