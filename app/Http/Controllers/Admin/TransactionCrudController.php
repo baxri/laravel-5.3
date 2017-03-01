@@ -230,6 +230,22 @@ class TransactionCrudController extends CrudController {
             });
 
         $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'passenger',
+            'label'=> 'Passenger Name'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) ){
+
+                   /* $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $query->where('id', $this->value );
+                    });*/
+                }
+            });
+
+
+        $this->crud->addFilter([
             'type' => 'date',
             'name' => 'date-from',
             'label'=> 'Date From',
