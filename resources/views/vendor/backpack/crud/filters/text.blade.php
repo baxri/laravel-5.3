@@ -18,7 +18,7 @@
             'format': 'y-m-d'
         });*/
 
-        $(".{{ $filter->name }}-class").keyup(function(e) {
+        $(".{{ $filter->name }}-class").onkeyup(function(e) {
             e.preventDefault();
 
             var parameter = $(this).attr('name');
