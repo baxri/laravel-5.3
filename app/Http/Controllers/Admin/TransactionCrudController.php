@@ -240,7 +240,7 @@ class TransactionCrudController extends CrudController {
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
                         $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
-                        $query->where('persons.surname', $this->value );
+                        $query->where('persons.name', $this->value );
                     });
                 }
             });
