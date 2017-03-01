@@ -148,7 +148,7 @@ class TransactionCrudController extends CrudController {
             'name' => 'ip',
         ]);
 
-        $this->crud->addFilter([
+        /*$this->crud->addFilter([
             'type' => 'dropdown',
             'name' => 'ticket_status',
             'label'=> 'Sold Status'
@@ -166,7 +166,7 @@ class TransactionCrudController extends CrudController {
                         $query->where('tickets.status', $this->value );
                     });
                 }
-            });
+            });*/
 
 
         $this->crud->addFilter([
