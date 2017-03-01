@@ -62,7 +62,7 @@
             button.button('loading');
 
             $.ajax({
-                url: 'person/return/' + $(this).data('value'),
+                url: 'person/return/' + button.data('value'),
                 type: 'POST',
                 data: {
                     comment : comment
