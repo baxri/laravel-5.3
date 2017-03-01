@@ -14,10 +14,6 @@
 <script>
     jQuery(document).ready(function($) {
 
-       /* $('.datepicker').datepicker({
-            'format': 'y-m-d'
-        });*/
-
         $(".{{ $filter->name }}-class").keyup(function(e) {
             e.preventDefault();
             var code = e.which;
