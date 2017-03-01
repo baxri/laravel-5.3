@@ -247,6 +247,10 @@ class Transaction extends RaModel
 
     public function getStatusView(){
 
+
+        if( $this->status == self::$pending )
+            return '<span class="label label-danger">Initialized</span>';
+
         if( $this->status == self::$cancel )
             return '<span class="label label-danger">Canceled</span>';
 
