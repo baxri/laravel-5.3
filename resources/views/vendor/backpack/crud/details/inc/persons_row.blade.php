@@ -44,9 +44,6 @@
 
         function returnTicket( button ){
 
-            button.remove();
-            return;
-
             var comment = prompt("შეიყვანეთ კომენტარი", "ბილეთის დაბრუნება");
 
             if( comment.length == 0 ){
@@ -72,6 +69,7 @@
                 },
                 success: function(result) {
                     button.button('reset');
+                    button.remove();
                     new PNotify({
                         title: "ბილეთის დაბრუნება",
                         text: "ბილეთი დაბრუნება წამატებით განხორციელდა",
