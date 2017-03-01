@@ -20,7 +20,6 @@
 
         $(".{{ $filter->name }}-class").keyup(function(e) {
             e.preventDefault();
-
             var code = e.which;
 
             console.log(code);
@@ -28,6 +27,11 @@
             if(code==13){
                 makeOP($(this));
             }
+        });
+
+        $(".{{ $filter->name }}-class").blur(function(e) {
+            e.preventDefault();
+            makeOP($(this));
         });
 
         $(".{{ $filter->name }}-class").blur(function(e) {
