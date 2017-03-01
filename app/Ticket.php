@@ -27,8 +27,8 @@ class Ticket extends RaModel
 
     public static $returned = -2;
     public static $cancel = -1;
-    public static $pending = 0;
-    public static $process = 1;
+    public static $pending = 0; /* alias Initialized */
+    public static $process = 1; /* alias Not Payed */
     public static $hold = 2;
     public static $success = 3;
 

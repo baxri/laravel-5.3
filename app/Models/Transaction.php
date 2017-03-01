@@ -28,8 +28,8 @@ class Transaction extends RaModel
 
     public static $notfinished = 1000;
     public static $cancel = -1;
-    public static $pending = 0;
-    public static $process = 1;
+    public static $pending = 0; /* alias Initialized */
+    public static $process = 1; /* alias Not Payed */
     public static $hold = 2;
     public static $success = 3;
     public static $processing = 111;
@@ -290,7 +290,7 @@ class Transaction extends RaModel
         foreach ( $statuses as $key => $status ){
 
             if( $key == Person::$pending)
-                $html .= '<span>Pending ('.$status.')</span>';
+                $html .= '<span>Initialized ('.$status.')</span>';
 
             if( $key == Person::$returned)
                 $html .= '<span class="label label-danger">Returned ('.$status.')</span>';
