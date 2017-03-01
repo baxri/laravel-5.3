@@ -50,7 +50,7 @@ class TransactionCrudController extends CrudController {
 
         $this->crud->addColumn([
             'label' => 'Request ID',
-            'name' => 'extra',
+            'exists' => 'extra',
             'type' => 'model_function',
             'function_name' => 'getRequestID',
         ]);
