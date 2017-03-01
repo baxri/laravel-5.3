@@ -18,7 +18,7 @@
             'format': 'y-m-d'
         });*/
 
-        $(".{{ $filter->name }}-class").keyup(function(e) {
+        $(".{{ $filter->name }}-class").on( 'blur keyup', function(e) {
             e.preventDefault();
 
             var code = e.which;
