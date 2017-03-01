@@ -10,9 +10,6 @@ trait AjaxTable
      */
     public function search()
     {
-
-        d('vax chemi');
-
         $this->crud->hasAccessOrFail('list');
 
         // crate an array with the names of the searchable columns
@@ -35,6 +32,8 @@ trait AjaxTable
         $dataTable->setFormatRowFunction(function ($entry) {
             // get the actual HTML for each row's cell
             $row_items = $this->crud->getRowViews($entry, $this->crud);
+
+            d($row_items);
 
             // add the buttons as the last column
             if ($this->crud->buttons->where('stack', 'line')->count()) {
