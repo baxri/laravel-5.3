@@ -299,7 +299,7 @@ class Transaction extends RaModel
                 $html .= '<span class="label label-danger">Canceled ('.$status.')</span>';
 
             if( $key == Person::$process )
-                $html .= '<span class="label label-warning">Process ('.$status.')</span>';
+                $html .= '<span class="label label-warning">Not Payed ('.$status.')</span>';
 
             if( $key == Person::$hold )
                 $html .= '<span class="label label-warning">Hold ('.$status.')</span>';
