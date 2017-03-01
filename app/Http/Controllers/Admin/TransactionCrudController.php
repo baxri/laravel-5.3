@@ -360,7 +360,7 @@ class TransactionCrudController extends CrudController {
         // $this->crud->groupBy();
         // $this->crud->limit();
 
-        d($_REQUEST);
+        d($this->crud->columns);
 
         //$this->crud->LogQuery();
     }
