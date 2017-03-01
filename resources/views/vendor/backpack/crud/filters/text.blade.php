@@ -23,12 +23,17 @@
 
             var code = e.which;
 
-            if(code==13){
+            console.log(code);
+
+            if(code == 13){
                 search();
             }
 
         });
         $(".{{ $filter->name }}-class").blur(function(e){
+
+            e.preventDefault();
+
             search();
         });
 
