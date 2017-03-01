@@ -39,7 +39,7 @@
 </tr>
 
 <script>
-    jQuery(document).ready(function($) {
+   // jQuery(document).ready(function($) {
 
 
         function returnTicket( button ){
@@ -90,8 +90,6 @@
 
         }
 
-        $(".return-ticket-{{$transaction->id}}").click(function(){
 
-        });
-    });
+   // });
 </script>
