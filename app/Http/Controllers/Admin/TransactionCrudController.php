@@ -181,13 +181,7 @@ class TransactionCrudController extends CrudController {
                 18 => 'Reversed',
             ],
             function( $value ) {
-
                 $this->crud->addClause( 'where', 'status', $value );
-
-           /* if($value)
-
-                else
-                    $this->crud->addClause( 'where', 'status', Transaction::$success );*/
             });
 
         $this->crud->addFilter([
