@@ -173,7 +173,7 @@ class TransactionCrudController extends CrudController {
             'label'=> 'Payment Status'
         ],
             [
-                0 => 'Pending',
+                456 => 'Pending',
                 -1 => 'Canceled',
                 //1 => 'Process',
                 //2 => 'Hold',
