@@ -237,10 +237,12 @@ class TransactionCrudController extends CrudController {
             false,
             function($value) {
                 if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
 
-                   /* $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('id', $this->value );
-                    });*/
+                        $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
+                        $query->where('persons.name', $this->value );
+                    });
                 }
             });
 
