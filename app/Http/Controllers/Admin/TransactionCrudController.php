@@ -239,11 +239,18 @@ class TransactionCrudController extends CrudController {
                 if( !empty($value) ){
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-
                         $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
                         $query->where('persons.name', $this->value );
+
+
+                        d($query->toDql());
                     });
+
+
                 }
+
+
+
             });
 
 
@@ -347,7 +354,7 @@ class TransactionCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
+        //$this->crud->enableAjaxTable();
         
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
