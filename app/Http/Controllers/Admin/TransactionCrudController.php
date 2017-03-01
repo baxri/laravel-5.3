@@ -173,6 +173,7 @@ class TransactionCrudController extends CrudController {
             'label'=> 'Payment Status'
         ],
             [
+                'not_finished' => 'Not Finished',
                 -1 => 'Canceled',
                 //1 => 'Process',
                 //2 => 'Hold',
@@ -182,6 +183,9 @@ class TransactionCrudController extends CrudController {
             function( $value ) {
                 if (!empty($value))
                     $this->crud->addClause('where', 'status', $value);
+
+                if( $value == 'not_finished' )
+                    $this->crud->addClause('where', 'status', 0);
             });
 
         $this->crud->addFilter([
