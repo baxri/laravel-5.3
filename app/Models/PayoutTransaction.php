@@ -44,7 +44,7 @@ class PayoutTransaction extends RaModel
 
     public function make( Ticket $ticket, $options, $persons ){
 
-        return true;
+        //return true;
 
         $this->name = $options['name'];
         $this->surname = $options['surname'];
