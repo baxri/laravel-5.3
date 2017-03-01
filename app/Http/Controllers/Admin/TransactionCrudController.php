@@ -173,6 +173,7 @@ class TransactionCrudController extends CrudController {
             'label'=> 'Payment Status'
         ],
             [
+                0 => 'Pending',
                 -1 => 'Canceled',
                 //1 => 'Process',
                 //2 => 'Hold',
@@ -180,10 +181,13 @@ class TransactionCrudController extends CrudController {
                 18 => 'Reversed',
             ],
             function( $value ) {
-                if($value)
-                    $this->crud->addClause( 'where', 'status', $value );
+
+                $this->crud->addClause( 'where', 'status', $value );
+
+           /* if($value)
+
                 else
-                    $this->crud->addClause( 'where', 'status', Transaction::$success );
+                    $this->crud->addClause( 'where', 'status', Transaction::$success );*/
             });
 
         $this->crud->addFilter([
