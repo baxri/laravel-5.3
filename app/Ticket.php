@@ -603,7 +603,7 @@ class Ticket extends RaModel
             return '<span class="label label-danger">Canceled</span>';
 
         if( $this->status == self::$process )
-            return '<span class="label label-warning">Process</span>';
+            return '<span class="label label-warning">Not Payed</span>';
 
         if( $this->status == self::$hold )
             return '<span class="label label-warning">Hold</span>';

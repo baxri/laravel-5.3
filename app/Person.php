@@ -218,7 +218,7 @@ class Person extends RaModel
             return 'Cancel';
 
         if( $this->status == self::$process )
-            return 'Process';
+            return 'Not Payed';
 
         if( $this->status == self::$hold )
             return 'Hold';
