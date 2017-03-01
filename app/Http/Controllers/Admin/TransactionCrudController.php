@@ -226,9 +226,17 @@ class TransactionCrudController extends CrudController {
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
                         $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
 
+                        $passenger = explode(" ", $this->value);
 
-                        $query->where('persons.name', 'like', '%' . $this->value . '%' );
-                        $query->orWhere('persons.surname', 'like', '%' . $this->value . '%' );
+                        if( !isset($passenger[1]) ){
+                            $query->where('persons.name', 'like', '%' . $passenger[1] . '%' );
+                            $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
+                        }else{
+                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
+                            $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
+                        }
+
+
                     });
                 }
             });
