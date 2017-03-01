@@ -369,7 +369,7 @@ class Transaction extends RaModel
             $ids[] = $ticket->request_id;
         }
 
-        return $ids[0];
+        return implode("<br />", $ids);
     }
 
     public function emailDeliveryView(){
