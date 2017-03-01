@@ -364,7 +364,7 @@ class TransactionCrudController extends CrudController {
         // $this->crud->groupBy();
         // $this->crud->limit();
 
-        $this->crud->LogQuery();
+        //$this->crud->LogQuery();
     }
 
     public function myexport(){
