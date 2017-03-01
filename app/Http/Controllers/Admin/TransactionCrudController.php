@@ -342,7 +342,7 @@ class TransactionCrudController extends CrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-        // $this->crud->orderBy('id', 'desc');
+         $this->crud->orderBy('id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
@@ -429,10 +429,8 @@ class TransactionCrudController extends CrudController {
 
 	public function showDetailsRow($id)
     {
-        return $id;
-
-        /*return view('vendor.backpack.crud.details.transaction_details_row', [
+        return view('vendor.backpack.crud.details.transaction_details_row', [
             'transaction' => Transaction::find($id)
-        ]);*/
+        ]);
     }
 }
