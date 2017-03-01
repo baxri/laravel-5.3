@@ -243,7 +243,7 @@ class TransactionCrudController extends CrudController {
                         $query->where('persons.name', $this->value );
 
 
-                        d($query->toDql());
+                        d($query->toSql());
                     });
 
 
