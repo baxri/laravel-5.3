@@ -182,10 +182,10 @@ class TransactionCrudController extends CrudController {
             ],
             function( $value ) {
                 if (!empty($value))
-                    $this->crud->addClause('where', 'status', $value);
+                    $this->crud->addClause('where', 'transactions.status', $value);
 
                 if( $value == 'not_finished' )
-                    $this->crud->addClause('where', 'status', 0);
+                    $this->crud->addClause('where', 'transactions.status', 0);
             });
 
         $this->crud->addFilter([
@@ -240,19 +240,10 @@ class TransactionCrudController extends CrudController {
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
                         $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
-                        $query->where('persons.name', $this->value );
-
-
-                        d($query->toSql());
+                        $query->where('persons.surname', $this->value );
                     });
-
-
                 }
-
-
-
             });
-
 
         $this->crud->addFilter([
             'type' => 'date',
@@ -266,7 +257,7 @@ class TransactionCrudController extends CrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'created_at', '>=', $value );
+                    $this->crud->addClause( 'where', 'transactions.created_at', '>=', $value );
 
             });
 
@@ -282,7 +273,7 @@ class TransactionCrudController extends CrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
+                    $this->crud->addClause( 'where', 'transactions.created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
             });
 
 		// ------ CRUD FIELDS
@@ -369,9 +360,10 @@ class TransactionCrudController extends CrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-         $this->crud->orderBy('id', 'desc');
+         $this->crud->orderBy('transactions.id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
+        
     }
 
     public function myexport(){
