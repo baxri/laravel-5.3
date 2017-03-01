@@ -7,7 +7,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'raconsole', 'middleware' => 'admin'], function()
 {
-    //Route::get('/', 'Admin\DashboardController@index');
+    Route::get('/', function(){
+        redirect('transaction');
+    });
     Route::get('/', 'Admin\TransactionCrudController@index');
 
     Route::get('/dashboard', 'Admin\DashboardController@index');
