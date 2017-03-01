@@ -429,8 +429,10 @@ class TransactionCrudController extends CrudController {
 
 	public function showDetailsRow($id)
     {
-        return view('vendor.backpack.crud.details.transaction_details_row', [
+        return $id;
+
+        /*return view('vendor.backpack.crud.details.transaction_details_row', [
             'transaction' => Transaction::find($id)
-        ]);
+        ]);*/
     }
 }
