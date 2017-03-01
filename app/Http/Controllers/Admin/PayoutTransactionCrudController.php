@@ -253,7 +253,7 @@ class PayoutTransactionCrudController extends CrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-        // $this->crud->orderBy();
+         $this->crud->orderBy('id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
