@@ -28,8 +28,6 @@ trait AjaxTable
         // structure the response in a DataTable-friendly way
         $dataTable = new \LiveControl\EloquentDataTable\DataTable($this->crud->query, $columns);
 
-        d($this->crud->query->toSql());
-
         // make the datatable use the column types instead of just echoing the text
         $dataTable->setFormatRowFunction(function ($entry) {
             // get the actual HTML for each row's cell
