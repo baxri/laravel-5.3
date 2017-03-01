@@ -212,7 +212,7 @@ class Person extends RaModel
             return 'Returned';
 
         if( $this->status == self::$pending )
-            return 'Pending';
+            return 'Initialized';
 
         if( $this->status == self::$cancel )
             return 'Cancel';
