@@ -30,6 +30,7 @@
     <td >
         @if( $person->status == \App\Person::$success )
             <a data-value="{{$person->id}}" class="return-ticket-{{$transaction->id}}"
+               onclick="returnTicket($(this))"
                style="cursor: pointer;" data-toggle="tooltip">
                 <span class="fa fa-reply" aria-hidden="true"></span>
             </a>
@@ -40,15 +41,12 @@
 <script>
     jQuery(document).ready(function($) {
 
-        $(".return-ticket-{{$transaction->id}}").click(function(){
-            var button =  $(this);
 
+        function returnTicket( button ){
 
             var comment = prompt("შეიყვანეთ კომენტარი", "ბილეთის დაბრუნება");
 
             if( comment.length == 0 ){
-
-                console.log("no comment");
 
                 button.button('reset');
                 new PNotify({
@@ -60,9 +58,6 @@
                 button.button('reset');
                 return false;
             }
-
-            console.log("davai aba");
-            return;
 
             button.button('loading');
 
@@ -92,6 +87,11 @@
                 }
             });
             return false;
+
+        }
+
+        $(".return-ticket-{{$transaction->id}}").click(function(){
+
         });
     });
 </script>
