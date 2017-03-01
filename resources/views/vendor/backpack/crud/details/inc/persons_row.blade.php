@@ -62,6 +62,7 @@
             }
 
             console.log("davai aba");
+            return;
 
             button.button('loading');
 
