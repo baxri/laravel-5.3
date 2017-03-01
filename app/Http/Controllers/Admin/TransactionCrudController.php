@@ -377,9 +377,6 @@ class TransactionCrudController extends CrudController {
 
         // get all entries if AJAX is not enabled
         if (! $this->data['crud']->ajaxTable()) {
-
-            d("OK");
-
             $this->data['entries'] = $this->data['crud']->getEntries();
         }
 
