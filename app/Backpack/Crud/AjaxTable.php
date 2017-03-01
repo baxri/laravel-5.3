@@ -28,12 +28,14 @@ trait AjaxTable
         // structure the response in a DataTable-friendly way
         $dataTable = new \LiveControl\EloquentDataTable\DataTable($this->crud->query, $columns);
 
+        d($this->crud->query->toSql());
+
         // make the datatable use the column types instead of just echoing the text
         $dataTable->setFormatRowFunction(function ($entry) {
             // get the actual HTML for each row's cell
             $row_items = $this->crud->getRowViews($entry, $this->crud);
 
-            d($row_items);
+
 
             // add the buttons as the last column
             if ($this->crud->buttons->where('stack', 'line')->count()) {
