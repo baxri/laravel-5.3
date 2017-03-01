@@ -175,8 +175,6 @@ class TransactionCrudController extends CrudController {
             [
                 'not_finished' => 'Not Finished',
                 -1 => 'Canceled',
-                //1 => 'Process',
-                //2 => 'Hold',
                 3 => 'Success',
                 18 => 'Reversed',
             ],
