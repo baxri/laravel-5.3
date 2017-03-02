@@ -86,7 +86,7 @@ class PdfWrapper {
 	 * @param $filename
 	 * @return static
 	 */
-	public function save($filename) {
+	/*public function save($filename) {
 
 		if($this->html) {
 			$this->mpdf->WriteHTML($this->html);
@@ -95,7 +95,15 @@ class PdfWrapper {
 		}
 
 		return $this->mpdf->Output($filename, 'F');
-	}
+	}*/
+
+    public function save($filename) {
+        $mpdf=new \mPDF('c','A4','','' , 0 , 0 , 0 , 0 , 0 , 0);
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->list_indent_first_level = 0;  // 1 or 0 - whether to indent the first level of a list
+        $mpdf->WriteHTML($this->html);
+        return $mpdf->Output($filename, 'F');
+    }
 
 	/**
 	 * Make the PDF downloadable by the user
