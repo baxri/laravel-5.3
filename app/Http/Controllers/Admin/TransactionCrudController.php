@@ -200,17 +200,6 @@ class TransactionCrudController extends CrudController {
             });
 
         $this->crud->addFilter([
-            'type' => 'reload',
-            'name' => 'reload',
-            'label'=> 'Reload'
-        ],
-            false,
-            function($value) {
-
-            });
-
-
-        $this->crud->addFilter([
             'type' => 'dropdown',
             'name' => 'status',
             'label'=> 'Payment Status'
@@ -280,6 +269,16 @@ class TransactionCrudController extends CrudController {
 
                     });
                 }
+            });
+
+        $this->crud->addFilter([
+            'type' => 'reload',
+            'name' => 'reload',
+            'label'=> 'Reload'
+        ],
+            false,
+            function($value) {
+
             });
 
 		// ------ CRUD FIELDS
