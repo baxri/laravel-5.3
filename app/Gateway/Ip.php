@@ -66,7 +66,11 @@ class Ip
 
     public static function current( $object = false ){
 
-        $ip = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+        $ip  = @$_SERVER['HTTP_CLIENT_IP'];
+
+        if( empty( $ip ) ){
+            $ip = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
 
         if( empty($ip) ){
             $ip = $_SERVER['REMOTE_ADDR'];
