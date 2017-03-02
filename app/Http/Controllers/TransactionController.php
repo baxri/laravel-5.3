@@ -39,10 +39,9 @@ class TransactionController extends Controller
         }
 
         return response()->ok([
-            'original_ip' => $ip,
-            'ip' => $_SERVER['REMOTE_ADDR'],
+            'original_ip' => $_SERVER['REMOTE_ADDR'],
+            'ip' => $ip,
         ]);
-
     }
 
     public function server(){
