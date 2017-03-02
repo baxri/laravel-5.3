@@ -1,8 +1,8 @@
-<button
+<li
     class="datepicker {{ $filter->name }}-class fa fa-refresh btn btn-default"
     style="margin-top: 3px;"
     name="{{ $filter->name }}"
-></button>
+></li>
 
 @push('crud_list_scripts')
 <script>
