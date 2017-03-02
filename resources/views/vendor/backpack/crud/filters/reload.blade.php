@@ -1,6 +1,6 @@
 <li
     class="datepicker {{ $filter->name }}-class fa fa-refresh btn btn-default"
-    style="margin-top: 3px;"
+    style="margin-top: 3px; margin-left: 10px;"
     name="{{ $filter->name }}"
 ></li>
 
