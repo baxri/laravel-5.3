@@ -15,27 +15,13 @@ class TransactionController extends Controller
 {
     public function ip(){
 
-        $ip = $_SERVER['SERVER_ADDR'];
+        $ip = $_SERVER['REMOTE_ADDR'];
 
-        if (PHP_OS == 'WINNT'){
-            $ip = getHostByName(getHostName());
-        }
-
-        if (PHP_OS == 'Linux'){
-            $command="/sbin/ifconfig";
-            exec($command, $output);
-            // var_dump($output);
-            $pattern = '/inet addr:?([^ ]+)/';
-
-            $ip = array();
-            foreach ($output as $key => $subject) {
-                $result = preg_match_all($pattern, $subject, $subpattern);
-                if ($result == 1) {
-                    if ($subpattern[1][0] != "127.0.0.1")
-                        $ip = $subpattern[1][0];
-                }
-                //var_dump($subpattern);
-            }
+        switch(true){
+            case (!empty($_SERVER['HTTP_X_REAL_IP'])) : $ip = $_SERVER['HTTP_X_REAL_IP'];
+            case (!empty($_SERVER['HTTP_CLIENT_IP'])) : $ip = $_SERVER['HTTP_CLIENT_IP'];
+            case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) : $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            default : $ip = $_SERVER['REMOTE_ADDR'];
         }
 
         return response()->ok([
