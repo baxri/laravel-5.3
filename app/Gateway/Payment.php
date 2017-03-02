@@ -10,8 +10,8 @@ use Mockery\Exception;
 class Payment
 {
     private $gateWay = 'http://10.1.1.41/checkout';
-    private $key = 'BCB75C2A-0373-4D20-8A34-A2B40EF34053';
-    private $username = '7535985';
+    private $key = 'C5E49E25-D5CF-4331-8AB1-60571EDDF08B';
+    private $username = '7508719';
 
     private $client;
     private $_error;
