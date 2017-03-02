@@ -1,5 +1,9 @@
 
-<button class="datepicker {{ $filter->name }}-class">{{ $filter->label }}</button>
+<button
+        class="datepicker {{ $filter->name }}-class"
+        name="{{ $filter->name }}"
+
+>{{ $filter->label }}</button>
 
 @push('crud_list_scripts')
 <script>
