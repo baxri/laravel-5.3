@@ -67,7 +67,13 @@ class TicketController extends Controller
             return response()->error( 'TRAIN_HAS_LEFT_STATION' );
         }
 
-        d($ticket);
+        $all_returnde = true;
+
+
+        foreach ( $ticket['persons'] as $passenger ){
+            //if( $passenger-> )
+        }
+
 
         return response()->ok($ticket[0]);
     }
