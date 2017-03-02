@@ -200,25 +200,6 @@ class TransactionCrudController extends CrudController {
             });
 
         $this->crud->addFilter([
-            'type' => 'dropdown',
-            'name' => 'status',
-            'label'=> 'Payment Status'
-        ],
-            [
-                1 => 'Not Payed',
-                -1 => 'Canceled',
-                3 => 'Success',
-                18 => 'Reversed',
-            ],
-            function( $value ) {
-                if (!empty($value))
-                    $this->crud->addClause('where', 'transactions.status', $value);
-                else
-                    $this->crud->addClause('where', 'transactions.status', '<', Transaction::$notfinished);
-
-            });
-
-        $this->crud->addFilter([
             'type' => 'text',
             'name' => 'request_id',
             'label'=> 'Ticket Request ID'
@@ -269,6 +250,25 @@ class TransactionCrudController extends CrudController {
 
                     });
                 }
+            });
+
+        $this->crud->addFilter([
+            'type' => 'dropdown',
+            'name' => 'status',
+            'label'=> 'Payment Status'
+        ],
+            [
+                1 => 'Not Payed',
+                -1 => 'Canceled',
+                3 => 'Success',
+                18 => 'Reversed',
+            ],
+            function( $value ) {
+                if (!empty($value))
+                    $this->crud->addClause('where', 'transactions.status', $value);
+                else
+                    $this->crud->addClause('where', 'transactions.status', '<', Transaction::$notfinished);
+
             });
 
         $this->crud->addFilter([
