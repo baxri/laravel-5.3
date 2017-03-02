@@ -397,7 +397,7 @@ class Transaction extends RaModel
         $this->notifyEmail( $throw_exception );
         $this->notifySMS( $throw_exception );
     }
-
+    //njangavadze@bog.ge
     public function notifyEmail( $throw_exception = false ){
 
         if( $this->status != Transaction::$success ){
