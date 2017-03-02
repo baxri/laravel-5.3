@@ -323,6 +323,10 @@ class Transaction extends RaModel
         return '<a href="'.$url.'" target="_blank"><span class="fa fa-files-o"></span></a>';
     }
 
+    public function getIP(){
+       return str_replace(",", "<br />", $this->ip);
+    }
+
     public function getReturnTicketStatusView(){
 
         $statuses = [];

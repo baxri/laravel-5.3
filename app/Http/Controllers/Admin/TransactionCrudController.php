@@ -146,6 +146,8 @@ class TransactionCrudController extends CrudController {
         $this->crud->addColumn([
             'label' => 'IP',
             'name' => 'ip',
+            'type' => 'model_function',
+            'function_name' => 'getIP',
         ]);
 
         /*$this->crud->addFilter([
