@@ -421,7 +421,7 @@ class Transaction extends RaModel
         }
 
         if( $debug ){
-            d($pdfs);
+            d($pdfs->html);
         }
 
         if( count( $this->tickets ) != count($pdfs) ){
