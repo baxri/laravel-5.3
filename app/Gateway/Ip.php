@@ -68,9 +68,9 @@ class Ip
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        if( strpos( $ip, '192' ) == 0 ){
+       /* if( strpos( $ip, '192' ) == 0 ){
             $ip = '31.146.160.104';
-        }
+        }*/
 
         $result = self::get($ip);
 
