@@ -343,7 +343,7 @@ class Transaction extends RaModel
         foreach ( $statuses as $key => $status ){
 
             if( $key == Person::$pending)
-                $html .= '<span>Pending ('.$status.')</span>';
+                $html .= '<span>Initialized ('.$status.')</span>';
 
             if( $key == Person::$returned)
                 $html .= '<span class="label label-danger">Returned ('.$status.')</span>';
@@ -352,7 +352,7 @@ class Transaction extends RaModel
                 $html .= '<span class="label label-danger">Canceled ('.$status.')</span>';
 
             if( $key == Person::$process )
-                $html .= '<span class="label label-warning">Process ('.$status.')</span>';
+                $html .= '<span class="label label-warning">Not Payed ('.$status.')</span>';
 
             if( $key == Person::$hold )
                 $html .= '<span class="label label-warning">Hold ('.$status.')</span>';
