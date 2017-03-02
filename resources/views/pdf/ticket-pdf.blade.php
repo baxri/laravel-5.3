@@ -221,8 +221,7 @@ table.footer-table td p {
                                         <tbody>
                                             <tr>
                                                 <td class="span1 aline-right">
-                                                    {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}
-
+                                                    {{ \date('H:i', strtotime( $ticket->leave_datetime )) }}
                                                 </td>
                                                 <td class="span2 aline-left">
                                                     სთ<br>Tm
@@ -236,7 +235,7 @@ table.footer-table td p {
                                         <tbody>
                                         <tr>
                                             <td class="span1 aline-right">
-                                                {{ \date('m', strtotime( $ticket->leave_datetime )) }}
+                                                {{ \date('d', strtotime( $ticket->leave_datetime )) }}
                                             </td>
                                             <td class="span2 aline-left">
                                                 {{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'en',  true)}}<br>{{\App\helpers\Railway::translateDate($ticket->leave_datetime, "", 'ka',  true)}}
