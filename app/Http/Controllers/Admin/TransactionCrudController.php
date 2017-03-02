@@ -168,62 +168,6 @@ class TransactionCrudController extends CrudController {
                 }
             });*/
 
-
-
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'request_id',
-            'label'=> 'Ticket Request ID'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('tickets.request_id', $this->value );
-                    });
-                }
-            });
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'checkout_id',
-            'label'=> 'UniPAY Order Hash'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) )
-                    $this->crud->addClause('where', 'transactions.checkout_id', $value);
-            });
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'passenger',
-            'label'=> 'Passenger Name'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
-
-                        $passenger = explode(" ", $this->value);
-
-                        if( !isset($passenger[1]) ){
-                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                            $query->orWhere('persons.surname', 'like', '%' . $passenger[0] . '%' );
-                        }else{
-                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                            $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
-                        }
-
-
-                    });
-                }
-            });
-
         $this->crud->addFilter([
             'type' => 'date',
             'name' => 'date-from',
@@ -284,6 +228,62 @@ class TransactionCrudController extends CrudController {
                     $this->crud->addClause('where', 'transactions.status', '<', Transaction::$notfinished);
 
             });
+
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'request_id',
+            'label'=> 'Ticket Request ID'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $query->where('tickets.request_id', $this->value );
+                    });
+                }
+            });
+
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'checkout_id',
+            'label'=> 'UniPAY Order Hash'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) )
+                    $this->crud->addClause('where', 'transactions.checkout_id', $value);
+            });
+
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'passenger',
+            'label'=> 'Passenger Name'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
+
+                        $passenger = explode(" ", $this->value);
+
+                        if( !isset($passenger[1]) ){
+                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
+                            $query->orWhere('persons.surname', 'like', '%' . $passenger[0] . '%' );
+                        }else{
+                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
+                            $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
+                        }
+
+
+                    });
+                }
+            });
+
+
+
 
         d($this->crud->query->toSql());
 
