@@ -67,13 +67,17 @@ class TicketController extends Controller
             return response()->error( 'TRAIN_HAS_LEFT_STATION' );
         }
 
-        $all_returnde = true;
-
+        $active = false;
 
         foreach ( $ticket[0]['persons'] as $passenger ){
-            //if( $passenger-> )
+            if( $passenger->status > -2 ){
+                $active = true;
+            }
         }
 
+        if( $active == false && $ticket[0]['prepared_for_payout'] == 0 ){
+            return response()->error( 'NO_ACTIVE_TICKETS_FOUND' );
+        }
 
         return response()->ok($ticket[0]);
     }
