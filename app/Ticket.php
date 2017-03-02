@@ -468,13 +468,22 @@ class Ticket extends RaModel
         return true;
     }
 
-    public function toPdf( $download = false ){
+    public function toPdf( $download = false, $debug = false ){
 
         $path = config('railway.pdf_location').$this->request_id.'.pdf';
 
-        $pdf = Pdf::loadView('pdf.ticket-pdf', [
-            'ticket' => $this
-        ]);
+        if( $debug ){
+            $pdf = Pdf::loadView('pdf.ticket-pdf', [
+                'ticket' => $this
+            ]);
+
+            d($pdf);
+
+        }else{
+            $pdf = Pdf::loadView('pdf.ticket-pdf', [
+                'ticket' => $this
+            ]);
+        }
 
         try{
 

@@ -398,7 +398,7 @@ class Transaction extends RaModel
         $this->notifySMS( $throw_exception );
     }
     //njangavadze@bog.ge
-    public function notifyEmail( $throw_exception = false ){
+    public function notifyEmail( $throw_exception = false, $debug = false ){
 
         if( $this->status != Transaction::$success ){
             //return;
@@ -413,7 +413,7 @@ class Transaction extends RaModel
                 //continue;
             }
 
-            $path = $ticket->toPdf();
+            $path = $ticket->toPdf( $download = false, $debug );
 
             if( !empty($path) ){
                 $pdfs[] = $path;
