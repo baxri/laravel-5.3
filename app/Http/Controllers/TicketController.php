@@ -59,13 +59,15 @@ class TicketController extends Controller
         ] )->get()
            ->toArray();
 
+        if( empty($ticket[0]) ){
+            return response()->error( 'TICKET_NOT_FOUND' );
+        }
+
         if( $ticket[0]['has_left'] < 0 and $ticket[0]['prepared_for_payout'] == 0 ){
             return response()->error( 'TRAIN_HAS_LEFT_STATION' );
         }
 
-        if( empty($ticket[0]) ){
-            return response()->error( 'TICKET_NOT_FOUND' );
-        }
+        d($ticket);
 
         return response()->ok($ticket[0]);
     }
