@@ -221,7 +221,8 @@ table.footer-table td p {
                                         <tbody>
                                             <tr>
                                                 <td class="span1 aline-right">
-                                                    {{ \date('H:i', strtotime( $ticket->leave_datetime )) }}
+                                                    {{ \date('H:i', \strtotime( $ticket->leave_datetime )) }}
+
                                                 </td>
                                                 <td class="span2 aline-left">
                                                     სთ<br>Tm
