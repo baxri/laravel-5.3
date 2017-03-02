@@ -478,8 +478,6 @@ class Ticket extends RaModel
                 'ticket' => $this
             ]);
 
-            d($this->id);
-
         }else{
             $pdf = Pdf::loadView('pdf.ticket-pdf', [
                 'ticket' => $this
