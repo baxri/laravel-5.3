@@ -272,6 +272,16 @@ class TransactionCrudController extends CrudController {
                     $this->crud->addClause( 'where', 'transactions.created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
             });
 
+        $this->crud->addFilter([
+            'type' => 'reload',
+            'name' => 'reload',
+            'label'=> 'Reload'
+        ],
+            false,
+            function($value) {
+
+            });
+
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
