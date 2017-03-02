@@ -1,9 +1,15 @@
 
+<li filter-name="{{ $filter->name }}"
+    filter-type="{{ $filter->type }}"   style="margin-left: 5px;">
+
 <button
         class="datepicker {{ $filter->name }}-class"
         name="{{ $filter->name }}"
 
+
 >{{ $filter->label }}</button>
+
+</li>
 
 @push('crud_list_scripts')
 <script>
