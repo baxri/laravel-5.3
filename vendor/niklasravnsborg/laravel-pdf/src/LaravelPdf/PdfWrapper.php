@@ -57,7 +57,7 @@ class PdfWrapper {
 
 		if( $debug == true )
         {
-            return $this->html;
+            //return $this->html;
         }
 
 		$this->file = null;
