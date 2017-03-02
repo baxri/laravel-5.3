@@ -1,6 +1,7 @@
 <?php
-
 namespace niklasravnsborg\LaravelPdf;
+
+use Illuminate\Support\Facades\Config;
 
 /**
  * Laravel PDF: mPDF wrapper for Laravel 5
@@ -86,7 +87,7 @@ class PdfWrapper {
 	 * @param $filename
 	 * @return static
 	 */
-	public function save($filename) {
+	/*public function save($filename) {
 
 		if($this->html) {
 			$this->mpdf->WriteHTML($this->html);
@@ -95,15 +96,29 @@ class PdfWrapper {
 		}
 
 		return $this->mpdf->Output($filename, 'F');
-	}
+	}*/
 
-   /* public function save($filename) {
-        $mpdf=new \mPDF('c','A4','','' , 0 , 0 , 0 , 0 , 0 , 0);
+    public function save($filename) {
+
+        $mpdf = new \mPDF(
+            Config::get('pdf.mode'),              // mode - default ''
+            Config::get('pdf.format'),            // format - A4, for example, default ''
+            Config::get('pdf.default_font_size'), // font size - default 0
+            Config::get('pdf.default_font'),      // default font family
+            Config::get('pdf.margin_left'),       // margin_left
+            Config::get('pdf.margin_right'),      // margin right
+            Config::get('pdf.margin_top'),        // margin top
+            Config::get('pdf.margin_bottom'),     // margin bottom
+            Config::get('pdf.margin_header'),     // margin header
+            Config::get('pdf.margin_footer'),     // margin footer
+            Config::get('pdf.orientation')        // L - landscape, P - portrait
+        );
+
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->list_indent_first_level = 0;  // 1 or 0 - whether to indent the first level of a list
         $mpdf->WriteHTML($this->html);
         return $mpdf->Output($filename, 'F');
-    }*/
+    }
 
 	/**
 	 * Make the PDF downloadable by the user
