@@ -199,7 +199,7 @@ class PDF{
                 }
             }
         }
-        //$this->rendered = true;
+        $this->rendered = true;
     }
 
 

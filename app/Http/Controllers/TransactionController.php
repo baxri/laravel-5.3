@@ -13,6 +13,10 @@ use Mockery\Exception;
 
 class TransactionController extends Controller
 {
+    public function send( Transaction $transaction){
+        $transaction->notifyEmail( $throw_exception = true );
+    }
+
     public function ip(){
 
         $client  = @$_SERVER['HTTP_CLIENT_IP'];
