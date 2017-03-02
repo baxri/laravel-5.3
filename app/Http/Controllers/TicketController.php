@@ -70,10 +70,11 @@ class TicketController extends Controller
         $all_returnde = true;
 
 
-        foreach ( $ticket['persons'] as $passenger ){
+        /*foreach ( $ticket['persons'] as $passenger ){
             //if( $passenger-> )
-        }
+        }*/
 
+        d($ticket);
 
         return response()->ok($ticket[0]);
     }
