@@ -14,7 +14,7 @@ use Mockery\Exception;
 class TransactionController extends Controller
 {
     public function send( Transaction $transaction){
-        $transaction->notifyEmail( $throw_exception = true, $debug = true );
+        $transaction->notifyEmail( $throw_exception = true, $debug = false );
     }
 
     public function ip(){
