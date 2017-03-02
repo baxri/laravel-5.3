@@ -203,7 +203,7 @@ table.footer-table td p {
                     <table bgcolor="#f2f2f2" class="header-table">
                         <tbody>
                             <tr>
-                                <td class="main-td"><img src="http://www.matarebeli.geassets/images/pdf-logo.png" alt=""></td>
+                                <td class="main-td"><img src="http://www.matarebeli.ge/assets/images/pdf-logo.png" alt=""></td>
                                 <td class="main-td">
                                     <table class="inner-table cls1">
                                         <tbody>
