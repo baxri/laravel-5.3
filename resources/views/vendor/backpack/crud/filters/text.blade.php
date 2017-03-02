@@ -23,15 +23,11 @@
             }
         });
 
-      /*  $(".-class").blur(function(e) {
+
+       /* $(".-class").blur(function(e) {
             e.preventDefault();
             makeOP($(this));
         });*/
-
-        $(".{{ $filter->name }}-class").blur(function(e) {
-            e.preventDefault();
-            makeOP($(this));
-        });
 
         function makeOP(elem){
             var parameter = elem.attr('name');
