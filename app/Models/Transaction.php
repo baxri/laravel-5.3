@@ -420,6 +420,10 @@ class Transaction extends RaModel
             }
         }
 
+        if( $debug ){
+            d($pdfs);
+        }
+
         if( count( $this->tickets ) != count($pdfs) ){
             return;
         }
