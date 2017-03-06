@@ -14,7 +14,7 @@
 <script>
     jQuery(document).ready(function($) {
 
-        $(".{{ $filter->name }}-class").blur(function(e) {
+        $(".{{ $filter->name }}-class").change(function(e) {
             e.preventDefault();
             var parameter = $(this).attr('name');
             var value = $(this).val();
