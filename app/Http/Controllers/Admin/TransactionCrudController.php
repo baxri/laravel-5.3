@@ -279,22 +279,32 @@ class TransactionCrudController extends CrudController {
             function($value) {
                 if( !empty($value) ){
                     $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
-
-                        $passenger = explode(" ", $this->value);
-
-                        if( !isset($passenger[1]) ){
-                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                            $query->orWhere('persons.surname', 'like', '%' . $passenger[0] . '%' );
-                            $query->orWhere('persons.idnumber', 'like', '%' . $passenger[0] . '%' );
-                        }else{
-                            $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                            $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
-                        }
 
 
-                    });
+                    if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
+                        $this->crud->addClause('where', 'transactions.email', $value);
+                    }
+                    else {
+
+                        $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+
+                            $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
+
+                            $passenger = explode(" ", $this->value);
+
+                            if( !isset($passenger[1]) ){
+                                $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
+                                $query->orWhere('persons.surname', 'like', '%' . $passenger[0] . '%' );
+                                $query->orWhere('persons.idnumber', 'like', '%' . $passenger[0] . '%' );
+                            }else{
+                                $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
+                                $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
+                            }
+                        });
+
+                    }
+
+
                 }
             });
 
