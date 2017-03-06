@@ -397,21 +397,13 @@ class Transaction extends RaModel
         $this->notifyEmail( $throw_exception );
         $this->notifySMS( $throw_exception );
     }
-    //njangavadze@bog.ge
-    public function notifyEmail( $throw_exception = false, $debug = false ){
 
-        if( $this->status != Transaction::$success ){
-            //return;
-        }
+    public function notifyEmail( $throw_exception = false, $debug = false ){
 
         $this->email_delivery = 0;
         $pdfs = [];
 
         foreach ($this->tickets as $ticket){
-
-            if( $ticket->status != Ticket::$success ){
-                //continue;
-            }
 
             $path = $ticket->toPdf( $download = false, $debug );
 

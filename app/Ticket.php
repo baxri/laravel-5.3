@@ -476,11 +476,7 @@ class Ticket extends RaModel
             'ticket' => $this
         ], [], $download);
 
-        if( $download ){
-            return $pdf;
-        }else{
-            return $path;
-        }
+        return $pdf;
     }
 
     public function getQR(){
