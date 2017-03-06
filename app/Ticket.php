@@ -472,11 +472,9 @@ class Ticket extends RaModel
 
         $path = config('railway.pdf_location').$this->request_id.'.pdf';
 
-        $pdf = Railway::pdf($path, 'pdf.ticket-pdf', [
+        return Railway::pdf($path, 'pdf.ticket-pdf', [
             'ticket' => $this
-        ], [], $download);
-
-        return $pdf;
+        ], [], $download );
     }
 
     public function getQR(){

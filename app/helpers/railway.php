@@ -139,11 +139,8 @@ abstract class Railway
         if( $download ){
             return $mpdf->Output($filename, 'I');
         }else{
-
             $mpdf->Output($filename, 'F');
-
             return $filename;
-
         }
     }
 
