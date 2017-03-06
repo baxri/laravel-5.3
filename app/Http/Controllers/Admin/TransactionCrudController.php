@@ -366,8 +366,10 @@ class TransactionCrudController extends CrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
-        
+        //$this->crud->enableAjaxTable();
+
+        d($this->crud->query->toSql());
+
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
