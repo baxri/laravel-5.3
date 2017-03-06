@@ -133,6 +133,12 @@
         });
     </script>
 
+    <script>
+        $( function() {
+            $( ".datepicker" ).datepicker();
+        } );
+    </script>
+
     @include('backpack::inc.alerts')
 
     @yield('after_scripts')

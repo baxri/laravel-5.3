@@ -13,6 +13,7 @@
 @push('crud_list_scripts')
 <script>
     jQuery(document).ready(function($) {
+
         $(".{{ $filter->name }}-class").blur(function(e) {
             e.preventDefault();
             var parameter = $(this).attr('name');
