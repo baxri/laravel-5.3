@@ -4,7 +4,7 @@
 
     <input type="date" name="{{ $filter->name }}"
            class="datepicker {{ $filter->name }}-class form-control input-sm"
-           placeholder="{{ $filter->label }}"
+           placeholder="YYYY-MM-DD"
            value="{{Request::get($filter->name) ? Request::get($filter->name) : $filter->default_value}}"
            data-provide="datepicker"
            style="margin: 2px;">
