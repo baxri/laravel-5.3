@@ -255,7 +255,7 @@ class TransactionCrudController extends CrudController {
             false,
             function($value) {
                 if( !empty($value) ){
-                    $this->value = $value;
+                    $this->value = trim($value);
 
 
                     if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
