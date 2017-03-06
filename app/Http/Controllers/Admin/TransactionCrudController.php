@@ -274,7 +274,16 @@ class TransactionCrudController extends CrudController {
                 }
             });
 
-
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'email',
+            'label'=> 'Email'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) )
+                    $this->crud->addClause('where', 'transactions.email', $value);
+            });
 
         $this->crud->addFilter([
             'type' => 'reload',
