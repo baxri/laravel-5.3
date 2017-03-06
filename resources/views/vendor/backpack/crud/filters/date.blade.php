@@ -37,7 +37,7 @@
         });
 
         $("li[filter-name={{ $filter->name }}]").on('filter:clear', function(e) {
-            $(".{{ $filter->name }}-class").val("");
+            $(".{{ $filter->name }}-class").val("{{$filter->default_value}}");
         });
     });
 </script>
