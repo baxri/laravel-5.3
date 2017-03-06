@@ -36,12 +36,7 @@
         @endif
 
         <div>
-            <p style="float: left;">Count: 0</p>
-            <p style="float: left;">Sum: 0</p>
-            <p style="float: left;">Comission: 0</p>
-
             {{$crud->query->toSql()}}
-
         </div>
 
         <div style="clear: both;"></div>
