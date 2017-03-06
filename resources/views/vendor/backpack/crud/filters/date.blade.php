@@ -2,11 +2,11 @@
 <li filter-name="{{ $filter->name }}"
     filter-type="{{ $filter->type }}"   style="margin-left: 5px;">
 
-    <input type="date" name="{{ $filter->name }}"
-           class="{{ $filter->name }}-class form-control input-sm"
+    <input type="text" name="{{ $filter->name }}"
+           class="datepicker {{ $filter->name }}-class form-control input-sm"
            placeholder="YYYY-MM-DD"
            value="{{Request::get($filter->name) ? Request::get($filter->name) : $filter->default_value}}"
-
+           data-provide="datepicker"
            style="margin: 2px;">
 </li>
 
