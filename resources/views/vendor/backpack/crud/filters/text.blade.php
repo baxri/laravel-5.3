@@ -23,12 +23,6 @@
             }
         });
 
-
-       /* $(".-class").blur(function(e) {
-            e.preventDefault();
-            makeOP($(this));
-        });*/
-
         function makeOP(elem){
             var parameter = elem.attr('name');
             var value = elem.val();
