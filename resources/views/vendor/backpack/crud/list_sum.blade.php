@@ -35,10 +35,6 @@
           @include('crud::inc.filters_navbar')
         @endif
 
-        <div>
-            {{$crud->query->toSql()}}
-        </div>
-
         <div style="clear: both;"></div>
 
         <table id="crudTable" class="table table-bordered table-striped display">
