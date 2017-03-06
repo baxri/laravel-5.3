@@ -6,6 +6,7 @@ namespace App\helpers;
 
 use App\Models\Station;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 
 abstract class Railway
 {
@@ -111,6 +112,35 @@ abstract class Railway
         }
 
         return $day.' '.$d.' '.$month;
+    }
+
+    public static function pdf( $filename, $view, $data = array(), $mergeData = array(), $download = false ){
+
+        $html = \View::make($view, $data, $mergeData)->render();
+
+        $mpdf = new \mPDF(
+            Config::get('pdf.mode'),              // mode - default ''
+            Config::get('pdf.format'),            // format - A4, for example, default ''
+            Config::get('pdf.default_font_size'), // font size - default 0
+            Config::get('pdf.default_font'),      // default font family
+            Config::get('pdf.margin_left'),       // margin_left
+            Config::get('pdf.margin_right'),      // margin right
+            Config::get('pdf.margin_top'),        // margin top
+            Config::get('pdf.margin_bottom'),     // margin bottom
+            Config::get('pdf.margin_header'),     // margin header
+            Config::get('pdf.margin_footer'),     // margin footer
+            Config::get('pdf.orientation')        // L - landscape, P - portrait
+        );
+
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->list_indent_first_level = 0;  // 1 or 0 - whether to indent the first level of a list
+        $mpdf->WriteHTML($html);
+
+        if( $download ){
+            return $mpdf->Output($filename, 'I');
+        }else{
+            return $mpdf->Output($filename, 'F');
+        }
     }
 
 }

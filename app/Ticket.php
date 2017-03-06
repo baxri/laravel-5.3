@@ -474,12 +474,15 @@ class Ticket extends RaModel
 
         if( $debug ){
 
-            $pdf = Pdf::loadView('pdf.ticket-pdf', [
+            $pdf = Railway::pdf($path, 'pdf.ticket-pdf', [
                 'ticket' => $this
-            ], [], true);
+            ], [], $download);
 
-
-            return $pdf;
+            if( $download ){
+                return $pdf;
+            }else{
+                return $path;
+            }
 
         }else{
             $pdf = Pdf::loadView('pdf.ticket-pdf', [

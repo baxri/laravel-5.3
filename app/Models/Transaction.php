@@ -415,17 +415,9 @@ class Transaction extends RaModel
 
             $path = $ticket->toPdf( $download = false, $debug );
 
-            if( $debug ){
-                d($path->html);
-            }
-
             if( !empty($path) ){
                 $pdfs[] = $path;
             }
-        }
-
-        if( $debug ){
-            d($pdfs);
         }
 
         if( count( $this->tickets ) != count($pdfs) ){
