@@ -345,7 +345,7 @@
         } );
       }
 
-      register_details_row_button_action();
+      //register_details_row_button_action();
       @endif
 
 
