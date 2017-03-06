@@ -102,6 +102,10 @@ class PayoutTransaction extends RaModel
             $person->setPayout( $this->id );
         }
 
+        if( !empty( $person->ticket->transaction->checkout_id ) && !empty($person->ticket->request_id) ){
+            $this->description = 'Payment ID: '.$person->ticket->transaction->checkout_id.' - Request ID: '.$person->ticket->request_id;
+        }
+
         PayoutInfo::create([
 
             'email' => $ticket->transaction->email,
