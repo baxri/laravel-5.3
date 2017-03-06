@@ -272,12 +272,12 @@ class TransactionCrudController extends CrudController {
                             $passenger = explode(" ", $this->value);
 
                             if( !isset($passenger[1]) ){
-                                $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                                $query->orWhere('persons.surname', 'like', '%' . $passenger[0] . '%' );
-                                $query->orWhere('persons.idnumber', 'like', '%' . $passenger[0] . '%' );
+                                $query->where('persons.name', 'like', '%' . trim($passenger[0]) . '%' );
+                                $query->orWhere('persons.surname', 'like', '%' . trim($passenger[0]) . '%' );
+                                $query->orWhere('persons.idnumber', 'like', '%' . trim($passenger[0]) . '%' );
                             }else{
-                                $query->where('persons.name', 'like', '%' . $passenger[0] . '%' );
-                                $query->orWhere('persons.surname', 'like', '%' . $passenger[1] . '%' );
+                                $query->where('persons.name', 'like', '%' . trim($passenger[0]) . '%' );
+                                $query->orWhere('persons.surname', 'like', '%' . trim($passenger[1]) . '%' );
                             }
                         });
 
