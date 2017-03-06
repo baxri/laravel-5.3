@@ -282,7 +282,8 @@ class TransactionCrudController extends CrudController {
             false,
             function($value) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'transactions.email', $value);
+                    $this->crud->addClause('transactions.email', 'like', '%' . $value . '%' );
+
             });
 
         $this->crud->addFilter([
