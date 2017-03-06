@@ -250,7 +250,7 @@ class TransactionCrudController extends CrudController {
         $this->crud->addFilter([
             'type' => 'text',
             'name' => 'passenger',
-            'label'=> 'Pass./Email/Mob.'
+            'label'=> 'Pass/Email/Mob/ID'
         ],
             false,
             function($value) {
