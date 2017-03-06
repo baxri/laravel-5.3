@@ -246,7 +246,6 @@ class TransactionCrudController extends CrudController {
                     $this->crud->addClause('where', 'transactions.checkout_id', $value);
             });
 
-
         $this->crud->addFilter([
             'type' => 'text',
             'name' => 'passenger',
@@ -282,7 +281,6 @@ class TransactionCrudController extends CrudController {
                         });
 
                     }
-
 
                 }
             });
