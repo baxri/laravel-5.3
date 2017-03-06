@@ -283,6 +283,8 @@ class TransactionCrudController extends CrudController {
 
                     if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
                         $this->crud->addClause('where', 'transactions.email', $value);
+                    }elseif( is_numeric($value) ){
+                        $this->crud->addClause('where', 'transactions.mobile', $value);
                     }
                     else {
 
