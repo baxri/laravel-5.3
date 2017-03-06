@@ -136,7 +136,9 @@
 
     <script>
         $( function() {
-            $( ".datepicker" ).datepicker();
+            $( ".datepicker" ).datepicker({
+                altFormat: "yy-mm-dd"
+            });
         } );
     </script>
 
