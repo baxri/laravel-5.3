@@ -254,6 +254,25 @@ class TransactionCrudController extends CrudController {
                 }
             });
 
+
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'passenger',
+            'label'=> 'ID Number'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) ){
+                    $this->value = $value;
+                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
+
+                        $query->where('persons.idnumber', '%' . $this->value . '%' );
+
+                    });
+                }
+            });
+
         $this->crud->addFilter([
             'type' => 'dropdown',
             'name' => 'status',
