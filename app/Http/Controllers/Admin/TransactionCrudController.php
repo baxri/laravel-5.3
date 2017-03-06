@@ -257,7 +257,7 @@ class TransactionCrudController extends CrudController {
 
         $this->crud->addFilter([
             'type' => 'text',
-            'name' => 'passenger',
+            'name' => 'idnumber',
             'label'=> 'ID Number'
         ],
             false,
