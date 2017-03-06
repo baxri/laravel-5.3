@@ -6,7 +6,7 @@
            class="{{ $filter->name }}-class form-control input-sm"
            placeholder="YYYY-MM-DD"
            value="{{Request::get($filter->name) ? Request::get($filter->name) : $filter->default_value}}"
-           data-provide="datepicker"
+
            style="margin: 2px;">
 </li>
 
