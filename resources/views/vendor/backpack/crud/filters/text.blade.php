@@ -3,7 +3,7 @@
     filter-type="{{ $filter->type }}"   style="margin-left: 5px;">
 
     <input type="text" name="{{ $filter->name }}"
-           class="datepicker {{ $filter->name }}-class form-control input-sm"
+           class="{{ $filter->name }}-class form-control input-sm"
            placeholder="{{ $filter->label }}"
            value="{{Request::get($filter->name)}}"
            data-provide="datepicker"
