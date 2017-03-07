@@ -66,6 +66,13 @@ trait AjaxTable
                     $data = array();
 
                     foreach ( $result as $item ){
+
+                        if( !method_exists( $item, 'toExport' ) ){
+                            return response()->json([
+                                'error' => 'Method toExport not exists in Model'
+                            ]);
+                        }
+
                         $data[] = $item->toExport();
                     }
 
@@ -76,6 +83,7 @@ trait AjaxTable
             })->store('xls');
 
             return response()->json([
+                'error' => "",
                 'download' => url('/exports').'/'.$filename.'.xls',
             ]);
 

@@ -164,8 +164,11 @@
                 url: url,
                 data: {},
                 success: function(data){
-                    console.log(data);
-                    window.location.href = data.download;
+                    if( data.error.length > 0 ){
+                        alert(data.error);
+                    }else{
+                        window.location.href = data.download;
+                    }
                 }
             });
         }
