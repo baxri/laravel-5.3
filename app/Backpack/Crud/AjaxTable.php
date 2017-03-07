@@ -59,8 +59,6 @@ trait AjaxTable
 
             $result = $this->crud->query->get();
 
-            d("OK");
-
             Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) use ($result) {
 
                 $excel->sheet('Sheet', function($sheet) use ($result) {
