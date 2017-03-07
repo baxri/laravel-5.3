@@ -70,6 +70,9 @@ trait AjaxTable
                         $exists = method_exists( $item, 'toExport' );
 
                         if( !$exists ){
+
+                            d("vaa");
+
                             return response()->json([
                                 'error' => 'Method toExport not exists in Model'
                             ]);
