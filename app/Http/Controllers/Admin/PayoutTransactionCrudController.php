@@ -34,6 +34,27 @@ class PayoutTransactionCrudController extends CrudController {
         $this->crud->setRoute("raconsole/payout");
         $this->crud->setEntityNameStrings('payouttransaction', 'Payout Transaction/Banks');
 
+        $this->crud->addTotal([
+            'aggregate' => 'count',
+            'label' => 'Transactions',
+        ]);
+
+        $this->crud->addTotal([
+            'aggregate' => 'sum',
+            'name' => 'amount',
+            'label' => 'Sum',
+            'type' => 'model_function',
+            'function_name' => 'getSumView',
+        ]);
+
+        $this->crud->addTotal([
+            'aggregate' => 'sum',
+            'name' => 'commission',
+            'label' => 'Commission',
+            'type' => 'model_function',
+            'function_name' => 'getSumView',
+        ]);
+
         $this->crud->addField([ // Text
             'name' => 'status',
             'label' => "Status",
@@ -130,33 +151,6 @@ class PayoutTransactionCrudController extends CrudController {
             'function_name' => 'getLogIcon',
         ]);
 
-        $this->crud->addFilter([
-            'type' => 'dropdown',
-            'name' => 'status',
-            'label'=> 'Status'
-        ],
-            [
-                -1 => 'Canceled',
-                1 => 'Process',
-                2 => 'Hold',
-                3 => 'Success',
-            ],
-            function( $value ) {
-                if($value)
-                    $this->crud->addClause('where', 'status', $value);
-            });
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'payout_hash_id',
-            'label'=> 'Unipay HASH'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) ){
-                    $this->crud->addClause('where', 'payout_hash_id', $value);
-                }
-            });
 
         $this->crud->addFilter([
             'type' => 'date',
@@ -188,6 +182,35 @@ class PayoutTransactionCrudController extends CrudController {
                 if($value)
                     $this->crud->addClause( 'where', 'updated_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
             });
+
+        $this->crud->addFilter([
+            'type' => 'o_dropdown',
+            'name' => 'status',
+            'label'=> 'Status'
+        ],
+            [
+                -1 => 'Canceled',
+                1 => 'Process',
+                2 => 'Hold',
+                3 => 'Success',
+            ],
+            function( $value ) {
+                if($value)
+                    $this->crud->addClause('where', 'status', $value);
+            });
+
+        $this->crud->addFilter([
+            'type' => 'text',
+            'name' => 'payout_hash_id',
+            'label'=> 'Unipay HASH'
+        ],
+            false,
+            function($value) {
+                if( !empty($value) ){
+                    $this->crud->addClause('where', 'payout_hash_id', $value);
+                }
+            });
+
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -256,6 +279,28 @@ class PayoutTransactionCrudController extends CrudController {
          $this->crud->orderBy('id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    /**
+     * Display all rows in the database for this entity.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $this->crud->hasAccessOrFail('list');
+
+        $this->data['crud'] = $this->crud;
+        $this->data['title'] = ucfirst($this->crud->entity_name_plural);
+
+        // get all entries if AJAX is not enabled
+        if (! $this->data['crud']->ajaxTable()) {
+            $this->data['entries'] = $this->data['crud']->getEntries();
+        }
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        // $this->crud->getListView() returns 'list' by default, or 'list_ajax' if ajax was enabled
+        return view('vendor.backpack.crud.list', $this->data);
     }
 
 	public function store(StoreRequest $request)
