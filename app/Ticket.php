@@ -291,6 +291,10 @@ class Ticket extends RaModel
         return $schedule;
     }
 
+    public function toExport(){
+        return parent::toArray();
+    }
+
     public function toArray()
     {
         $type = 'departure';

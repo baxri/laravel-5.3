@@ -66,7 +66,7 @@ trait AjaxTable
                     $data = array();
 
                     foreach ( $result as $item ){
-                        $data[] = $item->toArray();
+                        $data[] = $item->toExport();
                     }
 
                     d($data);
