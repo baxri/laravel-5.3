@@ -155,7 +155,7 @@
                     panel.html("");
 
                     $.each( data, function( key, value ) {
-                        panel.append("<h4 style='float: left; padding-right: 10px; margin-right: 10px; border-right: 2px solid white; '>" + value.label + ": " + value.value + "</h4>");
+                        panel.append("<p style='float: left; padding-right: 10px; margin-right: 10px;'>" + value.label + ": " + value.value + "</p>");
                     });
 
                     panel.append("<div style='clear: both;'></div>");

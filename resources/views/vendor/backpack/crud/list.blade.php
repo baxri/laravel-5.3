@@ -38,10 +38,14 @@
         @if ( $crud->ajaxTable() && !empty( $crud->getTotals() ) )
            <div style="
                 border: 1px solid #e7e7e7;
-                background-color: #e7e7e7;
+                background-color: #f9f9f9;
                 margin-bottom: 5px;
                 padding-left: 20px;
                 padding-top: -50px;
+                color: #777;
+                font-size: 11pt;
+                height: 40px;
+                line-height: 40px;
             " id="totals-panel">
 
            </div>
