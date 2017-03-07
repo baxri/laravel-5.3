@@ -51,7 +51,7 @@ trait AjaxTable
 
         }elseif( $request_type == 'excel' ){
 
-          
+
 
             $table_name = $this->crud->model->getTable();
 
@@ -63,14 +63,23 @@ trait AjaxTable
 
                 $excel->sheet('Sheet', function($sheet) use ($result) {
 
+                    $data = array();
+
                     foreach ( $result as $item ){
-                        $sheet->with([
-                            [
-                                'rt' => 'sdf',
-                                'rtt' => 'sdf'
-                            ]
-                        ]);
+
+                        d($item);
+
+                        $data[] = [
+
+                        ];
                     }
+
+                    $sheet->with([
+                        [
+                            'rt' => 'sdf',
+                            'rtt' => 'sdf'
+                        ]
+                    ]);
 
                 });
 
