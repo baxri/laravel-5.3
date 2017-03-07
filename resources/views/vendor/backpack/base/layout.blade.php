@@ -165,7 +165,7 @@
                 data: {},
                 success: function(data){
                     console.log(data);
-                    //window.location.href = data.download;
+                    window.location.href = data.download;
                 }
             });
         }

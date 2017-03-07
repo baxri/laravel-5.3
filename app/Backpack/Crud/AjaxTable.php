@@ -63,9 +63,11 @@ trait AjaxTable
 
                 $excel->sheet('Sheet', function($sheet) use ($result) {
 
-
-
-                    $sheet->fromArray($result);
+                    foreach ( $result as $item ){
+                        $sheet->with([
+                            $item
+                        ]);
+                    }
 
                 });
 
