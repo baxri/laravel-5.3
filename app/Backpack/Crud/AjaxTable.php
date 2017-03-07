@@ -51,7 +51,7 @@ trait AjaxTable
 
         }elseif( $request_type == 'excel' ){
 
-           // d(url('/exports'));
+          
 
             $table_name = $this->crud->model->getTable();
 
