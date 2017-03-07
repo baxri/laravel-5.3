@@ -212,7 +212,7 @@ class TransactionCrudController extends CrudController {
             });
 
         $this->crud->addFilter([
-            'type' => 'dropdown',
+            'type' => 'o_dropdown',
             'name' => 'status',
             'label'=> 'Payment Status'
         ],
