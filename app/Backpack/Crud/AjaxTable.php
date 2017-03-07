@@ -65,7 +65,8 @@ trait AjaxTable
 
                     foreach ( $result as $item ){
                         $sheet->with([
-                            $item
+                            'rt' => 'sdf',
+                            'rtt' => 'sdf'
                         ]);
                     }
 
