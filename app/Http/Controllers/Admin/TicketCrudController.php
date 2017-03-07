@@ -123,6 +123,37 @@ class TicketCrudController extends CrudController {
         ]);
 
         $this->crud->addFilter([
+            'type' => 'date',
+            'name' => 'date-from',
+            'label'=> 'Date From',
+            'default_value'=> Carbon::today()->toDateString(),
+        ],
+            false,
+            function($value) {
+                if( empty($value) )
+                    $value = Carbon::today()->toDateString();
+
+                if($value)
+                    $this->crud->addClause( 'where', 'created_at', '>=', $value );
+
+            });
+
+        $this->crud->addFilter([
+            'type' => 'date',
+            'name' => 'date-to',
+            'label'=> 'Date To',
+            'default_value'=> Carbon::today()->toDateString(),
+        ],
+            false,
+            function($value) {
+                if( empty($value) )
+                    $value = Carbon::today()->toDateString();
+
+                if($value)
+                    $this->crud->addClause( 'where', 'created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
+            });
+
+        $this->crud->addFilter([
             'type' => 'o_dropdown',
             'name' => 'person_status',
             'label'=> 'Ticket/Seats Status'
@@ -183,36 +214,7 @@ class TicketCrudController extends CrudController {
                     $this->crud->addClause('where', 'request_id', $value);
             });
 
-        $this->crud->addFilter([
-            'type' => 'date',
-            'name' => 'date-from',
-            'label'=> 'Date From',
-            'default_value'=> Carbon::today()->toDateString(),
-        ],
-            false,
-            function($value) {
-                if( empty($value) )
-                    $value = Carbon::today()->toDateString();
 
-                if($value)
-                    $this->crud->addClause( 'where', 'created_at', '>=', $value );
-
-            });
-
-        $this->crud->addFilter([
-            'type' => 'date',
-            'name' => 'date-to',
-            'label'=> 'Date To',
-            'default_value'=> Carbon::today()->toDateString(),
-        ],
-            false,
-            function($value) {
-                if( empty($value) )
-                    $value = Carbon::today()->toDateString();
-
-                if($value)
-                    $this->crud->addClause( 'where', 'created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
-            });
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
