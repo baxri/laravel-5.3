@@ -62,6 +62,9 @@ trait AjaxTable
                 $excel->sheet('Sheet', function($sheet) {
 
                     $result = $this->crud->query->get()->toArray();
+
+                    d($result);
+
                     $sheet->fromArray($result);
 
                 });
