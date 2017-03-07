@@ -69,14 +69,7 @@ trait AjaxTable
                         $data[] = $item->toExport();
                     }
 
-                    d($data);
-
-                    $sheet->with([
-                        [
-                            'rt' => 'sdf',
-                            'rtt' => 'sdf'
-                        ]
-                    ]);
+                    $sheet->with($data);
 
                 });
 
