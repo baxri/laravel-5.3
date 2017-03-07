@@ -66,13 +66,10 @@ trait AjaxTable
                     $data = array();
 
                     foreach ( $result as $item ){
-
-                        d($item);
-
-                        $data[] = [
-
-                        ];
+                        $data[] = $item->toAttay();
                     }
+
+                    d($data);
 
                     $sheet->with([
                         [
