@@ -2,6 +2,7 @@
     class="datepicker {{ $filter->name }}-class btn btn-default"
     style="background-color: seagreen; color: white;  margin-top: 3px; margin-left: 7px; height: 28px; line-height: 15px;"
     name="{{ $filter->name }}"
+    id="export-button"
 >Exel Export</li>
 
 @push('crud_list_scripts')

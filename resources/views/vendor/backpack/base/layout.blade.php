@@ -159,11 +159,22 @@
         }
 
         function make_server_side_ajax_export( url ){
+
+            var button = $("#export-button");
+            var text = button.text();
+
+            button.html("");
+            button.html("Loading...");
+
             $.ajax({
                 type: "POST",
                 url: url,
                 data: {},
                 success: function(data){
+
+                    button.html("");
+                    button.html(text);
+
                     if( data.error.length > 0 ){
                         alert(data.error);
                     }else{
