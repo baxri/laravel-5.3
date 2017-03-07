@@ -186,6 +186,10 @@ class PayoutTransaction extends RaModel
         return '<a href="'.$url.'" target="_blank"><span class="fa fa-files-o"></span></a>';
     }
 
+    public function getSumView( $amount ){
+        return number_format( $amount/100, 2 ).' GEL';
+    }
+
     public function toArray()
     {
         $return = parent::toArray();
