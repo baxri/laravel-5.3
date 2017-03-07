@@ -67,9 +67,6 @@ class MyCrudPanel
     // Total information
     public $totals = [];
 
-    // Show Ajax export button for server side processing
-    public $ajax_export = false;
-
     // The following methods are used in CrudController or your EntityCrudController to manipulate the variables above.
 
     // ------------------------------------------------------
@@ -234,10 +231,6 @@ class MyCrudPanel
 
     public function getTotals(){
         return $this->totals;
-    }
-
-    public function enableAjaxExport(){
-        $this->ajax_export = true;
     }
 
     public function LogQuery(){

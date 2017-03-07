@@ -14,7 +14,8 @@
         "barryvdh/laravel-dompdf": "^0.7.0",
         "niklasravnsborg/laravel-pdf": "^1.1",
         "graham-campbell/throttle": "^5.2",
-        "tymon/jwt-auth": " 0.5.*"
+        "tymon/jwt-auth": " 0.5.*",
+        "maatwebsite/excel": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

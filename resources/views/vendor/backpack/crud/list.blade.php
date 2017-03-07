@@ -24,22 +24,7 @@
 
         <div class="box-header {{ $crud->hasAccess('create')?'with-border':'' }}">
           @include('crud::inc.button_stack', ['stack' => 'top'])
-
           <div id="datatable_button_stack" class="pull-right text-right">
-
-              @if( $crud->ajax_export )
-                  <a
-                          class="btn btn-default "
-                          style="
-                            line-height: 28px;
-                            height: 30px;
-                            width: 100px;
-                            padding: 0px;
-                            color: white;
-                            background-color: seagreen;
-                    ">Exel Export</a>
-              @endif
-
           </div>
         </div>
 
@@ -388,8 +373,8 @@
              @else
                 make_request_to_get_total_info("{{ url($crud->route.'/search').'?'.Request::getQueryString() }}&request_type=total");
              @endif;
-
       @endif
+
 
 	  });
 	</script>

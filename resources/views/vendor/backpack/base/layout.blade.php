@@ -144,25 +144,29 @@
     <script>
 
         function make_request_to_get_total_info( url ){
-
             $.ajax({
                 type: "POST",
                 url: url,
                 data: {},
                 success: function(data){
-
                     var panel = $("#totals-panel");
                     panel.html("");
-
                     $.each( data, function( key, value ) {
                         panel.append("<p style='float: left; padding-right: 10px; margin-right: 10px;'>" + value.label + ": " + value.value + "</p>");
                     });
-
-
                 }
             });
+        }
 
-
+        function make_server_side_ajax_export( url ){
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {},
+                success: function(data){
+                    window.location.href = data.download;
+                }
+            });
         }
 
     </script>

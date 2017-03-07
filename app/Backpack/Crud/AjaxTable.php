@@ -2,7 +2,9 @@
 
 namespace App\Backpack\Crud;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 trait AjaxTable
 {
@@ -15,6 +17,11 @@ trait AjaxTable
         $request_type = isset($_GET['request_type']) ? $_GET['request_type'] : 'list';
 
         if( $request_type == 'total' ){
+
+            /*
+             * Retrive total information
+             *
+             * */
 
             $totals = $this->crud->getTotals();
 
@@ -41,6 +48,27 @@ trait AjaxTable
 
             return response()->json($totals);
 
+
+        }elseif( $request_type == 'excel' ){
+
+            $table_name = $this->crud->model->getTable();
+
+            $filename = str_replace("_", " ", ucfirst($table_name));
+
+            Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) {
+
+                $excel->sheet('Sheet', function($sheet) {
+
+                    $result = $this->crud->query->get()->toArray();
+                    $sheet->fromArray($result);
+
+                });
+
+            })->store('xls');
+
+            return response()->json([
+                'download' => url('/exports').'/'.$filename.'.xls',
+            ]);
 
         }else{
             $this->crud->hasAccessOrFail('list');
