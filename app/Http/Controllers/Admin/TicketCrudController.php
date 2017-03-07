@@ -110,7 +110,7 @@ class TicketCrudController extends CrudController {
         ]);
 
         $this->crud->addFilter([
-            'type' => 'dropdown',
+            'type' => '0_dropdown',
             'name' => 'person_status',
             'label'=> 'Ticket/Seats Status'
         ],
