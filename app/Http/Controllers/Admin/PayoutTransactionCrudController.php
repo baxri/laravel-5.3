@@ -211,6 +211,15 @@ class PayoutTransactionCrudController extends CrudController {
                 }
             });
 
+        $this->crud->addFilter([
+            'type' => 'export',
+            'name' => 'exel_export',
+            'label'=> 'Exel Export'
+        ],
+            false,
+            function($value) {
+
+            });
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

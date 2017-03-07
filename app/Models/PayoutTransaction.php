@@ -190,6 +190,10 @@ class PayoutTransaction extends RaModel
         return number_format( $amount/100, 2 ).' GEL';
     }
 
+    public function toExport(){
+        return parent::toArray();
+    }
+
     public function toArray()
     {
         $return = parent::toArray();
