@@ -66,7 +66,7 @@
 					new_url = normalizeAmpersand(new_url.toString());
 					ajax_table.ajax.url(new_url).load();
 
-					/*if (new_url.indexOf("?") >= 0){
+					if (new_url.indexOf("?") >= 0){
 						new_url = new_url + "&request_type=total";
 					}else{
 						new_url = new_url + "?request_type=total";
@@ -74,7 +74,7 @@
 
 					make_request_to_get_total_info(
 						new_url
-					);*/
+					);
 
 					// mark this filter as active in the navbar-filters
 					// mark dropdown items active accordingly

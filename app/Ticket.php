@@ -599,6 +599,10 @@ class Ticket extends RaModel
         return 'Preparing';
     }
 
+    public function getSumView( $amount ){
+        return number_format( $amount/100, 2 ).' GEL';
+    }
+
     public function getTicketType(){
 
         if( $this->child() ){
