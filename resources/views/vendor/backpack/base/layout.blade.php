@@ -164,7 +164,8 @@
                 url: url,
                 data: {},
                 success: function(data){
-                    window.location.href = data.download;
+                    console.log(data);
+                    //window.location.href = data.download;
                 }
             });
         }
