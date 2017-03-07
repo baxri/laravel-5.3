@@ -57,11 +57,11 @@ trait AjaxTable
 
             $filename = str_replace("_", " ", ucfirst($table_name));
 
-            Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) {
+            $result = $this->crud->query->get()->toArray();
 
-                $excel->sheet('Sheet', function($sheet) {
+            Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) use ($result) {
 
-                    $result = $this->crud->query->get()->toArray();
+                $excel->sheet('Sheet', function($sheet) use ($result) {
 
                     d($result);
 
