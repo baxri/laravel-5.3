@@ -57,7 +57,7 @@ trait AjaxTable
 
             $filename = str_replace("_", " ", ucfirst($table_name));
 
-            $result = $this->crud->query->get()->toArray();
+            $result = $this->crud->query->get();
 
             d("OK");
 
