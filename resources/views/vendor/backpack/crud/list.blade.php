@@ -27,12 +27,11 @@
 
           <div id="datatable_button_stack" class="pull-right text-right">
 
-
               @if( $crud->ajax_export )
                   <a
                           class="btn btn-default "
                           style="
-                            line-height: 30px;
+                            line-height: 28px;
                             height: 30px;
                             width: 100px;
                             padding: 0px;
