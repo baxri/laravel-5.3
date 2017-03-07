@@ -67,13 +67,19 @@ trait AjaxTable
 
                     foreach ( $result as $item ){
 
+                        $ex = method_exists( $item, 'toExport' );
+
+                        d($ex);
+
                         if( !method_exists( $item, 'toExport' ) ){
                             return response()->json([
                                 'error' => 'Method toExport not exists in Model'
                             ]);
+                        }else{
+                            $data[] = $item->toExport();
                         }
 
-                        $data[] = $item->toExport();
+
                     }
 
                     $sheet->with($data);
