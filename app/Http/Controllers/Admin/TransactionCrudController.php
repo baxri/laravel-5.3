@@ -98,7 +98,6 @@ class TransactionCrudController extends CrudController {
             'function_name' => 'getReturnTicketStatusView',
         ]);
 
-
         $this->crud->addColumn([
             'label' => 'Email',
             'name' => 'email',
@@ -384,6 +383,9 @@ class TransactionCrudController extends CrudController {
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
+
+        // ------ DATATABLE SERVER SIDE EXPORT BUTTONS
+        $this->crud->enableAjaxExport();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');

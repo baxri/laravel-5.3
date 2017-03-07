@@ -25,7 +25,23 @@
         <div class="box-header {{ $crud->hasAccess('create')?'with-border':'' }}">
           @include('crud::inc.button_stack', ['stack' => 'top'])
 
-          <div id="datatable_button_stack" class="pull-right text-right"></div>
+          <div id="datatable_button_stack" class="pull-right text-right">
+
+
+              @if( $crud->ajax_export )
+                  <a
+                          class="btn btn-default "
+                          style="
+                            line-height: 30px;
+                            height: 30px;
+                            width: 100px;
+                            padding: 0px;
+                            color: white;
+                            background-color: seagreen;
+                    ">Exel Export</a>
+              @endif
+
+          </div>
         </div>
 
         <div class="box-body">
@@ -35,7 +51,7 @@
           @include('crud::inc.filters_navbar')
         @endif
 
-        @if ( $crud->ajaxTable() && !empty( $crud->getTotals() ) )
+        @if ( ($crud->ajaxTable() && !empty( $crud->getTotals()) ) )
            <div style="
                 border: 1px solid #e7e7e7;
                 background-color: #f9f9f9;
@@ -46,8 +62,11 @@
                 font-size: 11pt;
                 height: 40px;
                 line-height: 40px;
-            " id="totals-panel">
+            " >
 
+               <div id="totals-panel"></div>
+
+               <div style='clear: both;'></div>
            </div>
         @endif
 

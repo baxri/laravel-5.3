@@ -158,7 +158,7 @@
                         panel.append("<p style='float: left; padding-right: 10px; margin-right: 10px;'>" + value.label + ": " + value.value + "</p>");
                     });
 
-                    panel.append("<div style='clear: both;'></div>");
+
                 }
             });
 
