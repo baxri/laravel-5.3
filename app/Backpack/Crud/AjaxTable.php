@@ -66,6 +66,9 @@ trait AjaxTable
                     $data = array();
 
                     foreach ( $result as $item ){
+
+                        d($item);
+
                         $data[] = $item->toAttay();
                     }
 
