@@ -238,6 +238,16 @@ class TicketCrudController extends CrudController {
         // $this->crud->removeButton($name);
         // $this->crud->removeButtonFromStack($name, $stack);
 
+        $this->crud->addFilter([
+            'type' => 'export',
+            'name' => 'exel_export',
+            'label'=> 'Exel Export'
+        ],
+            false,
+            function($value) {
+
+            });
+
         $this->crud->removeButton('create');
         $this->crud->removeButton('delete');
         $this->crud->removeButton('update');
