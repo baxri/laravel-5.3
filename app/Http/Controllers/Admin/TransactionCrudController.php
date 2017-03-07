@@ -31,20 +31,30 @@ class TransactionCrudController extends CrudController {
 
     public function setUp() {
 
-        /*
-		|--------------------------------------------------------------------------
-		| BASIC CRUD INFORMATION
-		|--------------------------------------------------------------------------
-		*/
         $this->crud->setModel(Transaction::class);
         $this->crud->setRoute("raconsole/transaction");
         $this->crud->setEntityNameStrings('transaction', 'transactions/Tickets');
 
-        /*
-		|--------------------------------------------------------------------------
-		| BASIC CRUD INFORMATION
-		|--------------------------------------------------------------------------
-		*/
+        $this->crud->addTotal([
+            'aggregate' => 'count',
+            'label' => 'Transactions',
+        ]);
+
+        $this->crud->addTotal([
+            'aggregate' => 'sum',
+            'name' => 'amount',
+            'label' => 'Sum',
+            'type' => 'model_function',
+            'function_name' => 'getSumView',
+        ]);
+
+        $this->crud->addTotal([
+            'aggregate' => 'sum',
+            'name' => 'commission',
+            'label' => 'Commission',
+            'type' => 'model_function',
+            'function_name' => 'getSumView',
+        ]);
 
 		//$this->crud->setFromDb();
 

@@ -32,6 +32,9 @@
             new_url = normalizeAmpersand(new_url.toString());
             ajax_table.ajax.url(new_url).load();
 
+            make_request_to_get_total_info(
+                new_url + "&request_type=total"
+            );
 
             @endif
         }

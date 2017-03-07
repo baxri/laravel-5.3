@@ -64,6 +64,9 @@ class MyCrudPanel
     // TONE FIELDS - TODO: find out what he did with them, replicate or delete
     public $sort = [];
 
+    // Total information
+    public $totals = [];
+
     // The following methods are used in CrudController or your EntityCrudController to manipulate the variables above.
 
     // ------------------------------------------------------
@@ -220,6 +223,14 @@ class MyCrudPanel
         }
 
         return $this->{$items};
+    }
+
+    public function addTotal( $field ){
+        $this->totals[] = $field;
+    }
+
+    public function getTotals(){
+        return $this->totals;
     }
 
     public function LogQuery(){

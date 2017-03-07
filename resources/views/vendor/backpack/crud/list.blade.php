@@ -35,6 +35,18 @@
           @include('crud::inc.filters_navbar')
         @endif
 
+        @if ( $crud->ajaxTable() && !empty( $crud->getTotals() ) )
+           <div style="
+                border: 1px solid #e7e7e7;
+                background-color: #e7e7e7;
+                margin-bottom: 5px;
+                padding-left: 20px;
+                padding-top: -50px;
+            " id="totals-panel">
+
+           </div>
+        @endif
+
         <div style="clear: both;"></div>
 
         <table id="crudTable" class="table table-bordered table-striped display">
@@ -348,6 +360,9 @@
       //register_details_row_button_action();
       @endif
 
+      @if ($crud->ajaxTable())
+          make_request_to_get_total_info("{{ url($crud->route.'/search').'?'.Request::getQueryString() }}&request_type=total");
+      @endif
 
 	  });
 	</script>

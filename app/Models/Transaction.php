@@ -393,6 +393,10 @@ class Transaction extends RaModel
         return date('d M H:i ', strtotime( $this->updated_at ));
     }
 
+    public function getSumView( $amount ){
+        return number_format( $amount/100, 2 ).' GEL';
+    }
+
     public function notify( $throw_exception = false ){
         $this->notifyEmail( $throw_exception );
         $this->notifySMS( $throw_exception );
