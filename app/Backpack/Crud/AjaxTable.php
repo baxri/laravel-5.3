@@ -68,11 +68,10 @@ trait AjaxTable
                     foreach ( $result as $item ){
 
                         d($item);
-
                         $data[] = $item->toAttay();
                     }
 
-                    d($data);
+
 
                     $sheet->with([
                         [
