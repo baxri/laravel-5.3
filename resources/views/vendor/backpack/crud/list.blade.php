@@ -361,7 +361,12 @@
       @endif
 
       @if ($crud->ajaxTable())
-          make_request_to_get_total_info("{{ url($crud->route.'/search').'?'.Request::getQueryString() }}&request_type=total");
+             @if ( empty( Request::getQueryString() ) )
+                make_request_to_get_total_info("{{ url($crud->route.'/search').'?request_type=total' }}");
+             @else
+                make_request_to_get_total_info("{{ url($crud->route.'/search').'?'.Request::getQueryString() }}&request_type=total");
+             @endif;
+
       @endif
 
 	  });
