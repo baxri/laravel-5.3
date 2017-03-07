@@ -59,30 +59,24 @@ trait AjaxTable
 
             $result = $this->crud->query->get();
 
-            Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) use ($result) {
+            $data = array();
 
-                $excel->sheet('Sheet', function($sheet) use ($result) {
+            foreach ( $result as $item ){
 
-                    $data = array();
+                $exists = method_exists( $item, 'toExport' );
 
-                    foreach ( $result as $item ){
+                if( !$exists ){
+                    return response()->json([
+                        'error' => 'Method toExport not exists in Model'
+                    ]);
+                }else{
+                    $data[] = $item->toExport();
+                }
+            }
 
-                        $exists = method_exists( $item, 'toExport' );
+            Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) use ($data) {
 
-                        if( !$exists ){
-
-                            d("vaa");
-
-                            return response()->json([
-                                'error' => 'Method toExport not exists in Model'
-                            ]);
-                        }else{
-                            $data[] = $item->toExport();
-                        }
-
-
-                    }
-
+                $excel->sheet('Sheet', function($sheet) use ($data) {
                     $sheet->with($data);
 
                 });
