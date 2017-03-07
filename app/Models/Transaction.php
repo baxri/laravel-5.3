@@ -211,6 +211,10 @@ class Transaction extends RaModel
         $this->save();
     }
 
+    public function toExport(){
+        return parent::toArray();
+    }
+
     public function toArray()
     {
         return [
