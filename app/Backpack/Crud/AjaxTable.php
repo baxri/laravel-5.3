@@ -51,6 +51,8 @@ trait AjaxTable
 
         }elseif( $request_type == 'excel' ){
 
+            d(url('/exports'));
+
             $table_name = $this->crud->model->getTable();
 
             $filename = str_replace("_", " ", ucfirst($table_name));
