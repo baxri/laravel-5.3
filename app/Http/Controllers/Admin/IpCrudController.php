@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\IpRequest as StoreRequest;
 use App\Http\Requests\IpRequest as UpdateRequest;
 
-class IpCrudController extends CrudController {
+class IpCrudController extends CustomCrudController {
 
 	public function setUp() {
 
@@ -84,6 +81,8 @@ class IpCrudController extends CrudController {
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
          $this->crud->enableExportButtons();
+
+        $this->crud->enableAjaxExport();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
