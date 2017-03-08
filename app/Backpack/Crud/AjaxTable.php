@@ -26,7 +26,6 @@ trait AjaxTable
         }
 
 
-
         if( $request_type == 'total' ){
             $totals = $this->crud->getTotals();
             $table_name = $this->crud->model->getTable();
