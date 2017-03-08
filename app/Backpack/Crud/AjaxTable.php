@@ -9,7 +9,7 @@ trait AjaxTable
     public function search()
     {
         $column = isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : 0;
-        $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : 'asc';
+        $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : 'desc';
         $request_type = isset($_GET['request_type']) ? $_GET['request_type'] : 'list';
 
         if( $request_type == 'total' ){
@@ -78,7 +78,7 @@ trait AjaxTable
                     $this->crud->orderBy($table_name.'.'.$column, $dir);
                 }
             }else{
-                $this->crud->orderBy($table_name.'.id', 'desc');
+                $this->crud->orderBy($table_name.'.id', $dir);
             }
 
             $this->crud->hasAccessOrFail('list');
