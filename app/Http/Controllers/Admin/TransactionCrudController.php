@@ -304,8 +304,6 @@ class TransactionCrudController extends CrudController {
 
             });
 
-        $this->crud->enableAjaxExport();
-
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -383,6 +381,9 @@ class TransactionCrudController extends CrudController {
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
+
+        // ------ DATATABLE SERVER SIDE EXPORT BUTTON
+        $this->crud->enableAjaxExport();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
