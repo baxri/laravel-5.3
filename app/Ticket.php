@@ -292,7 +292,18 @@ class Ticket extends RaModel
     }
 
     public function toExport(){
-        return parent::toArray();
+        return [
+            'request_id' => $this->request_id,
+            'hash_id' => $this->transaction->hash_id,
+
+            'amount' => $this->amount_from_api,
+
+            'source_station' => $this->source_station,
+            'destination_station' => $this->destination_station,
+
+            'status' => $this->status,
+            'updated_at' => $this->updated_at,
+        ];
     }
 
     public function toArray()

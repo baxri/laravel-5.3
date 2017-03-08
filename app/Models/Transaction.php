@@ -219,6 +219,7 @@ class Transaction extends RaModel
             'sum' => $this->amount + $this->commission,
             'email' => $this->email,
             'mobile' => $this->index_mobile,
+            'status' => $this->status,
             'updated_at' => $this->updated_at,
         ];
     }
