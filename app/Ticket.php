@@ -298,10 +298,20 @@ class Ticket extends RaModel
 
             'amount' => $this->amount_from_api,
 
+            'train_name' => $this->train_name,
+
             'source_station' => $this->source_station,
             'destination_station' => $this->destination_station,
 
+            'train_class' => $this->train_class,
+            'vagon_type' => $this->vagon_type,
+            'vagon_type' => $this->vagon_type,
+
             'status' => $this->status,
+
+            'leave_datetime' => $this->leave_datetime,
+            'enter_datetime' => $this->enter_datetime,
+
             'updated_at' => $this->updated_at,
         ];
     }
