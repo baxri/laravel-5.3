@@ -52,6 +52,9 @@ trait AjaxTable
             $table_name = $this->crud->model->getTable();
             $filename = str_replace("_", " ", ucfirst($table_name));
             $result = $this->crud->query->get();
+
+            d($result);
+
             $data = array();
 
             foreach ( $result as $item ){
