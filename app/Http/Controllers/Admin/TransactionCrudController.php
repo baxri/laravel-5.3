@@ -369,7 +369,7 @@ class TransactionCrudController extends CustomCrudController {
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();
         // });
-        $this->crud->orderBy('transactions.id', 'desc');
+       // $this->crud->orderBy('transactions.id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
