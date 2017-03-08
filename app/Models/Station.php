@@ -65,6 +65,10 @@ class Station extends RaModel
             '<span style="color: red;">UnPublished</span>';
     }
 
+    public function toExport(){
+        return parent::toArray();
+    }
+
     public function toArray(){
 
         $label = '';

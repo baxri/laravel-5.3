@@ -17,4 +17,8 @@ class Ip extends RaModel
 	protected $table = 'ips';
 	protected $primaryKey = 'id';
 
+    public function toExport(){
+        return parent::toArray();
+    }
+
 }
