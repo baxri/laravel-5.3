@@ -2,33 +2,21 @@
 
 namespace App\Backpack\Crud;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 trait AjaxTable
 {
-    /**
-     * Respond with the JSON of one or more rows, depending on the POST parameters.
-     * @return JSON Array of cells in HTML form.
-     */
     public function search()
     {
+        $column = isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : 0;
+        $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : 'asc';
         $request_type = isset($_GET['request_type']) ? $_GET['request_type'] : 'list';
 
         if( $request_type == 'total' ){
-
-            /*
-             * Retrive total information
-             *
-             * */
-
             $totals = $this->crud->getTotals();
-
             $table_name = $this->crud->model->getTable();
 
             foreach ( $totals as $key => $total ){
-
                 if( isset( $total['aggregate'] ) && $total['aggregate'] == 'sum'  ){
                     $value = $this->crud->query->sum($table_name.'.'.$total['name']);
                 }else{
@@ -36,11 +24,9 @@ trait AjaxTable
                 }
 
                 if( isset($total['type']) && isset($total['function_name']) && $total['type'] == 'model_function' ){
-
                     $function = $total['function_name'];
                     $value = $this->crud->model->$function($value);
                     $totals[$key]['value'] = $value;
-
                 }else{
                     $totals[$key]['value'] = $value;
                 }
@@ -48,23 +34,15 @@ trait AjaxTable
 
             return response()->json($totals);
 
-
         }elseif( $request_type == 'excel' ){
 
-
-
             $table_name = $this->crud->model->getTable();
-
             $filename = str_replace("_", " ", ucfirst($table_name));
-
             $result = $this->crud->query->get();
-
             $data = array();
 
             foreach ( $result as $item ){
-
                 $exists = method_exists( $item, 'toExport' );
-
                 if( !$exists ){
                     return response()->json([
                         'error' => 'Method toExport not exists in Model'
@@ -75,12 +53,9 @@ trait AjaxTable
             }
 
             Excel::create(str_replace("_", " ", ucfirst($table_name)), function($excel) use ($data) {
-
                 $excel->sheet('Sheet', function($sheet) use ($data) {
                     $sheet->with($data);
-
                 });
-
             })->store('xls');
 
             return response()->json([
@@ -89,6 +64,28 @@ trait AjaxTable
             ]);
 
         }else{
+
+            if( $column != 0 ){
+
+
+
+                if( isset($this->crud->columns[$column - 1]) ){
+                    $column = $this->crud->columns[$column - 1];
+
+
+
+                    if( isset( $column['name'] ) ){
+                        $column = $column['name'];
+                    }
+
+                    $table_name = $this->crud->model->getTable();
+
+                    $this->crud->orderBy($table_name.'.'.$column, $dir);
+
+
+                }
+            }
+
             $this->crud->hasAccessOrFail('list');
 
             // crate an array with the names of the searchable columns
@@ -103,6 +100,8 @@ trait AjaxTable
                 // add the primary key, otherwise the buttons won't work
                 ->merge($this->crud->model->getKeyName())
                 ->toArray();
+
+
 
             // structure the response in a DataTable-friendly way
             $dataTable = new \LiveControl\EloquentDataTable\DataTable($this->crud->query, $columns);

@@ -350,8 +350,6 @@ class TransactionCrudController extends CustomCrudController {
         // - date and datetime columns won't be sortable anymore
         $this->crud->enableAjaxTable();
 
-       // d($this->crud->query->toSql());
-
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
@@ -374,10 +372,6 @@ class TransactionCrudController extends CustomCrudController {
         $this->crud->orderBy('transactions.id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
-
-       // d($_REQUEST);
-
-        //$this->crud->LogQuery();
     }
 
     /**
