@@ -361,6 +361,9 @@ class TransactionCrudController extends CustomCrudController {
         // ------ DATATABLE SERVER SIDE EXPORT BUTTON
         $this->crud->enableAjaxExport();
 
+        // ------ DATATABLE DEFAULT ORDERING
+        //$this->crud->setDefaultOrdering( 'amount', 'desc' );
+
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');

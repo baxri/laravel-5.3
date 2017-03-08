@@ -67,6 +67,12 @@ class MyCrudPanel
     // Total information
     public $totals = [];
 
+    // Ordering information
+    public $ordering = [
+        'column' => 0,
+        'dir' => 'asc',
+    ];
+
     // The following methods are used in CrudController or your EntityCrudController to manipulate the variables above.
 
     // ------------------------------------------------------
@@ -257,6 +263,23 @@ class MyCrudPanel
             function($value) {
 
             });
+    }
+
+    public function setDefaultOrdering( $column, $dir ){
+
+        $index = 0;
+
+        foreach ( $this->columns as $k => $c ){
+            if( $c['name'] == $column ){
+                $index = $k + 1;
+                break;
+            }
+        }
+
+        $this->ordering = [
+            'column' => $index,
+            'dir' => $dir,
+        ];
     }
 
     public function LogQuery(){
