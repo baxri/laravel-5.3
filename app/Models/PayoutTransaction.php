@@ -191,7 +191,25 @@ class PayoutTransaction extends RaModel
     }
 
     public function toExport(){
-        return parent::toArray();
+        return [
+            'payout_hash_id' => $this->payout_hash_id,
+
+            'amount' => $this->amount,
+            'commission' => $this->commission,
+            'sum' => $this->amount + $this->commission,
+
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'idnumber' => $this->idnumber,
+            'birth_date' => $this->birth_date,
+            'iban' => $this->iban,
+            'bank' => $this->bank,
+            'status' => $this->status,
+            'amount' => $this->amount,
+            'commission' => $this->commission,
+            'description' => $this->description,
+            'updated_at' => $this->updated_at,
+        ];
     }
 
     public function toArray()
