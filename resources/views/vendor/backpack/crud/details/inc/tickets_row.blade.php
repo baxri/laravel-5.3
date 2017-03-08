@@ -7,7 +7,7 @@
                         <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
     @endif
     <td width="20%">
-        <p><h2>Ticket Request ID:</h2> {{ $ticket->request_id }}</p>
+        <p><h3>Ticket Request ID: {{ $ticket->request_id }}</h3></p>
     </td>
     <td width="20%">
         <p><b>Train Name:</b> {{ $ticket->train_name }}</p>
