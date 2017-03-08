@@ -197,6 +197,11 @@
               [10, 25, 50, 100, 200, -1],
               [10, 25, 50, 100, 200, "All"]
           ],
+          "aoColumnDefs" : [
+              {
+                  'bSortable' : false,
+                  'aTargets' : {{json_encode($crud->ordering_disabled)}}
+              }],
         "pageLength": {{ $crud->getDefaultPageLength() }},
         "language": {
               "emptyTable":     "{{ trans('backpack::crud.emptyTable') }}",

@@ -249,7 +249,10 @@ class TicketCrudController extends CustomCrudController {
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
          $this->crud->enableAjaxTable();
-        
+
+        // ------ Disable Ordering On Columns
+        $this->crud->disableOrderingOnExtraColumns();
+
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
@@ -263,6 +266,7 @@ class TicketCrudController extends CustomCrudController {
 
         // ------ DATATABLE DEFAULT ORDERING
         $this->crud->setDefaultOrdering( 'id', 'desc' );
+
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');

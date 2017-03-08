@@ -73,6 +73,8 @@ class MyCrudPanel
         'dir' => 'asc',
     ];
 
+    public $ordering_disabled = [];
+
     // The following methods are used in CrudController or your EntityCrudController to manipulate the variables above.
 
     // ------------------------------------------------------
@@ -280,6 +282,14 @@ class MyCrudPanel
             'column' => $index,
             'dir' => $dir,
         ];
+    }
+
+    public function disableOrderingOnExtraColumns(){
+        foreach ( $this->columns as $k => $c ){
+            if( !isset($c['name']) ){
+                $this->ordering_disabled[] = $k + 1;
+            }
+        }
     }
 
     public function LogQuery(){

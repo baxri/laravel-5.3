@@ -19,6 +19,11 @@ class CustomCrudController extends CrudController
         $this->crud = new MyCrudPanel();
     }
 
+    public function setup()
+    {
+        parent::setup();
+    }
+
     public function index()
     {
         $this->crud->hasAccessOrFail('list');

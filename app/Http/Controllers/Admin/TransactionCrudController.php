@@ -42,6 +42,8 @@ class TransactionCrudController extends CustomCrudController {
 
 		//$this->crud->setFromDb();
 
+
+
         $this->crud->addColumn([
             'label' => 'Request ID',
             'exists' => 'extra',
@@ -349,6 +351,9 @@ class TransactionCrudController extends CustomCrudController {
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
         $this->crud->enableAjaxTable();
+
+        // ------ Disable Ordering On Columns
+        $this->crud->disableOrderingOnExtraColumns();
 
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
