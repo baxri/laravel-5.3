@@ -238,16 +238,6 @@ class TicketCrudController extends CrudController {
         // $this->crud->removeButton($name);
         // $this->crud->removeButtonFromStack($name, $stack);
 
-        $this->crud->addFilter([
-            'type' => 'export',
-            'name' => 'exel_export',
-            'label'=> 'Exel Export'
-        ],
-            false,
-            function($value) {
-
-            });
-
         $this->crud->removeButton('create');
         $this->crud->removeButton('delete');
         $this->crud->removeButton('update');
@@ -281,6 +271,9 @@ class TicketCrudController extends CrudController {
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
          $this->crud->enableExportButtons();
+
+        // ------ DATATABLE SERVER SIDE EXPORT BUTTON
+        $this->crud->enableAjaxExport();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');

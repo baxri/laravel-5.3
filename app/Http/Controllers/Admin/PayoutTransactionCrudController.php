@@ -211,16 +211,6 @@ class PayoutTransactionCrudController extends CrudController {
                 }
             });
 
-        $this->crud->addFilter([
-            'type' => 'export',
-            'name' => 'exel_export',
-            'label'=> 'Exel Export'
-        ],
-            false,
-            function($value) {
-
-            });
-
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -276,6 +266,9 @@ class PayoutTransactionCrudController extends CrudController {
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
          $this->crud->enableExportButtons();
+
+        // ------ DATATABLE SERVER SIDE EXPORT BUTTON
+        $this->crud->enableAjaxExport();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
