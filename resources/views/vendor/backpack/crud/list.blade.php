@@ -192,6 +192,7 @@
       @endif
 
 	  	var table = $("#crudTable").DataTable({
+          "order": [[ 0, "desc" ]],
           "aLengthMenu": [
               [10, 25, 50, 100, 200, -1],
               [10, 25, 50, 100, 200, "All"]
