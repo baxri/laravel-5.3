@@ -233,12 +233,12 @@ class MyCrudPanel
         return $this->totals;
     }
 
-    public function enableAjaxExport()
+    public function enableAjaxReload()
     {
-        $this->addFilter([
-            'type' => 'export',
-            'name' => 'exel_export',
-            'label'=> 'Exel Export'
+        $this->crud->addFilter([
+            'type' => 'reload',
+            'name' => 'reload',
+            'label'=> 'Reload'
         ],
             false,
             function($value) {
