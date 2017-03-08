@@ -65,25 +65,20 @@ trait AjaxTable
 
         }else{
 
+            $table_name = $this->crud->model->getTable();
+
             if( $column != 0 ){
-
-
-
                 if( isset($this->crud->columns[$column - 1]) ){
                     $column = $this->crud->columns[$column - 1];
-
-
-
                     if( isset( $column['name'] ) ){
                         $column = $column['name'];
                     }
 
-                    $table_name = $this->crud->model->getTable();
 
                     $this->crud->orderBy($table_name.'.'.$column, $dir);
-
-
                 }
+            }else{
+                $this->crud->orderBy($table_name.'.id', 'desc');
             }
 
             $this->crud->hasAccessOrFail('list');
