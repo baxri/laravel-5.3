@@ -278,6 +278,7 @@ class TransactionCrudController extends CustomCrudController {
                 }
             });
 
+
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -356,9 +357,6 @@ class TransactionCrudController extends CustomCrudController {
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
 
-        // ------ DATATABLE AJAX RELOAD BUTTON
-        //$this->crud->enableAjaxReload();
-
         // ------ DATATABLE SERVER SIDE EXPORT BUTTON
         $this->crud->enableAjaxExport();
 
@@ -377,6 +375,28 @@ class TransactionCrudController extends CustomCrudController {
        // d($_REQUEST);
 
         //$this->crud->LogQuery();
+    }
+
+    /**
+     * Display all rows in the database for this entity.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $this->crud->hasAccessOrFail('list');
+
+        $this->data['crud'] = $this->crud;
+        $this->data['title'] = ucfirst($this->crud->entity_name_plural);
+
+        // get all entries if AJAX is not enabled
+        if (! $this->data['crud']->ajaxTable()) {
+            $this->data['entries'] = $this->data['crud']->getEntries();
+        }
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        // $this->crud->getListView() returns 'list' by default, or 'list_ajax' if ajax was enabled
+        return view('vendor.backpack.crud.list', $this->data);
     }
 
     public function myexport(){
