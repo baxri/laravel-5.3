@@ -30,6 +30,11 @@ class NewsCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
 
+        $this->crud->addColumn([
+            'label' => 'ID',
+            'name' => 'id',
+        ]);
+
 		//$this->crud->setFromDb();
         $this->crud->addColumn([
             'label' => 'Title',
