@@ -357,8 +357,12 @@ class TransactionCrudController extends CustomCrudController {
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
 
+        // ------ DATATABLE AJAX RELOAD BUTTON
+        $this->crud->enableAjaxReload();
+
         // ------ DATATABLE SERVER SIDE EXPORT BUTTON
         $this->crud->enableAjaxExport();
+
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
