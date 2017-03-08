@@ -12,6 +12,21 @@ trait AjaxTable
         $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : 'desc';
         $request_type = isset($_GET['request_type']) ? $_GET['request_type'] : 'list';
 
+        $table_name = $this->crud->model->getTable();
+
+        if( $column != 0 && isset($this->crud->columns[$column - 1]) ){
+            $column = $this->crud->columns[$column - 1];
+            if( isset( $column['name'] ) ){
+                $column = $column['name'];
+            }
+
+            $this->crud->orderBy($table_name.'.'.$column, $dir);
+        }else{
+            $this->crud->orderBy($table_name.'.id', $dir);
+        }
+
+
+
         if( $request_type == 'total' ){
             $totals = $this->crud->getTotals();
             $table_name = $this->crud->model->getTable();
@@ -64,22 +79,6 @@ trait AjaxTable
             ]);
 
         }else{
-
-            $table_name = $this->crud->model->getTable();
-
-            if( $column != 0 ){
-                if( isset($this->crud->columns[$column - 1]) ){
-                    $column = $this->crud->columns[$column - 1];
-                    if( isset( $column['name'] ) ){
-                        $column = $column['name'];
-                    }
-
-
-                    $this->crud->orderBy($table_name.'.'.$column, $dir);
-                }
-            }else{
-                $this->crud->orderBy($table_name.'.id', $dir);
-            }
 
             $this->crud->hasAccessOrFail('list');
 
