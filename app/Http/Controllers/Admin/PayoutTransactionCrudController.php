@@ -3,25 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\PayoutTransaction;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\PayoutTransactionRequest as StoreRequest;
 use App\Http\Requests\PayoutTransactionRequest as UpdateRequest;
 use Carbon\Carbon;
-use App\Backpack\Crud\AjaxTable;
-use App\Backpack\Crud\MyCrudPanel;
 
-class PayoutTransactionCrudController extends CrudController {
-
-    use AjaxTable;
-
-    public $crud;
-
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->crud = new MyCrudPanel();
-    }
+class PayoutTransactionCrudController extends CustomCrudController {
 
 	public function setUp() {
 
@@ -281,28 +267,6 @@ class PayoutTransactionCrudController extends CrudController {
          $this->crud->orderBy('id', 'desc');
         // $this->crud->groupBy();
         // $this->crud->limit();
-    }
-
-    /**
-     * Display all rows in the database for this entity.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $this->crud->hasAccessOrFail('list');
-
-        $this->data['crud'] = $this->crud;
-        $this->data['title'] = ucfirst($this->crud->entity_name_plural);
-
-        // get all entries if AJAX is not enabled
-        if (! $this->data['crud']->ajaxTable()) {
-            $this->data['entries'] = $this->data['crud']->getEntries();
-        }
-
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
-        // $this->crud->getListView() returns 'list' by default, or 'list_ajax' if ajax was enabled
-        return view('vendor.backpack.crud.list', $this->data);
     }
 
 	public function store(StoreRequest $request)
