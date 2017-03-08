@@ -7,12 +7,7 @@
                         <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
     @endif
     <td width="20%">
-        <p><b>Our Ticket ID:</b> {{ $ticket->id }}</p>
-        <p><b>Ticket Request ID:</b> {{ $ticket->request_id }}</p>
-        <p><b>internetID:</b> {{ $ticket->internet_purchase_id }}</p>
-        <p><b>Reuest Guid:</b> {{ $ticket->request_guid }}</p>
-        <p><b>TrainID:</b> {{ $ticket->train_id }}</p>
-        <p><b>Prepare Online Payment:</b> {{ $ticket->prepare_online_payment_result }}</p>
+        <p><h2>Ticket Request ID:</h2> {{ $ticket->request_id }}</p>
     </td>
     <td width="20%">
         <p><b>Train Name:</b> {{ $ticket->train_name }}</p>
