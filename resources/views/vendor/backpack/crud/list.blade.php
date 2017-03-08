@@ -35,7 +35,7 @@
           @include('crud::inc.filters_navbar')
         @endif
 
-        @if ( ($crud->ajaxTable() && !empty( $crud->getTotals()) ) )
+        @if ( ($crud->ajaxTable() && method_exists($crud, "getTotals") && !empty( $crud->getTotals()) ) )
            <div style="
                 border: 1px solid #e7e7e7;
                 background-color: #f9f9f9;
