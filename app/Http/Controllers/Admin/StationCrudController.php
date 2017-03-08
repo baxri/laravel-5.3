@@ -8,7 +8,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\StationRequest as StoreRequest;
 use App\Http\Requests\StationRequest as UpdateRequest;
 
-class StationCrudController extends CrudController {
+class StationCrudController extends CustomCrudController {
 
 	public function setUp() {
 
