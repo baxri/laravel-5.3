@@ -148,7 +148,8 @@ class StationCrudController extends CustomCrudController {
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
          $this->crud->enableAjaxTable();
-        
+
+         $this->crud->enableAjaxExport();
         
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
