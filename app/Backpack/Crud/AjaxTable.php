@@ -20,11 +20,10 @@ trait AjaxTable
                 $column = $column['name'];
             }
 
-            $this->crud->orderBy($table_name.'.'.$column, $dir);
+            $this->crud->query->orderBy($table_name.'.'.$column, $dir);
         }else{
-            $this->crud->orderBy($table_name.'.id', $dir);
+            $this->crud->query->orderBy($table_name.'.id', $dir);
         }
-
 
         if( $request_type == 'total' ){
             $totals = $this->crud->getTotals();
