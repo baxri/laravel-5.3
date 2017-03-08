@@ -8,8 +8,8 @@ trait AjaxTable
 {
     public function search()
     {
-        $column = isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : 0;
-        $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : 'desc';
+        $column = isset($_REQUEST['order'][0]['column']) ? $_REQUEST['order'][0]['column'] : $this->crud->ordering['dir'];
+        $dir = isset($_REQUEST['order'][0]['dir']) ? $_REQUEST['order'][0]['dir'] : $this->crud->ordering['dir'];
         $request_type = isset($_GET['request_type']) ? $_GET['request_type'] : 'list';
 
         $table_name = $this->crud->model->getTable();
