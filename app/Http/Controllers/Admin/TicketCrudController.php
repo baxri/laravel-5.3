@@ -36,11 +36,6 @@ class TicketCrudController extends CustomCrudController {
         ]);
 
         $this->crud->addColumn([
-            'label' => 'ID',
-            'name' => 'id',
-        ]);
-
-        $this->crud->addColumn([
             'label' => 'Request ID',
             'name' => 'request_id',
         ]);

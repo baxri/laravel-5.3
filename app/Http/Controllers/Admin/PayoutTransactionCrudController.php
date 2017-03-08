@@ -55,17 +55,6 @@ class PayoutTransactionCrudController extends CustomCrudController {
             'allows_null' => false
         ]);
 
-        /*
-		|--------------------------------------------------------------------------
-		| BASIC CRUD INFORMATION
-		|--------------------------------------------------------------------------
-		*/
-
-        $this->crud->addColumn([
-            'label' => 'Payout ID',
-            'name' => 'id',
-        ]);
-
         $this->crud->addColumn([
             'label' => 'UniPAY HASH',
             'name' => 'payout_hash_id',
