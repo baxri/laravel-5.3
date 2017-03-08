@@ -294,6 +294,7 @@ class TransactionCrudController extends CrudController {
                 }
             });
 
+        $this->crud->enableAjaxExport();
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
