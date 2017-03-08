@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\News;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
+
+// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\NewsRequest as StoreRequest;
 use App\Http\Requests\NewsRequest as UpdateRequest;
 use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
-class NewsCrudController extends CustomCrudController {
+class NewsCrudController extends CrudController {
 
 	public function setUp() {
 
@@ -26,11 +29,6 @@ class NewsCrudController extends CustomCrudController {
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-
-        $this->crud->addColumn([
-            'label' => 'ID',
-            'name' => 'id',
-        ]);
 
 		//$this->crud->setFromDb();
         $this->crud->addColumn([
@@ -131,7 +129,7 @@ class NewsCrudController extends CustomCrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        //$this->crud->enableAjaxTable();
+        // $this->crud->enableAjaxTable();
         
         
         // ------ DATATABLE EXPORT BUTTONS
