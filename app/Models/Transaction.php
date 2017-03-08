@@ -212,7 +212,15 @@ class Transaction extends RaModel
     }
 
     public function toExport(){
-        return parent::toArray();
+        return [
+            'hash_id' => $this->checkout_id,
+            'amount' => $this->amount,
+            'commission' => $this->commission,
+            'sum' => $this->amount + $this->commission,
+            'email' => $this->email,
+            'mobile' => $this->index_mobile,
+            'updated_at' => $this->updated_at,
+        ];
     }
 
     public function toArray()
