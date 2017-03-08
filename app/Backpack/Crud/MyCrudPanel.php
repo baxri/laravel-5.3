@@ -235,7 +235,7 @@ class MyCrudPanel
 
     public function enableAjaxReload()
     {
-        $this->crud->addFilter([
+        $this->addFilter([
             'type' => 'reload',
             'name' => 'reload',
             'label'=> 'Reload'
