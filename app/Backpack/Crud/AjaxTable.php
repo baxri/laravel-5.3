@@ -81,11 +81,11 @@ trait AjaxTable
 
                 });
 
-            })->store('xls');
+            })->store('pdf');
 
             return response()->json([
                 'error' => "",
-                'download' => url('/exports').'/'.$filename.'.xls',
+                'download' => url('/exports').'/'.$filename.'.pdf',
             ]);
 
         }else{

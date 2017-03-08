@@ -247,7 +247,6 @@ class PayoutTransactionCrudController extends CustomCrudController {
         // - date and datetime columns won't be sortable anymore
         $this->crud->enableAjaxTable();
         
-        
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
