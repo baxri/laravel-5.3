@@ -233,6 +233,19 @@ class MyCrudPanel
         return $this->totals;
     }
 
+    public function enableAjaxExport()
+    {
+        $this->addFilter([
+            'type' => 'export',
+            'name' => 'exel_export',
+            'label'=> 'Exel Export'
+        ],
+            false,
+            function($value) {
+
+            });
+    }
+
     public function LogQuery(){
         ?>
         <script type="text/javascript">
