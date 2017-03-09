@@ -166,7 +166,7 @@ class TransactionCrudController extends CustomCrudController {
         $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
         $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
 
-        //$this->crud->query->groupBy('transactions.id');
+        $this->crud->query->groupBy('transactions.id');
 
         $this->crud->addFilter([
             'type' => 'date',
