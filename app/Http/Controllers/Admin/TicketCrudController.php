@@ -133,7 +133,7 @@ class TicketCrudController extends CustomCrudController {
             });
 
         $this->crud->addFilter([
-            'type' => 'o_dropdown',
+            'type' => 'dropdown',
             'name' => 'person_status',
             'label'=> 'Ticket/Seats Status'
         ],
@@ -153,7 +153,7 @@ class TicketCrudController extends CustomCrudController {
             });
 
         $this->crud->addFilter([
-            'type' => 'o_dropdown',
+            'type' => 'dropdown',
             'name' => 'status',
             'label'=> 'Sold Status'
         ],
