@@ -213,7 +213,8 @@
               "thousands":      "{{ trans('backpack::crud.thousands') }}",
               "lengthMenu":     "{{ trans('backpack::crud.lengthMenu') }}",
               "loadingRecords": "{{ trans('backpack::crud.loadingRecords') }}",
-              "processing":     "{{ trans('backpack::crud.processing') }}",
+              //"processing":     "{{ trans('backpack::crud.processing') }}",
+              "processing":     "",
               "search":         "{{ trans('backpack::crud.search') }}",
               "zeroRecords":    "{{ trans('backpack::crud.zeroRecords') }}",
               "paginate": {
