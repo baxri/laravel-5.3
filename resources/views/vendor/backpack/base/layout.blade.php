@@ -45,7 +45,7 @@
         #crudTable_processing{
             border: 0px solid lightgrey;
             height: 230px;
-            line-height: 150px;
+            line-height: 180px;
             background: white;
             z-index: 100000;
             font-size: 20pt;
