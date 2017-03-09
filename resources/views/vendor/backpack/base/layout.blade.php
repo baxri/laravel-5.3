@@ -52,6 +52,7 @@
             height: 200px;
             font-size: 20pt;
             margin-top: -27px;
+            z-index: 1000;
         }
     </style>
 
