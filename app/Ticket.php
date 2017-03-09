@@ -296,6 +296,9 @@ class Ticket extends RaModel
             'request_id' => $this->request_id,
             'hash_id' => $this->transaction->checkout_id,
 
+            'name' => $this->persons[0]->name,
+            'surname' => $this->persons[0]->surname,
+
             'amount' => $this->amount_from_api,
 
             'train_name' => $this->train_name,
