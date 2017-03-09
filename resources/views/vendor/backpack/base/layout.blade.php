@@ -46,7 +46,7 @@
             background: white;
             background-image: url(<?php url('public') ?>"/images/7.gif");
             background-repeat: no-repeat;
-            background-position: 50% 50%, 50%, 85%;
+            background-position: center center;
             border: none;
             line-height: 180px;
             height: 200px;
