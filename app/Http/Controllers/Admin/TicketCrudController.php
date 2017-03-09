@@ -103,7 +103,7 @@ class TicketCrudController extends CustomCrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'created_at', '>=', $value );
+                    $this->crud->addClause( 'where', 'tickets.created_at', '>=', $value );
 
             });
 
@@ -119,7 +119,7 @@ class TicketCrudController extends CustomCrudController {
                     $value = Carbon::today()->toDateString();
 
                 if($value)
-                    $this->crud->addClause( 'where', 'created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
+                    $this->crud->addClause( 'where', 'tickets.created_at', '<', date('Y-m-d', strtotime($value . ' + 1 day')));
             });
 
         $this->crud->addFilter([
@@ -137,7 +137,7 @@ class TicketCrudController extends CustomCrudController {
                 if( !empty($value) ){
                     $this->value = $value;
                     $this->crud->addClause('whereHas', 'persons', function( $query ) {
-                        $query->where('status', $this->value );
+                        $query->where('persons.status', $this->value );
                     });
                 }
             });
@@ -155,9 +155,9 @@ class TicketCrudController extends CustomCrudController {
             ],
             function( $value ) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'status', $value);
+                    $this->crud->addClause('where', 'tickets.status', $value);
                 else
-                    $this->crud->addClause('where', 'status', Ticket::$success);
+                    $this->crud->addClause('where', 'tickets.status', Ticket::$success);
             });
 
 
@@ -169,7 +169,7 @@ class TicketCrudController extends CustomCrudController {
             false,
             function($value) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'id', $value);
+                    $this->crud->addClause('where', 'tickets.id', $value);
             });
 
         $this->crud->addFilter([
@@ -180,7 +180,7 @@ class TicketCrudController extends CustomCrudController {
             false,
             function($value) {
                 if( !empty($value) )
-                    $this->crud->addClause('where', 'request_id', $value);
+                    $this->crud->addClause('where', 'tickets.request_id', $value);
             });
 
 
