@@ -41,6 +41,17 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        #crudTable_processing{
+            border: 0px solid lightgrey;
+            height: 230px;
+            line-height: 150px;
+            background: white;
+            z-index: 100000;
+            font-size: 20pt;
+            margin-top: -27px;
+        }
+    </style>
 
 
 </head>
