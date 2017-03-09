@@ -94,8 +94,6 @@ trait AjaxTable
                 ->merge($this->crud->model->getKeyName())
                 ->toArray();
 
-
-
             // structure the response in a DataTable-friendly way
             $dataTable = new \LiveControl\EloquentDataTable\DataTable($this->crud->query, $columns);
 

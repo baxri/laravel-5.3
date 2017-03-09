@@ -203,6 +203,7 @@
                   'aTargets' : {{json_encode($crud->ordering_disabled)}}
               }],
         "pageLength": {{ $crud->getDefaultPageLength() }},
+
         "language": {
               "emptyTable":     "{{ trans('backpack::crud.emptyTable') }}",
               "info":           "{{ trans('backpack::crud.info') }}",
