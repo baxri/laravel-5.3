@@ -79,6 +79,8 @@ trait AjaxTable
 
         }else{
 
+
+
             $this->crud->hasAccessOrFail('list');
 
             // crate an array with the names of the searchable columns
@@ -99,6 +101,7 @@ trait AjaxTable
 
             // make the datatable use the column types instead of just echoing the text
             $dataTable->setFormatRowFunction(function ($entry) {
+
                 // get the actual HTML for each row's cell
                 $row_items = $this->crud->getRowViews($entry, $this->crud);
 

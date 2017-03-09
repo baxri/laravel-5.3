@@ -40,9 +40,6 @@ class TransactionCrudController extends CustomCrudController {
             'function_name' => 'getSumView',
         ]);
 
-		//$this->crud->setFromDb();
-
-
 
         $this->crud->addColumn([
             'label' => 'Request ID',
@@ -165,6 +162,11 @@ class TransactionCrudController extends CustomCrudController {
                 }
             });*/
 
+        $this->crud->query->select('transactions.*');
+        $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
+
+        $this->crud->query->groupBy('transactions.id');
+
         $this->crud->addFilter([
             'type' => 'date',
             'name' => 'date-from',
@@ -178,7 +180,6 @@ class TransactionCrudController extends CustomCrudController {
 
                 if($value)
                     $this->crud->addClause( 'where', 'transactions.created_at', '>=', $value );
-
             });
 
         $this->crud->addFilter([
@@ -215,6 +216,8 @@ class TransactionCrudController extends CustomCrudController {
 
             });
 
+        $this->crud->enableAjaxTable();
+
         $this->crud->addFilter([
             'type' => 'text',
             'name' => 'request_id',
@@ -223,10 +226,13 @@ class TransactionCrudController extends CustomCrudController {
             false,
             function($value) {
                 if( !empty($value) ){
-                    $this->value = $value;
+
+                    $this->crud->addClause('where', 'tickets.request_id', $value);
+
+                    /*$this->value = $value;
                     $this->crud->addClause('whereHas', 'tickets', function( $query ) {
                         $query->where('tickets.request_id', $this->value );
-                    });
+                    });*/
                 }
             });
 
@@ -350,7 +356,7 @@ class TransactionCrudController extends CustomCrudController {
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
+
 
         // ------ Disable Ordering On Columns
         $this->crud->disableOrderingOnExtraColumns();

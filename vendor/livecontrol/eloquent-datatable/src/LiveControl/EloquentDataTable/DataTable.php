@@ -98,6 +98,8 @@ class DataTable
     {
         $this->total = $this->builder->count();
 
+
+
         $this->rawColumns = $this->getRawColumns($this->columns);
         $this->columnNames = $this->getColumnNames();
 
@@ -233,13 +235,13 @@ class DataTable
      */
     private function addSelect()
     {
-        $rawSelect = [];
+        /*$rawSelect = [];
         foreach ($this->columns as $index => $column) {
             if (isset($this->rawColumns[$index])) {
                 $rawSelect[] = $this->rawColumns[$index] . ' as ' . Model::resolveConnection()->getQueryGrammar()->wrap($this->columnNames[$index]);
             }
         }
-        $this->builder = $this->builder->select(new raw(implode(', ', $rawSelect)));
+        $this->builder = $this->builder->select(new raw(implode(', ', $rawSelect)));*/
     }
 
     /**
