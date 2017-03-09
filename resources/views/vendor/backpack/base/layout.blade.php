@@ -41,22 +41,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        #crudTable_processing{
-            background: white;
-            background-image: url(<?php url('public') ?>"/images/7.gif");
-            background-repeat: no-repeat;
-            background-position: center center;
-            border: none;
-            line-height: 180px;
-            height: 200px;
-            font-size: 20pt;
-            margin-top: -27px;
-            z-index: 1000;
-        }
-    </style>
-
-
 </head>
 <!-- add this class to close sidebar:  sidebar-collapse  -->
 <body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini sidebar-collapse">
