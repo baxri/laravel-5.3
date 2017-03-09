@@ -94,11 +94,9 @@ class DataTable
      * @return array
      * @throws Exception
      */
-    public function make()
+    public function make($table)
     {
         $this->total = $this->builder->count();
-
-
 
         $this->rawColumns = $this->getRawColumns($this->columns);
         $this->columnNames = $this->getColumnNames();
@@ -111,6 +109,8 @@ class DataTable
         $this->addFilters();
 
         $this->filtered = $this->builder->count();
+
+        $this->builder->groupBy($table.'.id');
 
         $this->addOrderBy();
         $this->addLimits();

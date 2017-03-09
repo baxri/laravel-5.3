@@ -50,7 +50,6 @@ trait AjaxTable
         }elseif( $request_type == 'excel' ){
 
             $table_name = $this->crud->model->getTable();
-            //$this->crud->query->groupBy($table_name.'.id');
 
             $filename = str_replace("_", " ", ucfirst($table_name));
             $result = $this->crud->query->get();
@@ -82,8 +81,6 @@ trait AjaxTable
         }else{
 
             $table_name = $this->crud->model->getTable();
-
-            //$this->crud->query->groupBy($table_name.'.id');
 
             $this->crud->hasAccessOrFail('list');
 
@@ -128,7 +125,7 @@ trait AjaxTable
                 return $row_items;
             });
 
-            return $dataTable->make();
+            return $dataTable->make( $table_name );
         }
     }
 }
