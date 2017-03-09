@@ -130,6 +130,10 @@
             </tfoot>
           </table>
 
+          <div>
+              {{ print_r( $crud->query->toSql() ) }}
+          </div>
+
         </div><!-- /.box-body -->
 
         @include('crud::inc.button_stack', ['stack' => 'bottom'])
