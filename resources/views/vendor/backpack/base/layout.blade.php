@@ -43,13 +43,13 @@
 
     <style>
         #crudTable_processing{
-           background: white;
+            background: white;
             background-image: url(<?php url('public') ?>"/images/7.gif");
             background-repeat: no-repeat;
             background-position: 50% 50%, 50%, 85%;
             border: none;
             line-height: 180px;
-            z-index: 100000;
+            height: 200px;
             font-size: 20pt;
             margin-top: -27px;
         }
