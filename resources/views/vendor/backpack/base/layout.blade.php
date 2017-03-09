@@ -45,6 +45,7 @@
         #crudTable_processing{
             background: white;
             background-image: url(<?php url('public') ?>"/images/ajax-loader.gif");
+            background-repeat: no-repeat;
             background-position: center center;
             border: 0px solid lightgrey;
             height: 230px;
