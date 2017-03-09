@@ -305,7 +305,6 @@ class Ticket extends RaModel
 
             'train_class' => $this->train_class,
             'vagon_type' => $this->vagon_type,
-            'vagon_type' => $this->vagon_type,
 
             'status' => $this->status,
 

@@ -136,6 +136,7 @@
               <?php endif; ?>
           </div>
 
+
         </div><!-- /.box-body -->
 
         @include('crud::inc.button_stack', ['stack' => 'bottom'])

@@ -19,7 +19,6 @@ class TicketCrudController extends CustomCrudController {
             'aggregate' => 'count',
             'label' => 'Tickets',
         ]);
-
         $this->crud->addTotal([
             'aggregate' => 'sum',
             'name' => 'amount_from_api',
@@ -27,7 +26,6 @@ class TicketCrudController extends CustomCrudController {
             'type' => 'model_function',
             'function_name' => 'getSumView',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Type',
             'exists' => 'extra',
@@ -39,67 +37,59 @@ class TicketCrudController extends CustomCrudController {
             'label' => 'Request ID',
             'name' => 'request_id',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Amount',
             'name' => 'amount_from_api',
             'type' => 'model_function',
             'function_name' => 'getAmountView',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Departure',
             'exists' => 'extra',
             'type' => 'model_function',
             'function_name' => 'gePersonstatusView',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Source Station',
             'name' => 'source_station',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Destinaton Station',
             'name' => 'destination_station',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Train Class',
             'name' => 'train_class',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Vagon Type',
             'name' => 'vagon_type',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Vagon Class',
             'name' => 'vagon_class',
         ]);
-
-
         $this->crud->addColumn([
             'label' => 'Created At',
             'name' => 'created_at',
             'type' => 'model_function',
             'function_name' => 'getCreatedAtView',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Updated At',
             'name' => 'updated_at',
             'type' => 'model_function',
             'function_name' => 'getUpdateedAtView',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Sold Status',
             'name' => 'status',
             'type' => 'model_function',
             'function_name' => 'getStatusView',
         ]);
+
+        $this->crud->query->select('tickets.*');
+        $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
 
         $this->crud->addFilter([
             'type' => 'date',
