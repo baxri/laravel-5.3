@@ -124,32 +124,11 @@ class TicketCrudController extends CustomCrudController {
 
         $this->crud->addFilter([
             'type' => 'dropdown',
-            'name' => 'person_status',
-            'label'=> 'Ticket/Seats Status'
-        ],
-            [
-                -2 => 'Returned',
-                -1 => 'Cancel',
-                2 => 'Hold',
-                3 => 'Success',
-            ],
-            function( $value ) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'persons', function( $query ) {
-                        $query->where('persons.status', $this->value );
-                    });
-                }
-            });
-
-        $this->crud->addFilter([
-            'type' => 'dropdown',
             'name' => 'status',
             'label'=> 'Sold Status'
         ],
             [
                 -1 => 'Canceled',
-               // 1 => 'Process',
                 2 => 'Hold',
                 3 => 'Success',
             ],
@@ -158,18 +137,6 @@ class TicketCrudController extends CustomCrudController {
                     $this->crud->addClause('where', 'tickets.status', $value);
                 else
                     $this->crud->addClause('where', 'tickets.status', Ticket::$success);
-            });
-
-
-        $this->crud->addFilter([
-            'type' => 'text',
-            'name' => 'id',
-            'label'=> 'ID'
-        ],
-            false,
-            function($value) {
-                if( !empty($value) )
-                    $this->crud->addClause('where', 'tickets.id', $value);
             });
 
         $this->crud->addFilter([
@@ -182,7 +149,6 @@ class TicketCrudController extends CustomCrudController {
                 if( !empty($value) )
                     $this->crud->addClause('where', 'tickets.request_id', $value);
             });
-
 
 
 		// ------ CRUD FIELDS
