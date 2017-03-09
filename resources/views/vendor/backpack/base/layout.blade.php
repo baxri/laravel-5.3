@@ -182,6 +182,11 @@
             });
         }
 
+        function show_debug_query( query ){
+            var debug = $("#custom-debug");
+            debug.html( query );
+        }
+
     </script>
 
     @include('backpack::inc.alerts')

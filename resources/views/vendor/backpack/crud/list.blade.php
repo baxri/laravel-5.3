@@ -130,8 +130,8 @@
             </tfoot>
           </table>
 
-          <div>
-              {{ print_r( $crud->query->toSql() ) }}
+          <div id="custom-debug">
+              {{$crud->query->toSql()}}
           </div>
 
         </div><!-- /.box-body -->
