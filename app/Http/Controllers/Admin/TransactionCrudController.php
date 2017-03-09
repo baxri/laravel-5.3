@@ -205,13 +205,7 @@ class TransactionCrudController extends CustomCrudController {
             false,
             function($value) {
                 if( !empty($value) ){
-
                     $this->crud->addClause('where', 'tickets.request_id', $value);
-
-                    /*$this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('tickets.request_id', $this->value );
-                    });*/
                 }
             });
 
@@ -238,13 +232,25 @@ class TransactionCrudController extends CustomCrudController {
 
 
                     if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
-                        $this->crud->addClause('where', 'transactions.email', $value);
+                        $this->crud->addClause('where', 'transactions.email', $this->value);
                     }elseif( is_numeric($value) && strlen($value) < 11 ){
-                        $this->crud->addClause('where', 'transactions.mobile', $value);
+                        $this->crud->addClause('where', 'transactions.mobile', $this->value);
                     }
                     else {
 
-                        $this->crud->addClause('whereHas', 'tickets', function( $query ) {
+                        $passenger = explode(" ", $this->value);
+
+                        if( !isset($passenger[1]) ){
+                            $this->crud->query->where('persons.name', 'like', '%' . trim($passenger[0]) . '%' );
+                            $this->crud->query->orWhere('persons.surname', 'like', '%' . trim($passenger[0]) . '%' );
+                            $this->crud->query->orWhere('persons.idnumber', 'like', '%' . trim($passenger[0]) . '%' );
+                        }else{
+                            $this->crud->query->where('persons.name', 'like', '%' . trim($passenger[0]) . '%' );
+                            $this->crud->query->orWhere('persons.surname', 'like', '%' . trim($passenger[1]) . '%' );
+                        }
+
+
+                        /*$this->crud->addClause('whereHas', 'tickets', function( $query ) {
 
                             $query->leftjoin('persons', 'persons.ticket_id', '=', 'tickets.id');
 
@@ -258,7 +264,10 @@ class TransactionCrudController extends CustomCrudController {
                                 $query->where('persons.name', 'like', '%' . trim($passenger[0]) . '%' );
                                 $query->orWhere('persons.surname', 'like', '%' . trim($passenger[1]) . '%' );
                             }
-                        });
+                        });*/
+
+
+
 
                     }
 
