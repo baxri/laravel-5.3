@@ -142,26 +142,6 @@ class TransactionCrudController extends CustomCrudController {
             'function_name' => 'getIP',
         ]);
 
-        /*$this->crud->addFilter([
-            'type' => 'dropdown',
-            'name' => 'ticket_status',
-            'label'=> 'Sold Status'
-        ],
-            [
-                1 => 'Not Payed',
-               -1 => 'Canceled',
-                2 => 'Hold',
-                3 => 'Success',
-            ],
-            function( $value ) {
-                if( !empty($value) ){
-                    $this->value = $value;
-                    $this->crud->addClause('whereHas', 'tickets', function( $query ) {
-                        $query->where('tickets.status', $this->value );
-                    });
-                }
-            });*/
-
         $this->crud->query->select('transactions.*');
         $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
         $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
