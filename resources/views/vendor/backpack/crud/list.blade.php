@@ -131,7 +131,9 @@
           </table>
 
           <div id="custom-debug">
-              {{$crud->query->toSql()}}
+              <?php if( !empty($_GET['debug']) ): ?>
+                {{$crud->query->toSql()}}
+              <?php endif; ?>
           </div>
 
         </div><!-- /.box-body -->

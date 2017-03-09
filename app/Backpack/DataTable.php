@@ -1,5 +1,5 @@
 <?php
-namespace LiveControl\EloquentDataTable;
+namespace App\Backpack;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
@@ -94,7 +94,7 @@ class DataTable
      * @return array
      * @throws Exception
      */
-    public function make()
+    public function make($table)
     {
         $this->total = $this->builder->count();
 
@@ -109,6 +109,8 @@ class DataTable
         $this->addFilters();
 
         $this->filtered = $this->builder->count();
+
+        $this->builder->groupBy($table.'.id');
 
         $this->addOrderBy();
         $this->addLimits();
@@ -233,13 +235,13 @@ class DataTable
      */
     private function addSelect()
     {
-        $rawSelect = [];
+        /*$rawSelect = [];
         foreach ($this->columns as $index => $column) {
             if (isset($this->rawColumns[$index])) {
                 $rawSelect[] = $this->rawColumns[$index] . ' as ' . Model::resolveConnection()->getQueryGrammar()->wrap($this->columnNames[$index]);
             }
         }
-        $this->builder = $this->builder->select(new raw(implode(', ', $rawSelect)));
+        $this->builder = $this->builder->select(new raw(implode(', ', $rawSelect)));*/
     }
 
     /**
