@@ -158,6 +158,8 @@
 
         function make_server_side_ajax_export( url ){
 
+            $("#export-button-download").hide();
+
             var button = $("#export-button");
             var text = button.text();
 
@@ -176,7 +178,11 @@
                     if( data.error.length > 0 ){
                         alert(data.error);
                     }else{
-                        window.location.href = data.download;
+
+                        $("#export-button-download").attr("href", data.download);
+                        $("#export-button-download").fadeIn();
+
+                        //window.location.href = data.download;
                     }
                 }
             });

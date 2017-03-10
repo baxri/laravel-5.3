@@ -5,6 +5,14 @@
     id="export-button"
 >Exel Export</li>
 
+<li>
+<a href="#"
+        class="btn btn-default"
+        style="display: none; background-color: lightgrey; color: black;  margin-top: 3px; margin-left: 7px; height: 28px; line-height: 15px;"
+        id="export-button-download"
+>Download</a>
+</li>
+
 @push('crud_list_scripts')
 <script>
     jQuery(document).ready(function($) {
