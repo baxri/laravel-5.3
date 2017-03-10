@@ -30,6 +30,8 @@ trait AjaxTable
             $totals = $this->crud->getTotals();
             $table_name = $this->crud->model->getTable();
 
+            $this->crud->query->groupBy($table_name.'.id');
+
             foreach ( $totals as $key => $total ){
                 if( isset( $total['aggregate'] ) && $total['aggregate'] == 'sum'  ){
                     $value = $this->crud->query->sum($table_name.'.'.$total['name']);
