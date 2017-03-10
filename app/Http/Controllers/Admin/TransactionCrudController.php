@@ -142,10 +142,6 @@ class TransactionCrudController extends CustomCrudController {
             'function_name' => 'getIP',
         ]);
 
-        $this->crud->query->select('transactions.*');
-        $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
-        $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
-
         $this->crud->addFilter([
             'type' => 'date',
             'name' => 'date-from',
@@ -341,6 +337,15 @@ class TransactionCrudController extends CustomCrudController {
 
         // ------ DATATABLE DEFAULT ORDERING
         $this->crud->setDefaultOrdering( 'id', 'desc' );
+
+
+
+        $this->crud->totalQuery = $this->crud->query;
+
+        $this->crud->query->select('transactions.*');
+        $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
+        $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
+
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');

@@ -30,13 +30,15 @@ trait AjaxTable
             $totals = $this->crud->getTotals();
             $table_name = $this->crud->model->getTable();
 
-            $this->crud->query->groupBy($table_name.'.id');
+            if( !isset($this->crud->totalQuery) ){
+                $this->crud->totalQuery = $this->crud->query;
+            }
 
             foreach ( $totals as $key => $total ){
                 if( isset( $total['aggregate'] ) && $total['aggregate'] == 'sum'  ){
-                    $value = $this->crud->query->sum($table_name.'.'.$total['name']);
+                    $value = $this->crud->totalQuery->sum($table_name.'.'.$total['name']);
                 }else{
-                    $value = $this->crud->query->count();
+                    $value = $this->crud->totalQuery->count();
                 }
 
                 if( isset($total['type']) && isset($total['function_name']) && $total['type'] == 'model_function' ){

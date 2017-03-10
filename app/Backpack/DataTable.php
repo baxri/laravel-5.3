@@ -96,8 +96,6 @@ class DataTable
      */
     public function make($table)
     {
-        $this->builder->groupBy($table.'.id');
-
         $this->total = $this->builder->count();
 
         $this->rawColumns = $this->getRawColumns($this->columns);
@@ -111,6 +109,8 @@ class DataTable
         $this->addFilters();
 
         $this->filtered = $this->builder->count();
+
+        $this->builder->groupBy($table.'.id');
 
         $this->addOrderBy();
         $this->addLimits();
