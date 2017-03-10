@@ -216,6 +216,7 @@ class Transaction extends RaModel
         $request_ids = [];
         $quantity = 0;
         $canceled = 0;
+        $returned_amount = 0;
 
         foreach ($this->tickets as $ticket){
             $request_ids[] = $ticket->request_id;
@@ -223,8 +224,11 @@ class Transaction extends RaModel
             foreach ( $ticket->persons as $person ){
                 if( $person->status  == Person::$success)
                     $quantity++;
-                else
-                    $canceled++;
+
+                if( $person->status  == Person::$returned){
+                    $quantity++;
+                    $returned_amount = $person->returned_amount;
+                }
             }
         }
 
@@ -235,10 +239,12 @@ class Transaction extends RaModel
             'quantity' => $quantity,
             'canceled' => $canceled,
 
+            'amount' => number_format($this->amount/100,2),
+            'commission' => number_format($this->commission/100,2),
+            'sum' => number_format(($this->amount + $this->commission)/100, 2),
 
-            'amount' => $this->amount,
-            'commission' => $this->commission,
-            'sum' => $this->amount + $this->commission,
+            'returned' => number_format($returned_amount/100,2),
+
             'email' => $this->email,
             'mobile' => $this->index_mobile,
             'status' => $this->status,
