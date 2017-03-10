@@ -227,7 +227,7 @@ class Transaction extends RaModel
 
                 if( $person->status  == Person::$returned){
                     $canceled++;
-                    $returned_amount = $person->returned_amount;
+                    $returned_amount += $person->returned_amount;
                 }
             }
         }
