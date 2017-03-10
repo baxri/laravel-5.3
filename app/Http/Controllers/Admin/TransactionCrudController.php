@@ -108,17 +108,13 @@ class TransactionCrudController extends CustomCrudController {
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Email D.',
-            'name' => 'email_delivery',
-            'type' => 'model_function',
-            'function_name' => 'emailDeliveryView',
+            'label' => 'Quantity',
+            'name' => 'quantity',
         ]);
 
         $this->crud->addColumn([
-            'label' => 'SMS D.',
-            'name' => 'sms_delivery',
-            'type' => 'model_function',
-            'function_name' => 'smsDeliveryView',
+            'label' => 'Canceled',
+            'name' => 'canceled',
         ]);
 
         $this->crud->addColumn([
