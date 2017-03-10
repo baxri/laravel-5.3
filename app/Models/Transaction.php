@@ -257,7 +257,7 @@ class Transaction extends RaModel
             'returned' => number_format($returned_amount/100,2),
 
             'email' => $this->email,
-            'mobile' => $this->index_mobile,
+            'mobile' => $this->mobile,
             'status' => $this->status,
             'updated_at' => $this->updated_at,
         ];
