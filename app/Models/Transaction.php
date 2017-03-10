@@ -250,11 +250,11 @@ class Transaction extends RaModel
             'quantity' => $quantity,
             'canceled' => $canceled,
 
-            'amount' => number_format($this->amount/100,2),
-            'commission' => number_format($this->commission/100,2),
-            'sum' => number_format(($this->amount + $this->commission)/100, 2),
+            'amount' => (float)number_format($this->amount/100,2),
+            'commission' => (float)number_format($this->commission/100,2),
+            'sum' => (float)number_format(($this->amount + $this->commission)/100, 2),
 
-            'returned' => number_format($returned_amount/100,2),
+            'returned' => (float)number_format($returned_amount/100,2),
 
             'email' => $this->email,
             'mobile' => $this->mobile,
