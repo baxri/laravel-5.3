@@ -119,8 +119,8 @@ class Transaction extends RaModel
             throw new Exception('MOBILE_NOT_DEFINED');
         }
 
-        $this->index = $index;
-        $this->mobile = $mobile;
+        $this->index = trim(str_replace(" ", "", $index));
+        $this->mobile = trim(str_replace(" ", "", $mobile));
     }
 
     public function checkout(){
