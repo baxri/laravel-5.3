@@ -53,6 +53,8 @@ trait AjaxTable
             $table_name = $this->crud->model->getTable();
 
             $filename = str_replace("_", " ", ucfirst($table_name));
+
+            $this->crud->query->groupBy($table_name.'.id');
             $result = $this->crud->query->get();
 
             $data = array();
