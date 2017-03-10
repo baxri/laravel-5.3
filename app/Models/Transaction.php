@@ -247,8 +247,8 @@ class Transaction extends RaModel
             'request_id' => $request_ids,
             'hash_id' => $this->checkout_id,
 
-            'quantity' => $quantity,
-            'canceled' => $canceled,
+            'quantity' => (int)$quantity,
+            'canceled' => (int)$canceled,
 
             'amount' => (float)number_format($this->amount/100,2),
             'commission' => (float)number_format($this->commission/100,2),
@@ -256,9 +256,9 @@ class Transaction extends RaModel
 
             'returned' => (float)number_format($returned_amount/100,2),
 
-            'email' => $this->email,
-            'mobile' => $this->mobile,
-            'status' => $this->status,
+            'email' => (string)$this->email,
+            'mobile' => (string)$this->mobile,
+            'status' => (int)$this->status,
             'updated_at' => $this->updated_at,
         ];
     }
