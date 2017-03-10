@@ -158,8 +158,6 @@ class Person extends RaModel
 
     public function ret( $check = false ){
 
-        //return true;
-
         if( $this->status != Person::$success ){
             return false;
         }
@@ -171,6 +169,10 @@ class Person extends RaModel
             $this->returned_amount = $result->ReturnedMoney;
             $this->status = Person::$returned;
             $this->save();
+
+            $this->ticket->transaction->canceled += 1;
+            $this->ticket->transaction->returned_amount += $this->returned_amount;
+            $this->ticket->transaction->save();
 
             return true;
         }
