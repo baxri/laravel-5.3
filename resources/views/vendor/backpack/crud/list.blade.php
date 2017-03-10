@@ -199,7 +199,7 @@
       @endif
 
 	  	var table = $("#crudTable").DataTable({
-          "order": [[ {{$crud->ordering['column']}}, "{{$crud->ordering['dir']}}" ]],
+          "order": [[ {{ $crud->ordering['column'] !== null ? $crud->ordering['column'] : 0 }}, "{{ $crud->ordering['dir'] !== null ? $crud->ordering['dir'] : 'asc' }}" ]],
           "aLengthMenu": [
               [10, 25, 50, 100, 200, -1],
               [10, 25, 50, 100, 200, "All"]
