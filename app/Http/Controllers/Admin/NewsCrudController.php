@@ -92,7 +92,7 @@ class NewsCrudController extends CrudController {
             });
 
 
-        //$this->crud->enableAjaxTable();
+        $this->crud->enableAjaxTable();
 
     }
 
