@@ -78,9 +78,7 @@
 						);
 					@endif
 
-					// mark this filter as active in the navbar-filters
-					// mark dropdown items active accordingly
-					if (URI(new_url).hasQuery('{{ $filter->name }}', true)) {
+					if ( URI(new_url).hasQuery('{{ $filter->name }}', true )) {
 						$("li[filter-name={{ $filter->name }}]").removeClass('active').addClass('active');
 						$("li[filter-name={{ $filter->name }}] .dropdown-menu li").removeClass('active');
 						$(this).parent().addClass('active');
@@ -92,14 +90,10 @@
 			    @endif
 			});
 
-			// clear filter event (used here and by the Remove all filters button)
 			$("li[filter-name={{ $filter->name }}]").on('filter:clear', function(e) {
-				// console.log('dropdown filter cleared');
 				$("li[filter-name={{ $filter->name }}]").removeClass('active');
 				$("li[filter-name={{ $filter->name }}] .dropdown-menu li").removeClass('active');
 			});
 		});
 	</script>
 @endpush
-{{-- End of Extra CSS and JS --}}
-{{-- ########################################## --}}
