@@ -87,6 +87,7 @@ class NewsCrudController extends CustomCrudController {
                 'en' => 'en',
             ],
             function( $value ) {
+            if( $value )
                 $this->crud->addClause( 'where', 'lang', $value );
             });
 
