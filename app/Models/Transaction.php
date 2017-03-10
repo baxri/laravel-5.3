@@ -23,7 +23,8 @@ class Transaction extends RaModel
     protected $fillable = [
         'checkout_id', 'amount', 'commission',
         'status', 'index', 'mobile',
-        'index_mobile', 'email', 'ip', 'lang'
+        'index_mobile', 'email', 'ip', 'lang',
+        'request_ids', 'quantity', 'canceled', 'returned_amount'
     ];
 
     public static $notfinished = 1000;
