@@ -11,7 +11,7 @@ use App\Http\Requests\NewsRequest as UpdateRequest;
 use Illuminate\Support\Facades\App;
 use Mockery\Exception;
 
-class NewsCrudController extends CustomCrudController {
+class NewsCrudController extends CrudController {
 
 	public function setUp() {
 
