@@ -212,8 +212,30 @@ class Transaction extends RaModel
     }
 
     public function toExport(){
+
+        $request_ids = [];
+        $quantity = 0;
+        $canceled = 0;
+
+        foreach ($this->tickets as $ticket){
+            $request_ids[] = $ticket->request_id;
+
+            foreach ( $ticket->persons as $person ){
+                if( $person->status  == Person::$success)
+                    $quantity++;
+                else
+                    $canceled++;
+            }
+        }
+
         return [
+            'request_id' => implode(",", $request_ids),
             'hash_id' => $this->checkout_id,
+
+            'quantity' => $quantity,
+            'canceled' => $canceled,
+
+
             'amount' => $this->amount,
             'commission' => $this->commission,
             'sum' => $this->amount + $this->commission,

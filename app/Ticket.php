@@ -294,14 +294,6 @@ class Ticket extends RaModel
     public function toExport(){
         return [
             'request_id' => $this->request_id,
-            'hash_id' => $this->transaction->checkout_id,
-
-            'name' => $this->persons[0]->name,
-            'surname' => $this->persons[0]->surname,
-
-            'amount' => $this->amount_from_api,
-
-            'train_name' => $this->train_name,
 
             'source_station' => $this->source_station,
             'destination_station' => $this->destination_station,
