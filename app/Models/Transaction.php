@@ -219,22 +219,32 @@ class Transaction extends RaModel
         $canceled = 0;
         $returned_amount = 0;
 
-        foreach ($this->tickets as $ticket){
-            $request_ids[] = $ticket->request_id;
+        if( false ){
+            foreach ($this->tickets as $ticket){
+                $request_ids[] = $ticket->request_id;
 
-            foreach ( $ticket->persons as $person ){
-                if( $person->status  == Person::$success)
-                    $quantity++;
+                foreach ( $ticket->persons as $person ){
+                    if( $person->status  == Person::$success)
+                        $quantity++;
 
-                if( $person->status  == Person::$returned){
-                    $canceled++;
-                    $returned_amount += $person->returned_amount;
+                    if( $person->status  == Person::$returned){
+                        $canceled++;
+                        $returned_amount += $person->returned_amount;
+                    }
                 }
             }
+
+            $request_ids = implode(",", $request_ids);
+
+        }else{
+            $request_ids = $this->request_ids;
+            $quantity = $this->quantity;
+            $canceled = $this->canceled;
+            $returned_amount = $this->returned_amount;
         }
 
         return [
-            'request_id' => implode(",", $request_ids),
+            'request_id' => $request_ids,
             'hash_id' => $this->checkout_id,
 
             'quantity' => $quantity,
