@@ -19,8 +19,14 @@
             var code = e.which;
 
             if( code == 13 ){
-                makeOP($(this));
+                $(this).trigger('blur');
             }
+        });
+
+        $(".{{ $filter->name }}-class").blur(function(e) {
+            e.preventDefault();
+            var code = e.which;
+            makeOP($(this));
         });
 
         function makeOP(elem){
