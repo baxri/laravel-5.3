@@ -66,7 +66,7 @@
 					new_url = normalizeAmpersand(new_url.toString());
 					ajax_table.ajax.url(new_url).load();
 
-					@if ( !empty( $crud->getTotals() ) )
+					@if ( method_exists($crud, "getTotals") && !empty( $crud->getTotals() ) )
 						if (new_url.indexOf("?") >= 0){
 							new_url = new_url + "&request_type=total";
 						}else{
