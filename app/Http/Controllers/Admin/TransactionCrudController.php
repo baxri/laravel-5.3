@@ -131,14 +131,6 @@ class TransactionCrudController extends CustomCrudController {
             'function_name' => 'getLogIcon',
         ]);
 
-
-        $this->crud->addColumn([
-            'label' => 'IP',
-            'name' => 'ip',
-            'type' => 'model_function',
-            'function_name' => 'getIP',
-        ]);
-
         $this->crud->query->select('transactions.*');
 
         $this->crud->addFilter([
