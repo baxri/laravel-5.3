@@ -230,8 +230,8 @@ class TransactionCrudController extends CustomCrudController {
                 if( !empty($value) ){
                     $this->value = str_replace("  ", " ", trim($value));
 
-                    //$this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
-                    //$this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
+                    $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
+                    $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
 
                     if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
                         $this->crud->addClause('where', 'transactions.email', $this->value);
