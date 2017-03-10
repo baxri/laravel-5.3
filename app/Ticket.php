@@ -214,6 +214,10 @@ class Ticket extends RaModel
         }
 
         $this->persons;
+
+        $this->transaction->request_ids .= $this->request_id.',';
+        $this->transaction->quantity += count($this->persons);
+        $this->transaction->save();
     }
 
     public function confirm( array $id, array $name, array $surname, array $idnumber ){
