@@ -219,7 +219,7 @@ class Transaction extends RaModel
         $canceled = 0;
         $returned_amount = 0;
 
-        if( false ){
+        if( empty( $quantity ) ){
             foreach ($this->tickets as $ticket){
                 $request_ids[] = $ticket->request_id;
 
