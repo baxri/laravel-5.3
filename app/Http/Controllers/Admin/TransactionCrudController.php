@@ -204,11 +204,7 @@ class TransactionCrudController extends CustomCrudController {
             function($value) {
                 if( !empty($value) ){
 
-                    $this->crud->query->leftjoin('tickets', [
-                        'transactions.id' =>  'tickets.transaction_id',
-                        'tickets.request_id' =>  $value,
-                    ]);
-
+                    $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
                     $this->crud->addClause('where', 'tickets.request_id', $value);
                 }
             });
