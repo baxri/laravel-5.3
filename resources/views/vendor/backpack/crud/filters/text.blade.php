@@ -47,6 +47,11 @@
                     }else{
                         new_url = new_url + "?request_type=total";
                     }
+
+                    make_request_to_get_total_info(
+                        new_url
+                    );
+
                 @endif
             @endif
         }
