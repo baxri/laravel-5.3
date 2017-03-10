@@ -297,7 +297,7 @@ class Ticket extends RaModel
 
     public function toExport(){
         return [
-            'request_id' => $this->request_id,
+            'request_id' => (int)$this->request_id,
 
             'source_station' => $this->source_station,
             'destination_station' => $this->destination_station,
@@ -305,7 +305,8 @@ class Ticket extends RaModel
             'train_class' => $this->train_class,
             'vagon_type' => $this->vagon_type,
 
-            'status' => $this->status,
+            'amount_from_api' => (float)number_format($this->amount_from_api/100, 2),
+            'status' => (int)$this->status,
 
             'leave_datetime' => $this->leave_datetime,
             'enter_datetime' => $this->enter_datetime,
