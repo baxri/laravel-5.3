@@ -194,9 +194,8 @@ class PayoutTransaction extends RaModel
         return [
             'payout_hash_id' => $this->payout_hash_id,
 
-            'amount' => $this->amount,
-            'commission' => $this->commission,
-            'sum' => $this->amount + $this->commission,
+            'amount' => (float)number_format($this->amount/100,2),
+            'commission' => (float)number_format($this->commission/100,2),
 
             'name' => $this->name,
             'surname' => $this->surname,
@@ -204,9 +203,7 @@ class PayoutTransaction extends RaModel
             'birth_date' => $this->birth_date,
             'iban' => $this->iban,
             'bank' => $this->bank,
-            'status' => $this->status,
-            'amount' => $this->amount,
-            'commission' => $this->commission,
+            'status' => (int)$this->status,
             'description' => $this->description,
             'updated_at' => $this->updated_at,
         ];

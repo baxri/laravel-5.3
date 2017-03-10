@@ -305,7 +305,7 @@ class Ticket extends RaModel
             'train_class' => $this->train_class,
             'vagon_type' => $this->vagon_type,
 
-            'amount_from_api' => (float)number_format($this->amount_from_api/100, 2),
+            'amount' => (float)number_format($this->amount_from_api/100, 2),
             'status' => (int)$this->status,
 
             'leave_datetime' => $this->leave_datetime,
