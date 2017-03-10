@@ -142,6 +142,8 @@ class TransactionCrudController extends CustomCrudController {
             'function_name' => 'getIP',
         ]);
 
+        $this->crud->query->select('transactions.*');
+
         $this->crud->addFilter([
             'type' => 'date',
             'name' => 'date-from',
@@ -201,6 +203,12 @@ class TransactionCrudController extends CustomCrudController {
             false,
             function($value) {
                 if( !empty($value) ){
+
+                    $this->crud->query->leftjoin('tickets', [
+                        'transactions.id' =>  'tickets.transaction_id',
+                        'tickets.request_id' =>  $value,
+                    ]);
+
                     $this->crud->addClause('where', 'tickets.request_id', $value);
                 }
             });
@@ -226,6 +234,8 @@ class TransactionCrudController extends CustomCrudController {
                 if( !empty($value) ){
                     $this->value = str_replace("  ", " ", trim($value));
 
+                    //$this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
+                    //$this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
 
                     if(filter_var( $value, FILTER_VALIDATE_EMAIL )) {
                         $this->crud->addClause('where', 'transactions.email', $this->value);
@@ -337,15 +347,6 @@ class TransactionCrudController extends CustomCrudController {
 
         // ------ DATATABLE DEFAULT ORDERING
         $this->crud->setDefaultOrdering( 'id', 'desc' );
-
-
-
-        $this->crud->totalQuery = $this->crud->query;
-
-        $this->crud->query->select('transactions.*');
-        $this->crud->query->leftjoin('tickets', 'transactions.id', '=', 'tickets.transaction_id');
-        $this->crud->query->leftjoin('persons', 'tickets.id', '=', 'persons.ticket_id');
-
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
