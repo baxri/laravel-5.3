@@ -118,18 +118,19 @@ class TransactionCrudController extends CustomCrudController {
         ]);
 
         $this->crud->addColumn([
+            'label' => 'Returned',
+            'exists' => 'returned_amount',
+            'type' => 'model_function',
+            'function_name' => 'getReturnedAmountView',
+        ]);
+
+        $this->crud->addColumn([
             'label' => 'PAY',
             'exists' => 'extra',
             'type' => 'model_function',
             'function_name' => 'getLogIcon',
         ]);
 
-        $this->crud->addColumn([
-            'label' => 'SMS',
-            'exists' => 'extra',
-            'type' => 'model_function',
-            'function_name' => 'getSMSLogIcon',
-        ]);
 
         $this->crud->addColumn([
             'label' => 'IP',

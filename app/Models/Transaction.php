@@ -289,6 +289,10 @@ class Transaction extends RaModel
         return number_format( $this->commission/100, 2 );
     }
 
+    public function getReturnedAmountView(){
+        return number_format( $this->returned_amount/100, 2 );
+    }
+
     public function getCurrencyView(){
         return '₾';
     }
